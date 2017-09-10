@@ -13,8 +13,8 @@ Begin VB.MDIForm frmSysMDI
    LinkTopic       =   "MDIForm1"
    StartUpPosition =   2  '屏幕中心
    Begin MSComctlLib.ImageList imgListCommandBars 
-      Left            =   3600
-      Top             =   4560
+      Left            =   3960
+      Top             =   6000
       _ExtentX        =   1005
       _ExtentY        =   1005
       BackColor       =   -2147483643
@@ -31,6 +31,22 @@ Begin VB.MDIForm frmSysMDI
       Top             =   0
       Visible         =   0   'False
       Width           =   14760
+      Begin VB.PictureBox picList 
+         Height          =   1455
+         Left            =   5160
+         ScaleHeight     =   1395
+         ScaleWidth      =   3915
+         TabIndex        =   3
+         Top             =   600
+         Width           =   3975
+         Begin VB.ListBox listBlank 
+            Height          =   960
+            Left            =   480
+            TabIndex        =   4
+            Top             =   120
+            Width           =   2895
+         End
+      End
       Begin VB.PictureBox picTaskPL 
          Height          =   1455
          Left            =   480
@@ -55,16 +71,16 @@ Begin VB.MDIForm frmSysMDI
       End
    End
    Begin XtremeCommandBars.CommandBars cBS 
-      Left            =   2880
-      Top             =   5880
+      Left            =   3000
+      Top             =   6120
       _Version        =   983043
       _ExtentX        =   635
       _ExtentY        =   635
       _StockProps     =   0
    End
    Begin XtremeDockingPane.DockingPane DockingPL 
-      Left            =   720
-      Top             =   4560
+      Left            =   2400
+      Top             =   6120
       _Version        =   983043
       _ExtentX        =   635
       _ExtentY        =   635
@@ -121,7 +137,7 @@ Sub msAddAction()
         cbsAction.ToolTipText = cbsAction.Caption
         cbsAction.DescriptionText = cbsAction.ToolTipText
         cbsAction.Key = cbsAction.Category
-        cbsAction.Category = cBS.Actions(CLng(cbsAction.Id \ 100) * 100).Category
+        cbsAction.Category = cBS.Actions((cbsAction.Id \ 100) * 100).Category
     Next
 
     
@@ -191,11 +207,41 @@ End Sub
 
 Sub msAddTaskPanelItem()
     '创建导航菜单
+    '注意：这里的导航菜单仅是菜单栏的另一个显示形式
     
     Dim paneLeft As XtremeDockingPane.Pane
+    Dim taskGroup As TaskPanelGroup
+    Dim taskItem As TaskPanelGroupItem
+    Dim paneList As XtremeDockingPane.Pane
     
-    Set paneLeft = DockingPL.CreatePane(1, 150, 150, DockLeftOf, Nothing)
+    Set paneLeft = DockingPL.CreatePane(1, 240, 240, DockLeftOf, Nothing)
     paneLeft.Title = "导航菜单"
+    paneLeft.TitleToolTip = paneLeft.Title & "浮动面板"
+    paneLeft.Handle = picTaskPL.hWnd    '将任务面板TaskPanel的容器PictureBox控件挂靠在浮动面板PanelLeft上
+    paneLeft.Options = PaneHasMenuButton
+    
+
+    
+    Set taskGroup = TaskPL.Groups.Add(gID.Sys, cBS.Actions(gID.Sys).Caption)
+    With taskGroup.Items
+        .Add gID.SysModifyPassword, cBS.Actions(gID.SysModifyPassword).Caption, xtpTaskItemTypeLink
+        .Add gID.SysReLogin, cBS.Actions(gID.SysReLogin).Caption, xtpTaskItemTypeLink
+        .Add gID.SysExit, cBS.Actions(gID.SysExit).Caption, xtpTaskItemTypeLink
+    End With
+    
+    
+    Set taskGroup = TaskPL.Groups.Add(gID.Wnd, cBS.Actions(gID.Wnd).Caption)
+    Set taskItem = taskGroup.Items.Add(gID.WndThemeCommandBars, cBS.Actions(gID.WndThemeCommandBars).Caption, xtpTaskItemTypeText)
+    taskItem.Bold = True
+    For lngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+        taskGroup.Items.Add lngID, cBS.Actions(lngID).Caption, xtpTaskItemTypeLink
+    Next
+    
+    Set paneList = DockingPL.CreatePane(1, 240, 240, DockLeftOf, Nothing)
+    paneList.Title = "       "
+    paneList.Handle = picList.hWnd
+    paneList.AttachTo paneLeft
+    paneLeft.Enabled = True
     
 End Sub
 
@@ -214,6 +260,12 @@ Sub msAddStatuBar()
     statuBar.AddPane 59137  'CapsLock键的状态
     statuBar.AddPane 59138  'NumLK键的状态
     statuBar.AddPane 59139  'ScrLK键的状态
+    
+End Sub
+
+
+Private Sub DockingPL_PanePopupMenu(ByVal Pane As XtremeDockingPane.IPane, ByVal x As Long, ByVal y As Long, Handled As Boolean)
+    '
     
 End Sub
 
@@ -253,3 +305,13 @@ Private Sub MDIForm_Load()
     
 End Sub
 
+Private Sub picList_Resize()
+    listBlank.Move 0, 0, picList.ScaleWidth, picList.ScaleHeight
+End Sub
+
+Private Sub picTaskPL_Resize()
+    '导航面板大小随挂靠在浮动面板上的PictureBox控件的大小变化而变化
+    
+    TaskPL.Move 0, 0, picTaskPL.ScaleWidth, picTaskPL.ScaleHeight
+    
+End Sub
