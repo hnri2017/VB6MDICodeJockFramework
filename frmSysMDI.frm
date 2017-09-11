@@ -1,8 +1,8 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "mscomctl.ocx"
 Object = "{945E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.DockingPane.v15.3.1.ocx"
 Object = "{555E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.CommandBars.v15.3.1.ocx"
 Object = "{B8E5842E-102B-4289-9D57-3B3F5B5E15D3}#15.3#0"; "Codejock.TaskPanel.v15.3.1.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.ocx"
 Begin VB.MDIForm frmSysMDI 
    BackColor       =   &H8000000C&
    Caption         =   "MDIForm1"
@@ -95,9 +95,9 @@ Attribute VB_Exposed = False
 Option Explicit
 
 
-Dim lngID As Long
-Dim cbsBarPopu As CommandBar    '用于导航菜单面板上生成标题中的Popu菜单
-Dim cbsActions As CommandBarActions '全局cBS控件Actions集合的引用
+Dim mLngID As Long  '循环变量ID
+Dim mcbsBarPopu As CommandBar    '用于导航菜单面板上生成标题中的Popu菜单
+Dim mcbsActions As CommandBarActions 'cBS控件Actions集合的引用
 
 
 Sub msAddAction()
@@ -105,8 +105,8 @@ Sub msAddAction()
     
     Dim cbsAction As CommandBarAction
     
-    With cbsActions
-'        cbsActions.Add "Id","Caption","TooltipText","DescriptionText","Category"
+    With mcbsActions
+'        mcbsActions.Add "Id","Caption","TooltipText","DescriptionText","Category"
         
         .Add gID.Sys, "系统", "", "", "Sys"
         .Add gID.SysExit, "退出", "", "", ""
@@ -166,12 +166,12 @@ Sub msAddAction()
     
 
     
-    For Each cbsAction In cbsActions
+    For Each cbsAction In mcbsActions
         With cbsAction
             .ToolTipText = .Caption
             .DescriptionText = .ToolTipText
             .Key = .Category
-            .Category = cbsActions((.Id \ 100) * 100).Category
+            .Category = mcbsActions((.Id \ 100) * 100).Category
         End With
     Next
 
@@ -203,16 +203,16 @@ Sub msAddMenu()
     'CommandBars工具栏主题子菜单
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndThemeCommandBars, "")
     With cbsMenuCtrl.CommandBar.Controls
-        For lngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-            .Add xtpControlButton, lngID, ""
+        For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+            .Add xtpControlButton, mLngID, ""
         Next
     End With
     
     'TaskPanel导航菜单主题子菜单
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndThemeTaskPanel, "")
     With cbsMenuCtrl.CommandBar.Controls
-        For lngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-            .Add xtpControlButton, lngID, ""
+        For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+            .Add xtpControlButton, mLngID, ""
         Next
     End With
     
@@ -236,18 +236,20 @@ Sub msAddToolBar()
     Dim cbsBar As CommandBar
     Dim cbsCtr As CommandBarControl
     
-    Set cbsBar = cBS.Add(cbsActions(gID.WndThemeCommandBars).Caption, xtpBarTop)
+    '工具栏主题
+    Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeCommandBars).Caption, xtpBarTop)
     With cbsBar.Controls
-        For lngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-            Set cbsCtr = .Add(xtpControlButton, lngID, "")
+        For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
             cbsCtr.BeginGroup = True
         Next
     End With
     
-    Set cbsBar = cBS.Add(cbsActions(gID.WndThemeTaskPanel).Caption, xtpBarTop)
+    '导航菜单主题
+    Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeTaskPanel).Caption, xtpBarTop)
     With cbsBar.Controls
-        For lngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-            Set cbsCtr = .Add(xtpControlButton, lngID, "")
+        For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
             cbsCtr.BeginGroup = True
         Next
     End With
@@ -264,44 +266,54 @@ Sub msAddTaskPanelItem()
     Dim taskGroup As TaskPanelGroup
     Dim taskItem As TaskPanelGroupItem
     Dim paneList As XtremeDockingPane.Pane
-
-    Set paneLeft = DockingPN.CreatePane(gID.OtherPaneIDFirst, 240, 240, DockLeftOf, Nothing)
-    paneLeft.Title = cbsActions(gID.OtherPaneMenuTitle).Caption
-    paneLeft.TitleToolTip = paneLeft.Title & cbsActions(gID.OtherPane).Caption
-    paneLeft.Handle = picTaskPL.hWnd    '将任务面板TaskPanel的容器PictureBox控件挂靠在浮动面板PanelLeft上
-    paneLeft.Options = PaneHasMenuButton
-      
-    Set cbsBarPopu = cBS.Add(cbsActions(gID.OtherPaneMenuPopu).Caption, xtpBarPopup)
-    cbsBarPopu.Controls.Add xtpControlButton, gID.OtherPaneMenuPopuAutoFold, ""
-    cbsBarPopu.Controls.Add xtpControlButton, gID.OtherPaneMenuPopuExpand, ""
-    cbsBarPopu.Controls.Add xtpControlButton, gID.OtherPaneMenuPopuFold, ""
     
-    Set taskGroup = TaskPL.Groups.Add(gID.Sys, cbsActions(gID.Sys).Caption)
+    '创建导航菜单容器，第一个DockingPane
+    Set paneLeft = DockingPN.CreatePane(gID.OtherPaneIDFirst, 240, 240, DockLeftOf, Nothing)
+    paneLeft.Title = mcbsActions(gID.OtherPaneMenuTitle).Caption
+    paneLeft.TitleToolTip = paneLeft.Title & mcbsActions(gID.OtherPane).Caption
+    paneLeft.Handle = picTaskPL.hWnd    '将任务面板TaskPanel的容器PictureBox控件挂靠在浮动面板PanelLeft上
+    paneLeft.Options = PaneHasMenuButton    '显示Popu按键
+    
+    '创建Pane标题中的Popu菜单
+    Set mcbsBarPopu = cBS.Add(mcbsActions(gID.OtherPaneMenuPopu).Caption, xtpBarPopup)
+    mcbsBarPopu.Controls.Add xtpControlButton, gID.OtherPaneMenuPopuAutoFold, ""
+    mcbsBarPopu.Controls.Add xtpControlButton, gID.OtherPaneMenuPopuExpand, ""
+    mcbsBarPopu.Controls.Add xtpControlButton, gID.OtherPaneMenuPopuFold, ""
+    
+    
+    '系统
+    Set taskGroup = TaskPL.Groups.Add(gID.Sys, mcbsActions(gID.Sys).Caption)
     With taskGroup.Items
-        .Add gID.SysModifyPassword, cbsActions(gID.SysModifyPassword).Caption, xtpTaskItemTypeLink
-        .Add gID.SysReLogin, cbsActions(gID.SysReLogin).Caption, xtpTaskItemTypeLink
-        .Add gID.SysExit, cbsActions(gID.SysExit).Caption, xtpTaskItemTypeLink
+        .Add gID.SysModifyPassword, mcbsActions(gID.SysModifyPassword).Caption, xtpTaskItemTypeLink
+        .Add gID.SysReLogin, mcbsActions(gID.SysReLogin).Caption, xtpTaskItemTypeLink
+        .Add gID.SysExit, mcbsActions(gID.SysExit).Caption, xtpTaskItemTypeLink
     End With
     
     
-    Set taskGroup = TaskPL.Groups.Add(gID.Wnd, cbsActions(gID.Wnd).Caption)
-    Set taskItem = taskGroup.Items.Add(gID.WndThemeCommandBars, cbsActions(gID.WndThemeCommandBars).Caption, xtpTaskItemTypeText)
+    '窗口
+    Set taskGroup = TaskPL.Groups.Add(gID.Wnd, mcbsActions(gID.Wnd).Caption)
+    
+    '工具栏主题
+    Set taskItem = taskGroup.Items.Add(gID.WndThemeCommandBars, mcbsActions(gID.WndThemeCommandBars).Caption, xtpTaskItemTypeText)
     taskItem.Bold = True
-    For lngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-        taskGroup.Items.Add lngID, cbsActions(lngID).Caption, xtpTaskItemTypeLink
+    For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+        taskGroup.Items.Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
     Next
     
-    Set taskItem = taskGroup.Items.Add(gID.WndThemeTaskPanel, cbsActions(gID.WndThemeTaskPanel).Caption, xtpTaskItemTypeText)
+    '导航菜单主题
+    Set taskItem = taskGroup.Items.Add(gID.WndThemeTaskPanel, mcbsActions(gID.WndThemeTaskPanel).Caption, xtpTaskItemTypeText)
     taskItem.Bold = True
-    For lngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-        taskGroup.Items.Add lngID, cbsActions(lngID).Caption, xtpTaskItemTypeLink
+    For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+        taskGroup.Items.Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
     Next
     
+    
+    '第二个DockingPane
     Set paneList = DockingPN.CreatePane(gID.OtherPaneIDSecond, 240, 240, DockLeftOf, Nothing)
     paneList.Title = "       "
     paneList.Handle = picList.hWnd
-    paneList.AttachTo paneLeft
-    paneLeft.Selected = True
+    paneList.AttachTo paneLeft  '依附到第一个Pane上
+    paneLeft.Selected = True    '显示第一个Pane
     
 End Sub
 
@@ -312,7 +324,7 @@ Sub msAddStatuBar()
     
     Set statuBar = cBS.StatusBar
     With statuBar
-        .AddPane 0
+        .AddPane 0      '系统Pane，显示CommandBarActions的Description
         .SetPaneStyle 0, SBPS_STRETCH
     
         .AddPane 59137  'CapsLock键的状态
@@ -349,10 +361,10 @@ Sub msThemeCommandBar(ByVal CID As Long)
             cBS.VisualTheme = xtpThemeNativeWinXP
     End Select
     
-    For lngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-        cbsActions(lngID).Checked = False
+    For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+        mcbsActions(mLngID).Checked = False
     Next
-    cbsActions(CID).Checked = True
+    mcbsActions(CID).Checked = True
     
 End Sub
 
@@ -392,10 +404,10 @@ Sub msThemeTaskPanel(ByVal TID As Long)
             TaskPL.VisualTheme = xtpTaskPanelThemeVisualStudio2010
     End Select
     
-    For lngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-        cbsActions(lngID).Checked = False
+    For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+        mcbsActions(mLngID).Checked = False
     Next
-    cbsActions(TID).Checked = True
+    mcbsActions(TID).Checked = True
     
 End Sub
 
@@ -406,7 +418,7 @@ Sub msCommandBarPopu(ByVal PID As Long)
             
     Select Case PID
         Case gID.OtherPaneMenuPopuAutoFold
-            cbsActions(PID).Checked = Not cbsActions(PID).Checked
+            mcbsActions(PID).Checked = Not mcbsActions(PID).Checked
         Case gID.OtherPaneMenuPopuExpand
             For Each taskGroup In TaskPL.Groups
                 taskGroup.Expanded = True
@@ -420,6 +432,8 @@ Sub msCommandBarPopu(ByVal PID As Long)
 End Sub
 
 Sub msLeftClick(ByVal CID As Long)
+    'CommandBar与TaskPanelGroupItem单击命令响应公共过程
+    
     With gID
         Select Case CID
             Case .WndThemeCommandBarsOffice2000 To .WndThemeCommandBarsWinXP
@@ -429,7 +443,7 @@ Sub msLeftClick(ByVal CID As Long)
             Case .WndThemeTaskPanelListView To .WndThemeTaskPanelVisualStudio2010
                 Call msThemeTaskPanel(CID)
             Case Else
-                MsgBox "【" & cbsActions(CID).Caption & "】命令未定义！", vbExclamation, "命令警告"
+                MsgBox "【" & mcbsActions(CID).Caption & "】命令未定义！", vbExclamation, "命令警告"
         End Select
     End With
     
@@ -446,7 +460,7 @@ Private Sub DockingPn_PanePopupMenu(ByVal Pane As XtremeDockingPane.IPane, ByVal
     '导航菜单标题中的Popu菜单生成
 
     If Pane.Id = gID.OtherPaneIDFirst Then
-        cbsBarPopu.ShowPopup , x * 15, y * 15     '只知道不乘15会位置不对，可能x、y的单位是像素，而窗口要的缇。
+        mcbsBarPopu.ShowPopup , x * 15, y * 15     '只知道不乘15会位置不对，可能x、y的单位是像素，而窗口要的缇。
     End If
     
 End Sub
@@ -462,27 +476,26 @@ Private Sub MDIForm_Load()
     DockingPN.SetCommandBars Me.cBS     '使DockingPanel与CommandBars控件关联起来，子Pane与CommandBar控件在位置移动时才能显示正常。
     
     cBS.EnableActions   '启用CommandBars的Actions集合，否则msAddAction过程执行无效。
-    Set cbsActions = cBS.Actions
-    cBS.VisualTheme = xtpThemeVisualStudio2008
-    cBS.ShowTabWorkspace True
+    Set mcbsActions = cBS.Actions
+    
+    cBS.ShowTabWorkspace True   '允许窗口多标签显示
     cBS.TabWorkspace.AllowReorder = True
-    cBS.TabWorkspace.AutoTheme = True
     cBS.TabWorkspace.Flags = xtpWorkspaceShowCloseSelectedTab Or xtpWorkspaceShowActiveFiles
-
     
     DockingPN.Options.AlphaDockingContext = True
-    DockingPN.Options.ShowDockingContextStickers = True
-    DockingPN.VisualTheme = ThemeWord2007
+    DockingPN.Options.ShowDockingContextStickers = True '显示Docking位置指向标签阴影区
+
     
-    Call msAddAction
-    Call msAddMenu
-    Call msAddToolBar
-    Call msAddTaskPanelItem
-    Call msAddStatuBar
+    Call msAddAction        '创建Actions集合
+    Call msAddMenu          '创建菜单栏
+    Call msAddToolBar       '创建工具栏
+    Call msAddTaskPanelItem '创建导航菜单
+    Call msAddStatuBar      '创建状态栏
     
     Dim frmNew As Form
-    For lngID = 1 To 5
+    For mLngID = 1 To 5
         Set frmNew = New frmSysTest
+        frmNew.Caption = "Form" & mLngID
         frmNew.Show
     Next
     
@@ -517,7 +530,7 @@ Private Sub TaskPL_ItemClick(ByVal Item As XtremeTaskPanel.ITaskPanelGroupItem)
     Dim taskGroup As TaskPanelGroup
     
     '自动收拢
-    If cbsActions(gID.OtherPaneMenuPopuAutoFold).Checked Then
+    If mcbsActions(gID.OtherPaneMenuPopuAutoFold).Checked Then
         For Each taskGroup In TaskPL.Groups
             If taskGroup.Id <> Item.Group.Id Then taskGroup.Expanded = False
         Next
