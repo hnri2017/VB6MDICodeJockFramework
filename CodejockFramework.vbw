@@ -1,3 +1,3 @@
 frmSysTest = 150, 150, 1369, 704, C, 25, 25, 725, 579, C
-frmSysMDI = 23, 15, 938, 564, , 81, 2, 828, 585, C
-modInitialize = 0, 0, 0, 0, C
+frmSysMDI = 13, 16, 928, 565, , 142, 11, 889, 594, CI
+modInitialize = 307, 122, 882, 539, I

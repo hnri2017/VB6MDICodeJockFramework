@@ -2,24 +2,153 @@ VERSION 5.00
 Object = "{945E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.DockingPane.v15.3.1.ocx"
 Object = "{555E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.CommandBars.v15.3.1.ocx"
 Object = "{B8E5842E-102B-4289-9D57-3B3F5B5E15D3}#15.3#0"; "Codejock.TaskPanel.v15.3.1.ocx"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "mscomctl.ocx"
 Begin VB.MDIForm frmSysMDI 
    BackColor       =   &H8000000C&
-   Caption         =   "MDIForm1"
+   Caption         =   "软件主窗口"
    ClientHeight    =   9630
    ClientLeft      =   120
    ClientTop       =   450
    ClientWidth     =   14760
    LinkTopic       =   "MDIForm1"
-   StartUpPosition =   2  '屏幕中心
    Begin MSComctlLib.ImageList imgListCommandBars 
       Left            =   3960
       Top             =   6000
       _ExtentX        =   1005
       _ExtentY        =   1005
       BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
       MaskColor       =   12632256
       _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   25
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":0000
+            Key             =   "cNativeWinXP"
+            Object.Tag             =   "820"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":0357
+            Key             =   "cOffice2000"
+            Object.Tag             =   "811"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":064E
+            Key             =   "cOffice2003"
+            Object.Tag             =   "812"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":0BE2
+            Key             =   "cOfficeXP"
+            Object.Tag             =   "813"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":0F0E
+            Key             =   "cResource"
+            Object.Tag             =   "814"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1475
+            Key             =   "cRibbon"
+            Object.Tag             =   "815"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":18B6
+            Key             =   "cVisualStudio6.0"
+            Object.Tag             =   "818"
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1BF9
+            Key             =   "cVisualStudio2008"
+            Object.Tag             =   "816"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":2116
+            Key             =   "cVisualStudio2010"
+            Object.Tag             =   "817"
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":252D
+            Key             =   "cWhidbey"
+            Object.Tag             =   "819"
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":2978
+            Key             =   "tListView"
+            Object.Tag             =   "841"
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":2C36
+            Key             =   "tListViewOffice2003"
+            Object.Tag             =   "842"
+         EndProperty
+         BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":2F36
+            Key             =   "tListViewOfficeXP"
+            Object.Tag             =   "843"
+         EndProperty
+         BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":31F3
+            Key             =   "tNativeWinXP"
+            Object.Tag             =   "844"
+         EndProperty
+         BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":379F
+            Key             =   "tNativeWinXPPlain"
+            Object.Tag             =   "845"
+         EndProperty
+         BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":3C20
+            Key             =   "tOffice2000"
+            Object.Tag             =   "846"
+         EndProperty
+         BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":402F
+            Key             =   "tOffice2000Plain"
+            Object.Tag             =   "847"
+         EndProperty
+         BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":4444
+            Key             =   "tOffice2003"
+            Object.Tag             =   "848"
+         EndProperty
+         BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":474E
+            Key             =   "tOffice2003Plain"
+            Object.Tag             =   "849"
+         EndProperty
+         BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":4A51
+            Key             =   "tOfficeXPPlain"
+            Object.Tag             =   "850"
+         EndProperty
+         BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":4D0D
+            Key             =   "tResource"
+            Object.Tag             =   "851"
+         EndProperty
+         BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":5007
+            Key             =   "tShortcutBarOffice2003"
+            Object.Tag             =   "852"
+         EndProperty
+         BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":5327
+            Key             =   "tToolbox"
+            Object.Tag             =   "853"
+         EndProperty
+         BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":55E4
+            Key             =   "tToolboxWhidbey"
+            Object.Tag             =   "854"
+         EndProperty
+         BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":59A1
+            Key             =   "tVisualStudio2010"
+            Object.Tag             =   "855"
+         EndProperty
+      EndProperty
    End
    Begin VB.PictureBox picHide 
       Align           =   1  'Align Top
@@ -308,13 +437,13 @@ Sub msAddTaskPanelItem()
     Next
     
     
-    '第二个DockingPane
-    Set paneList = DockingPN.CreatePane(gID.OtherPaneIDSecond, 240, 240, DockLeftOf, Nothing)
-    paneList.Title = "       "
-    paneList.Handle = picList.hWnd
-    paneList.AttachTo paneLeft  '依附到第一个Pane上
-    paneLeft.Selected = True    '显示第一个Pane
-    
+'    '第二个DockingPane
+'    Set paneList = DockingPN.CreatePane(gID.OtherPaneIDSecond, 240, 240, DockLeftOf, Nothing)
+'    paneList.Title = "       "
+'    paneList.Handle = picList.hWnd
+'    paneList.AttachTo paneLeft  '依附到第一个Pane上
+'    paneLeft.Selected = True    '显示第一个Pane
+ 
 End Sub
 
 Sub msAddStatuBar()
@@ -468,45 +597,99 @@ End Sub
 Private Sub MDIForm_Load()
 
 '    Debug.Print Screen.TwipsPerPixelX, Screen.TwipsPerPixelY    '返回水平与垂直度量的对象的每一像素中的缇数。测试结果：1像素=15缇
-
-    Me.Width = 15360    '设置窗口大小1024*768像素
-    Me.Height = 11520
+'    Me.Width = 15360    '设置窗口大小1024*768像素
+'    Me.Height = 11520
     
-    '注意：先往窗体中拖入DockingPanel控件，再拖入CommandBars控件，显示才正常。
-    DockingPN.SetCommandBars Me.cBS     '使DockingPanel与CommandBars控件关联起来，子Pane与CommandBar控件在位置移动时才能显示正常。
-    
+    CommandBarsGlobalSettings.App = App
     cBS.EnableActions   '启用CommandBars的Actions集合，否则msAddAction过程执行无效。
     Set mcbsActions = cBS.Actions
+    cBS.AddImageList imgListCommandBars
     
     cBS.ShowTabWorkspace True   '允许窗口多标签显示
     cBS.TabWorkspace.AllowReorder = True
     cBS.TabWorkspace.Flags = xtpWorkspaceShowCloseSelectedTab Or xtpWorkspaceShowActiveFiles
     
+    '注意：先往窗体中拖入DockingPanel控件，再拖入CommandBars控件，或者右键CommandBars控件，选择移到顶层,显示才正常。
+    '使DockingPanel与CommandBars控件关联起来，子Pane与CommandBar控件在位置移动、大小变化时才能显示正常。
+    DockingPN.SetCommandBars Me.cBS
+    
     DockingPN.Options.AlphaDockingContext = True
     DockingPN.Options.ShowDockingContextStickers = True '显示Docking位置指向标签阴影区
-
+    DockingPN.VisualTheme = ThemeWord2007
     
     Call msAddAction        '创建Actions集合
     Call msAddMenu          '创建菜单栏
     Call msAddToolBar       '创建工具栏
     Call msAddTaskPanelItem '创建导航菜单
     Call msAddStatuBar      '创建状态栏
+  
     
-    Dim frmNew As Form
-    For mLngID = 1 To 5
-        Set frmNew = New frmSysTest
-        frmNew.Caption = "Form" & mLngID
-        frmNew.Show
-    Next
-    
-    
+    '注册表中保存用的几个变量值初始化
+    With gID
+        .OtherSaveRegistryKey = Me.Name
+        .OtherSaveAppName = Me.Name & "Layout"
+        .OtherSaveCommandBarsSection = "CommandBarsLayout"
+        .OtherSaveDockingPaneSection = "DockingPaneLayout"
+    End With
+
     '窗口位置
+    Dim WS As Long, L As Long, T As Long, W As Long, H As Long
+    WS = Val(GetSetting(Me.Name, "Settings", "WindowState", 2))
+    If WS = 2 Then
+        Me.WindowState = 2  '最大化
+    Else
+        Me.WindowState = 0
+        L = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "Left", 0))
+        T = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "Top", 0))
+        W = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "Width", gID.OtherSaveWidth))
+        H = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "Height", gID.OtherSaveHeight))
+        If Val(L) < 0 Then L = 0
+        If Val(T) < 0 Then T = 0
+        If Val(W) < gID.OtherSaveWidth Then W = gID.OtherSaveWidth
+        If Val(H) < gID.OtherSaveHeight Then H = gID.OtherSaveHeight
+        Me.Move L, T, W, H
+    End If
     
     'CommandBars设置
-    
-    'DockingPane位置
-    
+    cBS.LoadCommandBars gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveCommandBarsSection
+
+'''    'DockingPane位置,暂不知怎么用
+'''    DockingPN.LoadState gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveDockingPaneSection
+
     'TaskPanel的Popu、上次点击的主菜单位置
+    
+End Sub
+
+Private Sub MDIForm_Unload(Cancel As Integer)
+    
+    '窗口位置保存
+    Dim L As Long, T As Long, W As Long, H As Long
+    If Me.WindowState = 2 Then
+        SaveSetting Me.Name, gID.OtherSaveSettings, "WindowState", 2
+    Else
+        SaveSetting Me.Name, gID.OtherSaveSettings, "WindowState", 0
+        L = Me.Left
+        T = Me.Top
+        W = Me.Width
+        H = Me.Height
+        If L < 0 Then L = 0
+        If T < 0 Then T = 0
+        If W < gID.OtherSaveWidth Then W = gID.OtherSaveWidth
+        If H < gID.OtherSaveHeight Then H = gID.OtherSaveHeight
+        SaveSetting Me.Name, gID.OtherSaveSettings, "Left", L
+        SaveSetting Me.Name, gID.OtherSaveSettings, "Top", T
+        SaveSetting Me.Name, gID.OtherSaveSettings, "Width", W
+        SaveSetting Me.Name, gID.OtherSaveSettings, "Height", H
+    End If
+    
+    'CommandBars设置保存
+    cBS.SaveCommandBars gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveCommandBarsSection
+    
+'''    'DockingPane位置保存
+'''    DockingPN.SaveState gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveDockingPaneSection
+
+    'TaskPanel的Popu、上次点击的主菜单位置保存
+    
     
 End Sub
 

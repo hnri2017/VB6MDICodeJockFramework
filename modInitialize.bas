@@ -48,6 +48,7 @@ Type typCommandBarID
     
     
     Other As Long
+    
     OtherPane As Long
     OtherPaneIDFirst As Long
     OtherPaneIDSecond As Long
@@ -56,6 +57,15 @@ Type typCommandBarID
     OtherPaneMenuPopuExpand As Long
     OtherPaneMenuPopuAutoFold As Long
     OtherPaneMenuPopuFold As Long
+    
+    OtherSave As Long
+    OtherSaveAppName As String
+    OtherSaveRegistryKey As String
+    OtherSaveCommandBarsSection As String
+    OtherSaveDockingPaneSection As String
+    OtherSaveWidth As Long
+    OtherSaveHeight As Long
+    OtherSaveSettings As String
     
 End Type
 
@@ -117,7 +127,12 @@ Sub Main()
         .OtherPaneMenuPopuExpand = 2105
         .OtherPaneMenuPopuFold = 2106
         .OtherPaneMenuTitle = 2107
-           
+        
+        .OtherSave = 2200
+        .OtherSaveWidth = 15360
+        .OtherSaveHeight = 11520
+        .OtherSaveSettings = "Settings"
+        
     End With
     
     frmSysTest.Show
