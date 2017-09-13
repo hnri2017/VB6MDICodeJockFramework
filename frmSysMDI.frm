@@ -314,8 +314,10 @@ Sub msAddMenu()
     Dim cbsMenuCtrl As CommandBarControl
     
     
-    '系统主菜单
     Set cbsMenuBar = cBS.ActiveMenuBar
+    cbsMenuBar.EnableDocking xtpFlagAlignTop Or xtpFlagStretched    '菜单栏独占一行且只能位于顶部
+    
+    '系统主菜单
     Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.Sys, "")
     With cbsMenuMain.CommandBar.Controls
         .Add xtpControlButton, gID.SysModifyPassword, ""
@@ -435,6 +437,14 @@ Sub msAddTaskPanelItem()
     For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
         taskGroup.Items.Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
     Next
+    
+    
+    '帮助
+    Set taskGroup = TaskPL.Groups.Add(gID.Help, mcbsActions(gID.Help).Caption)
+    taskGroup.Items.Add gID.HelpDocument, mcbsActions(gID.HelpDocument).Caption, xtpTaskItemTypeLink
+    taskGroup.Items.Add gID.HelpAbout, mcbsActions(gID.HelpAbout).Caption, xtpTaskItemTypeLink
+    
+    
     
     
 '    '第二个DockingPane
@@ -650,13 +660,26 @@ Private Sub MDIForm_Load()
         Me.Move L, T, W, H
     End If
     
-    'CommandBars设置
+    'CommandBars布局设置
     cBS.LoadCommandBars gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveCommandBarsSection
-
+    
+    'CommandBars主题设置
+    Call msThemeCommandBar(Val(GetSetting(Me.Name, gID.OtherSaveSettings, "ThemeCommandBas", gID.WndThemeCommandBarsVS2008)))
+    
+    ''TaskPanel的Popu设置
+    mcbsActions(gID.OtherPaneMenuPopuAutoFold).Checked = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "AutoFold", 1))
+    
 '''    'DockingPane位置,暂不知怎么用
 '''    DockingPN.LoadState gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveDockingPaneSection
 
-    'TaskPanel的Popu、上次点击的主菜单位置
+    'TaskPanel的主题设置  上次点击的主菜单位置
+    Call msThemeTaskPanel(Val(GetSetting(Me.Name, gID.OtherSaveSettings, "ThemeTaskPanel", gID.WndThemeTaskPanelNativeWinXP)))
+    
+    'TaskPanel上的主菜单展开或收拢设置
+    Dim taskGroup As TaskPanelGroup
+    For Each taskGroup In TaskPL.Groups
+        taskGroup.Expanded = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, 0))
+    Next
     
 End Sub
 
@@ -682,14 +705,44 @@ Private Sub MDIForm_Unload(Cancel As Integer)
         SaveSetting Me.Name, gID.OtherSaveSettings, "Height", H
     End If
     
-    'CommandBars设置保存
+    'CommandBars布局保存
     cBS.SaveCommandBars gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveCommandBarsSection
+    
+    'CommandBas主题保存
+    Dim lngSaveID As Long
+    lngSaveID = gID.WndThemeCommandBarsVS2008
+    For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+        If mcbsActions(mLngID).Checked Then
+            lngSaveID = mLngID
+            Exit For
+        End If
+    Next
+    SaveSetting Me.Name, gID.OtherSaveSettings, "ThemeCommandBas", lngSaveID
+    
+    'Taskpanels的Popu保存
+    lngSaveID = 0
+    If mcbsActions(gID.OtherPaneMenuPopuAutoFold).Checked Then lngSaveID = 1
+    SaveSetting Me.Name, gID.OtherSaveSettings, "AutoFold", lngSaveID
     
 '''    'DockingPane位置保存
 '''    DockingPN.SaveState gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveDockingPaneSection
 
-    'TaskPanel的Popu、上次点击的主菜单位置保存
+    'TaskPanel的Popu
+    lngSaveID = gID.WndThemeTaskPanelNativeWinXP
+    For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+        If mcbsActions(mLngID).Checked Then
+            lngSaveID = mLngID
+            Exit For
+        End If
+    Next
+    SaveSetting Me.Name, gID.OtherSaveSettings, "ThemeTaskPanel", lngSaveID
     
+    'TaskPanel上的主菜单展开或收拢保存
+    Dim taskGroup As TaskPanelGroup
+    For Each taskGroup In TaskPL.Groups
+        lngSaveID = IIf(taskGroup.Expanded, 1, 0)
+        SaveSetting Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, lngSaveID
+    Next
     
 End Sub
 
