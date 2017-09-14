@@ -234,6 +234,9 @@ Sub msAddAction()
     
     Dim cbsAction As CommandBarAction
     
+    cBS.EnableActions   '启用CommandBars的Actions集合
+    Set mcbsActions = cBS.Actions
+    
     With mcbsActions
 '        mcbsActions.Add "Id","Caption","TooltipText","DescriptionText","Category"
         
@@ -291,6 +294,12 @@ Sub msAddAction()
         .Add gID.OtherPaneMenuPopuFold, "全部收拢", "", "", ""
         .Add gID.OtherPaneMenuTitle, "导航菜单", "", "", ""
         
+        .Add gID.StatusBarPane, "状态栏", "", "", ""
+        .Add gID.StatusBarPaneProgress, "进度条", "", "", ""
+        .Add gID.StatusBarPaneProgressText, "进度百分比", "", "", ""
+        .Add gID.StatusBarPaneTime, "系统时间", "", "", ""
+        .Add gID.StatusBarPaneUserInfo, "当前用户", "", "", ""
+        
     End With
     
 
@@ -306,6 +315,31 @@ Sub msAddAction()
 
 End Sub
 
+Sub msAddDesignerControls()
+    '
+    
+    Dim cbsControls As CommandBarControls
+    Dim cbsAction As CommandBarAction
+
+    Set cbsControls = cBS.DesignerControls
+    For Each cbsAction In mcbsActions
+        If cbsAction.Id < 2000 Then
+            cbsControls.Add xtpControlButton, cbsAction.Id, ""
+        End If
+    Next
+    
+End Sub
+
+Sub msAddKeyBindings()
+    '创建快捷键
+    
+    With cBS.KeyBindings
+        .AddShortcut gID.HelpDocument, "F1"
+'        .Add 0, &H70, gID.HelpDocument
+    End With
+    
+End Sub
+
 Sub msAddMenu()
     '创建菜单栏
     
@@ -315,6 +349,7 @@ Sub msAddMenu()
     
     
     Set cbsMenuBar = cBS.ActiveMenuBar
+    cbsMenuBar.ShowGripper = False  '不显示可拖动的那个点点标记
     cbsMenuBar.EnableDocking xtpFlagAlignTop Or xtpFlagStretched    '菜单栏独占一行且只能位于顶部
     
     '系统主菜单
@@ -361,32 +396,36 @@ Sub msAddMenu()
     
 End Sub
 
-Sub msAddToolBar()
-    '创建工具栏
+Sub msAddStatuBar()
+    '创建状态栏
     
-    Dim cbsBar As CommandBar
-    Dim cbsCtr As CommandBarControl
+    Dim statuBar As XtremeCommandBars.StatusBar
     
-    '工具栏主题
-    Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeCommandBars).Caption, xtpBarTop)
-    With cbsBar.Controls
-        For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
-            cbsCtr.BeginGroup = True
-        Next
+    Set statuBar = cBS.StatusBar
+    With statuBar
+        .AddPane 0      '系统Pane，显示CommandBarActions的Description
+        .SetPaneStyle 0, SBPS_STRETCH
+        
+        .AddPane gID.StatusBarPaneUserInfo
+        .FindPane(gID.StatusBarPaneUserInfo).Caption = mcbsActions(gID.StatusBarPaneUserInfo).Caption
+        .FindPane(gID.StatusBarPaneUserInfo).Text = "小明"
+        
+        .AddProgressPane gID.StatusBarPaneProgress
+        .SetPaneText gID.StatusBarPaneProgress, mcbsActions(gID.StatusBarPaneProgress).Caption
+        
+        .AddPane gID.StatusBarPaneProgressText
+        .FindPane(gID.StatusBarPaneProgressText).Caption = mcbsActions(gID.StatusBarPaneProgressText).Caption
+        .FindPane(gID.StatusBarPaneProgressText).Width = 40
+        
+        .AddPane 59137  'CapsLock键的状态
+        .AddPane 59138  'NumLK键的状态
+        .AddPane 59139  'ScrLK键的状态
+        
+        .Visible = True
+        .EnableCustomization True
+        
     End With
     
-    '导航菜单主题
-    Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeTaskPanel).Caption, xtpBarTop)
-    With cbsBar.Controls
-        For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
-            cbsCtr.BeginGroup = True
-        Next
-    End With
-    
-    
-
 End Sub
 
 Sub msAddTaskPanelItem()
@@ -456,23 +495,34 @@ Sub msAddTaskPanelItem()
  
 End Sub
 
-Sub msAddStatuBar()
-    '创建状态栏
+Sub msAddToolBar()
+    '创建工具栏
     
-    Dim statuBar As XtremeCommandBars.StatusBar
+    Dim cbsBar As CommandBar
+    Dim cbsCtr As CommandBarControl
     
-    Set statuBar = cBS.StatusBar
-    With statuBar
-        .AddPane 0      '系统Pane，显示CommandBarActions的Description
-        .SetPaneStyle 0, SBPS_STRETCH
-    
-        .AddPane 59137  'CapsLock键的状态
-        .AddPane 59138  'NumLK键的状态
-        .AddPane 59139  'ScrLK键的状态
-        .Visible = True
+    '工具栏主题
+    Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeCommandBars).Caption, xtpBarTop)
+    With cbsBar.Controls
+        For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
+            cbsCtr.BeginGroup = True
+        Next
     End With
     
+    '导航菜单主题
+    Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeTaskPanel).Caption, xtpBarTop)
+    With cbsBar.Controls
+        For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
+            cbsCtr.BeginGroup = True
+        Next
+    End With
+    
+    
+
 End Sub
+
 
 Sub msThemeCommandBar(ByVal CID As Long)
     'CommandBars风格设置
@@ -611,9 +661,18 @@ Private Sub MDIForm_Load()
 '    Me.Height = 11520
     
     CommandBarsGlobalSettings.App = App
-    cBS.EnableActions   '启用CommandBars的Actions集合，否则msAddAction过程执行无效。
-    Set mcbsActions = cBS.Actions
-    cBS.AddImageList imgListCommandBars
+    
+    Call msAddAction        '创建Actions集合
+    Call msAddMenu          '创建菜单栏
+    Call msAddToolBar       '创建工具栏
+    Call msAddTaskPanelItem '创建导航菜单
+    Call msAddStatuBar      '创建状态栏
+'    Call msAddKeyBindings   '添加快捷键,放到Load方法后面才能生效
+    Call msAddDesignerControls  'CommandBars自定义对话框中使用的
+    
+
+    cBS.AddImageList imgListCommandBars '添加图标
+    cBS.EnableCustomization True        '允许自定义，此属性最好放在所有CommandBars设定之后
     
     cBS.ShowTabWorkspace True   '允许窗口多标签显示
     cBS.TabWorkspace.AllowReorder = True
@@ -623,17 +682,10 @@ Private Sub MDIForm_Load()
     '使DockingPanel与CommandBars控件关联起来，子Pane与CommandBar控件在位置移动、大小变化时才能显示正常。
     DockingPN.SetCommandBars Me.cBS
     
-    DockingPN.Options.AlphaDockingContext = True
-    DockingPN.Options.ShowDockingContextStickers = True '显示Docking位置指向标签阴影区
+    DockingPN.Options.AlphaDockingContext = True    '显示Docking位置指向标签阴影区
+    DockingPN.Options.ShowDockingContextStickers = True
     DockingPN.VisualTheme = ThemeWord2007
-    
-    Call msAddAction        '创建Actions集合
-    Call msAddMenu          '创建菜单栏
-    Call msAddToolBar       '创建工具栏
-    Call msAddTaskPanelItem '创建导航菜单
-    Call msAddStatuBar      '创建状态栏
-  
-    
+
     '注册表中保存用的几个变量值初始化
     With gID
         .OtherSaveRegistryKey = Me.Name
@@ -659,9 +711,10 @@ Private Sub MDIForm_Load()
         If Val(H) < gID.OtherSaveHeight Then H = gID.OtherSaveHeight
         Me.Move L, T, W, H
     End If
-    
-    'CommandBars布局设置
+
+'    CommandBars布局设置
     cBS.LoadCommandBars gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveCommandBarsSection
+    Call msAddKeyBindings   '添加快捷键
     
     'CommandBars主题设置
     Call msThemeCommandBar(Val(GetSetting(Me.Name, gID.OtherSaveSettings, "ThemeCommandBas", gID.WndThemeCommandBarsVS2008)))
@@ -680,7 +733,7 @@ Private Sub MDIForm_Load()
     For Each taskGroup In TaskPL.Groups
         taskGroup.Expanded = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, 0))
     Next
-    
+
 End Sub
 
 Private Sub MDIForm_Unload(Cancel As Integer)
@@ -726,7 +779,7 @@ Private Sub MDIForm_Unload(Cancel As Integer)
     
 '''    'DockingPane位置保存
 '''    DockingPN.SaveState gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveDockingPaneSection
-
+    
     'TaskPanel的Popu
     lngSaveID = gID.WndThemeTaskPanelNativeWinXP
     For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010

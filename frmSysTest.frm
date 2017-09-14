@@ -9,6 +9,12 @@ Begin VB.Form frmSysTest
    MDIChild        =   -1  'True
    ScaleHeight     =   6300
    ScaleWidth      =   9285
+   Begin VB.Timer timeProgress 
+      Enabled         =   0   'False
+      Interval        =   10
+      Left            =   1920
+      Top             =   4320
+   End
    Begin VB.CheckBox Check3 
       Caption         =   "Check3"
       Height          =   255
@@ -53,7 +59,7 @@ Begin VB.Form frmSysTest
       Caption         =   "Option1"
       Height          =   375
       Left            =   5640
-      TabIndex        =   10
+      TabIndex        =   1
       Top             =   1800
       Width           =   1815
    End
@@ -61,7 +67,7 @@ Begin VB.Form frmSysTest
       Caption         =   "Command2"
       Height          =   495
       Left            =   600
-      TabIndex        =   7
+      TabIndex        =   8
       Top             =   3360
       Width           =   975
    End
@@ -69,13 +75,13 @@ Begin VB.Form frmSysTest
       Caption         =   "Frame1"
       Height          =   3975
       Left            =   2880
-      TabIndex        =   5
+      TabIndex        =   7
       Top             =   1320
       Width           =   2295
       Begin VB.TextBox Text1 
          Height          =   3495
          Left            =   360
-         TabIndex        =   6
+         TabIndex        =   0
          Text            =   "Text1"
          Top             =   240
          Width           =   1695
@@ -85,21 +91,21 @@ Begin VB.Form frmSysTest
       Caption         =   "Command1"
       Height          =   615
       Left            =   3000
-      TabIndex        =   4
+      TabIndex        =   6
       Top             =   480
       Width           =   1575
    End
    Begin VB.ListBox List1 
       Height          =   2040
       Left            =   360
-      TabIndex        =   3
+      TabIndex        =   5
       Top             =   840
       Width           =   2055
    End
    Begin VB.ComboBox Combo1 
       Height          =   300
       Left            =   360
-      TabIndex        =   2
+      TabIndex        =   4
       Text            =   "Combo1"
       Top             =   360
       Width           =   2175
@@ -107,14 +113,14 @@ Begin VB.Form frmSysTest
    Begin VB.VScrollBar VScroll1 
       Height          =   5295
       Left            =   8520
-      TabIndex        =   1
+      TabIndex        =   3
       Top             =   240
       Width           =   375
    End
    Begin VB.HScrollBar HScroll1 
       Height          =   375
       Left            =   360
-      TabIndex        =   0
+      TabIndex        =   2
       Top             =   5880
       Width           =   7815
    End
@@ -122,7 +128,7 @@ Begin VB.Form frmSysTest
       Caption         =   "Label2"
       Height          =   255
       Left            =   5760
-      TabIndex        =   9
+      TabIndex        =   10
       Top             =   1080
       Width           =   1695
    End
@@ -130,7 +136,7 @@ Begin VB.Form frmSysTest
       Caption         =   "Label1"
       Height          =   255
       Left            =   5760
-      TabIndex        =   8
+      TabIndex        =   9
       Top             =   600
       Width           =   1455
    End
@@ -142,6 +148,40 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
+Dim mstbPaneBar As XtremeCommandBars.StatusBarProgressPane
+Dim mstbPaneText As XtremeCommandBars.StatusBarPane
+Dim mlngMax As Long, mlngC As Long
+
+Private Sub Command1_Click()
+    
+    Set mstbPaneBar = gMDI.cBS.StatusBar.FindPane(gID.StatusBarPaneProgress)
+    Set mstbPaneText = gMDI.cBS.StatusBar.FindPane(gID.StatusBarPaneProgressText)
+    mlngMax = 21474830
+    
+    With mstbPaneBar
+        .Min = 0
+        .Max = mlngMax
+        .Value = 0
+    End With
+    
+    
+    timeProgress.Enabled = True
+    Me.Enabled = False
+    For mlngC = 0 To mlngMax
+        DoEvents
+    Next
+    
+End Sub
+
 Private Sub Form_Load()
     Me.WindowState = vbMaximized
+End Sub
+
+Private Sub timeProgress_Timer()
+    mstbPaneBar.Value = mlngC
+    mstbPaneText.Text = CInt((mlngC / mlngMax) * 100) & "%"
+    If mstbPaneBar.Value >= mstbPaneBar.Max Then
+        timeProgress.Enabled = False
+        Me.Enabled = True
+    End If
 End Sub

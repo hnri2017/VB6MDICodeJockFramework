@@ -67,10 +67,16 @@ Type typCommandBarID
     OtherSaveHeight As Long
     OtherSaveSettings As String
     
+    StatusBarPane As Long
+    StatusBarPaneProgress As Long
+    StatusBarPaneProgressText As Long
+    StatusBarPaneUserInfo As Long
+    StatusBarPaneTime As Long
+    
 End Type
 
 Public gID As typCommandBarID   '全局CommandBars的ID变量
-
+Public gMDI As MDIForm          '全局主窗体引用
 
 Sub Main()
     
@@ -117,6 +123,7 @@ Sub Main()
         .WndThemeTaskPanelToolboxWhidbey = 854
         .WndThemeTaskPanelVisualStudio2010 = 855
         
+        '请将所有菜单CommandBrs的ID值设置在2000以下，。
         
         .Other = 2000
         .OtherPane = 2100
@@ -133,8 +140,15 @@ Sub Main()
         .OtherSaveHeight = 11520
         .OtherSaveSettings = "Settings"
         
+        .StatusBarPane = 2300
+        .StatusBarPaneProgress = 2301
+        .StatusBarPaneProgressText = 2302
+        .StatusBarPaneTime = 2303
+        .StatusBarPaneUserInfo = 2304
+        
     End With
     
+    Set gMDI = frmSysMDI
     frmSysTest.Show
     
 End Sub
