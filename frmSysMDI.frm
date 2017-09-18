@@ -225,8 +225,11 @@ Option Explicit
 
 
 Dim mLngID As Long  '循环变量ID
-Dim mcbsBarPopu As CommandBar    '用于导航菜单面板上生成标题中的Popu菜单
-Dim mcbsActions As CommandBarActions 'cBS控件Actions集合的引用
+Dim mcbsActions As CommandBarActions    'cBS控件Actions集合的引用
+Dim mcbsPopupNav As CommandBar      '用于导航菜单面板上生成标题中的Popup菜单
+Dim mcbsPopupTab As CommandBar      '窗口多标签右键Popup菜单
+Dim WithEvents mTabWorkspace As TabWorkspace    '窗口多标签控件
+Attribute mTabWorkspace.VB_VarHelpID = -1
 
 
 Sub msAddAction()
@@ -240,19 +243,19 @@ Sub msAddAction()
     With mcbsActions
 '        mcbsActions.Add "Id","Caption","TooltipText","DescriptionText","Category"
         
-        .Add gID.Sys, "系统", "", "", "Sys"
+        .Add gID.Sys, "系统", "", "", "系统"
         .Add gID.SysExit, "退出", "", "", ""
         .Add gID.SysModifyPassword, "修改密码", "", "", ""
         .Add gID.SysReLogin, "重新登陆", "", "", ""
         
         
         
-        .Add gID.Help, "帮助", "", "", "Help"
+        .Add gID.Help, "帮助", "", "", "帮助"
         .Add gID.HelpAbout, "关于", "", "", ""
         .Add gID.HelpDocument, "帮助文档", "", "", ""
         
         
-        .Add gID.Wnd, "窗口", "", "", "Window"
+        .Add gID.Wnd, "窗口", "", "", "窗口"
         
         .Add gID.WndThemeCommandBars, "工具栏主题", "", "", ""
         .Add gID.WndThemeCommandBarsOffice2000, "Office2000", "", "", ""
@@ -283,9 +286,19 @@ Sub msAddAction()
         .Add gID.WndThemeTaskPanelToolboxWhidbey, "ToolboxWhidbey", "", "", ""
         .Add gID.WndThemeTaskPanelVisualStudio2010, "VisualStudio2010", "", "", ""
         
+        .Add gID.WndSon, "子窗口控制", "", "", ""
+        .Add gID.WndSonCloseAll, "关闭所有窗口", "", "", ""
+        .Add gID.WndSonCloseCurrent, "关闭当前窗口", "", "", ""
+        .Add gID.WndSonCloseLeft, "关闭当前标签左侧窗口", "", "", ""
+        .Add gID.WndSonCloseOther, "关闭其它窗口", "", "", ""
+        .Add gID.WndSonCloseRight, "关闭当前标签右侧窗口", "", "", ""
+        .Add gID.WndSonVbArrangeIcons, "重排最小化图标", "", "", ""
+        .Add gID.WndSonVbCascade, "层叠", "", "", ""
+        .Add gID.WndSonVbTileHorizontal, "水平平铺", "", "", ""
+        .Add gID.WndSonVbTileVertical, "垂直平铺", "", "", ""
         
         
-        .Add gID.Other, "其它", "", "", "Other"
+        .Add gID.Other, "其它", "", "", "其它"
         
         .Add gID.OtherPane, "浮动面板", "", "", ""
         .Add gID.OtherPaneMenuPopu, "PaneCaptionMenu", "", "", ""
@@ -294,11 +307,14 @@ Sub msAddAction()
         .Add gID.OtherPaneMenuPopuFold, "全部收拢", "", "", ""
         .Add gID.OtherPaneMenuTitle, "导航菜单", "", "", ""
         
+        .Add gID.OtherTabWorkspacePopup, "多标签右键菜单", "", "", ""
+        
         .Add gID.StatusBarPane, "状态栏", "", "", ""
         .Add gID.StatusBarPaneProgress, "进度条", "", "", ""
         .Add gID.StatusBarPaneProgressText, "进度百分比", "", "", ""
         .Add gID.StatusBarPaneTime, "系统时间", "", "", ""
         .Add gID.StatusBarPaneUserInfo, "当前用户", "", "", ""
+        
         
     End With
     
@@ -306,10 +322,12 @@ Sub msAddAction()
     
     For Each cbsAction In mcbsActions
         With cbsAction
-            .ToolTipText = .Caption
-            .DescriptionText = .ToolTipText
-            .Key = .Category
-            .Category = mcbsActions((.Id \ 100) * 100).Category
+            If .Id < 2000 Then
+                .ToolTipText = .Caption
+                .DescriptionText = .ToolTipText
+                .Key = .Category
+                .Category = mcbsActions((.Id \ 100) * 100).Category
+            End If
         End With
     Next
 
@@ -328,6 +346,29 @@ Sub msAddDesignerControls()
         End If
     Next
     
+End Sub
+
+Sub msAddDockingPane()
+    '创建浮动面板
+    
+    Dim paneLeft As XtremeDockingPane.Pane
+    Dim paneList As XtremeDockingPane.Pane
+    
+    '创建导航菜单容器，第一个DockingPane
+    Set paneLeft = DockingPN.CreatePane(gID.OtherPaneIDFirst, 240, 240, DockLeftOf, Nothing)
+    paneLeft.Title = mcbsActions(gID.OtherPaneMenuTitle).Caption
+    paneLeft.TitleToolTip = paneLeft.Title & mcbsActions(gID.OtherPane).Caption
+    paneLeft.Handle = picTaskPL.hWnd    '将任务面板TaskPanel的容器PictureBox控件挂靠在浮动面板PanelLeft上
+    paneLeft.Options = PaneHasMenuButton    '显示Popu按键
+    
+        
+'    '第二个DockingPane
+'    Set paneList = DockingPN.CreatePane(gID.OtherPaneIDSecond, 240, 240, DockLeftOf, Nothing)
+'    paneList.Title = "       "
+'    paneList.Handle = picList.hWnd
+'    paneList.AttachTo paneLeft  '依附到第一个Pane上
+'    paneLeft.Selected = True    '显示第一个Pane
+ 
 End Sub
 
 Sub msAddKeyBindings()
@@ -350,7 +391,7 @@ Sub msAddMenu()
     
     Set cbsMenuBar = cBS.ActiveMenuBar
     cbsMenuBar.ShowGripper = False  '不显示可拖动的那个点点标记
-    cbsMenuBar.EnableDocking xtpFlagAlignTop Or xtpFlagStretched    '菜单栏独占一行且只能位于顶部
+    cbsMenuBar.EnableDocking xtpFlagStretched     '菜单栏独占一行且不能主动拖动
     
     '系统主菜单
     Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.Sys, "")
@@ -365,6 +406,13 @@ Sub msAddMenu()
     
     '窗口主菜单
     Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.Wnd, "")
+    
+    '特殊ID35001
+    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, XTP_ID_CUSTOMIZE, "自定义工具栏…")
+    
+    '特殊ID59392
+    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, 0, "工具栏列表")
+    cbsMenuCtrl.CommandBar.Controls.Add xtpControlButton, XTP_ID_TOOLBARLIST, ""
     
     'CommandBars工具栏主题子菜单
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndThemeCommandBars, "")
@@ -382,9 +430,23 @@ Sub msAddMenu()
         Next
     End With
     
+    '子窗口控制
+    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndSon, "")
+    With cbsMenuCtrl.CommandBar.Controls
+        For mLngID = gID.WndSonCloseAll To gID.WndSonVbTileVertical
+            .Add xtpControlButton, mLngID, ""
+            If mLngID = gID.WndSonVbArrangeIcons Then .Find(, mLngID).BeginGroup = True
+        Next
+    End With
+  
+    
+    '特殊ID35000
+    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, 0, "已打开窗口列表")
+    cbsMenuCtrl.CommandBar.Controls.Add xtpControlButton, XTP_ID_WINDOWLIST, ""
+    
+    
     
     '帮助主菜单
-    Set cbsMenuBar = cBS.ActiveMenuBar
     Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.Help, "")
     With cbsMenuMain.CommandBar.Controls
         .Add xtpControlButton, gID.HelpDocument, ""
@@ -393,6 +455,28 @@ Sub msAddMenu()
     End With
     
     
+    
+End Sub
+
+Sub msAddPopupMenu()
+    '创建Popup菜单,如右键单击显示
+    
+    '创建Pane标题中的Popup菜单
+    Set mcbsPopupNav = cBS.Add(mcbsActions(gID.OtherPaneMenuPopu).Caption, xtpBarPopup)
+    With mcbsPopupNav.Controls
+        .Add xtpControlButton, gID.OtherPaneMenuPopuAutoFold, ""
+        .Add xtpControlButton, gID.OtherPaneMenuPopuExpand, ""
+        .Add xtpControlButton, gID.OtherPaneMenuPopuFold, ""
+    End With
+    
+    '创建子窗口多标签控件的右键菜单
+    Set mcbsPopupTab = cBS.Add(mcbsActions(gID.OtherTabWorkspacePopup).Caption, xtpBarPopup)
+    mcbsPopupTab.BarID = gID.OtherTabWorkspacePopup
+    With mcbsPopupTab.Controls
+        For mLngID = gID.WndSonCloseAll To gID.WndSonCloseRight
+            .Add xtpControlButton, mLngID, ""
+        Next
+    End With
     
 End Sub
 
@@ -432,23 +516,8 @@ Sub msAddTaskPanelItem()
     '创建导航菜单
     '注意：这里的导航菜单仅是菜单栏的另一个显示形式
     
-    Dim paneLeft As XtremeDockingPane.Pane
     Dim taskGroup As TaskPanelGroup
     Dim taskItem As TaskPanelGroupItem
-    Dim paneList As XtremeDockingPane.Pane
-    
-    '创建导航菜单容器，第一个DockingPane
-    Set paneLeft = DockingPN.CreatePane(gID.OtherPaneIDFirst, 240, 240, DockLeftOf, Nothing)
-    paneLeft.Title = mcbsActions(gID.OtherPaneMenuTitle).Caption
-    paneLeft.TitleToolTip = paneLeft.Title & mcbsActions(gID.OtherPane).Caption
-    paneLeft.Handle = picTaskPL.hWnd    '将任务面板TaskPanel的容器PictureBox控件挂靠在浮动面板PanelLeft上
-    paneLeft.Options = PaneHasMenuButton    '显示Popu按键
-    
-    '创建Pane标题中的Popu菜单
-    Set mcbsBarPopu = cBS.Add(mcbsActions(gID.OtherPaneMenuPopu).Caption, xtpBarPopup)
-    mcbsBarPopu.Controls.Add xtpControlButton, gID.OtherPaneMenuPopuAutoFold, ""
-    mcbsBarPopu.Controls.Add xtpControlButton, gID.OtherPaneMenuPopuExpand, ""
-    mcbsBarPopu.Controls.Add xtpControlButton, gID.OtherPaneMenuPopuFold, ""
     
     
     '系统
@@ -484,15 +553,6 @@ Sub msAddTaskPanelItem()
     taskGroup.Items.Add gID.HelpAbout, mcbsActions(gID.HelpAbout).Caption, xtpTaskItemTypeLink
     
     
-    
-    
-'    '第二个DockingPane
-'    Set paneList = DockingPN.CreatePane(gID.OtherPaneIDSecond, 240, 240, DockLeftOf, Nothing)
-'    paneList.Title = "       "
-'    paneList.Handle = picList.hWnd
-'    paneList.AttachTo paneLeft  '依附到第一个Pane上
-'    paneLeft.Selected = True    '显示第一个Pane
- 
 End Sub
 
 Sub msAddToolBar()
@@ -600,6 +660,72 @@ Sub msThemeTaskPanel(ByVal TID As Long)
     
 End Sub
 
+Sub msWindowControl(ByVal WID As Long)
+    '子窗口控制
+    
+    Dim frmTag As Form
+    Dim C As Long
+    Dim itemCur As XtremeCommandBars.TabControlItem
+    
+    With gID
+        Select Case WID
+            Case .WndSonCloseAll
+                For Each frmTag In Forms
+                    If frmTag.Name <> gMDI.Name Then Unload frmTag
+                Next
+            Case .WndSonCloseCurrent
+                If Not ActiveForm Is Nothing Then Unload ActiveForm
+            Case .WndSonCloseLeft
+                If Forms.Count > 2 Then
+                    Set itemCur = mTabWorkspace.Selected
+                    itemCur.Tag = "c"   '标记当前窗口，因为Index值在窗口数量变化时会变化，不能作为唯一判断依据
+                    For C = 0 To mTabWorkspace.ItemCount - 1
+                        If mTabWorkspace.Item(0).Tag = itemCur.Tag Then
+                            itemCur.Tag = ""    '记得清空。Tag属性默认值就是空字符串
+                            Exit For
+                        Else
+                            mTabWorkspace.Item(0).Selected = True   '激活要删除的窗口
+                            Unload ActiveForm
+                        End If
+                    Next
+                End If
+            Case .WndSonCloseOther
+                If Forms.Count > 1 Then
+                    For Each frmTag In Forms
+                        If frmTag.Name <> gMDI.Name Then
+                            If Not (frmTag.Name = ActiveForm.Name And frmTag.Caption = ActiveForm.Caption) Then
+                                Unload frmTag
+                            End If
+                        End If
+                    Next
+                End If
+            Case .WndSonCloseRight
+                If Forms.Count > 2 Then
+                    Set itemCur = mTabWorkspace.Selected
+                    itemCur.Tag = "c"
+                    For C = mTabWorkspace.ItemCount - 1 To 0 Step -1
+                        If mTabWorkspace.Item(C).Tag = itemCur.Tag Then
+                            itemCur.Tag = ""
+                            Exit For
+                        Else
+                            mTabWorkspace.Item(C).Selected = True
+                            Unload ActiveForm
+                        End If
+                    Next
+                End If
+            Case .WndSonVbCascade
+                Me.Arrange vbCascade
+            Case .WndSonVbArrangeIcons
+                Me.Arrange vbArrangeIcons
+            Case .WndSonVbTileHorizontal
+                Me.Arrange vbTileHorizontal
+            Case .WndSonVbTileVertical
+                Me.Arrange vbTileVertical
+        End Select
+    End With
+    
+End Sub
+
 Sub msCommandBarPopu(ByVal PID As Long)
     'Popu菜单响应
     
@@ -631,6 +757,8 @@ Sub msLeftClick(ByVal CID As Long)
                 Call msCommandBarPopu(CID)
             Case .WndThemeTaskPanelListView To .WndThemeTaskPanelVisualStudio2010
                 Call msThemeTaskPanel(CID)
+            Case .WndSonCloseAll To .WndSonVbTileVertical
+                Call msWindowControl(CID)
             Case Else
                 MsgBox "【" & mcbsActions(CID).Caption & "】命令未定义！", vbExclamation, "命令警告"
         End Select
@@ -645,11 +773,12 @@ Private Sub cBS_Execute(ByVal Control As XtremeCommandBars.ICommandBarControl)
     
 End Sub
 
+
 Private Sub DockingPn_PanePopupMenu(ByVal Pane As XtremeDockingPane.IPane, ByVal x As Long, ByVal y As Long, Handled As Boolean)
     '导航菜单标题中的Popu菜单生成
 
     If Pane.Id = gID.OtherPaneIDFirst Then
-        mcbsBarPopu.ShowPopup , x * 15, y * 15     '只知道不乘15会位置不对，可能x、y的单位是像素，而窗口要的缇。
+        mcbsPopupNav.ShowPopup , x * 15, y * 15     '只知道不乘15会位置不对，可能x、y的单位是像素，而窗口要的缇。
     End If
     
 End Sub
@@ -665,18 +794,21 @@ Private Sub MDIForm_Load()
     Call msAddAction        '创建Actions集合
     Call msAddMenu          '创建菜单栏
     Call msAddToolBar       '创建工具栏
+    Call msAddDockingPane   '创建浮动面板
+    Call msAddPopupMenu     '创建Popup菜单
     Call msAddTaskPanelItem '创建导航菜单
     Call msAddStatuBar      '创建状态栏
-'    Call msAddKeyBindings   '添加快捷键,放到Load方法后面才能生效
+'    Call msAddKeyBindings   '添加快捷键,放到LoadCommandBars方法后面才能生效
     Call msAddDesignerControls  'CommandBars自定义对话框中使用的
     
 
     cBS.AddImageList imgListCommandBars '添加图标
     cBS.EnableCustomization True        '允许自定义，此属性最好放在所有CommandBars设定之后
     
-    cBS.ShowTabWorkspace True   '允许窗口多标签显示
-    cBS.TabWorkspace.AllowReorder = True
-    cBS.TabWorkspace.Flags = xtpWorkspaceShowCloseSelectedTab Or xtpWorkspaceShowActiveFiles
+    Set mTabWorkspace = cBS.ShowTabWorkspace(True)    '允许窗口多标签显示
+'    mTabWorkspace.AllowReorder = False
+    mTabWorkspace.Flags = xtpWorkspaceShowCloseSelectedTab Or xtpWorkspaceShowActiveFiles
+    
     
     '注意：先往窗体中拖入DockingPanel控件，再拖入CommandBars控件，或者右键CommandBars控件，选择移到顶层,显示才正常。
     '使DockingPanel与CommandBars控件关联起来，子Pane与CommandBar控件在位置移动、大小变化时才能显示正常。
@@ -685,7 +817,16 @@ Private Sub MDIForm_Load()
     DockingPN.Options.AlphaDockingContext = True    '显示Docking位置指向标签阴影区
     DockingPN.Options.ShowDockingContextStickers = True
     DockingPN.VisualTheme = ThemeWord2007
-
+    
+    Dim frmNew As Form
+    For mLngID = 2 To 15
+        Set frmNew = New frmSysTest
+        frmNew.Caption = "Form" & mLngID
+        frmNew.Command1.Caption = frmNew.Caption & "cmd1"
+        frmNew.Show
+    Next
+    
+    
     '注册表中保存用的几个变量值初始化
     With gID
         .OtherSaveRegistryKey = Me.Name
@@ -797,6 +938,16 @@ Private Sub MDIForm_Unload(Cancel As Integer)
         SaveSetting Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, lngSaveID
     Next
     
+End Sub
+
+Private Sub mTabWorkspace_RClick(ByVal Item As XtremeCommandBars.ITabControlItem)
+    '右键菜单的弹出
+    
+    If Not Item Is Nothing Then
+        Item.Selected = True
+        mTabWorkspace.Refresh
+        mcbsPopupTab.ShowPopup
+    End If
 End Sub
 
 Private Sub picList_Resize()

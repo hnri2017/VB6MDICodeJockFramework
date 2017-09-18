@@ -46,6 +46,17 @@ Type typCommandBarID
     WndThemeTaskPanelResource As Long
     WndThemeTaskPanelVisualStudio2010 As Long
     
+    WndSon As Long
+    WndSonVbCascade As Long
+    WndSonVbTileHorizontal As Long
+    WndSonVbTileVertical As Long
+    WndSonVbArrangeIcons As Long
+    WndSonCloseAll As Long
+    WndSonCloseCurrent As Long
+    WndSonCloseLeft As Long
+    WndSonCloseRight As Long
+    WndSonCloseOther As Long
+    
     
     Other As Long
     
@@ -66,6 +77,8 @@ Type typCommandBarID
     OtherSaveWidth As Long
     OtherSaveHeight As Long
     OtherSaveSettings As String
+    
+    OtherTabWorkspacePopup As Long
     
     StatusBarPane As Long
     StatusBarPaneProgress As Long
@@ -123,6 +136,17 @@ Sub Main()
         .WndThemeTaskPanelToolboxWhidbey = 854
         .WndThemeTaskPanelVisualStudio2010 = 855
         
+        .WndSon = 860
+        .WndSonCloseAll = 861
+        .WndSonCloseCurrent = 862
+        .WndSonCloseLeft = 863
+        .WndSonCloseOther = 864
+        .WndSonCloseRight = 865
+        .WndSonVbArrangeIcons = 866
+        .WndSonVbCascade = 867
+        .WndSonVbTileHorizontal = 868
+        .WndSonVbTileVertical = 869
+        
         '请将所有菜单CommandBrs的ID值设置在2000以下，。
         
         .Other = 2000
@@ -139,6 +163,8 @@ Sub Main()
         .OtherSaveWidth = 15360
         .OtherSaveHeight = 11520
         .OtherSaveSettings = "Settings"
+        .OtherTabWorkspacePopup = 2201
+        
         
         .StatusBarPane = 2300
         .StatusBarPaneProgress = 2301
