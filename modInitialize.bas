@@ -17,6 +17,8 @@ Type typCommandBarID
     
     Wnd As Long
     
+    WndResetLayout As Long
+    
     WndThemeCommandBars As Long
     WndThemeCommandBarsOffice2000 As Long
     WndThemeCommandBarsOfficeXp As Long
@@ -106,6 +108,8 @@ Sub Main()
         
         
         .Wnd = 800
+        
+        .WndResetLayout = 801
         
         .WndThemeCommandBars = 810
         .WndThemeCommandBarsOffice2000 = 811

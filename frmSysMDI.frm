@@ -257,6 +257,8 @@ Sub msAddAction()
         
         .Add gID.Wnd, "窗口", "", "", "窗口"
         
+        .Add gID.WndResetLayout, "重置窗口布局", "", "", ""
+        
         .Add gID.WndThemeCommandBars, "工具栏主题", "", "", ""
         .Add gID.WndThemeCommandBarsOffice2000, "Office2000", "", "", ""
         .Add gID.WndThemeCommandBarsOffice2003, "Office2003", "", "", ""
@@ -407,8 +409,13 @@ Sub msAddMenu()
     '窗口主菜单
     Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.Wnd, "")
     
+    '重置布局
+    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, gID.WndResetLayout, "")
+    cbsMenuCtrl.BeginGroup = True
+    
     '特殊ID35001
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, XTP_ID_CUSTOMIZE, "自定义工具栏…")
+    cbsMenuCtrl.BeginGroup = True
     
     '特殊ID59392
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, 0, "工具栏列表")
@@ -416,6 +423,7 @@ Sub msAddMenu()
     
     'CommandBars工具栏主题子菜单
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndThemeCommandBars, "")
+    cbsMenuCtrl.BeginGroup = True
     With cbsMenuCtrl.CommandBar.Controls
         For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
             .Add xtpControlButton, mLngID, ""
@@ -432,6 +440,7 @@ Sub msAddMenu()
     
     '子窗口控制
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndSon, "")
+    cbsMenuCtrl.BeginGroup = True
     With cbsMenuCtrl.CommandBar.Controls
         For mLngID = gID.WndSonCloseAll To gID.WndSonVbTileVertical
             .Add xtpControlButton, mLngID, ""
@@ -532,6 +541,9 @@ Sub msAddTaskPanelItem()
     '窗口
     Set taskGroup = TaskPL.Groups.Add(gID.Wnd, mcbsActions(gID.Wnd).Caption)
     
+    '重置
+    Set taskItem = taskGroup.Items.Add(gID.WndResetLayout, mcbsActions(gID.WndResetLayout).Caption, xtpTaskItemTypeLink)
+    
     '工具栏主题
     Set taskItem = taskGroup.Items.Add(gID.WndThemeCommandBars, mcbsActions(gID.WndThemeCommandBars).Caption, xtpTaskItemTypeText)
     taskItem.Bold = True
@@ -583,6 +595,29 @@ Sub msAddToolBar()
 
 End Sub
 
+Sub msResetLayout()
+    '重置窗口布局：CommandBars与Dockingpane控件重置
+    
+    Dim cBar As CommandBar
+    Dim L As Long, T As Long, R As Long, B As Long
+
+    For Each cBar In cBS
+        cBar.Reset
+        cBar.Visible = True
+    Next
+    
+    For mLngID = 2 To cBS.Count
+        cBS.GetClientRect L, T, R, B
+        cBS.DockToolBar cBS(mLngID), 0, B, xtpBarTop
+    Next
+
+    Dim pnRe As XtremeDockingPane.Pane
+    For Each pnRe In DockingPN
+        pnRe.Closed = False
+        pnRe.Hidden = False
+    Next
+
+End Sub
 
 Sub msThemeCommandBar(ByVal CID As Long)
     'CommandBars风格设置
@@ -759,6 +794,9 @@ Sub msLeftClick(ByVal CID As Long)
                 Call msThemeTaskPanel(CID)
             Case .WndSonCloseAll To .WndSonVbTileVertical
                 Call msWindowControl(CID)
+            
+            Case .WndResetLayout
+                Call msResetLayout
             Case Else
                 MsgBox "【" & mcbsActions(CID).Caption & "】命令未定义！", vbExclamation, "命令警告"
         End Select
