@@ -615,6 +615,7 @@ Sub msResetLayout()
     For Each pnRe In DockingPN
         pnRe.Closed = False
         pnRe.Hidden = False
+        DockingPN.DockPane pnRe, 240, 240, DockLeftOf
     Next
 
 End Sub
