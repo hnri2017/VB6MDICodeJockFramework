@@ -3,6 +3,7 @@ Object = "{945E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.DockingPane.
 Object = "{555E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.CommandBars.v15.3.1.ocx"
 Object = "{B8E5842E-102B-4289-9D57-3B3F5B5E15D3}#15.3#0"; "Codejock.TaskPanel.v15.3.1.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "mscomctl.ocx"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#15.3#0"; "Codejock.SkinFramework.v15.3.1.ocx"
 Begin VB.MDIForm frmSysMDI 
    BackColor       =   &H8000000C&
    Caption         =   "软件主窗口"
@@ -12,8 +13,8 @@ Begin VB.MDIForm frmSysMDI
    ClientWidth     =   14760
    LinkTopic       =   "MDIForm1"
    Begin MSComctlLib.ImageList imgListCommandBars 
-      Left            =   3960
-      Top             =   6000
+      Left            =   4200
+      Top             =   3480
       _ExtentX        =   1005
       _ExtentY        =   1005
       BackColor       =   -2147483643
@@ -22,7 +23,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   25
+         NumListImages   =   26
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":0000
             Key             =   "cNativeWinXP"
@@ -148,6 +149,10 @@ Begin VB.MDIForm frmSysMDI
             Key             =   "tVisualStudio2010"
             Object.Tag             =   "855"
          EndProperty
+         BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":5D69
+            Key             =   ""
+         EndProperty
       EndProperty
    End
    Begin VB.PictureBox picHide 
@@ -199,17 +204,25 @@ Begin VB.MDIForm frmSysMDI
          End
       End
    End
+   Begin XtremeSkinFramework.SkinFramework skinFW 
+      Left            =   1440
+      Top             =   3120
+      _Version        =   983043
+      _ExtentX        =   635
+      _ExtentY        =   635
+      _StockProps     =   0
+   End
    Begin XtremeCommandBars.CommandBars cBS 
-      Left            =   3000
-      Top             =   6120
+      Left            =   3240
+      Top             =   3600
       _Version        =   983043
       _ExtentX        =   635
       _ExtentY        =   635
       _StockProps     =   0
    End
    Begin XtremeDockingPane.DockingPane DockingPN 
-      Left            =   2400
-      Top             =   6120
+      Left            =   2640
+      Top             =   3600
       _Version        =   983043
       _ExtentX        =   635
       _ExtentY        =   635
@@ -853,9 +866,8 @@ Private Sub MDIForm_Load()
 
     cBS.AddImageList imgListCommandBars '添加图标
     cBS.EnableCustomization True        '允许自定义，此属性最好放在所有CommandBars设定之后
-    
+
     Set mTabWorkspace = cBS.ShowTabWorkspace(True)    '允许窗口多标签显示
-'    mTabWorkspace.AllowReorder = False
     mTabWorkspace.Flags = xtpWorkspaceShowCloseSelectedTab Or xtpWorkspaceShowActiveFiles
     
     
@@ -947,6 +959,9 @@ Private Sub MDIForm_Unload(Cancel As Integer)
         SaveSetting Me.Name, gID.OtherSaveSettings, "Width", W
         SaveSetting Me.Name, gID.OtherSaveSettings, "Height", H
     End If
+    
+    'skinFW
+    
     
     'CommandBars布局保存
     cBS.SaveCommandBars gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveCommandBarsSection

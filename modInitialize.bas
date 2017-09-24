@@ -79,6 +79,8 @@ Type typCommandBarID
     OtherSaveWidth As Long
     OtherSaveHeight As Long
     OtherSaveSettings As String
+    OtherSaveSkinPath As String
+    OtherSaveSkinIni As String
     
     OtherTabWorkspacePopup As Long
     
@@ -168,7 +170,8 @@ Sub Main()
         .OtherSaveHeight = 11520
         .OtherSaveSettings = "Settings"
         .OtherTabWorkspacePopup = 2201
-        
+        .OtherSaveSkinIni = "SkinFWIni"
+        .OtherSaveSkinPath = "SkinFWPath"
         
         .StatusBarPane = 2300
         .StatusBarPaneProgress = 2301
@@ -179,6 +182,10 @@ Sub Main()
     End With
     
     Set gMDI = frmSysMDI
-    frmSysTest.Show
+    gMDI.skinFW.ApplyOptions = xtpSkinApplyColors Or xtpSkinApplyFrame Or xtpSkinApplyMenus Or xtpSkinApplyMetrics
+    gMDI.skinFW.ApplyWindow gMDI.hWnd
+    gMDI.skinFW.LoadSkin App.Path & "\styles\Codejock.cjstyles", "NormalBlack.ini"
+    
+    frmSysLogin.Show
     
 End Sub
