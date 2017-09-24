@@ -317,11 +317,11 @@ Sub msAddAction()
         .Add gID.StatusBarPaneTime, "系统时间", "", "", ""
         .Add gID.StatusBarPaneUserInfo, "当前用户", "", "", ""
         
-        
+       
     End With
     
 
-    
+    '填充mcbsActions的其它属性
     For Each cbsAction In mcbsActions
         With cbsAction
             If .Id < 2000 Then
@@ -332,11 +332,21 @@ Sub msAddAction()
             End If
         End With
     Next
-
+    
+    '风格系列的mcbsActions的两个属性的描述补充
+    For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+        mcbsActions.Action(mLngID).DescriptionText = mcbsActions.Action(gID.WndThemeCommandBars).Caption & "设置为：" & mcbsActions.Action(mLngID).DescriptionText
+        mcbsActions.Action(mLngID).ToolTipText = mcbsActions.Action(mLngID).DescriptionText
+    Next
+    For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+        mcbsActions.Action(mLngID).DescriptionText = mcbsActions.Action(gID.WndThemeTaskPanel).Caption & "设置为：" & mcbsActions.Action(mLngID).DescriptionText
+        mcbsActions.Action(mLngID).ToolTipText = mcbsActions.Action(mLngID).DescriptionText
+    Next
+    
 End Sub
 
 Sub msAddDesignerControls()
-    '
+    'CommandBars自定义对话框中内容项的添加
     
     Dim cbsControls As CommandBarControls
     Dim cbsAction As CommandBarAction
@@ -857,13 +867,13 @@ Private Sub MDIForm_Load()
     DockingPN.Options.ShowDockingContextStickers = True
     DockingPN.VisualTheme = ThemeWord2007
     
-    Dim frmNew As Form
-    For mLngID = 2 To 15
-        Set frmNew = New frmSysTest
-        frmNew.Caption = "Form" & mLngID
-        frmNew.Command1.Caption = frmNew.Caption & "cmd1"
-        frmNew.Show
-    Next
+'    Dim frmNew As Form
+'    For mLngID = 2 To 15
+'        Set frmNew = New frmSysTest
+'        frmNew.Caption = "Form" & mLngID
+'        frmNew.Command1.Caption = frmNew.Caption & "cmd1"
+'        frmNew.Show
+'    Next
     
     
     '注册表中保存用的几个变量值初始化
