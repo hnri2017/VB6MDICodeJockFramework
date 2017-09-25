@@ -72,3 +72,9 @@ End Sub
 Private Sub Form_Load()
     Set Me.Icon = gMDI.Icon
 End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    If Not gMDI.Visible Then
+        Unload gMDI
+    End If
+End Sub

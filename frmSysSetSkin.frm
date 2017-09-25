@@ -102,14 +102,27 @@ Private Sub Form_Load()
     Text1.Text = gID.Folder_Styles  '显示主题文件所在路径
     
     Dim strFile As String
-    
     '加载相应文件夹中的主题文件名称
-    strFile = Dir(gID.Folder_Styles & "*styles", vbHidden + vbNormal + vbReadOnly + vbSystem)
-    While Len(strFile) > 0
-        List1.AddItem strFile
-        strFile = Dir
-    Wend
+'    '方式一
+'    strFile = Dir(gID.Folder_Styles & "*styles", vbHidden + vbNormal + vbReadOnly + vbSystem)
+'    While Len(strFile) > 0
+'        List1.AddItem strFile
+'        strFile = Dir
+'    Wend
+
+    '方式二。好处是控件在枚举样式文件时会排除掉所有非样式文件
+    Dim dES As SkinDescriptions
+    Set dES = gMDI.skinFW.EnumerateSkinDirectory(App.Path, True)
+    If dES Is Nothing Then
+        Exit Sub
+    End If
+    Dim skinDes As SkinDescription
+    For Each skinDes In dES
+        strFile = skinDes.Path
+        List1.AddItem Right(strFile, Len(strFile) - InStrRev(strFile, "\"))
+    Next
     
+    '定位当前窗口已设置的主题
     If List1.ListCount > 0 Then
         If Len(gID.SkinPath) > 0 Then
             Dim I As Long, J As Long

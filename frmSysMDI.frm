@@ -946,6 +946,8 @@ Sub msLeftClick(ByVal CID As Long)
                 frmSysSetSkin.Show vbModal, Me
             Case .WndResetLayout
                 Call msResetLayout
+            Case .SysExit
+                Unload Me
             Case Else
                 MsgBox "°æ" & mcbsActions(CID).Caption & "°ø√¸¡ÓŒ¥∂®“Â£°", vbExclamation, "√¸¡ÓæØ∏Ê"
         End Select
