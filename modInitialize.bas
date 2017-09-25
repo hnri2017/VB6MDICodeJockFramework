@@ -48,6 +48,16 @@ Type typCommandBarID
     WndThemeTaskPanelResource As Long
     WndThemeTaskPanelVisualStudio2010 As Long
     
+    WndThemeSkin As Long
+    WndThemeSkinCodejock As Long
+    WndThemeSkinOffice2007 As Long
+    WndThemeSkinOffice2010 As Long
+    WndThemeSkinVista As Long
+    WndThemeSkinWinXPRoyale As Long
+    WndThemeSkinWinXPLuna As Long
+    WndThemeSkinZune As Long
+    WndThemeSkinSet As Long
+    
     WndSon As Long
     WndSonVbCascade As Long
     WndSonVbTileHorizontal As Long
@@ -81,6 +91,7 @@ Type typCommandBarID
     OtherSaveSettings As String
     OtherSaveSkinPath As String
     OtherSaveSkinIni As String
+    OtherSaveSkinID As String
     
     OtherTabWorkspacePopup As Long
     
@@ -90,10 +101,16 @@ Type typCommandBarID
     StatusBarPaneUserInfo As Long
     StatusBarPaneTime As Long
     
+    Folder_Styles As String
+    SkinPath As String
+    SkinIni As String
+    
 End Type
 
 Public gID As typCommandBarID   '全局CommandBars的ID变量
 Public gMDI As MDIForm          '全局主窗体引用
+
+
 
 Sub Main()
     
@@ -153,6 +170,17 @@ Sub Main()
         .WndSonVbTileHorizontal = 868
         .WndSonVbTileVertical = 869
         
+        .WndThemeSkin = 870
+        .WndThemeSkinCodejock = 871
+        .WndThemeSkinOffice2007 = 872
+        .WndThemeSkinOffice2010 = 873
+        .WndThemeSkinVista = 874
+        .WndThemeSkinWinXPLuna = 875
+        .WndThemeSkinWinXPRoyale = 876
+        .WndThemeSkinZune = 877
+        
+        .WndThemeSkinSet = 899
+        
         '请将所有菜单CommandBrs的ID值设置在2000以下，。
         
         .Other = 2000
@@ -170,6 +198,7 @@ Sub Main()
         .OtherSaveHeight = 11520
         .OtherSaveSettings = "Settings"
         .OtherTabWorkspacePopup = 2201
+        .OtherSaveSkinID = "SkinFWID"
         .OtherSaveSkinIni = "SkinFWIni"
         .OtherSaveSkinPath = "SkinFWPath"
         
@@ -179,12 +208,17 @@ Sub Main()
         .StatusBarPaneTime = 2303
         .StatusBarPaneUserInfo = 2304
         
+        .Folder_Styles = App.Path & "\Styles\"
+        
     End With
     
     Set gMDI = frmSysMDI
     gMDI.skinFW.ApplyOptions = xtpSkinApplyColors Or xtpSkinApplyFrame Or xtpSkinApplyMenus Or xtpSkinApplyMetrics
     gMDI.skinFW.ApplyWindow gMDI.hWnd
-    gMDI.skinFW.LoadSkin App.Path & "\styles\Codejock.cjstyles", "NormalBlack.ini"
+    
+    gID.SkinPath = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinPath, "")
+    gID.SkinIni = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinIni, "")
+    Call gMDI.msThemeSkinSet(gID.SkinPath, gID.SkinIni)
     
     frmSysLogin.Show
     

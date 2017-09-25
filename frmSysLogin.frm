@@ -1,11 +1,14 @@
 VERSION 5.00
 Begin VB.Form frmSysLogin 
+   BorderStyle     =   1  'Fixed Single
    Caption         =   "系统登陆"
    ClientHeight    =   2445
-   ClientLeft      =   120
-   ClientTop       =   450
+   ClientLeft      =   45
+   ClientTop       =   375
    ClientWidth     =   4005
    LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
    ScaleHeight     =   2445
    ScaleWidth      =   4005
    StartUpPosition =   2  '屏幕中心
@@ -67,5 +70,5 @@ Private Sub Command1_Click()
 End Sub
 
 Private Sub Form_Load()
-    Set Me.Icon = gMDI.imgListCommandBars.ListImages.Item(26).Picture
+    Set Me.Icon = gMDI.Icon
 End Sub

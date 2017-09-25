@@ -11,6 +11,7 @@ Begin VB.MDIForm frmSysMDI
    ClientLeft      =   120
    ClientTop       =   450
    ClientWidth     =   14760
+   Icon            =   "frmSysMDI.frx":0000
    LinkTopic       =   "MDIForm1"
    Begin MSComctlLib.ImageList imgListCommandBars 
       Left            =   4200
@@ -23,135 +24,171 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   26
+         NumListImages   =   33
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":0000
+            Picture         =   "frmSysMDI.frx":0442
             Key             =   "cNativeWinXP"
             Object.Tag             =   "820"
          EndProperty
          BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":0357
+            Picture         =   "frmSysMDI.frx":0799
             Key             =   "cOffice2000"
             Object.Tag             =   "811"
          EndProperty
          BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":064E
+            Picture         =   "frmSysMDI.frx":0A90
             Key             =   "cOffice2003"
             Object.Tag             =   "812"
          EndProperty
          BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":0BE2
+            Picture         =   "frmSysMDI.frx":1024
             Key             =   "cOfficeXP"
             Object.Tag             =   "813"
          EndProperty
          BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":0F0E
+            Picture         =   "frmSysMDI.frx":1350
             Key             =   "cResource"
             Object.Tag             =   "814"
          EndProperty
          BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1475
+            Picture         =   "frmSysMDI.frx":18B7
             Key             =   "cRibbon"
             Object.Tag             =   "815"
          EndProperty
          BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":18B6
+            Picture         =   "frmSysMDI.frx":1CF8
             Key             =   "cVisualStudio6.0"
             Object.Tag             =   "818"
          EndProperty
          BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1BF9
+            Picture         =   "frmSysMDI.frx":203B
             Key             =   "cVisualStudio2008"
             Object.Tag             =   "816"
          EndProperty
          BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":2116
+            Picture         =   "frmSysMDI.frx":2558
             Key             =   "cVisualStudio2010"
             Object.Tag             =   "817"
          EndProperty
          BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":252D
+            Picture         =   "frmSysMDI.frx":296F
             Key             =   "cWhidbey"
             Object.Tag             =   "819"
          EndProperty
          BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":2978
+            Picture         =   "frmSysMDI.frx":2DBA
             Key             =   "tListView"
             Object.Tag             =   "841"
          EndProperty
          BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":2C36
+            Picture         =   "frmSysMDI.frx":3078
             Key             =   "tListViewOffice2003"
             Object.Tag             =   "842"
          EndProperty
          BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":2F36
+            Picture         =   "frmSysMDI.frx":3378
             Key             =   "tListViewOfficeXP"
             Object.Tag             =   "843"
          EndProperty
          BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":31F3
+            Picture         =   "frmSysMDI.frx":3635
             Key             =   "tNativeWinXP"
             Object.Tag             =   "844"
          EndProperty
          BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":379F
+            Picture         =   "frmSysMDI.frx":3BE1
             Key             =   "tNativeWinXPPlain"
             Object.Tag             =   "845"
          EndProperty
          BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":3C20
+            Picture         =   "frmSysMDI.frx":4062
             Key             =   "tOffice2000"
             Object.Tag             =   "846"
          EndProperty
          BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":402F
+            Picture         =   "frmSysMDI.frx":4471
             Key             =   "tOffice2000Plain"
             Object.Tag             =   "847"
          EndProperty
          BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":4444
+            Picture         =   "frmSysMDI.frx":4886
             Key             =   "tOffice2003"
             Object.Tag             =   "848"
          EndProperty
          BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":474E
+            Picture         =   "frmSysMDI.frx":4B90
             Key             =   "tOffice2003Plain"
             Object.Tag             =   "849"
          EndProperty
          BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":4A51
+            Picture         =   "frmSysMDI.frx":4E93
             Key             =   "tOfficeXPPlain"
             Object.Tag             =   "850"
          EndProperty
          BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":4D0D
+            Picture         =   "frmSysMDI.frx":514F
             Key             =   "tResource"
             Object.Tag             =   "851"
          EndProperty
          BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":5007
+            Picture         =   "frmSysMDI.frx":5449
             Key             =   "tShortcutBarOffice2003"
             Object.Tag             =   "852"
          EndProperty
          BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":5327
+            Picture         =   "frmSysMDI.frx":5769
             Key             =   "tToolbox"
             Object.Tag             =   "853"
          EndProperty
          BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":55E4
+            Picture         =   "frmSysMDI.frx":5A26
             Key             =   "tToolboxWhidbey"
             Object.Tag             =   "854"
          EndProperty
          BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":59A1
+            Picture         =   "frmSysMDI.frx":5DE3
             Key             =   "tVisualStudio2010"
             Object.Tag             =   "855"
          EndProperty
          BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":5D69
-            Key             =   ""
+            Picture         =   "frmSysMDI.frx":61AB
+            Key             =   "sCodejock"
+            Object.Tag             =   "871"
+         EndProperty
+         BeginProperty ListImage27 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":71FD
+            Key             =   "sOffice2007"
+            Object.Tag             =   "872"
+         EndProperty
+         BeginProperty ListImage28 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":824F
+            Key             =   "sOffice2010"
+            Object.Tag             =   "873"
+         EndProperty
+         BeginProperty ListImage29 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":92A1
+            Key             =   "sOrangina"
+            Object.Tag             =   "878"
+         EndProperty
+         BeginProperty ListImage30 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":A2F3
+            Key             =   "sVista"
+            Object.Tag             =   "874"
+         EndProperty
+         BeginProperty ListImage31 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":B345
+            Key             =   "sWinXPLuna"
+            Object.Tag             =   "875"
+         EndProperty
+         BeginProperty ListImage32 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":C397
+            Key             =   "sWinXPRoyale"
+            Object.Tag             =   "876"
+         EndProperty
+         BeginProperty ListImage33 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":D3E9
+            Key             =   "sZune"
+            Object.Tag             =   "877"
          EndProperty
       EndProperty
    End
@@ -205,8 +242,8 @@ Begin VB.MDIForm frmSysMDI
       End
    End
    Begin XtremeSkinFramework.SkinFramework skinFW 
-      Left            =   1440
-      Top             =   3120
+      Left            =   3720
+      Top             =   3600
       _Version        =   983043
       _ExtentX        =   635
       _ExtentY        =   635
@@ -300,6 +337,17 @@ Sub msAddAction()
         .Add gID.WndThemeTaskPanelToolbox, "Toolbox", "", "", ""
         .Add gID.WndThemeTaskPanelToolboxWhidbey, "ToolboxWhidbey", "", "", ""
         .Add gID.WndThemeTaskPanelVisualStudio2010, "VisualStudio2010", "", "", ""
+        
+        .Add gID.WndThemeSkin, "窗体主题", "", "", ""
+        .Add gID.WndThemeSkinCodejock, "Codejock", "", "", ""
+        .Add gID.WndThemeSkinOffice2007, "Office2007", "", "", ""
+        .Add gID.WndThemeSkinOffice2010, "Office2010", "", "", ""
+        .Add gID.WndThemeSkinVista, "Vista", "", "", ""
+        .Add gID.WndThemeSkinWinXPLuna, "XPLuna", "", "", ""
+        .Add gID.WndThemeSkinWinXPRoyale, "XPRoyale", "", "", ""
+        .Add gID.WndThemeSkinZune, "msZune", "", "", ""
+        
+        .Add gID.WndThemeSkinSet, "窗口主题设置", "", "", ""
         
         .Add gID.WndSon, "子窗口控制", "", "", ""
         .Add gID.WndSonCloseAll, "关闭所有窗口", "", "", ""
@@ -436,6 +484,10 @@ Sub msAddMenu()
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, gID.WndResetLayout, "")
     cbsMenuCtrl.BeginGroup = True
     
+    '窗口主题设置
+    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, gID.WndThemeSkinSet, "")
+    cbsMenuCtrl.BeginGroup = True
+    
     '特殊ID35001
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, XTP_ID_CUSTOMIZE, "自定义工具栏…")
     cbsMenuCtrl.BeginGroup = True
@@ -444,9 +496,17 @@ Sub msAddMenu()
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, 0, "工具栏列表")
     cbsMenuCtrl.CommandBar.Controls.Add xtpControlButton, XTP_ID_TOOLBARLIST, ""
     
+    '窗体主题样式
+    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndThemeSkin, "")
+    cbsMenuCtrl.BeginGroup = True
+    With cbsMenuCtrl.CommandBar.Controls
+        For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+            .Add xtpControlButton, mLngID, ""
+        Next
+    End With
+    
     'CommandBars工具栏主题子菜单
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndThemeCommandBars, "")
-    cbsMenuCtrl.BeginGroup = True
     With cbsMenuCtrl.CommandBar.Controls
         For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
             .Add xtpControlButton, mLngID, ""
@@ -676,6 +736,68 @@ Sub msThemeCommandBar(ByVal CID As Long)
     
 End Sub
 
+Sub msThemeSkin(ByVal SID As Long)
+    '加载皮肤，子窗口、主窗体整体界面样式都会有所变化
+    
+    Dim strFile As String, strIni As String
+
+    Select Case SID
+        Case gID.WndThemeSkinCodejock
+            strFile = "Codejock.cjstyles"
+        Case gID.WndThemeSkinOffice2007
+            strFile = "Office2007.cjstyles"
+        Case gID.WndThemeSkinOffice2010
+            strFile = "Office2010.cjstyles"
+        Case gID.WndThemeSkinVista
+            strFile = "Vista.cjstyles"
+        Case gID.WndThemeSkinWinXPLuna
+            strFile = "WinXPLuna.cjstyles"
+        Case gID.WndThemeSkinWinXPRoyale
+            strFile = "WinXPRoyale.cjstyles"
+        Case gID.WndThemeSkinZune
+            strFile = "Zune.msstyles"
+        Case Else
+            strFile = ""
+    End Select
+    
+    gID.SkinPath = strFile
+    gID.SkinIni = strIni
+    Call msThemeSkinSet(strFile, strIni)
+
+End Sub
+
+Sub msThemeSkinSet(ByVal skinFile As String, ByVal SkinIni As String)
+    '窗口主题设置
+    
+    skinFW.LoadSkin gID.Folder_Styles & skinFile, SkinIni
+    
+    Dim lngID As Long
+    
+    Select Case LCase(skinFile)
+        Case LCase("Codejock.cjstyles")
+            lngID = gID.WndThemeSkinCodejock
+        Case LCase("Office2007.cjstyles")
+            lngID = gID.WndThemeSkinOffice2007
+        Case LCase("Office2010.cjstyles")
+            lngID = gID.WndThemeSkinOffice2010
+        Case LCase("Vista.cjstyles")
+            lngID = gID.WndThemeSkinVista
+        Case LCase("WinXPLuna.cjstyles")
+            lngID = gID.WndThemeSkinWinXPLuna
+        Case LCase("WinXPRoyale.cjstyles")
+            lngID = gID.WndThemeSkinWinXPRoyale
+        Case LCase("Zune.msstyles")
+            lngID = gID.WndThemeSkinZune
+    End Select
+    For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+        mcbsActions(mLngID).Checked = False
+    Next
+    If lngID > 0 Then
+        mcbsActions(lngID).Checked = True
+    End If
+    
+End Sub
+
 Sub msThemeTaskPanel(ByVal TID As Long)
     'Taskpanel风格设置
     
@@ -818,7 +940,10 @@ Sub msLeftClick(ByVal CID As Long)
                 Call msThemeTaskPanel(CID)
             Case .WndSonCloseAll To .WndSonVbTileVertical
                 Call msWindowControl(CID)
-            
+            Case .WndThemeSkinCodejock To .WndThemeSkinZune
+                Call msThemeSkin(CID)
+            Case .WndThemeSkinSet
+                frmSysSetSkin.Show vbModal, Me
             Case .WndResetLayout
                 Call msResetLayout
             Case Else
@@ -960,14 +1085,24 @@ Private Sub MDIForm_Unload(Cancel As Integer)
         SaveSetting Me.Name, gID.OtherSaveSettings, "Height", H
     End If
     
-    'skinFW
+    Dim lngSaveID As Long
     
+    'skinFW窗体主题保存
+    lngSaveID = 0
+    For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+        If mcbsActions(mLngID).Checked Then
+            lngSaveID = mLngID
+            Exit For
+        End If
+    Next
+    SaveSetting Me.Name, gID.OtherSaveSettings, gID.OtherSaveSkinID, lngSaveID
+    SaveSetting Me.Name, gID.OtherSaveSettings, gID.OtherSaveSkinPath, gID.SkinPath
+    SaveSetting Me.Name, gID.OtherSaveSettings, gID.OtherSaveSkinIni, gID.SkinIni
     
     'CommandBars布局保存
     cBS.SaveCommandBars gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveCommandBarsSection
     
     'CommandBas主题保存
-    Dim lngSaveID As Long
     lngSaveID = gID.WndThemeCommandBarsVS2008
     For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
         If mcbsActions(mLngID).Checked Then
