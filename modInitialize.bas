@@ -63,6 +63,8 @@ Type typCommandBarID
     WndSonVbTileHorizontal As Long
     WndSonVbTileVertical As Long
     WndSonVbArrangeIcons As Long
+    WndSonVbAllMin As Long
+    WndSonVbAllBack As Long
     WndSonCloseAll As Long
     WndSonCloseCurrent As Long
     WndSonCloseLeft As Long
@@ -159,16 +161,19 @@ Sub Main()
         .WndThemeTaskPanelToolboxWhidbey = 854
         .WndThemeTaskPanelVisualStudio2010 = 855
         
-        .WndSon = 860
-        .WndSonCloseAll = 861
-        .WndSonCloseCurrent = 862
-        .WndSonCloseLeft = 863
-        .WndSonCloseOther = 864
-        .WndSonCloseRight = 865
-        .WndSonVbArrangeIcons = 866
-        .WndSonVbCascade = 867
-        .WndSonVbTileHorizontal = 868
-        .WndSonVbTileVertical = 869
+        .WndSon = 856
+        .WndSonCloseAll = 857
+        .WndSonCloseCurrent = 858
+        .WndSonCloseLeft = 859
+        .WndSonCloseOther = 860
+        .WndSonCloseRight = 861
+        .WndSonVbAllBack = 862
+        .WndSonVbAllMin = 863
+        .WndSonVbArrangeIcons = 864
+        .WndSonVbCascade = 865
+        .WndSonVbTileHorizontal = 866
+        .WndSonVbTileVertical = 867
+        
         
         .WndThemeSkin = 870
         .WndThemeSkinCodejock = 871
@@ -213,13 +218,14 @@ Sub Main()
     End With
     
     Set gMDI = frmSysMDI
+''    gMDI.Show
     gMDI.skinFW.ApplyOptions = xtpSkinApplyColors Or xtpSkinApplyFrame Or xtpSkinApplyMenus Or xtpSkinApplyMetrics
     gMDI.skinFW.ApplyWindow gMDI.hWnd
-    
+
     gID.SkinPath = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinPath, "")
     gID.SkinIni = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinIni, "")
     Call gMDI.msThemeSkinSet(gID.SkinPath, gID.SkinIni)
-    
+
     frmSysLogin.Show
     
 End Sub

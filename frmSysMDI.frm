@@ -8,8 +8,8 @@ Begin VB.MDIForm frmSysMDI
    BackColor       =   &H8000000C&
    Caption         =   "软件主窗口"
    ClientHeight    =   9630
-   ClientLeft      =   120
-   ClientTop       =   450
+   ClientLeft      =   2880
+   ClientTop       =   2415
    ClientWidth     =   14760
    Icon            =   "frmSysMDI.frx":0000
    LinkTopic       =   "MDIForm1"
@@ -347,7 +347,7 @@ Sub msAddAction()
         .Add gID.WndThemeSkinWinXPRoyale, "XPRoyale", "", "", ""
         .Add gID.WndThemeSkinZune, "msZune", "", "", ""
         
-        .Add gID.WndThemeSkinSet, "窗口主题设置", "", "", ""
+        .Add gID.WndThemeSkinSet, "窗口主题设置...", "", "", ""
         
         .Add gID.WndSon, "子窗口控制", "", "", ""
         .Add gID.WndSonCloseAll, "关闭所有窗口", "", "", ""
@@ -355,6 +355,8 @@ Sub msAddAction()
         .Add gID.WndSonCloseLeft, "关闭当前标签左侧窗口", "", "", ""
         .Add gID.WndSonCloseOther, "关闭其它窗口", "", "", ""
         .Add gID.WndSonCloseRight, "关闭当前标签右侧窗口", "", "", ""
+        .Add gID.WndSonVbAllBack, "恢复窗口", "", "", ""
+        .Add gID.WndSonVbAllMin, "最小化所有子窗口", "", "", ""
         .Add gID.WndSonVbArrangeIcons, "重排最小化图标", "", "", ""
         .Add gID.WndSonVbCascade, "层叠", "", "", ""
         .Add gID.WndSonVbTileHorizontal, "水平平铺", "", "", ""
@@ -369,6 +371,8 @@ Sub msAddAction()
         .Add gID.OtherPaneMenuPopuExpand, "全部展开", "", "", ""
         .Add gID.OtherPaneMenuPopuFold, "全部收拢", "", "", ""
         .Add gID.OtherPaneMenuTitle, "导航菜单", "", "", ""
+        .Add gID.OtherPaneIDFirst, "(显/隐)" & mcbsActions(gID.OtherPaneMenuTitle).Caption, "", "", ""
+        
         
         .Add gID.OtherTabWorkspacePopup, "多标签右键菜单", "", "", ""
         
@@ -448,8 +452,9 @@ Sub msAddKeyBindings()
     '创建快捷键
     
     With cBS.KeyBindings
+'''        .Add 0, &H70, gID.HelpDocument
         .AddShortcut gID.HelpDocument, "F1"
-'        .Add 0, &H70, gID.HelpDocument
+        .AddShortcut gID.SysExit, "F10"
     End With
     
 End Sub
@@ -480,6 +485,10 @@ Sub msAddMenu()
     '窗口主菜单
     Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.Wnd, "")
     
+    '显/隐 导航菜单
+    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, gID.OtherPaneIDFirst, "")
+'    cbsMenuCtrl.BeginGroup = True
+    
     '重置布局
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, gID.WndResetLayout, "")
     cbsMenuCtrl.BeginGroup = True
@@ -489,7 +498,7 @@ Sub msAddMenu()
     cbsMenuCtrl.BeginGroup = True
     
     '特殊ID35001
-    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, XTP_ID_CUSTOMIZE, "自定义工具栏…")
+    Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlButton, XTP_ID_CUSTOMIZE, "自定义工具栏...")
     cbsMenuCtrl.BeginGroup = True
     
     '特殊ID59392
@@ -527,7 +536,7 @@ Sub msAddMenu()
     With cbsMenuCtrl.CommandBar.Controls
         For mLngID = gID.WndSonCloseAll To gID.WndSonVbTileVertical
             .Add xtpControlButton, mLngID, ""
-            If mLngID = gID.WndSonVbArrangeIcons Then .Find(, mLngID).BeginGroup = True
+            If mLngID = gID.WndSonVbAllBack Then .Find(, mLngID).BeginGroup = True
         Next
     End With
   
@@ -655,6 +664,16 @@ Sub msAddToolBar()
     
     Dim cbsBar As CommandBar
     Dim cbsCtr As CommandBarControl
+    
+    
+    '窗体主题
+    Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeSkin).Caption, xtpBarTop)
+    With cbsBar.Controls
+        For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
+            cbsCtr.BeginGroup = True
+        Next
+    End With
     
     '工具栏主题
     Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeCommandBars).Caption, xtpBarTop)
@@ -850,13 +869,13 @@ Sub msWindowControl(ByVal WID As Long)
     
     With gID
         Select Case WID
-            Case .WndSonCloseAll
+            Case .WndSonCloseAll    '关闭所有窗口
                 For Each frmTag In Forms
                     If frmTag.Name <> gMDI.Name Then Unload frmTag
                 Next
-            Case .WndSonCloseCurrent
+            Case .WndSonCloseCurrent    '关闭当前窗口
                 If Not ActiveForm Is Nothing Then Unload ActiveForm
-            Case .WndSonCloseLeft
+            Case .WndSonCloseLeft   '关闭左侧窗口
                 If Forms.Count > 2 Then
                     Set itemCur = mTabWorkspace.Selected
                     itemCur.Tag = "c"   '标记当前窗口，因为Index值在窗口数量变化时会变化，不能作为唯一判断依据
@@ -870,7 +889,7 @@ Sub msWindowControl(ByVal WID As Long)
                         End If
                     Next
                 End If
-            Case .WndSonCloseOther
+            Case .WndSonCloseOther  '关闭其它窗口
                 If Forms.Count > 1 Then
                     For Each frmTag In Forms
                         If frmTag.Name <> gMDI.Name Then
@@ -880,7 +899,7 @@ Sub msWindowControl(ByVal WID As Long)
                         End If
                     Next
                 End If
-            Case .WndSonCloseRight
+            Case .WndSonCloseRight  '关闭右侧窗口
                 If Forms.Count > 2 Then
                     Set itemCur = mTabWorkspace.Selected
                     itemCur.Tag = "c"
@@ -894,6 +913,14 @@ Sub msWindowControl(ByVal WID As Long)
                         End If
                     Next
                 End If
+            Case .WndSonVbAllBack
+                For Each frmTag In Forms
+                    If frmTag.Name <> gMDI.Name Then frmTag.WindowState = vbNormal
+                Next
+            Case .WndSonVbAllMin
+                For Each frmTag In Forms
+                    If frmTag.Name <> gMDI.Name Then frmTag.WindowState = vbMinimized
+                Next
             Case .WndSonVbCascade
                 Me.Arrange vbCascade
             Case .WndSonVbArrangeIcons
@@ -946,6 +973,8 @@ Sub msLeftClick(ByVal CID As Long)
                 frmSysSetSkin.Show vbModal, Me
             Case .WndResetLayout
                 Call msResetLayout
+            Case .OtherPaneIDFirst
+                DockingPN.FindPane(CID).Closed = Not DockingPN.FindPane(CID).Closed
             Case .SysExit
                 Unload Me
             Case Else
@@ -962,6 +991,17 @@ Private Sub cBS_Execute(ByVal Control As XtremeCommandBars.ICommandBarControl)
     
 End Sub
 
+
+Private Sub DockingPN_Action(ByVal Action As XtremeDockingPane.DockingPaneAction, ByVal Pane As XtremeDockingPane.IPane, ByVal Container As XtremeDockingPane.IPaneActionContainer, Cancel As Boolean)
+    
+    If Action = PaneActionClosed Then
+        If Pane.Id = gID.OtherPaneIDFirst Then
+'            Debug.Print Pane.Id, Pane.Title, Pane.TitleToolTip
+            mcbsActions(Pane.Id).Checked = False
+        End If
+    End If
+    
+End Sub
 
 Private Sub DockingPn_PanePopupMenu(ByVal Pane As XtremeDockingPane.IPane, ByVal x As Long, ByVal y As Long, Handled As Boolean)
     '导航菜单标题中的Popu菜单生成
@@ -987,7 +1027,7 @@ Private Sub MDIForm_Load()
     Call msAddPopupMenu     '创建Popup菜单
     Call msAddTaskPanelItem '创建导航菜单
     Call msAddStatuBar      '创建状态栏
-'    Call msAddKeyBindings   '添加快捷键,放到LoadCommandBars方法后面才能生效
+    Call msAddKeyBindings   '添加快捷键,放到LoadCommandBars方法后面才能生效？？？
     Call msAddDesignerControls  'CommandBars自定义对话框中使用的
     
 
@@ -995,7 +1035,7 @@ Private Sub MDIForm_Load()
     cBS.EnableCustomization True        '允许自定义，此属性最好放在所有CommandBars设定之后
 
     Set mTabWorkspace = cBS.ShowTabWorkspace(True)    '允许窗口多标签显示
-    mTabWorkspace.Flags = xtpWorkspaceShowCloseSelectedTab Or xtpWorkspaceShowActiveFiles
+    mTabWorkspace.Flags = xtpWorkspaceShowActiveFiles Or xtpWorkspaceShowCloseSelectedTab
     
     
     '注意：先往窗体中拖入DockingPanel控件，再拖入CommandBars控件，或者右键CommandBars控件，选择移到顶层,显示才正常。
@@ -1006,13 +1046,13 @@ Private Sub MDIForm_Load()
     DockingPN.Options.ShowDockingContextStickers = True
     DockingPN.VisualTheme = ThemeWord2007
     
-'    Dim frmNew As Form
-'    For mLngID = 2 To 15
-'        Set frmNew = New frmSysTest
-'        frmNew.Caption = "Form" & mLngID
-'        frmNew.Command1.Caption = frmNew.Caption & "cmd1"
-'        frmNew.Show
-'    Next
+'''    Dim frmNew As Form
+'''    For mLngID = 2 To 15
+'''        Set frmNew = New frmSysTest
+'''        frmNew.Caption = "Form" & mLngID
+'''        frmNew.Command1.Caption = frmNew.Caption & "cmd1"
+'''        frmNew.Show
+'''    Next
     
     
     '注册表中保存用的几个变量值初始化
@@ -1041,10 +1081,10 @@ Private Sub MDIForm_Load()
         Me.Move L, T, W, H
     End If
 
-'    CommandBars布局设置
+    'CommandBars布局设置
     cBS.LoadCommandBars gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveCommandBarsSection
-    Call msAddKeyBindings   '添加快捷键
-    
+'''    Call msAddKeyBindings   '添加快捷键
+
     'CommandBars主题设置
     Call msThemeCommandBar(Val(GetSetting(Me.Name, gID.OtherSaveSettings, "ThemeCommandBas", gID.WndThemeCommandBarsVS2008)))
     
@@ -1119,8 +1159,8 @@ Private Sub MDIForm_Unload(Cancel As Integer)
     If mcbsActions(gID.OtherPaneMenuPopuAutoFold).Checked Then lngSaveID = 1
     SaveSetting Me.Name, gID.OtherSaveSettings, "AutoFold", lngSaveID
     
-'''    'DockingPane位置保存
-'''    DockingPN.SaveState gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveDockingPaneSection
+    'DockingPane位置保存
+    DockingPN.SaveState gID.OtherSaveRegistryKey, gID.OtherSaveAppName, gID.OtherSaveDockingPaneSection
     
     'TaskPanel的Popu
     lngSaveID = gID.WndThemeTaskPanelNativeWinXP

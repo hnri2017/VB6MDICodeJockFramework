@@ -65,7 +65,14 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub Command1_Click()
-    frmSysTest.Show
+    Dim frmNew As Form
+    Dim I As Long
+    For I = 1 To 15
+        Set frmNew = New frmSysTest
+        frmNew.Caption = "Form" & I
+        frmNew.Command1.Caption = frmNew.Caption & "cmd1"
+        frmNew.Show
+    Next
     Unload Me
 End Sub
 
