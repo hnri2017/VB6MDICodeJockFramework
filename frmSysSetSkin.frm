@@ -13,6 +13,14 @@ Begin VB.Form frmSysSetSkin
    ScaleWidth      =   5475
    ShowInTaskbar   =   0   'False
    StartUpPosition =   1  '所有者中心
+   Begin VB.CommandButton Command1 
+      Caption         =   "默认主题"
+      Height          =   375
+      Left            =   360
+      TabIndex        =   8
+      Top             =   3000
+      Width           =   1215
+   End
    Begin VB.TextBox Text1 
       Height          =   300
       Left            =   1320
@@ -39,7 +47,7 @@ Begin VB.Form frmSysSetSkin
    Begin VB.CommandButton CancelButton 
       Caption         =   "退出"
       Height          =   375
-      Left            =   2880
+      Left            =   3600
       TabIndex        =   1
       Top             =   3000
       Width           =   1215
@@ -47,7 +55,7 @@ Begin VB.Form frmSysSetSkin
    Begin VB.CommandButton OKButton 
       Caption         =   "应用"
       Height          =   375
-      Left            =   1320
+      Left            =   2040
       TabIndex        =   0
       Top             =   3000
       Width           =   1215
@@ -97,6 +105,20 @@ Private Sub CancelButton_Click()
     Unload Me
 End Sub
 
+Private Sub Command1_Click()
+    
+    If MsgBox("确定要将当前窗口主题恢复成初始值吗？", vbQuestion + vbOKCancel, "更改确认") = vbCancel Then
+        Exit Sub
+    End If
+    
+    List1.ListIndex = -1
+    List2.ListIndex = -1
+    gID.SkinPath = ""
+    gID.SkinIni = ""
+    Call gMDI.msThemeSkinSet(gID.SkinPath, gID.SkinIni)
+    
+End Sub
+
 Private Sub Form_Load()
     
     Text1.Text = gID.Folder_Styles  '显示主题文件所在路径
@@ -141,7 +163,7 @@ Private Sub Form_Load()
                             End If
                         Next
                     Else
-                        List2.ListIndex = 0
+                        List2.ListIndex = -1
                     End If
                     
                     Exit For
@@ -150,7 +172,7 @@ Private Sub Form_Load()
             Next
             
         Else
-            List1.ListIndex = 0
+            List1.ListIndex = -1
         End If
     End If
     
@@ -205,6 +227,10 @@ Private Sub OKButton_Click()
     strPro = Replace(Label1.Item(1).Caption, "：", "")
     If List2.ListIndex < 0 Then
         MsgBox strPro & " 中先选一个！", vbExclamation, strPro & "未选提示"
+        Exit Sub
+    End If
+    
+    If MsgBox("确定要更改当前窗口主题吗？", vbQuestion + vbOKCancel, "更改确认") = vbCancel Then
         Exit Sub
     End If
     
