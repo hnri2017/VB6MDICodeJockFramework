@@ -115,7 +115,7 @@ Private Sub Command1_Click()
     List2.ListIndex = -1
     gID.SkinPath = ""
     gID.SkinIni = ""
-    Call gMDI.msThemeSkinSet(gID.SkinPath, gID.SkinIni)
+    Call gMDI.gmsThemeSkinSet(gID.SkinPath, gID.SkinIni)
     
 End Sub
 
@@ -236,6 +236,6 @@ Private Sub OKButton_Click()
     
     gID.SkinPath = List1.Text
     gID.SkinIni = List2.Text
-    Call gMDI.msThemeSkinSet(gID.SkinPath, gID.SkinIni)
+    Call gMDI.gmsThemeSkinSet(gID.SkinPath, gID.SkinIni)
     
 End Sub

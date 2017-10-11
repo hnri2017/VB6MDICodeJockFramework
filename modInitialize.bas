@@ -114,8 +114,10 @@ Public gMDI As MDIForm          '全局主窗体引用
 
 
 
-Sub Main()
+Public Sub Main()
     
+    Set gMDI = frmSysMDI    '初始化主窗体引用全局变量
+
     With gID
         .Sys = 100
         .SysExit = 101
@@ -214,17 +216,14 @@ Sub Main()
         .StatusBarPaneUserInfo = 2304
         
         .Folder_Styles = App.Path & "\Styles\"
-        
     End With
     
-    Set gMDI = frmSysMDI
-''    gMDI.Show
     gMDI.skinFW.ApplyOptions = xtpSkinApplyColors Or xtpSkinApplyFrame Or xtpSkinApplyMenus Or xtpSkinApplyMetrics
     gMDI.skinFW.ApplyWindow gMDI.hWnd
 
     gID.SkinPath = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinPath, "")
     gID.SkinIni = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinIni, "")
-    Call gMDI.msThemeSkinSet(gID.SkinPath, gID.SkinIni)
+    Call gMDI.gmsThemeSkinSet(gID.SkinPath, gID.SkinIni)
 
     frmSysLogin.Show
     

@@ -282,7 +282,7 @@ Dim WithEvents mTabWorkspace As TabWorkspace    '窗口多标签控件
 Attribute mTabWorkspace.VB_VarHelpID = -1
 
 
-Sub msAddAction()
+Private Sub msAddAction()
     '创建CommandBars的Action
     
     Dim cbsAction As CommandBarAction
@@ -410,7 +410,7 @@ Sub msAddAction()
     
 End Sub
 
-Sub msAddDesignerControls()
+Private Sub msAddDesignerControls()
     'CommandBars自定义对话框中内容项的添加
     
     Dim cbsControls As CommandBarControls
@@ -425,7 +425,7 @@ Sub msAddDesignerControls()
     
 End Sub
 
-Sub msAddDockingPane()
+Private Sub msAddDockingPane()
     '创建浮动面板
     
     Dim paneLeft As XtremeDockingPane.Pane
@@ -448,7 +448,7 @@ Sub msAddDockingPane()
  
 End Sub
 
-Sub msAddKeyBindings()
+Private Sub msAddKeyBindings()
     '创建快捷键
     
     With cBS.KeyBindings
@@ -459,7 +459,7 @@ Sub msAddKeyBindings()
     
 End Sub
 
-Sub msAddMenu()
+Private Sub msAddMenu()
     '创建菜单栏
     
     Dim cbsMenuBar As XtremeCommandBars.MenuBar
@@ -559,7 +559,7 @@ Sub msAddMenu()
     
 End Sub
 
-Sub msAddPopupMenu()
+Private Sub msAddPopupMenu()
     '创建Popup菜单,如右键单击显示
     
     '创建Pane标题中的Popup菜单
@@ -581,7 +581,7 @@ Sub msAddPopupMenu()
     
 End Sub
 
-Sub msAddStatuBar()
+Private Sub msAddStatuBar()
     '创建状态栏
     
     Dim statuBar As XtremeCommandBars.StatusBar
@@ -613,7 +613,7 @@ Sub msAddStatuBar()
     
 End Sub
 
-Sub msAddTaskPanelItem()
+Private Sub msAddTaskPanelItem()
     '创建导航菜单
     '注意：这里的导航菜单仅是菜单栏的另一个显示形式
     
@@ -659,7 +659,7 @@ Sub msAddTaskPanelItem()
     
 End Sub
 
-Sub msAddToolBar()
+Private Sub msAddToolBar()
     '创建工具栏
     
     Dim cbsBar As CommandBar
@@ -697,7 +697,7 @@ Sub msAddToolBar()
 
 End Sub
 
-Sub msResetLayout()
+Private Sub msResetLayout()
     '重置窗口布局：CommandBars与Dockingpane控件重置
     
     Dim cBar As CommandBar
@@ -722,7 +722,7 @@ Sub msResetLayout()
 
 End Sub
 
-Sub msThemeCommandBar(ByVal CID As Long)
+Private Sub msThemeCommandBar(ByVal CID As Long)
     'CommandBars风格设置
     
     Select Case CID
@@ -755,7 +755,7 @@ Sub msThemeCommandBar(ByVal CID As Long)
     
 End Sub
 
-Sub msThemeSkin(ByVal SID As Long)
+Private Sub msThemeSkin(ByVal SID As Long)
     '加载皮肤，子窗口、主窗体整体界面样式都会有所变化
     
     Dim strFile As String, strIni As String
@@ -781,11 +781,11 @@ Sub msThemeSkin(ByVal SID As Long)
     
     gID.SkinPath = strFile
     gID.SkinIni = strIni
-    Call msThemeSkinSet(strFile, strIni)
+    Call gmsThemeSkinSet(strFile, strIni)
 
 End Sub
 
-Sub msThemeSkinSet(ByVal skinFile As String, ByVal SkinIni As String)
+Public Sub gmsThemeSkinSet(ByVal skinFile As String, ByVal SkinIni As String)
     '窗口主题设置
     
     skinFW.LoadSkin gID.Folder_Styles & skinFile, SkinIni
@@ -817,7 +817,7 @@ Sub msThemeSkinSet(ByVal skinFile As String, ByVal SkinIni As String)
     
 End Sub
 
-Sub msThemeTaskPanel(ByVal TID As Long)
+Private Sub msThemeTaskPanel(ByVal TID As Long)
     'Taskpanel风格设置
     
     Select Case TID
@@ -860,7 +860,7 @@ Sub msThemeTaskPanel(ByVal TID As Long)
     
 End Sub
 
-Sub msWindowControl(ByVal WID As Long)
+Private Sub msWindowControl(ByVal WID As Long)
     '子窗口控制
     
     Dim frmTag As Form
@@ -934,7 +934,7 @@ Sub msWindowControl(ByVal WID As Long)
     
 End Sub
 
-Sub msCommandBarPopu(ByVal PID As Long)
+Private Sub msCommandBarPopu(ByVal PID As Long)
     'Popu菜单响应
     
     Dim taskGroup As TaskPanelGroup
@@ -954,7 +954,7 @@ Sub msCommandBarPopu(ByVal PID As Long)
     
 End Sub
 
-Sub msLeftClick(ByVal CID As Long)
+Private Sub msLeftClick(ByVal CID As Long)
     'CommandBar与TaskPanelGroupItem单击命令响应公共过程
     
     With gID

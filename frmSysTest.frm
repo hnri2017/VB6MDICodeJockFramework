@@ -9,11 +9,20 @@ Begin VB.Form frmSysTest
    MDIChild        =   -1  'True
    ScaleHeight     =   6300
    ScaleWidth      =   9285
+   Begin ¹¤³Ì1.ucTextComboBox ucTextComboBox1 
+      Height          =   300
+      Left            =   1560
+      TabIndex        =   16
+      Top             =   5160
+      Width           =   2535
+      _ExtentX        =   4471
+      _ExtentY        =   529
+   End
    Begin VB.Timer timeProgress 
       Enabled         =   0   'False
       Interval        =   10
-      Left            =   1920
-      Top             =   4320
+      Left            =   2040
+      Top             =   3360
    End
    Begin VB.CheckBox Check3 
       Caption         =   "Check3"
@@ -73,7 +82,7 @@ Begin VB.Form frmSysTest
    End
    Begin VB.Frame Frame1 
       Caption         =   "Frame1"
-      Height          =   3975
+      Height          =   2775
       Left            =   2880
       TabIndex        =   7
       Top             =   1320
