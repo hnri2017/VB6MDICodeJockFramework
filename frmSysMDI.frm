@@ -435,7 +435,7 @@ Private Sub msAddDockingPane()
     Set paneLeft = DockingPN.CreatePane(gID.OtherPaneIDFirst, 240, 240, DockLeftOf, Nothing)
     paneLeft.Title = mcbsActions(gID.OtherPaneMenuTitle).Caption
     paneLeft.TitleToolTip = paneLeft.Title & mcbsActions(gID.OtherPane).Caption
-    paneLeft.Handle = picTaskPL.hWnd    '将任务面板TaskPanel的容器PictureBox控件挂靠在浮动面板PanelLeft上
+    paneLeft.Handle = picTaskPL.hwnd    '将任务面板TaskPanel的容器PictureBox控件挂靠在浮动面板PanelLeft上
     paneLeft.Options = PaneHasMenuButton    '显示Popu按键
     
         
@@ -1065,7 +1065,7 @@ Private Sub MDIForm_Load()
 
     '窗口位置
     Dim WS As Long, L As Long, T As Long, W As Long, H As Long
-    WS = Val(GetSetting(Me.Name, "Settings", "WindowState", 2))
+    WS = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "WindowState", 2))
     If WS = 2 Then
         Me.WindowState = 2  '最大化
     Else

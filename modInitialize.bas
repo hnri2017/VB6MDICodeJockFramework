@@ -94,6 +94,9 @@ Type typCommandBarID
     OtherSaveSkinPath As String
     OtherSaveSkinIni As String
     OtherSaveSkinID As String
+    OtherSaveUserLast As String
+    OtherSaveUserList As String
+    
     
     OtherTabWorkspacePopup As Long
     
@@ -208,6 +211,8 @@ Public Sub Main()
         .OtherSaveSkinID = "SkinFWID"
         .OtherSaveSkinIni = "SkinFWIni"
         .OtherSaveSkinPath = "SkinFWPath"
+        .OtherSaveUserList = "UserList"
+        .OtherSaveUserLast = "UserLast"
         
         .StatusBarPane = 2300
         .StatusBarPaneProgress = 2301
@@ -219,7 +224,7 @@ Public Sub Main()
     End With
     
     gMDI.skinFW.ApplyOptions = xtpSkinApplyColors Or xtpSkinApplyFrame Or xtpSkinApplyMenus Or xtpSkinApplyMetrics
-    gMDI.skinFW.ApplyWindow gMDI.hWnd
+    gMDI.skinFW.ApplyWindow gMDI.hwnd
 
     gID.SkinPath = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinPath, "")
     gID.SkinIni = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinIni, "")

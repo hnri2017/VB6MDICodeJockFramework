@@ -158,11 +158,11 @@ End Property
 
 
 '添加方法
-Public Sub AddItem(Item As String, Optional ByVal Index As Long)
+Public Sub AddItem(Item As String, Optional ByVal Index As Long = -1)
     Dim lngC As Long
     
     lngC = Combo1.ListCount
-    
+
     If Index <> 0 Then  'Index值传入后的防错处理
         If lngC = 0 Then
             Index = 0
