@@ -1,7 +1,7 @@
 frmSysTest = 62, 81, 940, 443, I, 25, 25, 725, 579, C
-frmSysMDI = 2, 0, 1019, 547, I, 3, 0, 750, 502, C
-modInitialize = 256, 273, 1119, 733, I
-frmSysLogin = 106, 85, 990, 619, , 100, 100, 477, 363, C
-frmSysSetSkin = 70, 65, 1010, 444, I, 12, 84, 458, 438, C
+frmSysMDI = 2, 0, 1019, 547, , 3, 0, 750, 502, C
+modInitialize = 280, 175, 1143, 635, I
+frmSysLogin = 106, 85, 990, 619, I, 100, 100, 477, 363, C
+frmSysSetSkin = 70, 65, 1010, 444, C, 12, 84, 458, 438, C
 ucTextComboBox = 138, 167, 1029, 606, C, 337, 257, 654, 470, C
 ucLabelComboBox = 50, 50, 941, 489, C, 0, 0, 380, 313, C

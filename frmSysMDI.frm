@@ -788,7 +788,7 @@ End Sub
 Public Sub gmsThemeSkinSet(ByVal skinFile As String, ByVal SkinIni As String)
     '窗口主题设置
     
-    skinFW.LoadSkin gID.Folder_Styles & skinFile, SkinIni
+    skinFW.LoadSkin gID.FolderStyles & skinFile, SkinIni
     
     Dim lngID As Long
     

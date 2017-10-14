@@ -106,9 +106,21 @@ Type typCommandBarID
     StatusBarPaneUserInfo As Long
     StatusBarPaneTime As Long
     
-    Folder_Styles As String
+    FolderStyles As String
+    FolderBin As String
+    FolderTemp As String
+    FolderFiles As String
+    
     SkinPath As String
     SkinIni As String
+    
+    UserLoginName As String
+    UserNickname As String
+    UserPassword As String
+    UserDepartment As String
+    UserLoginIP As String
+    UserComputerName As String
+    
     
 End Type
 
@@ -220,7 +232,7 @@ Public Sub Main()
         .StatusBarPaneTime = 2303
         .StatusBarPaneUserInfo = 2304
         
-        .Folder_Styles = App.Path & "\Styles\"
+        .FolderStyles = App.Path & "\Styles\"
     End With
     
     gMDI.skinFW.ApplyOptions = xtpSkinApplyColors Or xtpSkinApplyFrame Or xtpSkinApplyMenus Or xtpSkinApplyMetrics

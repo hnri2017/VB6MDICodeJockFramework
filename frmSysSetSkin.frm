@@ -121,12 +121,12 @@ End Sub
 
 Private Sub Form_Load()
     
-    Text1.Text = gID.Folder_Styles  '显示主题文件所在路径
+    Text1.Text = gID.FolderStyles  '显示主题文件所在路径
     
     Dim strFile As String
     '加载相应文件夹中的主题文件名称
 '    '方式一
-'    strFile = Dir(gID.Folder_Styles & "*styles", vbHidden + vbNormal + vbReadOnly + vbSystem)
+'    strFile = Dir(gID.FolderStyles & "*styles", vbHidden + vbNormal + vbReadOnly + vbSystem)
 '    While Len(strFile) > 0
 '        List1.AddItem strFile
 '        strFile = Dir
@@ -194,7 +194,7 @@ Private Sub List1_Click()
             Dim skinDes As SkinDescription
             Dim SkinIni As SkinIniFile
             
-            Set skinDes = gMDI.skinFW.EnumerateSkinFile(gID.Folder_Styles & strFile)
+            Set skinDes = gMDI.skinFW.EnumerateSkinFile(gID.FolderStyles & strFile)
             
             If skinDes Is Nothing Then  '如果文件出错会是Nothing
                 List1.RemoveItem List1.ListIndex
