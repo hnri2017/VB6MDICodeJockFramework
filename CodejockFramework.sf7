@@ -1,0 +1,4607 @@
+<DocumentData>
+<ProductID>{70A2EE35-89A0-4c85-931E-9B04B00EB038}</ProductID>
+<ProductVersion>7.0.1.0</ProductVersion>
+<ProductType>FULL</ProductType>
+<ArchiveFiles>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin\Codejock.CommandBars.v15.3.1.ocx</FullName>
+<FileName>Codejock.CommandBars.v15.3.1.ocx</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin</Source>
+<Ext>ocx</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>2746400</Size>
+<Attrib>32</Attrib>
+<TmCreate>1507682508</TmCreate>
+<TmAccess>1507682508</TmAccess>
+<TmModify>1507682508</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>983043</ProdVerMS>
+<ProdVerLS>65536</ProdVerLS>
+<FileVerMS>983043</FileVerMS>
+<FileVerLS>65536</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\bin</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc>Xtreme CommandBars ActiveX Control</SCDesc>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>1</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>1</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin\Codejock.DockingPane.v15.3.1.ocx</FullName>
+<FileName>Codejock.DockingPane.v15.3.1.ocx</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin</Source>
+<Ext>ocx</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>837664</Size>
+<Attrib>32</Attrib>
+<TmCreate>1507682508</TmCreate>
+<TmAccess>1507682508</TmAccess>
+<TmModify>1507682508</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>983043</ProdVerMS>
+<ProdVerLS>65536</ProdVerLS>
+<FileVerMS>983043</FileVerMS>
+<FileVerLS>65536</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\bin</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>1</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>1</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin\Codejock.SkinFramework.v15.3.1.ocx</FullName>
+<FileName>Codejock.SkinFramework.v15.3.1.ocx</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin</Source>
+<Ext>ocx</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>579616</Size>
+<Attrib>32</Attrib>
+<TmCreate>1507682508</TmCreate>
+<TmAccess>1507682508</TmAccess>
+<TmModify>1507682508</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>983043</ProdVerMS>
+<ProdVerLS>65536</ProdVerLS>
+<FileVerMS>983043</FileVerMS>
+<FileVerLS>65536</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\bin</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>1</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>1</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin\Codejock.TaskPanel.v15.3.1.ocx</FullName>
+<FileName>Codejock.TaskPanel.v15.3.1.ocx</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin</Source>
+<Ext>ocx</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>899104</Size>
+<Attrib>32</Attrib>
+<TmCreate>1507682508</TmCreate>
+<TmAccess>1507682508</TmAccess>
+<TmModify>1507682508</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>983043</ProdVerMS>
+<ProdVerLS>65536</ProdVerLS>
+<FileVerMS>983043</FileVerMS>
+<FileVerLS>65536</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\bin</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>1</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>1</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin\MSCOMCTL.OCX</FullName>
+<FileName>MSCOMCTL.OCX</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin</Source>
+<Ext>ocx</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>1070232</Size>
+<Attrib>32</Attrib>
+<TmCreate>1507682508</TmCreate>
+<TmAccess>1507682508</TmAccess>
+<TmModify>1449671940</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>393217</ProdVerMS>
+<ProdVerLS>6422574</ProdVerLS>
+<FileVerMS>393217</FileVerMS>
+<FileVerLS>6422574</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\bin</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>1</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>1</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin\Registrator.exe</FullName>
+<FileName>Registrator.exe</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin</Source>
+<Ext>exe</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>55216</Size>
+<Attrib>32</Attrib>
+<TmCreate>1507682508</TmCreate>
+<TmAccess>1507682508</TmAccess>
+<TmModify>1507682508</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>851970</ProdVerMS>
+<ProdVerLS>131072</ProdVerLS>
+<FileVerMS>851970</FileVerMS>
+<FileVerLS>131072</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\bin</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>1</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc>Codejock Software  Registrator Application</SCDesc>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>1</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin\stdole2.tlb</FullName>
+<FileName>stdole2.tlb</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin</Source>
+<Ext>tlb</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>16896</Size>
+<Attrib>32</Attrib>
+<TmCreate>1507682508</TmCreate>
+<TmAccess>1507682508</TmAccess>
+<TmModify>1507682508</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>393217</ProdVerMS>
+<ProdVerLS>498089985</ProdVerLS>
+<FileVerMS>393217</FileVerMS>
+<FileVerLS>498089985</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\bin</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>1</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles\Codejock.cjstyles</FullName>
+<FileName>Codejock.cjstyles</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles</Source>
+<Ext>cjstyles</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>1375224</Size>
+<Attrib>32</Attrib>
+<TmCreate>1506241301</TmCreate>
+<TmAccess>1506241301</TmAccess>
+<TmModify>1336955888</TmModify>
+<UseTrueVer>0</UseTrueVer>
+<ProdVerMS>0</ProdVerMS>
+<ProdVerLS>0</ProdVerLS>
+<FileVerMS>0</FileVerMS>
+<FileVerLS>0</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\Styles</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles\Office2007.cjstyles</FullName>
+<FileName>Office2007.cjstyles</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles</Source>
+<Ext>cjstyles</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>639480</Size>
+<Attrib>32</Attrib>
+<TmCreate>1506241301</TmCreate>
+<TmAccess>1506241301</TmAccess>
+<TmModify>1336955888</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>983042</ProdVerMS>
+<ProdVerLS>0</ProdVerLS>
+<FileVerMS>983042</FileVerMS>
+<FileVerLS>0</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\Styles</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles\Office2010.cjstyles</FullName>
+<FileName>Office2010.cjstyles</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles</Source>
+<Ext>cjstyles</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>837624</Size>
+<Attrib>32</Attrib>
+<TmCreate>1506241301</TmCreate>
+<TmAccess>1506241301</TmAccess>
+<TmModify>1336955888</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>983042</ProdVerMS>
+<ProdVerLS>0</ProdVerLS>
+<FileVerMS>983042</FileVerMS>
+<FileVerLS>0</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\Styles</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles\Orange.msstyles</FullName>
+<FileName>Orange.msstyles</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles</Source>
+<Ext>msstyles</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>618640</Size>
+<Attrib>32</Attrib>
+<TmCreate>1506319070</TmCreate>
+<TmAccess>1506319070</TmAccess>
+<TmModify>1027105766</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>65536</ProdVerMS>
+<ProdVerLS>1</ProdVerLS>
+<FileVerMS>65536</FileVerMS>
+<FileVerLS>1</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\Styles</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles\Vista.cjstyles</FullName>
+<FileName>Vista.cjstyles</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles</Source>
+<Ext>cjstyles</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>745976</Size>
+<Attrib>32</Attrib>
+<TmCreate>1506241301</TmCreate>
+<TmAccess>1506241301</TmAccess>
+<TmModify>1336955888</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>983042</ProdVerMS>
+<ProdVerLS>0</ProdVerLS>
+<FileVerMS>983042</FileVerMS>
+<FileVerLS>0</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\Styles</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles\WinXP.Luna.cjstyles</FullName>
+<FileName>WinXP.Luna.cjstyles</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles</Source>
+<Ext>cjstyles</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>1576440</Size>
+<Attrib>32</Attrib>
+<TmCreate>1506241301</TmCreate>
+<TmAccess>1506241301</TmAccess>
+<TmModify>1336955888</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>983042</ProdVerMS>
+<ProdVerLS>0</ProdVerLS>
+<FileVerMS>983042</FileVerMS>
+<FileVerLS>0</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\Styles</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles\WinXP.Royale.cjstyles</FullName>
+<FileName>WinXP.Royale.cjstyles</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\Styles</Source>
+<Ext>cjstyles</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>521208</Size>
+<Attrib>32</Attrib>
+<TmCreate>1506241301</TmCreate>
+<TmAccess>1506241301</TmAccess>
+<TmModify>1336955890</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>983042</ProdVerMS>
+<ProdVerLS>0</ProdVerLS>
+<FileVerMS>983042</FileVerMS>
+<FileVerLS>0</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\Styles</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc/>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\CodejockFramework.exe</FullName>
+<FileName>CodejockFramework.exe</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk</Source>
+<Ext>exe</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>188416</Size>
+<Attrib>32</Attrib>
+<TmCreate>1508118149</TmCreate>
+<TmAccess>1508118151</TmAccess>
+<TmModify>1508118257</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>65538</ProdVerMS>
+<ProdVerLS>3</ProdVerLS>
+<FileVerMS>65538</FileVerMS>
+<FileVerLS>3</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>0</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>1</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>1</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc>CodejockFramework</SCDesc>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>0</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>0</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>0</NoRemove>
+<Shared>0</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+<FileData>
+<FldRef>0</FldRef>
+<FullName>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin\comcat.dll</FullName>
+<FileName>comcat.dll</FileName>
+<Source>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk\bin</Source>
+<Ext>dll</Ext>
+<RTSource>存档</RTSource>
+<Desc/>
+<Recurse>1</Recurse>
+<MatchMode>0</MatchMode>
+<Size>7168</Size>
+<Attrib>32</Attrib>
+<TmCreate>1508118098</TmCreate>
+<TmAccess>1508118098</TmAccess>
+<TmModify>1247534107</TmModify>
+<UseTrueVer>1</UseTrueVer>
+<ProdVerMS>393217</ProdVerMS>
+<ProdVerLS>498089985</ProdVerLS>
+<FileVerMS>393217</FileVerMS>
+<FileVerLS>498089985</FileVerLS>
+<FileDateMS>0</FileDateMS>
+<FileDateLS>0</FileDateLS>
+<Dest>%AppFolder%\bin</Dest>
+<Overwrite>1</Overwrite>
+<Backup>0</Backup>
+<Protect>1</Protect>
+<InstallOrder>1000</InstallOrder>
+<SCStartRoot>0</SCStartRoot>
+<SCStartProgs>0</SCStartProgs>
+<SCAppFld>0</SCAppFld>
+<SCStartup>0</SCStartup>
+<SCDesk>0</SCDesk>
+<SCQLaunch>0</SCQLaunch>
+<SCCust>0</SCCust>
+<CustSCPath/>
+<SCDesc>Microsoft? Windows? Operating System</SCDesc>
+<SCComment/>
+<SCArgs/>
+<SCWork/>
+<UseExtIco>0</UseExtIco>
+<IcoFN/>
+<IcoIdx>0</IcoIdx>
+<IcoShowMd>0</IcoShowMd>
+<IcoHK>0</IcoHK>
+<RegTTF>0</RegTTF>
+<TTFName/>
+<RegOCX>1</RegOCX>
+<RegTLB>0</RegTLB>
+<SupInUse>1</SupInUse>
+<Compress>1</Compress>
+<UseOrigAttr>1</UseOrigAttr>
+<Attr>0</Attr>
+<NoCRC>0</NoCRC>
+<NoRemove>1</NoRemove>
+<Shared>1</Shared>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<RTCond/>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Package>无</Package>
+<Packages/>
+<Notes/>
+<CompSize>0</CompSize>
+<CRC>0</CRC>
+<StoreOnly>0</StoreOnly>
+</FileData>
+</ArchiveFiles>
+<ExternalFiles/>
+<BeforeInstallingScreens>
+<Screen>
+<Type>100</Type>
+<Name>开始安装</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Welcome to Setup</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Business_top.jpg</TBIMG>
+<SBIMG>Business_side.jpg</SBIMG>
+<BDIMG>Business_body.jpg</BDIMG>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- 这些操作在屏幕显示之前执行。
+</Script>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- 这些操作在点击“返回”按钮时执行。
+
+-- 返回到上一个屏幕
+Screen.Back();
+</Script>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- 这些操作在点击“下一步”按钮时执行。
+
+-- 进入下一个屏幕
+Screen.Next();
+</Script>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- 这些操作在点击“取消”按钮时执行。
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 询问用户是否确定要退出
+if g_ConfirmSetupAbort() then
+	Application.Exit();
+end
+</Script>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- 这些操作在点击“帮助”按钮时执行。
+</Script>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- 这些操作由屏幕上的控件触发。
+</Script>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>77</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>78</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Welcome</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Welcome to the installer for %ProductName% %ProductVer%</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>Welcome to the installer for %ProductName% %ProductVer%.
+
+It is strongly recommended that you exit all Windows programs before continuing with this installation.
+
+If you have any other programs running, please click Cancel, close the programs, and run this setup again.
+
+Otherwise, click Next to continue.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Welcome</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% 安装程序</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>欢迎</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>欢迎使用 %ProductName% %ProductVer% 安装程序</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>下一步(&amp;N) &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; 返回(&amp;B)</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>取消(&amp;C)</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>帮助(&amp;H)</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>欢迎使用 %ProductName% %ProductVer% 安装程序。
+
+强烈建议您在继续该安装之前，退出所有 Windows 程序。
+
+如果您有任何其他程序正在运行，请单击“取消”，关闭程序，然后再次运行该安装程序。
+
+否则，请单击“下一步”继续。
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>欢迎</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+<Screen>
+<Type>110</Type>
+<Name>选择安装文件夹</Name>
+<BannerStyle>2</BannerStyle>
+<TemplateName>Select Install Folder</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Business_top.jpg</TBIMG>
+<SBIMG>Business_side.jpg</SBIMG>
+<BDIMG>Business_body.jpg</BDIMG>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Variable>%AppFolder%</Variable>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- 这些操作在屏幕显示之前执行。
+
+-- 计算安装所需要的空间
+_SpaceRequired = SetupData.CalculateRequiredSpace();
+
+-- 以一个适当的度量单位来将其格式化为一个字符串 (如："0 字节")
+local strSpaceRequired = String.GetFormattedSize(_SpaceRequired);
+
+-- 将字符串储存在一个会话变量中，以便它可以用在屏幕文本中
+SessionVar.Set("%SpaceRequired%", strSpaceRequired);
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 更新“所需空间:”信息 (扩展其中的任意会话变量)
+g_UpdateStaticTextCtrl(CTRL_STATICTEXT_SPACEREQUIRED, "IDS_CTRL_STATICTEXT_SPACEREQUIRED");
+</Script>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- 这些操作在点击“返回”按钮时执行。
+
+-- 返回到上一个屏幕
+Screen.Back();
+</Script>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- 这些操作在点击“下一步”按钮时执行。
+	
+-- 来自 _SUF70_Global_Functions.lua:
+-- 确定安装文件夹的路径格式正确 (即是一个有效的 UNC 或 DOS 路径字符串)
+if(g_IsValidPath(strInstallFolderPath)) then
+
+	-- 如果所选驱动器上有足够空间，就继续下一个屏幕
+	if(_SpaceAvailable &gt;= _SpaceRequired) then
+		-- 驱动器上有足够空间...那么
+			
+		-- 继续下一个屏幕
+		Screen.Next();
+		
+	else
+		-- 驱动器上没有足够空间...
+		
+		-- 来自 _SUF70_Global_Functions.lua:
+		-- 询问用户是否无论如何也要继续
+		if g_ConfirmFreeSpaceOverride() then
+			-- 用户确定要继续安装...那么
+			-- 进入下一个屏幕
+			Screen.Next();
+		end
+	end
+else
+	-- 安装文件夹路径无效...
+	
+	local strTitle = SetupData.GetLocalizedString("MSG_INVALID_ENTRY");
+	local strPrompt;
+
+	-- 来自 _SUF70_Global_Functions.lua:
+	-- 检查安装文件夹路径是否只包含了有效的路径字符
+	if(g_ContainsValidPathChars(strInstallFolderPath)) then
+		-- 字符串格式错误
+		strPrompt = SetupData.GetLocalizedString("ERR_INVALID_PATH");
+	else
+		-- 字符串包含无效的字符
+		strPrompt = SetupData.GetLocalizedString("ERR_INVALID_CHARACTERS") .. "\r\n/ * ? \" &lt; &gt; |";		
+	end
+
+	-- 告诉用户需要修正路径
+	Dialog.Message(strTitle, strPrompt, MB_OK, MB_ICONEXCLAMATION);
+end
+</Script>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- 这些操作在点击“取消”按钮时执行。
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 询问用户是否确定要退出
+if g_ConfirmSetupAbort() then
+	Application.Exit();
+end
+</Script>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- 这些操作在点击“帮助”按钮时执行。
+</Script>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- 这些操作由屏幕上的控件触发。
+
+if(e_CtrlID == CTRL_BUTTON_BROWSE) then
+	-- 控制信息来自浏览按钮...
+
+	-- 如果它是点击信息，就显示浏览对话框
+	-- 并更新安装文件夹
+	if (e_MsgID == MSGID_CLICKED) then
+
+		-- 从安装文件夹一栏获取文本
+		-- (这将用作浏览对话框的提示)
+		local strPrompt = Screen.GetLocalizedString("IDS_CTRL_STATICTEXT_LABEL_01");
+		strPrompt = SessionVar.Expand(strPrompt);
+		
+		-- 来自 _SUF70_Global_Functions.lua:
+		-- 显示文件夹浏览对话框，以更改安装文件夹一栏中的路径
+		g_EditFieldFolderBrowse(CTRL_EDIT_FOLDER, strPrompt);
+	end
+end
+
+
+if(e_CtrlID == CTRL_EDIT_FOLDER) then
+	-- 控制信息来自安装文件夹一栏...
+
+	-- 如果它是 OnChanged 信息 (即安装路径已更改)
+	-- 重新计算所选驱动器上的可用空间
+	if (e_MsgID == MSGID_ONCHANGED) then
+
+		strInstallFolderPath = e_Details.Text;
+		
+		-- 来自 _SUF70_Global_Functions.lua:
+		-- 计算所选驱动器上的可用磁盘空间
+		_SpaceAvailable = g_GetFreeSpaceInBytes(strInstallFolderPath);
+
+		-- 以一个度量单位将 %SpaceAvailable% 设置到一个字符串 (如："0 字节")
+		SessionVar.Set("%SpaceAvailable%", String.GetFormattedSize(_SpaceAvailable) );
+
+		-- 来自 _SUF70_Global_Functions.lua:
+		-- 更新“所选驱动器上的可用空间:”信息 (扩展其中的任意会话变量)
+		g_UpdateStaticTextCtrl(CTRL_STATICTEXT_SPACEAVAILABLE, "IDS_CTRL_STATICTEXT_SPACEAVAILABLE");
+	end
+end
+</Script>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>203</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>211</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>2</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>6</Type>
+<ID>801</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>3</TabOrder>
+<TextAlign>0</TextAlign>
+<VertScroll>0</VertScroll>
+<HorizScroll>0</HorizScroll>
+<RTLReadingOrder>0</RTLReadingOrder>
+<Style>0</Style>
+<Mode>0</Mode>
+<MaskReturnMode>1</MaskReturnMode>
+<ReadOnly>0</ReadOnly>
+<StartNewRow>1</StartNewRow>
+<SizeColumns>4</SizeColumns>
+<Variable>%AppFolder%</Variable>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>110</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>4</TabOrder>
+<FTButton>0</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>208</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>5</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>207</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>6</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Installation Folder</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Where would you like %ProductName% to be installed?</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_BUTTON_BROWSE>C&amp;hange...</IDS_CTRL_BUTTON_BROWSE>
+<IDS_CTRL_EDIT_FOLDER>%AppFolder%</IDS_CTRL_EDIT_FOLDER>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>The software will be installed in the folder listed below. To select a different location, either type in a new path, or click Change to browse for an existing folder.</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01>Install %ProductName% to:</IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_STATICTEXT_SPACEREQUIRED>Space required: %SpaceRequired%</IDS_CTRL_STATICTEXT_SPACEREQUIRED>
+<IDS_CTRL_STATICTEXT_SPACEAVAILABLE>Space available on selected drive: %SpaceAvailable%</IDS_CTRL_STATICTEXT_SPACEAVAILABLE>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% 安装程序</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>安装文件夹</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>您想将 %ProductName% 安装到何处？</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>下一步(&amp;N) &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; 返回(&amp;B)</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>取消(&amp;C)</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>帮助(&amp;H)</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_BUTTON_BROWSE>更改(&amp;H)...</IDS_CTRL_BUTTON_BROWSE>
+<IDS_CTRL_EDIT_FOLDER>%AppFolder%</IDS_CTRL_EDIT_FOLDER>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>软件将被安装到以下列出的文件夹中。要选择不同的位置，键入新的路径，或单击“更改”浏览现有的文件夹。</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01>将 %ProductName% 安装到:</IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_STATICTEXT_SPACEREQUIRED>所需空间: %SpaceRequired%</IDS_CTRL_STATICTEXT_SPACEREQUIRED>
+<IDS_CTRL_STATICTEXT_SPACEAVAILABLE>选定驱动器的可用空间: %SpaceAvailable%</IDS_CTRL_STATICTEXT_SPACEAVAILABLE>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+<Screen>
+<Type>115</Type>
+<Name>选择快捷方式</Name>
+<BannerStyle>2</BannerStyle>
+<TemplateName>Select Shortcut Folder</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Business_top.jpg</TBIMG>
+<SBIMG>Business_side.jpg</SBIMG>
+<BDIMG>Business_body.jpg</BDIMG>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<NameVariable>%AppShortcutFolderName%</NameVariable>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- 这些操作在屏幕显示之前执行。
+
+-- 为快捷方式选择适当的用户配置文件
+-- (每个用户或所有用户) 基于 _UsePerUserFolders
+
+-- 我们只应提供 Windows NT 4.0/2000/XP+ 上的所有用户或每个用户
+local bHideUserProfileOptions = false;
+local tblOS = System.GetOSVersionInfo();
+if(tblOS)then
+	if(tblOS.PlatformId == "1")then
+		bHideUserProfileOptions = true;
+	end
+end
+
+if(bHideUserProfileOptions)then
+	DlgRadioButton.SetProperties(CTRL_RADIOBTN_PERUSER,{Visible = false});
+	DlgRadioButton.SetProperties(CTRL_RADIOBTN_ALLUSERS,{Visible = false});
+	-- 始终使用 Windows 95/98/ME 上的每个用户文件夹
+	_UsePerUserFolders = true;
+else
+	DlgRadioButton.SetProperties(CTRL_RADIOBTN_PERUSER,{Checked = _UsePerUserFolders});
+	DlgRadioButton.SetProperties(CTRL_RADIOBTN_ALLUSERS,{Checked = not _UsePerUserFolders});
+end
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 用现有的快捷方式文件夹名称填入组合框
+g_FillComboBoxWithShortcutFolders(CTRL_COMBOBOX_SHORTCUTFOLDERS);
+</Script>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- 这些操作在点击“返回”按钮时执行。
+
+-- 返回到上一个屏幕
+Screen.Back();
+</Script>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- 这些操作在点击“下一步”按钮时执行。
+
+-- 从组合框获取文本
+strShortcutFolder = DlgComboBox.GetProperties(CTRL_COMBOBOX_SHORTCUTFOLDERS).Text;
+
+-- 如果快捷方式文件夹路径为空，则显示信息
+-- 如果不为空，则检查无效的字符并进入下一个屏幕
+if String.Length(strShortcutFolder) == 0 then
+
+	-- 该栏为空...
+	-- 快点，别害羞 :)
+	local strTitle = SetupData.GetLocalizedString("MSG_INVALID_ENTRY");
+	local strPrompt = SetupData.GetLocalizedString("ERR_FIELD_CANNOT_BE_EMPTY");
+	Dialog.Message(strTitle, strPrompt, MB_OK, MB_ICONEXCLAMATION);
+
+else
+	-- 该栏不为空...
+	-- 确定快捷方式文件夹路径只包含有效的字符
+	if g_ContainsValidRelativePathChars(strShortcutFolder) then
+
+		-- 进入下一个屏幕
+		Screen.Next();
+
+	else
+		-- 快捷方式文件夹包含无效的字符
+		-- 告诉用户需要修正
+		local strTitle = SetupData.GetLocalizedString("MSG_INVALID_ENTRY");
+		local strPrompt = SetupData.GetLocalizedString("ERR_INVALID_CHARACTERS") .. "\r\n/ * ? \" &lt; &gt; | :";
+		Dialog.Message(strTitle, strPrompt, MB_OK, MB_ICONEXCLAMATION);
+	end
+end
+</Script>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- 这些操作在点击“取消”按钮时执行。
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 询问用户是否确定要退出
+if g_ConfirmSetupAbort() then
+	Application.Exit();
+end
+</Script>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- 这些操作在点击“帮助”按钮时执行。
+</Script>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- 这些操作由屏幕上的控件触发。
+
+if (e_MsgID == MSGID_CLICKED) then
+
+	-- 用户进行了点击...是单选按钮中的一个吗？
+	if (e_CtrlID == CTRL_RADIOBTN_PERUSER) then
+
+		-- 用户所选的屏幕上的“每用户”选项...
+	
+		-- 打开安装中的选项
+		_UsePerUserFolders = true;
+
+		-- 更新组合框中的快捷方式文件夹列表
+		g_FillComboBoxWithShortcutFolders(CTRL_COMBOBOX_SHORTCUTFOLDERS);
+
+	elseif (e_CtrlID == CTRL_RADIOBTN_ALLUSERS) then
+
+		-- 用户选择了屏幕上的“所有用户”选项...
+
+		-- 关闭安装中的选项
+		_UsePerUserFolders = false;
+
+		-- 更新组合框中的快捷方式文件夹列表
+		g_FillComboBoxWithShortcutFolders(CTRL_COMBOBOX_SHORTCUTFOLDERS);
+	end
+end
+</Script>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>203</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>211</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>4</Type>
+<ID>501</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>2</TabOrder>
+<Sorted>0</Sorted>
+<ShowShortcutFolders>1</ShowShortcutFolders>
+<PerUser>1</PerUser>
+<Variable/>
+<Lines>4</Lines>
+<ComboType>1</ComboType>
+</Control>
+<Control>
+<Type>5</Type>
+<ID>600</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>35</TabOrder>
+<Group>1</Group>
+<StartID>600</StartID>
+<EndID>601</EndID>
+</Control>
+<Control>
+<Type>5</Type>
+<ID>601</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>40</TabOrder>
+<Group>0</Group>
+<StartID>600</StartID>
+<EndID>601</EndID>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Shortcut Folder</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Where would you like the shortcuts to be installed?</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>The shortcut icons will be created in the folder indicated below. If you don't want to use the default folder, you can either type a new name, or select an existing folder from the list.</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01>Shortcut Folder:</IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_RADIOBTN_PERUSER>Install shortcuts for current user only</IDS_CTRL_RADIOBTN_PERUSER>
+<IDS_CTRL_RADIOBTN_ALLUSERS>Make shortcuts available to all users</IDS_CTRL_RADIOBTN_ALLUSERS>
+<IDS_CTRL_COMBOBOX_SHORTCUTFOLDERS>%AppShortcutFolderName%</IDS_CTRL_COMBOBOX_SHORTCUTFOLDERS>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% 安装程序</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>快捷方式文件夹</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>您想将快捷方式安装到何处？</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>下一步(&amp;N) &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; 返回(&amp;B)</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>取消(&amp;C)</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>帮助(&amp;H)</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>快捷方式图标将在下面指出的文件夹中创建。如果您不想使用默认文件夹，您可以键入新的名称，或从列表中选择现有的文件夹。</IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS>
+<IDS_CTRL_STATICTEXT_LABEL_01>快捷方式文件夹:</IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_RADIOBTN_PERUSER>只对当前用户安装快捷方式</IDS_CTRL_RADIOBTN_PERUSER>
+<IDS_CTRL_RADIOBTN_ALLUSERS>使快捷方式对所有用户都可用</IDS_CTRL_RADIOBTN_ALLUSERS>
+<IDS_CTRL_COMBOBOX_SHORTCUTFOLDERS>%AppShortcutFolderName%</IDS_CTRL_COMBOBOX_SHORTCUTFOLDERS>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+<Screen>
+<Type>100</Type>
+<Name>准备安装</Name>
+<BannerStyle>2</BannerStyle>
+<TemplateName>Ready to Install</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Business_top.jpg</TBIMG>
+<SBIMG>Business_side.jpg</SBIMG>
+<BDIMG>Business_body.jpg</BDIMG>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- 这些操作在屏幕显示之前执行。
+</Script>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- 这些操作在点击“返回”按钮时执行。
+
+-- 返回到上一个屏幕
+Screen.Back();
+</Script>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- 这些操作在点击“下一步”按钮时执行。
+
+-- 进入下一个屏幕
+Screen.Next();
+</Script>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- 这些操作在点击“取消”按钮时执行。
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 询问用户是否确定要退出
+if g_ConfirmSetupAbort() then
+	Application.Exit();
+end
+</Script>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- 这些操作在点击“帮助”按钮时执行。
+</Script>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- 这些操作由屏幕上的控件触发。
+</Script>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Ready to Install</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>You are now ready to install %ProductName% %ProductVer%</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>The installer now has enough information to install %ProductName% on your computer.
+
+
+The following settings will be used:
+
+Install folder:        %AppFolder%
+
+Shortcut folder:    %AppShortcutFolderName%
+
+
+Please click Next to proceed with the installation.</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Title</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% 安装程序</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>准备安装</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>现在您正准备安装 %ProductName% %ProductVer%</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>下一步(&amp;N) &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; 返回(&amp;B)</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>取消(&amp;C)</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>帮助(&amp;H)</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>现在安装程序已有足够的信息将 %ProductName% 安装到您的计算机中。
+
+
+将使用以下设置:
+
+安装文件夹:        %AppFolder%
+
+快捷方式文件夹:    %AppShortcutFolderName%
+
+
+请单击“下一步”继续安装。</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>标题</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</BeforeInstallingScreens>
+<DuringInstScreenData>
+<ShowProgress>1</ShowProgress>
+<Screens>
+<Screen>
+<Type>130</Type>
+<Name>一个进度条 (安装期间)</Name>
+<BannerStyle>2</BannerStyle>
+<TemplateName>One Progress Bar (While Installing)</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Business_top.jpg</TBIMG>
+<SBIMG>Business_side.jpg</SBIMG>
+<BDIMG>Business_body.jpg</BDIMG>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<IsWhileInstallingMode>1</IsWhileInstallingMode>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- 这些操作在屏幕显示之前执行。
+</Script>
+</Event>
+<Event>
+<Name>On Progress</Name>
+<Args>number e_Stage, string e_CurrentItemText, number e_CurrentItemPct, number e_StagePct</Args>
+<Script>-- 这些操作在安装文件时执行。
+
+--[[
+注意：
+	文件安装进度分为 4 个安装阶段：
+
+	1. 准备安装
+	2. 正在安装文件
+	3. 正在创建卸载
+	4. 正在创建快捷方式
+
+	每个进度阶段在工程的语言文件中都有一个字符串来进行描述，
+	如：“正在安装文件...”。这让进度文本的翻译编程可能（连同
+	语言文件中的其他本地化字符串一起)。
+]]
+
+-- 为当前阶段的进度信息获取适当的字符串 ID...
+local strStringID;
+if(e_Stage == INSTALL_STAGE_PREPARING) then
+	strStringID = "MSG_PROG_PREPARING";
+elseif(e_Stage == INSTALL_STAGE_INSTALLING_FILES) then
+	strStringID = "MSG_PROG_INSTALLING_FILES";
+elseif(e_Stage == INSTALL_STAGE_CREATING_UNINSTALL) then
+	strStringID = "MSG_PROG_CREATING_UNINSTALL";
+elseif(e_Stage == INSTALL_STAGE_CREATING_SHORTCUTS) then
+	strStringID = "MSG_PROG_CREATING_SHORTCUTS";
+end
+
+-- ...并从语言文件中获取相应的字符串
+local strStageMessage = SetupData.GetLocalizedString(strStringID);
+
+-- 更新进度提示，以显示当前阶段
+DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_01, {Text=strStageMessage});
+
+-- 如果当前项目是一个文件路径，它对于屏幕来说可能太长...
+-- 下一步操作将缩短文本为 72 个字符 (如果它至少包含一个 \)
+local strAbbreviatedItemText = String.AbbreviateFilePath(e_CurrentItemText, 72);
+
+-- 更新状态文本，以显示当前项目 (如：正在安装的文件)
+DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=strAbbreviatedItemText});
+
+-- 更新进度条
+DlgProgressBar.SetPos(CTRL_PROGRESS_BAR_01, e_StagePct);
+</Script>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- 这些操作在点击“取消”按钮时执行。
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 询问用户是否确定要退出
+if g_ConfirmSetupAbort() then
+	Application.Exit();
+end
+</Script>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>78</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>203</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>211</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>2</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>212</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>3</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>900</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>4</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>1</XPStyleBars>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>213</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>2</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>214</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>3</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>901</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>4</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>0</XPStyleBars>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Installing %ProductName%</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Please wait...</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS/>
+<IDS_CTRL_STATICTEXT_LABEL_01/>
+<IDS_CTRL_STATICTEXT_LABEL_02/>
+<IDS_CTRL_PROGRESS_BAR_01/>
+<IDS_CTRL_STATICTEXT_LABEL_03>Progress Two</IDS_CTRL_STATICTEXT_LABEL_03>
+<IDS_CTRL_STATICTEXT_LABEL_04>Performing Actions...</IDS_CTRL_STATICTEXT_LABEL_04>
+<IDS_CTRL_PROGRESS_BAR_02/>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% 安装程序</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>正在安装 %ProductName%</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>请稍候...</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_CANCEL>取消(&amp;C)</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS/>
+<IDS_CTRL_STATICTEXT_LABEL_01/>
+<IDS_CTRL_STATICTEXT_LABEL_02/>
+<IDS_CTRL_PROGRESS_BAR_01/>
+<IDS_CTRL_STATICTEXT_LABEL_03>进程二</IDS_CTRL_STATICTEXT_LABEL_03>
+<IDS_CTRL_STATICTEXT_LABEL_04>正在执行动作...</IDS_CTRL_STATICTEXT_LABEL_04>
+<IDS_CTRL_PROGRESS_BAR_02/>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</Screens>
+</DuringInstScreenData>
+<AfterInstallingScreens>
+<Screen>
+<Type>100</Type>
+<Name>结束安装</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Finished Install</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Business_top.jpg</TBIMG>
+<SBIMG>Business_side.jpg</SBIMG>
+<BDIMG>Business_body.jpg</BDIMG>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- 这些操作在屏幕显示之前执行。
+</Script>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- 这些操作在点击“返回”按钮时执行。
+
+-- 返回到上一个屏幕
+Screen.Back();
+</Script>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- 这些操作在点击“下一步”按钮时执行。
+
+-- 进入下一个屏幕
+Screen.Next();
+
+-- 启动应用程序
+File.Run(SessionVar.Expand("%AppFolder%\\%ExeName%"), "", "", SW_SHOWNORMAL, false);
+--
+SetupData.WriteToLogFile("OK	启动程序--"..SessionVar.Expand("%AppFolder%\\%ExeName%").."\r\n", true);
+
+-- 若安装路径不是默认路径，则删除创建的默认路径
+if (String.Compare(String.Lower(SessionVar.Expand("%DefaultSetupPath%")), String.Lower(SessionVar.Expand("%AppFolder%"))) ~= 0) then
+	-- 要执行的语句
+	
+	--当选择安装的目录与默认路径不同时，日志应转移至选择路径中，并删除默认路径中的日志
+	--但是不是知道以下代码写哪个位置才能成功
+	File.Copy(SessionVar.Expand("%DefaultSetupPath%\\%LogName_Setup%"), SessionVar.Expand("%AppFolder%\\%LogName_Setup%"), false, true, false, true, nil);
+	--Folder.Delete(SessionVar.Expand("%DefaultSetupPath%"));
+	SetupData.WriteToLogFile("Notice	安装路径与默认路径不相同\r\n", true);
+
+end
+
+	</Script>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- 这些操作在点击“取消”按钮时执行。
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 询问用户是否确定要退出
+if g_ConfirmSetupAbort() then
+	Application.Exit();
+end
+</Script>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- 这些操作在点击“帮助”按钮时执行。
+</Script>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- 这些操作由屏幕上的控件触发。
+</Script>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Setup</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Installation Finished</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>The installation has completed successfully.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Finish</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>The %ProductName% %ProductVer% installation is complete.
+
+Thank you for choosing %ProductName%!
+
+Please click Finish to exit this installer.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Installation Successful</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% 安装程序</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>安装已完成</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>安装已成功完成。</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>完成(&amp;F)</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; 返回(&amp;B)</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>取消(&amp;C)</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>帮助(&amp;H)</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>%ProductName% %ProductVer% 安装已完成。
+
+感谢您选择 %ProductName%！
+
+请单击“完成”退出该安装程序。
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>安装成功</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</AfterInstallingScreens>
+<Packages/>
+<SerialLists>
+<SerialListData>
+<Name>List 1</Name>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+<Serials/>
+</SerialListData>
+</SerialLists>
+<UninstallData>
+<CreateUninstall>1</CreateUninstall>
+<CfgFile>uninstall.xml</CfgFile>
+<UninstallFilesFolder>%AppFolder%\Uninstall</UninstallFilesFolder>
+<UninstallEXELocation>%AppFolder%\Uninstall\uninstall.exe</UninstallEXELocation>
+<AllowSilent>0</AllowSilent>
+<StartSilent>0</StartSilent>
+<ShowBGWindow>0</ShowBGWindow>
+<MainWindowSettings>
+<ShowBackGroundWindow>0</ShowBackGroundWindow>
+<WindowStyle>0</WindowStyle>
+<WindowAppearance>1</WindowAppearance>
+<SolidBackColor format="hex">008080</SolidBackColor>
+<GradientBackColor format="hex">b4c2e3</GradientBackColor>
+<GradientForeColor format="hex">5971b6</GradientForeColor>
+<ImageFile/>
+<UseCustomIcon>0</UseCustomIcon>
+<CustomIcon/>
+<HideTaskbarIcon>0</HideTaskbarIcon>
+<AlwaysOnTop>0</AlwaysOnTop>
+<Headline>%ProductName% 卸载</Headline>
+<HeadingFont>
+<FontData>
+<FontName>宋体</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-37</Height>
+<Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</HeadingFont>
+<HeadlineTextColor format="hex">ffffff</HeadlineTextColor>
+<Headline3DColor format="hex">000000</Headline3DColor>
+<HeadlineAlign>0</HeadlineAlign>
+<Headline3d>1</Headline3d>
+<SubHeading>v%ProductVer%</SubHeading>
+<SubHeadingFont>
+<FontData>
+<FontName>宋体</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-18</Height>
+<Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</SubHeadingFont>
+<SubHeadingTextColor format="hex">ffffff</SubHeadingTextColor>
+<SubHeading3DColor format="hex">000000</SubHeading3DColor>
+<SubHeadingAlign>0</SubHeadingAlign>
+<SubHeading3d>1</SubHeading3d>
+<Footer>%Copyright% %CompanyName%. 保留所有权利。%CompanyURL%</Footer>
+<FooterFont>
+<FontData>
+<FontName>宋体</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-16</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</FooterFont>
+<FooterTextColor format="hex">ffffff</FooterTextColor>
+<Footer3DColor format="hex">000000</Footer3DColor>
+<FooterAlign>0</FooterAlign>
+<Footer3d>1</Footer3d>
+</MainWindowSettings>
+<OverwriteDatFile>1</OverwriteDatFile>
+<OverwriteCtrlPanel>1</OverwriteCtrlPanel>
+<OverwriteSC>1</OverwriteSC>
+<CreateCPEntry>1</CreateCPEntry>
+<RegKeyName>%ProductName%%ProductVer%</RegKeyName>
+<CPDesc>%ProductName%</CPDesc>
+<UseCustomCPIcon>1</UseCustomCPIcon>
+<CustCPIconFN>%AppFolder%\CodejockFramework.exe</CustCPIconFN>
+<CustCPIconIndex>0</CustCPIconIndex>
+<CPSIPublisher>%CompanyName%</CPSIPublisher>
+<CPSIPublisherURL>%CompanyURL%</CPSIPublisherURL>
+<CPSIHelpContactName>%CompanyName% 支持部门</CPSIHelpContactName>
+<CPSIHelpURL>%CompanyURL%</CPSIHelpURL>
+<CPSIProductVer>%ProductVer%</CPSIProductVer>
+<CPSIRegOwner/>
+<CPSIRegCompany/>
+<CPSIUpdateInfoURL/>
+<CPSIReadmeLink/>
+<CPSIComments/>
+<CreateAppFldSC>1</CreateAppFldSC>
+<AppFldSCDesc>卸载 %ProductName%</AppFldSCDesc>
+<SCComment>从您的计算机中移除 %ProductName%。</SCComment>
+<UseCustomAppFldSCIcon>0</UseCustomAppFldSCIcon>
+<AppFldCustomIconFN>%AppFolder%\CodejockFramework.exe</AppFldCustomIconFN>
+<AppFolderSCIconIndex>0</AppFolderSCIconIndex>
+<LFCreate>1</LFCreate>
+<LFFilename>%AppFolder%\Uninstall\%ProductName% Uninstall Log.txt</LFFilename>
+<LFCmdLineOverride>0</LFCmdLineOverride>
+<LFWriteMode>0</LFWriteMode>
+<LFActionDetailLevel>1</LFActionDetailLevel>
+<BeforeScreens>
+<Screen>
+<Type>100</Type>
+<Name>开始卸载</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Welcome to Uninstall</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Business_top.jpg</TBIMG>
+<SBIMG>Business_side.jpg</SBIMG>
+<BDIMG>Business_body.jpg</BDIMG>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- 这些操作在屏幕显示之前执行。
+</Script>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- 这些操作在点击“返回”按钮时执行。
+
+-- 返回到上一个屏幕
+Screen.Back();
+</Script>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- 这些操作在点击“下一步”按钮时执行。
+
+-- 进入下一个屏幕
+Screen.Next();
+</Script>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- 这些操作在点击“取消”按钮时执行。
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 询问用户是否确定要退出
+if g_ConfirmSetupAbort() then
+	Application.Exit();
+end
+</Script>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- 这些操作在点击“帮助”按钮时执行。
+</Script>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- 这些操作由屏幕上的控件触发。
+</Script>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Uninstaller</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Welcome</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Welcome to the uninstaller for %ProductName% %ProductVer%</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Next &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>This program will uninstall %ProductName% %ProductVer%.
+
+If %ProductName% is currently running, please close it before proceeding with the uninstallation.
+
+Otherwise, click Next to continue.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Uninstall %ProductName%</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% 卸载程序</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>欢迎</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>欢迎使用 %ProductName% %ProductVer% 卸载程序</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>下一步(&amp;N) &gt;</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; 返回(&amp;B)</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>取消(&amp;C)</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>帮助(&amp;H)</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>该程序将卸载 %ProductName% %ProductVer%。
+
+如果 %ProductName% 当前正在运行，继续卸载之前请将其关闭。
+
+否则，请单击“下一步”继续。
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>卸载 %ProductName%</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</BeforeScreens>
+<DuringInstScreenData>
+<ShowProgress>1</ShowProgress>
+<Screens>
+<Screen>
+<Type>130</Type>
+<Name>一个进度条 (卸载期间)</Name>
+<BannerStyle>2</BannerStyle>
+<TemplateName>One Progress Bar (While Uninstalling)</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Business_top.jpg</TBIMG>
+<SBIMG>Business_side.jpg</SBIMG>
+<BDIMG>Business_body.jpg</BDIMG>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<IsWhileInstallingMode>1</IsWhileInstallingMode>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- 这些操作在屏幕显示之前执行。
+</Script>
+</Event>
+<Event>
+<Name>On Progress</Name>
+<Args>number e_Stage, string e_CurrentItemText, number e_CurrentItemPct, number e_StagePct</Args>
+<Script>-- 这些操作在卸载文件时执行。
+
+--[[
+注意：
+	卸载进度分为 2 个进度阶段：
+
+	1. 正在移除文件
+	2. 正在移除快捷方式
+
+	每个进度阶段在工程的语言文件中都有一个字符串来进行描述，
+	如：“正在移除文件...”。这让进度文本的翻译编程可能（连同
+	语言文件中的其他本地化字符串一起)。
+]]
+
+-- 为当前阶段的进度信息获取适当的字符串 ID...
+local strStringID;
+if(e_Stage == UNINSTALL_STAGE_REMOVING_FILES) then
+	strStringID = "MSG_PROG_UNINSTALL_REMOVING_FILES";
+elseif(e_Stage == UNINSTALL_STAGE_REMOVING_SHORTCUTS) then
+	strStringID = "MSG_PROG_UNINSTALL_REMOVING_SHORTCUTS";
+end
+
+-- ...并从语言文件中获取相应的字符串
+local strStageMessage = SetupData.GetLocalizedString(strStringID);
+
+-- 更新进度提示，以显示当前阶段
+DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_01, {Text=strStageMessage});
+
+-- 如果当前项目是一个文件路径，它对于屏幕来说可能太长...
+-- 下一步操作将缩短文本为 72 个字符 (如果它至少包含一个 \)
+local strAbbreviatedItemText = String.AbbreviateFilePath(e_CurrentItemText, 72);
+
+-- 更新状态文本，以显示当前项目 (如：正在移除的文件)
+DlgStaticText.SetProperties(CTRL_STATICTEXT_LABEL_02, {Text=strAbbreviatedItemText});
+
+-- 更新进度条
+DlgProgressBar.SetPos(CTRL_PROGRESS_BAR_01, e_StagePct);
+</Script>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- 这些操作在点击“取消”按钮时执行。
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 询问用户是否确定要退出
+if g_ConfirmSetupAbort() then
+	Application.Exit();
+end
+</Script>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>78</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>203</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>211</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>2</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>212</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>3</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>900</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>4</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>1</XPStyleBars>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>213</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>2</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>214</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>3</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>7</Type>
+<ID>901</ID>
+<Visible>0</Visible>
+<Enabled>1</Enabled>
+<TabOrder>4</TabOrder>
+<Style>0</Style>
+<Min>0</Min>
+<Max>100</Max>
+<XPStyleBars>0</XPStyleBars>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Uninstaller</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Removing %ProductName%</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>Please wait...</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS/>
+<IDS_CTRL_STATICTEXT_LABEL_01> </IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_STATICTEXT_LABEL_02> </IDS_CTRL_STATICTEXT_LABEL_02>
+<IDS_CTRL_PROGRESS_BAR_01/>
+<IDS_CTRL_STATICTEXT_LABEL_03>Progress Two</IDS_CTRL_STATICTEXT_LABEL_03>
+<IDS_CTRL_STATICTEXT_LABEL_04>Performing Actions...</IDS_CTRL_STATICTEXT_LABEL_04>
+<IDS_CTRL_PROGRESS_BAR_02/>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% 卸载程序</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>正在移除 %ProductName%</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>请稍候...</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_CANCEL>取消(&amp;C)</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_STATICTEXT_TOPINSTRUCTIONS/>
+<IDS_CTRL_STATICTEXT_LABEL_01> </IDS_CTRL_STATICTEXT_LABEL_01>
+<IDS_CTRL_STATICTEXT_LABEL_02> </IDS_CTRL_STATICTEXT_LABEL_02>
+<IDS_CTRL_PROGRESS_BAR_01/>
+<IDS_CTRL_STATICTEXT_LABEL_03>进程二</IDS_CTRL_STATICTEXT_LABEL_03>
+<IDS_CTRL_STATICTEXT_LABEL_04>正在执行动作...</IDS_CTRL_STATICTEXT_LABEL_04>
+<IDS_CTRL_PROGRESS_BAR_02/>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</Screens>
+</DuringInstScreenData>
+<AfterScreens>
+<Screen>
+<Type>100</Type>
+<Name>结束卸载</Name>
+<BannerStyle>1</BannerStyle>
+<TemplateName>Finished Uninstall</TemplateName>
+<OverrideProjTheme>0</OverrideProjTheme>
+<StyleData>
+<CstClrs>0</CstClrs>
+<TBBG format="hex">ffffff</TBBG>
+<BDYBG format="hex">ece9d8</BDYBG>
+<FTBG format="hex">ece9d8</FTBG>
+<TBTXT format="hex">000000</TBTXT>
+<BDYTXT format="hex">000000</BDYTXT>
+<CBG format="hex">ffffff</CBG>
+<C3DFACE format="hex">ece9d8</C3DFACE>
+<C3DHLT format="hex">ece9d8</C3DHLT>
+<C3DLIT format="hex">ffffff</C3DLIT>
+<C3DSH format="hex">aca899</C3DSH>
+<CBTNTXT format="hex">000000</CBTNTXT>
+<CTEXT format="hex">000000</CTEXT>
+<CDISTXT format="hex">aca899</CDISTXT>
+<CPRGRS format="hex">316ac5</CPRGRS>
+<C3DSHDK format="hex">716f64</C3DSHDK>
+<TBIMG>Business_top.jpg</TBIMG>
+<SBIMG>Business_side.jpg</SBIMG>
+<BDIMG>Business_body.jpg</BDIMG>
+<BDFILL>0</BDFILL>
+<HDSEP>1</HDSEP>
+<FTSEP>1</FTSEP>
+<CstFnts>0</CstFnts>
+<Fonts>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-24</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<FontData>
+<FontName>Arial</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-13</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</Fonts>
+<CAOff>
+<TP>0</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>1</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<CAOff>
+<TP>2</TP>
+<L>15</L>
+<T>15</T>
+<R>15</R>
+<B>15</B>
+</CAOff>
+<TBTXTX>10</TBTXTX>
+<TBTXTY>10</TBTXTY>
+</StyleData>
+<Events>
+<Event>
+<Name>On Preload</Name>
+<Args/>
+<Script>-- 这些操作在屏幕显示之前执行。
+</Script>
+</Event>
+<Event>
+<Name>On Back</Name>
+<Args/>
+<Script>-- 这些操作在点击“返回”按钮时执行。
+
+-- 返回到上一个屏幕
+Screen.Back();
+</Script>
+</Event>
+<Event>
+<Name>On Next</Name>
+<Args/>
+<Script>-- 这些操作在点击“下一步”按钮时执行。
+
+-- 进入下一个屏幕
+Screen.Next();
+</Script>
+</Event>
+<Event>
+<Name>On Cancel</Name>
+<Args/>
+<Script>-- 这些操作在点击“取消”按钮时执行。
+
+-- 来自 _SUF70_Global_Functions.lua:
+-- 询问用户是否确定要退出
+if g_ConfirmSetupAbort() then
+	Application.Exit();
+end
+</Script>
+</Event>
+<Event>
+<Name>On Help</Name>
+<Args/>
+<Script>-- 这些操作在点击“帮助”按钮时执行。
+</Script>
+</Event>
+<Event>
+<Name>On Ctrl Message</Name>
+<Args>number e_CtrlID, number e_MsgID, table e_Details</Args>
+<Script>-- 这些操作由屏幕上的控件触发。
+</Script>
+</Event>
+</Events>
+<Controls>
+<Control>
+<Type>1</Type>
+<ID>103</ID>
+<Visible>0</Visible>
+<Enabled>0</Enabled>
+<TabOrder>75</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>101</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>76</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>100</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>-10</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>1</Type>
+<ID>102</ID>
+<Visible>1</Visible>
+<Enabled>0</Enabled>
+<TabOrder>-9</TabOrder>
+<FTButton>1</FTButton>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>200</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>0</TabOrder>
+<IsHeading>0</IsHeading>
+</Control>
+<Control>
+<Type>2</Type>
+<ID>300</ID>
+<Visible>1</Visible>
+<Enabled>1</Enabled>
+<TabOrder>1</TabOrder>
+<IsHeading>1</IsHeading>
+</Control>
+</Controls>
+<Languages>
+<SUF70Messages>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% Uninstaller</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>Uninstallation Finished</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>The uninstallation has completed successfully.</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>&amp;Finish</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; &amp;Back</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>&amp;Cancel</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>&amp;Help</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>%ProductName% %ProductVer% has been uninstalled.
+
+Please click Finish to exit.
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>Uninstallation Successful</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+<SUF70Messages>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+<Messages>
+<IDS_WINDOW_TITLE>%ProductName% 卸载程序</IDS_WINDOW_TITLE>
+<IDS_HEADER_TEXT>卸载已完成</IDS_HEADER_TEXT>
+<IDS_SUBHEADER_TEXT>卸载已成功完成。</IDS_SUBHEADER_TEXT>
+<IDS_CTRL_BUTTON_NEXT>完成(&amp;F)</IDS_CTRL_BUTTON_NEXT>
+<IDS_CTRL_BUTTON_BACK>&lt; 返回(&amp;B)</IDS_CTRL_BUTTON_BACK>
+<IDS_CTRL_BUTTON_CANCEL>取消(&amp;C)</IDS_CTRL_BUTTON_CANCEL>
+<IDS_CTRL_BUTTON_HELP>帮助(&amp;H)</IDS_CTRL_BUTTON_HELP>
+<IDS_CTRL_STATICTEXT_BODY>%ProductName% %ProductVer% 已被卸载。
+
+请单击“完成”退出。
+</IDS_CTRL_STATICTEXT_BODY>
+<IDS_CTRL_HEADINGTEXT_BODY>卸载成功</IDS_CTRL_HEADINGTEXT_BODY>
+</Messages>
+</SUF70Messages>
+</Languages>
+</Screen>
+</AfterScreens>
+<Events>
+<Event>
+<Name>On Startup</Name>
+<Args/>
+<Script/>
+</Event>
+<Event>
+<Name>On Pre Uninstall</Name>
+<Args/>
+<Script/>
+</Event>
+<Event>
+<Name>On Post Uninstall</Name>
+<Args/>
+<Script/>
+</Event>
+<Event>
+<Name>On Shutdown</Name>
+<Args/>
+<Script>
+-- 在所有其他“关机时”操作之后在结束时调用该函数。
+-- 如果需要的话，这将导致系统重新启动。
+-- 定义 _SUF70_Global_Functions.lua
+-- 不要编辑该脚本，除非您知道您所做的
+g_HandleSystemReboot();
+</Script>
+</Event>
+</Events>
+</UninstallData>
+<ProjectData>
+<LogFile>
+<Create>1</Create>
+<Filename>%AppFolder%\%LogName_Setup%</Filename>
+<WriteMode>0</WriteMode>
+<ActionDetailLevel>1</ActionDetailLevel>
+</LogFile>
+<EnableSilentMode>0</EnableSilentMode>
+<StartInSilentMode>0</StartInSilentMode>
+<VerifyArchive>0</VerifyArchive>
+<UserProfile>1</UserProfile>
+<MainWindowSettings>
+<ShowBackGroundWindow>0</ShowBackGroundWindow>
+<WindowStyle>0</WindowStyle>
+<WindowAppearance>1</WindowAppearance>
+<SolidBackColor format="hex">008080</SolidBackColor>
+<GradientBackColor format="hex">b4c2e3</GradientBackColor>
+<GradientForeColor format="hex">5971b6</GradientForeColor>
+<ImageFile/>
+<UseCustomIcon>0</UseCustomIcon>
+<CustomIcon/>
+<HideTaskbarIcon>0</HideTaskbarIcon>
+<AlwaysOnTop>0</AlwaysOnTop>
+<Headline>%ProductName%</Headline>
+<HeadingFont>
+<FontData>
+<FontName>宋体</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-37</Height>
+<Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</HeadingFont>
+<HeadlineTextColor format="hex">ffffff</HeadlineTextColor>
+<Headline3DColor format="hex">000000</Headline3DColor>
+<HeadlineAlign>0</HeadlineAlign>
+<Headline3d>1</Headline3d>
+<SubHeading>v%ProductVer%</SubHeading>
+<SubHeadingFont>
+<FontData>
+<FontName>宋体</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-18</Height>
+<Weight>700</Weight>
+<Italic>1</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</SubHeadingFont>
+<SubHeadingTextColor format="hex">ffffff</SubHeadingTextColor>
+<SubHeading3DColor format="hex">000000</SubHeading3DColor>
+<SubHeadingAlign>0</SubHeadingAlign>
+<SubHeading3d>1</SubHeading3d>
+<Footer>%Copyright% 保留所有权利。%CompanyURL%</Footer>
+<FooterFont>
+<FontData>
+<FontName>宋体</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-16</Height>
+<Weight>400</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+</FooterFont>
+<FooterTextColor format="hex">ffffff</FooterTextColor>
+<Footer3DColor format="hex">000000</Footer3DColor>
+<FooterAlign>0</FooterAlign>
+<Footer3d>1</Footer3d>
+</MainWindowSettings>
+<SetupExpiration>
+<ExpireByDate>0</ExpireByDate>
+<DateMethod>0</DateMethod>
+<NumDaysBld>30</NumDaysBld>
+<NumDaysRun>30</NumDaysRun>
+<AbortNotWriteDFR>1</AbortNotWriteDFR>
+<ExpireDate>1510709603</ExpireDate>
+<TellUserDate>0</TellUserDate>
+<ExpireByUses>0</ExpireByUses>
+<UsesMethod>1</UsesMethod>
+<NumUsesUser>1</NumUsesUser>
+<NumUsesSystem>2</NumUsesSystem>
+<AbortNotWritable>1</AbortNotWritable>
+<TellUserUses>0</TellUserUses>
+<UniqueKey>7A619581-9313-477B-905A-3DDC723CE8F2</UniqueKey>
+<ShowContactInfo>0</ShowContactInfo>
+<ContactName>%CompanyName%</ContactName>
+<ContactURL>%CompanyURL%</ContactURL>
+<ContactEmail/>
+<ContactPhone/>
+</SetupExpiration>
+<SetupRequirements>
+<OSCond>
+<OS>32768</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+<OS>65535</OS>
+</OSCond>
+<ScreenWidth>0</ScreenWidth>
+<ScreenHeight>0</ScreenHeight>
+<ColorDepth>0</ColorDepth>
+<RAM>0</RAM>
+<AdminReq>1</AdminReq>
+<Action>0</Action>
+</SetupRequirements>
+<Launcher/>
+<ProjectTheme>Business</ProjectTheme>
+<ProjFileDesc>新建工程</ProjFileDesc>
+<ProjFileAuthor/>
+<ProjFileCompany/>
+<ProjFileNotes/>
+<ProjFileCopyright>版权 2017 </ProjFileCopyright>
+<ProjFileURL/>
+<ProjFileEmail/>
+<ProjFileCreatedVer>7.0.1.0</ProjFileCreatedVer>
+<ProjFileSavedVer>7.0.1.0</ProjFileSavedVer>
+<BaseFolderArchive>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk</BaseFolderArchive>
+<BaseFolderExternal/>
+<ActionPlugins/>
+<DependencyModules>
+<Dependency>
+<Name>Visual Basic 6.0 (SP6)</Name>
+<RuntimeTempFolder>vb6sp6</RuntimeTempFolder>
+<RevisionDate>Thursday, October 07, 2004</RevisionDate>
+<Description>安装 Visual Basic 6.0 (SP6) 应用程序所需的运行时文件。
+
+所有用 Microsoft Visual Basic 6.0 开发的程序需要核心运行时文件集才能运行。这些文件包括：
+
+Asycfilt.dll           2.40.4275.1 
+Comcat.dll          4.71.1460.1
+Msvbvm60.dll     6.0.97.82 
+Oleaut32.dll        2.40.4275.1 
+Olepro32.dll        5.0.4275.1 
+Stdole2.tlb          2.40.4275.1 
+
+
+【注意】请明白除了这些核心运行时文件，你还需要包括用 Visual Basic 创建的可执行文件以及工程中的其他支持文件。还要明白 Visual Basic 程序常常使用核心运行时文件集之外的其他控件。
+
+关于 Visual Basic 6 (SP6) 的更多信息请查看：
+
+Microsoft Knowledge Base Article - 290887 - VBRun60sp6.exe installs Visual Basic 6.0 SP6 run-time files
+http://support.microsoft.com/default.aspx?scid=kb;en-us;290887</Description>
+<DetectScript>function IsVB6SP6Installed()
+	-- 获取 msvbvm60.dll 的版本
+	local strVisualBasicRuntimeFile = _SystemFolder.."\\msvbvm60.dll";
+	
+	if(not File.DoesExist(strVisualBasicRuntimeFile))then
+
+		-- msvbvm60.dll 未找到，那么运行时将被安装。
+		SetupData.WriteToLogFile("信息\tVB6 SP6 模块: 没有找到 msvbvm60.dll。VB6 SP6 运行时将被安装。\r\n", true);
+	
+		-- msvbvm60.dll 未安装，那么安装模块。
+		return false;
+	end
+	
+	tblFileInfo = File.GetVersionInfo(strVisualBasicRuntimeFile);
+	if(not tblFileInfo)then
+	
+		-- 不能获取 msvbvm60.dll 的版本信息，那么运行时将被安装。
+		SetupData.WriteToLogFile("信息\tVB6 SP6 模块：无法获取 msvbvm60.dll 的版本信息。VB6 SP6 运行时将被安装。\r\n", true);
+	
+		-- 不能获取 msvbvm60.dll 的版本信息，那么安装运行时。
+		return false;
+	end
+	
+	local nCompareResult = String.CompareFileVersions(tblFileInfo.FileVersion,"6.0.97.82");
+	if(nCompareResult == -1)then
+	
+		-- 看起来 msvbvm60.dll 像是 OFN。
+		SetupData.WriteToLogFile("信息\tVB6 SP6 模块：检测到 msvbvm60.dll 的旧版本。VB6 SP6 运行时将被安装。\r\n", true);
+	
+		-- 已安装的版本比最新版本旧，那么安装模块。
+		return false;
+	else
+
+		-- 看起来 msvbvm60.dll 像是最新的。
+		SetupData.WriteToLogFile("信息\tVB6 SP6 模块：检测到 msvbvm60.dll 的当前版本。VB6 SP6 运行时已经安装。\r\n", true);
+
+		-- 已安装的版本是最新的，那么不安装模块。
+		return true;
+	end
+end
+</DetectScript>
+<DetectFunction>IsVB6SP6Installed</DetectFunction>
+<InstallScript>-- 用在安装操作中的变量:
+local strMessage = 
+[[安装程序检测到你的 Microsoft Visual Basic 6.0 运行时文件过旧。
+请点击“确定”进行安装，点击“取消”中止安装。]];
+local strDialogTitle = "必需的技术文件";
+local bShowUserPrompt = true; -- 设置为 true 来询问用户是否安装模块
+local bRunInstallFile = true; -- 设置默认选择 (是否默认运行安装)
+local strRuntimeSupportFolder = SessionVar.Expand("%TempLaunchFolder%\\vb6sp6");
+local strFileToRun = strRuntimeSupportFolder.."\\VBRun60sp6.exe";
+
+-----------------------------------------------------------------------------------------
+
+-- VB6 安装已启动。
+SetupData.WriteToLogFile("成功\tVB6 SP6 模块：安装脚本已启动。\r\n", true);
+
+-- 删除临时文件和运行时支持文件夹 (同时进行错误检查)
+local function PerformCleanUp()
+
+	File.Delete(strFileToRun);
+
+	error = Application.GetLastError();
+	if error ~= 0 then
+		SetupData.WriteToLogFile("错误\tVB6 SP6 模块：无法删除临时文件 (".._tblErrorMessages[error]..")\r\n", true);
+	end
+
+	Folder.Delete(strRuntimeSupportFolder);
+
+	error = Application.GetLastError();
+	if error ~= 0 then
+		SetupData.WriteToLogFile("错误\tVB6 SP6 模块：无法删除临时文件夹 (".._tblErrorMessages[error]..")\r\n", true);
+	end
+end
+
+-- 是否显示对话框来询问用户是否安装模块。
+if(bShowUserPrompt)then
+	local nDialogResult = Dialog.Message(strDialogTitle,strMessage,MB_OKCANCEL,MB_ICONEXCLAMATION);
+	if(nDialogResult == IDOK)then
+		-- 用户选择安装模块。
+		bRunInstallFile = true;
+
+		-- 用户要安装它
+		SetupData.WriteToLogFile("成功\tVB6 SP6 模块：用户已确认，准备安装。\r\n", true);
+
+	else
+		-- 用户不安装模块。
+		bRunInstallFile = false;
+
+		-- 用户回答否
+		SetupData.WriteToLogFile("成功\tVB6 SP6 模块：用户不安装模块。\r\n", true);
+	end
+end
+
+
+-- 检查用户是否要安装运行时。
+if(bRunInstallFile)then
+
+	-- 开始！
+	SetupData.WriteToLogFile("成功\tVB6 SP6 模块：正在运行 VB6 安装程序。\r\n", true);
+
+	-- “/R:N”命令行参数告诉 VB 安装程序若需要的话不要显示重启屏幕。
+	-- 我们将检测整个安装进程返回代码，若需要的话，还设置内部 _NeedsReboot 变量。
+	-- 【注意】在静默方式下，你不能添加命令行参数“/Q”来运行安装
+	local nResult = File.Run(strFileToRun,"/R:N","",SW_SHOWNORMAL,true);
+	if(nResult == 3010)then
+		-- VB 安装指明它需要重启才能完成
+		-- 设置 Setup Factory 的重启变量，以便在安装结束时重启
+		_NeedsReboot = true;
+
+		-- 需要重启
+		SetupData.WriteToLogFile("成功\tVB6 SP6 模块：VB6 安装程序已告知它需要重启。\r\n", true);
+
+	end
+	
+	-- 删除运行时安装程序文件，并删除临时文件夹
+	PerformCleanUp();
+	
+	-- 全部完成！
+	SetupData.WriteToLogFile("成功\tVB6 SP6 模块：VB6 运行时安装完毕。\r\n", true);
+	
+else
+	-- 用户不想安装运行时，那么删除运行时安装程序文件，
+	-- 并删除临时文件夹，然后退出安装程序。
+	PerformCleanUp();
+
+	-- 全部完成！
+	SetupData.WriteToLogFile("成功\tVB6 SP6 模块：VB6 运行时未安装。\r\n", true);
+
+	Application.Exit();
+
+end
+</InstallScript>
+<SupportFiles>
+<File>#SUFDIR#\Dependencies\vb6sp6\VBRun60sp6.exe</File>
+</SupportFiles>
+</Dependency>
+</DependencyModules>
+<PrimerFiles/>
+<Events>
+<Event>
+<Name>全局函数</Name>
+<Args/>
+<Script/>
+</Event>
+<Event>
+<Name>On Startup</Name>
+<Args/>
+<Script/>
+</Event>
+<Event>
+<Name>On Pre Install</Name>
+<Args/>
+<Script/>
+</Event>
+<Event>
+<Name>On Post Install</Name>
+<Args/>
+<Script/>
+</Event>
+<Event>
+<Name>On Shutdown</Name>
+<Args/>
+<Script>
+-- 在所有其他“关机时”操作之后在结束时调用该函数。
+-- 如果需要的话，这将导致系统重新启动。
+-- 定义 _SUF70_Global_Functions.lua
+-- 不要编辑该脚本，除非您知道您所做的
+g_HandleSystemReboot();
+</Script>
+</Event>
+</Events>
+</ProjectData>
+<LangSettings>
+<Language>
+<Name>English</Name>
+<Default>0</Default>
+<Primary>9</Primary>
+<Secondary>
+<ID>1</ID>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+<ID>6</ID>
+<ID>7</ID>
+<ID>8</ID>
+<ID>9</ID>
+<ID>10</ID>
+<ID>11</ID>
+<ID>12</ID>
+<ID>13</ID>
+</Secondary>
+</Language>
+<Language>
+<Name>Chinese (Simplified)</Name>
+<Default>1</Default>
+<Primary>4</Primary>
+<Secondary>
+<ID>2</ID>
+<ID>3</ID>
+<ID>4</ID>
+<ID>5</ID>
+</Secondary>
+</Language>
+</LangSettings>
+<SUF7SessionVars>
+<SessionVar>
+<Name>%ProductName%</Name>
+<Value>VB6_CodejockFramework</Value>
+<Type>1</Type>
+</SessionVar>
+<SessionVar>
+<Name>%CompanyName%</Name>
+<Value>深圳市玮之度科技发展有限公司</Value>
+<Type>1</Type>
+</SessionVar>
+<SessionVar>
+<Name>%ProductVer%</Name>
+<Value>1.0</Value>
+<Type>1</Type>
+</SessionVar>
+<SessionVar>
+<Name>%Copyright%</Name>
+<Value>版权 (C)2005 %CompanyName%</Value>
+<Type>1</Type>
+</SessionVar>
+<SessionVar>
+<Name>%CompanyURL%</Name>
+<Value>http://www.szvisdo.com</Value>
+<Type>1</Type>
+</SessionVar>
+<SessionVar>
+<Name>%WindowTitle%</Name>
+<Value>%ProductName% 安装</Value>
+<Type>1</Type>
+</SessionVar>
+<SessionVar>
+<Name>%AppFolder%</Name>
+<Value>%DefaultSetupPath%</Value>
+<Type>2</Type>
+</SessionVar>
+<SessionVar>
+<Name>%AppShortcutFolderName%</Name>
+<Value>%ProductName%</Value>
+<Type>2</Type>
+</SessionVar>
+<SessionVar>
+<Name>%DefaultSetupPath%</Name>
+<Value>D:\Program Files\%ProductName%</Value>
+<Type>10</Type>
+</SessionVar>
+<SessionVar>
+<Name>%LogName_Setup%</Name>
+<Value>%ProductName% Setup Log.txt</Value>
+<Type>10</Type>
+</SessionVar>
+<SessionVar>
+<Name>%ExeName%</Name>
+<Value>CodejockFramework.exe</Value>
+<Type>10</Type>
+</SessionVar>
+</SUF7SessionVars>
+<BuildConfigurations>
+<BuildConfig>
+<Name>Default</Name>
+<PreBuildProg/>
+<PreBuildCmdLine/>
+<PreBuildWait>0</PreBuildWait>
+<PostBuildProg/>
+<PostBuildCmdLine/>
+<PostBuildWait>0</PostBuildWait>
+<Filename>CodeJockFrameworkSetup.exe</Filename>
+<OutputFolder>E:\XMH\007-VB6.0\11小功能测试\VB6MDICodeJockFramework.git\trunk</OutputFolder>
+<SegmentSizeMode>0</SegmentSizeMode>
+<CustomSegSize>100</CustomSegSize>
+<CustomSegSizeMode>2</CustomSegSizeMode>
+<Vars/>
+</BuildConfig>
+</BuildConfigurations>
+<GlobalScriptIncludes>
+<GlobalIncludeScriptFile>
+<Filename>#SUFDIR#\Includes\Scripts\_SUF70_Global_Functions.lua</Filename>
+<IRReq>1</IRReq>
+<BuildConfigs>
+<Cfg>All</Cfg>
+</BuildConfigs>
+</GlobalIncludeScriptFile>
+</GlobalScriptIncludes>
+</DocumentData>
