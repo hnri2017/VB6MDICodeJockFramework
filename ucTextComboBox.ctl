@@ -163,12 +163,8 @@ Public Sub AddItem(Item As String, Optional ByVal Index As Long = -1)
     
     lngC = Combo1.ListCount
 
-    If Index <> 0 Then  'Index值传入后的防错处理
-        If lngC = 0 Then
-            Index = 0
-        ElseIf (Index < 0) Or (Index > lngC) Then
-            Index = lngC
-        End If
+    If (Index < 0) Or (Index > lngC) Then  'Index值传入后的防错处理
+        Index = lngC
     End If
     
     Combo1.AddItem Item, Index
