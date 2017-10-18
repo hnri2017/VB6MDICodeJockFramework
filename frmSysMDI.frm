@@ -1,9 +1,9 @@
 VERSION 5.00
-Object = "{945E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "CODEJO~2.OCX"
-Object = "{555E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "CODEJO~1.OCX"
-Object = "{B8E5842E-102B-4289-9D57-3B3F5B5E15D3}#15.3#0"; "CODEJO~4.OCX"
+Object = "{945E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.DockingPane.v15.3.1.ocx"
+Object = "{555E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.CommandBars.v15.3.1.ocx"
+Object = "{B8E5842E-102B-4289-9D57-3B3F5B5E15D3}#15.3#0"; "Codejock.TaskPanel.v15.3.1.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#15.3#0"; "CODEJO~3.OCX"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#15.3#0"; "Codejock.SkinFramework.v15.3.1.ocx"
 Begin VB.MDIForm frmSysMDI 
    BackColor       =   &H8000000C&
    Caption         =   "Èí¼þÖ÷´°¿Ú"
@@ -24,171 +24,175 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   33
+         NumListImages   =   34
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":0CCA
+            Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
             Object.Tag             =   "820"
          EndProperty
          BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1021
+            Picture         =   "frmSysMDI.frx":09E1
             Key             =   "cOffice2000"
             Object.Tag             =   "811"
          EndProperty
          BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1318
+            Picture         =   "frmSysMDI.frx":0CD8
             Key             =   "cOffice2003"
             Object.Tag             =   "812"
          EndProperty
          BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":18AC
+            Picture         =   "frmSysMDI.frx":126C
             Key             =   "cOfficeXP"
             Object.Tag             =   "813"
          EndProperty
          BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1BD8
+            Picture         =   "frmSysMDI.frx":1598
             Key             =   "cResource"
             Object.Tag             =   "814"
          EndProperty
          BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":213F
+            Picture         =   "frmSysMDI.frx":1AFF
             Key             =   "cRibbon"
             Object.Tag             =   "815"
          EndProperty
          BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":2580
+            Picture         =   "frmSysMDI.frx":1F40
             Key             =   "cVisualStudio6.0"
             Object.Tag             =   "818"
          EndProperty
          BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":28C3
+            Picture         =   "frmSysMDI.frx":2283
             Key             =   "cVisualStudio2008"
             Object.Tag             =   "816"
          EndProperty
          BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":2DE0
+            Picture         =   "frmSysMDI.frx":27A0
             Key             =   "cVisualStudio2010"
             Object.Tag             =   "817"
          EndProperty
          BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":31F7
+            Picture         =   "frmSysMDI.frx":2BB7
             Key             =   "cWhidbey"
             Object.Tag             =   "819"
          EndProperty
          BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":3642
+            Picture         =   "frmSysMDI.frx":3002
             Key             =   "tListView"
             Object.Tag             =   "841"
          EndProperty
          BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":3900
+            Picture         =   "frmSysMDI.frx":32C0
             Key             =   "tListViewOffice2003"
             Object.Tag             =   "842"
          EndProperty
          BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":3C00
+            Picture         =   "frmSysMDI.frx":35C0
             Key             =   "tListViewOfficeXP"
             Object.Tag             =   "843"
          EndProperty
          BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":3EBD
+            Picture         =   "frmSysMDI.frx":387D
             Key             =   "tNativeWinXP"
             Object.Tag             =   "844"
          EndProperty
          BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":4469
+            Picture         =   "frmSysMDI.frx":3E29
             Key             =   "tNativeWinXPPlain"
             Object.Tag             =   "845"
          EndProperty
          BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":48EA
+            Picture         =   "frmSysMDI.frx":42AA
             Key             =   "tOffice2000"
             Object.Tag             =   "846"
          EndProperty
          BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":4CF9
+            Picture         =   "frmSysMDI.frx":46B9
             Key             =   "tOffice2000Plain"
             Object.Tag             =   "847"
          EndProperty
          BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":510E
+            Picture         =   "frmSysMDI.frx":4ACE
             Key             =   "tOffice2003"
             Object.Tag             =   "848"
          EndProperty
          BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":5418
+            Picture         =   "frmSysMDI.frx":4DD8
             Key             =   "tOffice2003Plain"
             Object.Tag             =   "849"
          EndProperty
          BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":571B
+            Picture         =   "frmSysMDI.frx":50DB
             Key             =   "tOfficeXPPlain"
             Object.Tag             =   "850"
          EndProperty
          BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":59D7
+            Picture         =   "frmSysMDI.frx":5397
             Key             =   "tResource"
             Object.Tag             =   "851"
          EndProperty
          BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":5CD1
+            Picture         =   "frmSysMDI.frx":5691
             Key             =   "tShortcutBarOffice2003"
             Object.Tag             =   "852"
          EndProperty
          BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":5FF1
+            Picture         =   "frmSysMDI.frx":59B1
             Key             =   "tToolbox"
             Object.Tag             =   "853"
          EndProperty
          BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":62AE
+            Picture         =   "frmSysMDI.frx":5C6E
             Key             =   "tToolboxWhidbey"
             Object.Tag             =   "854"
          EndProperty
          BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":666B
+            Picture         =   "frmSysMDI.frx":602B
             Key             =   "tVisualStudio2010"
             Object.Tag             =   "855"
          EndProperty
          BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":6A33
+            Picture         =   "frmSysMDI.frx":63F3
             Key             =   "sCodejock"
             Object.Tag             =   "871"
          EndProperty
          BeginProperty ListImage27 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":7A85
+            Picture         =   "frmSysMDI.frx":7445
             Key             =   "sOffice2007"
             Object.Tag             =   "872"
          EndProperty
          BeginProperty ListImage28 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":8AD7
+            Picture         =   "frmSysMDI.frx":8497
             Key             =   "sOffice2010"
             Object.Tag             =   "873"
          EndProperty
          BeginProperty ListImage29 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":9B29
+            Picture         =   "frmSysMDI.frx":94E9
             Key             =   "sOrangina"
             Object.Tag             =   "878"
          EndProperty
          BeginProperty ListImage30 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":AB7B
+            Picture         =   "frmSysMDI.frx":A53B
             Key             =   "sVista"
             Object.Tag             =   "874"
          EndProperty
          BeginProperty ListImage31 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":BBCD
+            Picture         =   "frmSysMDI.frx":B58D
             Key             =   "sWinXPLuna"
             Object.Tag             =   "875"
          EndProperty
          BeginProperty ListImage32 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":CC1F
+            Picture         =   "frmSysMDI.frx":C5DF
             Key             =   "sWinXPRoyale"
             Object.Tag             =   "876"
          EndProperty
          BeginProperty ListImage33 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":DC71
+            Picture         =   "frmSysMDI.frx":D631
             Key             =   "sZune"
             Object.Tag             =   "877"
+         EndProperty
+         BeginProperty ListImage34 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":E683
+            Key             =   ""
          EndProperty
       EndProperty
    End
