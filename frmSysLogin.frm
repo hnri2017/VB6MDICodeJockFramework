@@ -12,7 +12,7 @@ Begin VB.Form frmSysLogin
    ScaleHeight     =   2445
    ScaleWidth      =   4005
    StartUpPosition =   2  '屏幕中心
-   Begin 工程1.ucTextComboBox ucTCB 
+   Begin 工程1.ucTextComboBox ucTC 
       Height          =   360
       Left            =   960
       TabIndex        =   0
@@ -43,7 +43,6 @@ Begin VB.Form frmSysLogin
       EndProperty
       Height          =   375
       IMEMode         =   3  'DISABLE
-      Index           =   1
       Left            =   960
       PasswordChar    =   "*"
       TabIndex        =   1
@@ -53,7 +52,7 @@ Begin VB.Form frmSysLogin
    Begin VB.CommandButton Command1 
       Caption         =   "登陆"
       Height          =   495
-      Left            =   1560
+      Left            =   1440
       TabIndex        =   2
       Top             =   1680
       Width           =   1215
@@ -102,7 +101,7 @@ Private Sub msLoadUserList()
         strList = Split(strReg, mconDot)
         For I = 0 To UBound(strList)
             strName = Trim(strList(I))  '防止注册表中信息被人为两边加入空格
-            If Len(strName) > 0 Then ucTCB.AddItem strName  '清理空格
+            If Len(strName) > 0 Then ucTC.AddItem strName  '清理空格
         Next
     End If
     
@@ -118,7 +117,7 @@ Private Sub msSaveUserList()
     Dim strList() As String
     Dim I As Long
     
-    strName = Trim(ucTCB.Text)
+    strName = Trim(ucTC.Text)
     If Len(strName) = 0 Then Exit Sub
     strReg = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserList, "")
         
@@ -161,7 +160,7 @@ Private Sub Command1_Click()
     Dim frmNew As Form
     Dim I As Long
     
-    strName = Trim(ucTCB.Text)
+    strName = Trim(ucTC.Text)
     
     For I = 1 To 15
         Set frmNew = New frmSysTest
@@ -185,7 +184,7 @@ Private Sub Form_Load()
     
     Set Me.Icon = gMDI.Icon
     
-    ucTCB.Text = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserLast, "")
+    ucTC.Text = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserLast, "")
     Call msLoadUserList
     
 End Sub
