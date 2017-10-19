@@ -46,6 +46,12 @@ Private Const conPropForeColor As Long = &H80000012
 Private mFont As New StdFont
 
 
+'事件声明
+Public Event Change()
+Public Event ClickDropDown()
+Public Event DropDown()
+
+
 
 '自定义过程
 Private Sub msAutoSize()
@@ -136,7 +142,7 @@ End Property
 Public Property Set Font(ByVal newFont As StdFont)
     Set Label1.Font = newFont
     Set Combo1.Font = newFont
-    Call UserControl_Resize
+    If AutoSize Then Call msAutoSize
     PropertyChanged "Font"
 End Property
 
@@ -170,7 +176,6 @@ Public Property Let ListIndex(ByVal newListIndex As Long)
 End Property
 
 
-
 '控件方法
 Public Sub AddItem(ByVal Item As String, Optional ByVal Index As Long = -1)
     
@@ -190,14 +195,20 @@ End Sub
 
 '子控件事件
 Private Sub Combo1_Change()
-    '
-    
+    RaiseEvent Change
 End Sub
 
 Private Sub Combo1_Click()
     Combo1.Visible = False
     Label1.Caption = Combo1.Text
     If AutoSize Then Call msAutoSize
+    
+    RaiseEvent ClickDropDown
+    
+End Sub
+
+Private Sub Combo1_DropDown()
+    RaiseEvent DropDown
 End Sub
 
 Private Sub Combo1_LostFocus()
@@ -254,7 +265,7 @@ Private Sub UserControl_ReadProperties(PropBag As PropertyBag)
     Enabled = PropBag.ReadProperty("Enabled", True)
     Set Font = PropBag.ReadProperty("Font", mFont)
     ForeColor = PropBag.ReadProperty("ForeColor", conPropForeColor)
- 
+
 End Sub
 
 Private Sub UserControl_Resize()

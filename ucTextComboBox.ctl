@@ -56,8 +56,9 @@ Public Enum enmBorderStyle
 End Enum
 
 'ÊÂ¼þÉùÃ÷
-Public Event Click()
 Public Event Change()
+Public Event ClickDropDown()
+Public Event DropDown()
 
 
 
@@ -184,8 +185,12 @@ Private Sub Combo1_Click()
     Text1.SetFocus
     Text1.SelStart = Len(Combo1.Text)
     
-    RaiseEvent Click
+    RaiseEvent ClickDropDown
     
+End Sub
+
+Private Sub Combo1_DropDown()
+    RaiseEvent DropDown
 End Sub
 
 Private Sub Combo1_LostFocus()
