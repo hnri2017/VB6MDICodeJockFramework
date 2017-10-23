@@ -47,6 +47,7 @@ End Function
 
 Public Function gfFileRepair(ByVal strFile As String, Optional ByVal blnFolder As Boolean) As Boolean
     '如果 文件/文件夹 不存在 则创建
+    '前提是路径的上层目录可访问
     
     Dim strTemp As String
     Dim typBack As gtypValueAndErr
@@ -61,35 +62,25 @@ Public Function gfFileRepair(ByVal strFile As String, Optional ByVal blnFolder A
     On Error GoTo LineErr
 
     typBack = gfFileExistEx(strTemp)    '判断是否存在
-    If Not typBack.Result Then
-        If typBack.ErrNum = -1 Then     '不存在，也没异常
-            lngLoc = InStrRev(strTemp, "\")
-            If lngLoc > 0 Then  '判断是否有上层目录，有则递归
-                If gfFileExistEx(strTemp).Result Then
-                    If blnFolder Then
-                        MkDir strTemp                   '创建文件夹
-                    Else
-                        Close
-                        Open strTemp For Random As #1   '创建文件
-                        Close
-                    End If
-                Else
-                    strTemp = Left(strTemp, lngLoc - 1)
-                    If Not gfFileRepair(strTemp, True) Then Exit Function
-                End If
-            End If
+    If Not typBack.Result Then          '文件不存在
+        If typBack.ErrNum = -1 Then     '且无异常
             
-            '无上层目录直接创建
-            If blnFolder Then
-                MkDir strFile                   '创建文件夹
-            Else
+            lngLoc = InStrRev(strTemp, "\") '判断是否有上层目录
+            If lngLoc > 0 Then              '有上层目录则递归
+                strTemp = Left(strTemp, lngLoc - 1) '得出上层目录的具体路径
+                Call gfFileRepair(strTemp, True)    '递归调用自身，以保证上层目录存在
+            End If
+
+            If blnFolder Then                   '传入参数是文件夹
+                MkDir strFile                   '则创建文件夹
+            Else                                '传入参数是文件
+                Close                           '则创建文件
+                Open strFile For Random As #1
                 Close
-                Open strFile For Random As #1   '创建文件
             End If
             
             gfFileRepair = True '函数执行成功
-            Close
-
+            
         End If
     End If
 
