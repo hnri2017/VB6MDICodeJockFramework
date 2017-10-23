@@ -2,7 +2,7 @@ Attribute VB_Name = "modDeclare"
 Option Explicit
 
 
-Public Type typCommandBarID
+Public Type gtypCommandBarID
     'CommandBars的ID集合
     
     Sys As Long
@@ -111,6 +111,9 @@ Public Type typCommandBarID
     FolderBin As String
     FolderTemp As String
     FolderFiles As String
+    FolderData As String
+    
+    FileLog As String
     
     SkinPath As String
     SkinIni As String
@@ -125,7 +128,12 @@ Public Type typCommandBarID
     
 End Type
 
-Public gID As typCommandBarID   '全局CommandBars的ID变量
+Public Type gtypValueAndErr '用于返回布尔值的过程，顺便返回异常代号
+    Result As Boolean
+    ErrNum As Long
+End Type
+
+Public gID As gtypCommandBarID   '全局CommandBars的ID变量
 Public gMDI As MDIForm          '全局主窗体引用
 
 

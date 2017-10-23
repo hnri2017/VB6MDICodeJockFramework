@@ -108,13 +108,98 @@ Public Sub Main()
         .FolderStyles = App.Path & "\Styles\"
     End With
     
+    '设置窗口主题
     gMDI.skinFW.ApplyOptions = xtpSkinApplyColors Or xtpSkinApplyFrame Or xtpSkinApplyMenus Or xtpSkinApplyMetrics
     gMDI.skinFW.ApplyWindow gMDI.hwnd
-
     gID.SkinPath = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinPath, "")
     gID.SkinIni = GetSetting(gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveSkinIni, "")
     Call gMDI.gmsThemeSkinSet(gID.SkinPath, gID.SkinIni)
 
-    frmSysLogin.Show
+    frmSysLogin.Show    '显示登陆窗口
     
 End Sub
+
+
+
+Public Sub gsFormScrollBar(ByRef frmCur As Form, ByRef ctlMv As Control, _
+    ByRef Hsb As HScrollBar, ByRef Vsb As VScrollBar, _
+    Optional ByVal lngMW As Long = 12000, _
+    Optional ByVal lngMH As Long = 9000, _
+    Optional ByVal lngHV As Long = 255)
+    
+    'frmCur：滚动条所在的窗体
+    'ctlMv：窗体中的控件（除滚动条以外）都在此容器控件中
+    'Hsb：窗体frmCur中水平滚动条控件
+    'Vsb：窗体frmCur中垂直滚动条控件
+    'lngMW：窗体不出现滚动条的宽度
+    'lngMH：窗体不出现滚动条的高度
+    'lngHV：滚动条的窄边宽度或高度。
+    '***注意注意注意：滚动条控件需最后添加至窗体中，且不能放在容器控件ctlMv中*******
+    
+    Dim lngW As Long
+    Dim lngH As Long
+    Dim lngSW As Long
+    Dim lngSH As Long
+    Dim lngMin As Long
+    
+    lngW = frmCur.Width
+    lngH = frmCur.Height
+    lngSW = frmCur.ScaleWidth
+    lngSH = frmCur.ScaleHeight
+    lngMin = -120
+    
+    On Error Resume Next
+    
+    If lngW >= lngMW Then
+        Hsb.Visible = False
+        ctlMv.Left = -lngMin
+    Else
+        With Hsb
+            .Move 0, lngSH - lngHV, lngSW, lngHV
+            .Min = lngMin
+            .Max = lngMW - lngW + lngHV
+            .SmallChange = 10
+            .LargeChange = 50
+            .Visible = True
+        End With
+    End If
+    
+    If lngH >= lngMH Then
+        Vsb.Visible = False
+        ctlMv.Top = -lngMin
+    Else
+        With Vsb
+            .Move lngSW - lngHV, 0, lngHV, IIf(Hsb.Visible, lngSH - lngHV, lngSH)
+            .Min = lngMin
+            .Max = lngMH - lngH + lngHV
+            .SmallChange = 10
+            .LargeChange = 50
+            .Visible = True
+        End With
+    End If
+    
+'    '在窗体中添加窗口控件ctlMove，将所有其它控件放入此容器中，然
+'    '后添加名称分别为Hsb\Vsb的水平\垂直滚动条在窗体中，最好留到最后放入窗体中
+'    '然后在窗体中添加以下事件调用即可
+'Private Sub Form_Resize()
+'    Call gsFormScrollBar(Me, Me.ctlMove, Me.Hsb, Me.Vsb, 12000, 9000)  '注意长、宽的修改
+'End Sub
+'Private Sub Hsb_Change()
+'    ctlMove.Left = -Hsb.Value
+'End Sub
+'
+'Private Sub Hsb_Scroll()
+'    Call Hsb_Change    '当滑动滚动条中的滑块时会同时更新对应内容，以下同。
+'End Sub
+'
+'Private Sub Vsb_Change()
+'    ctlMove.Top = -Vsb.Value
+'End Sub
+'
+'Private Sub Vsb_Scroll()
+'    Call Vsb_Change
+'End Sub
+
+End Sub
+
+

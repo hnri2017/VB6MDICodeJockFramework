@@ -162,7 +162,7 @@ Private Sub Command1_Click()
     
     strName = Trim(ucTC.Text)
     
-    For I = 1 To 15
+    For I = 1 To 1
         Set frmNew = New frmSysTest
         frmNew.Caption = "Form" & I
         frmNew.Command1.Caption = frmNew.Caption & "cmd1"
