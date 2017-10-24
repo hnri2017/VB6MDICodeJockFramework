@@ -155,6 +155,7 @@ Private Function mfVersionCheck() As Boolean
     Dim arrLoc() As String
     Dim I As Long
     Dim blnNew As Boolean
+    Dim strOut As String
     
     If Not gfFileExist(gID.FileAppNet) Then Exit Function   '网络上的文件是否存在
     
@@ -190,9 +191,13 @@ Private Function mfVersionCheck() As Boolean
     
     Set fsoVer = Nothing
     mfVersionCheck = True
-
+    
+    Exit Function
+    
 LineErr:
-
+    strOut = "版本检测异常" & vbTab & "异常代号：" & Err.Number & vbTab & "异常描述：" & Err.Description
+    Call gfFileWrite(gID.FileLog, strOut)
+    
 End Function
 
 
