@@ -48,6 +48,7 @@ End Function
 Public Function gfFileRepair(ByVal strFile As String, Optional ByVal blnFolder As Boolean) As Boolean
     '如果 文件/文件夹 不存在 则创建
     '前提是路径的上层目录可访问
+    '参数blnFolder指明传入的路径strFile是文件夹则为True，默认是文件False
     
     Dim strTemp As String
     Dim typBack As gtypValueAndErr
@@ -79,9 +80,12 @@ Public Function gfFileRepair(ByVal strFile As String, Optional ByVal blnFolder A
                 Close
             End If
             
-            gfFileRepair = True '函数执行成功
+            gfFileRepair = True '创建成功返回True
             
         End If
+        
+    Else
+        gfFileRepair = True '路径完整直接返回True
     End If
 
 LineErr:

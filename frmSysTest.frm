@@ -215,19 +215,19 @@ Private Sub Command2_Click()
     Dim testVar As gtypValueAndErr
     
 '    strPath = "123456789"
-'    strPath = App.Path & "\data1\LogError.txt"
+'    strPath = App.Path & "\data\LogError.txt"
 '    strPath = "\bi\flex.ocx"
-    strPath = "\\192.168.2.5\data"
+'    strPath = "\\192.168.2.5\data"
 '    strPath = "..\heart.ico"
-'    strPath = App.Path & "\a\b\c\d\e\"
+    strPath = App.Path & "\a\b\"
 '    blnBack = gfFileExist(strPath)
     
 '    testVar = gfFileExistEx(strPath)
     
 '    MsgBox blnBack & "," & testVar.Result & "," & testVar.ErrNum
 '    MsgBox Left(strPath, InStrRev(strPath, 4) - 1)
-'    If gfFileRepair(strPath, True) Then
-    If gfFileRepair(strPath) Then
+    If gfFileRepair(strPath, True) Then
+'    If gfFileRepair(strPath) Then
         MsgBox strPath & vbCrLf & "is created success"
     End If
     
