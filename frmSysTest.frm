@@ -31,6 +31,30 @@ Begin VB.Form frmSysTest
       TabIndex        =   0
       Top             =   240
       Width           =   6975
+      Begin VB.CommandButton Command5 
+         Caption         =   "Command5"
+         Height          =   615
+         Left            =   5040
+         TabIndex        =   19
+         Top             =   4320
+         Width           =   1455
+      End
+      Begin VB.CommandButton Command4 
+         Caption         =   "Command4"
+         Height          =   615
+         Left            =   1920
+         TabIndex        =   18
+         Top             =   4320
+         Width           =   1215
+      End
+      Begin VB.CommandButton Command3 
+         Caption         =   "Command3"
+         Height          =   495
+         Left            =   3720
+         TabIndex        =   17
+         Top             =   3120
+         Width           =   1335
+      End
       Begin VB.ComboBox Combo1 
          Height          =   300
          Left            =   0
@@ -230,6 +254,50 @@ Private Sub Command2_Click()
 '    If gfFileRepair(strPath) Then
         MsgBox strPath & vbCrLf & "is created success"
     End If
+    
+End Sub
+
+Private Sub Command3_Click()
+    Dim strVar As String
+    
+    strVar = "This is a test string!"
+'    Open gID.FileLog For Output As #1
+    Open gID.FileLog For Random As #1
+    Put #1, , "put"
+'    Print #1, ""
+    Close #1
+    
+'    Call gfFileWrite(gID.FileLog, "", udOutput)
+    Call gfFileWrite(gID.FileLog, strVar)
+    Call gfFileWrite(gID.FileLog, strVar, , udWrite)
+    Call gfFileWrite(gID.FileLog, strVar & vbTab & "Write")
+    Call gfFileWrite(gID.FileLog, strVar & vbTab & "print", , udWrite)
+    Call gfFileWrite(gID.FileLog, strVar, udAppend, udPut)
+End Sub
+
+Private Sub Command4_Click()
+    Dim strFile As String
+    
+'    strFile = "\\192.168.2.5\data\err.log"
+'    Call gfFileExist(strFile)
+'    strFile = App.Path & "\data"
+'    Call gfFileExist(strFile)
+'    strFile = App.Path & "\data\record.log"
+'    Call gfFileExist(strFile)
+'    strFile = "."
+'    Call gfFileExist(strFile)
+'    strFile = ".."
+'    Call gfFileExist(strFile)
+    
+    On Error Resume Next
+    strFile = 1 / 0
+    strFile = Err.Number & vbTab & Err.Description
+    Call gfFileWrite(gID.FileLog, strFile, udOutput)
+End Sub
+
+Private Sub Command5_Click()
+    Dim fsoU As FileSystemObject
+    
     
 End Sub
 

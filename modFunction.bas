@@ -7,6 +7,7 @@ Public Function gfFileExist(ByVal strPath As String) As Boolean
     '判断文件、文件目录 是否存在
     
     Dim strBack As String
+    Dim strOut As String
     
     On Error GoTo LineErr
     
@@ -18,7 +19,9 @@ Public Function gfFileExist(ByVal strPath As String) As Boolean
     Exit Function
     
 LineErr:
-    MsgBox "异常代号：" & Err.Number & vbCrLf & "异常描述：" & Err.Description, vbCritical
+    strOut = "异常代号：" & Err.Number & vbCrLf & "异常描述：" & Err.Description
+    MsgBox strOut, vbCritical
+    Call gfFileWrite(gID.FileLog, Replace(strOut, vbCrLf, vbTab) & vbTab & strPath)
     
 End Function
 
@@ -93,8 +96,39 @@ LineErr:
 End Function
 
 Public Function gfFileWrite(ByVal strFile As String, ByVal strContent As String, _
-    Optional ByVal OpenMode As Long = 0, Optional ByVal WriteMode As Long = 0) As Boolean
+    Optional ByVal OpenMode As genmFileOpenType = udAppend, _
+    Optional ByVal WriteMode As genmFileWriteType = udPrint) As Boolean
     '将指定内容以指定的方式写入指定文件中
     
+    Dim intNum As Integer
+    Dim strTime As String
+    
+    If Not gfFileRepair(strFile) Then Exit Function
+    intNum = FreeFile
+    
+    On Error Resume Next
+    
+    Select Case OpenMode
+        Case udBinary
+            Open strFile For Binary As #intNum
+        Case udInput
+            Open strFile For Input As #intNum
+        Case udOutput
+            Open strFile For Output As #intNum
+        Case Else   '其余皆当作udAppend
+            Open strFile For Append As #intNum
+    End Select
+    
+    strTime = Format(Now, "yyyy-MM-dd hh:mm:ss")
+    Select Case WriteMode
+        Case udWrite
+            Write #intNum, strTime, strContent
+        Case udPut
+            Put #intNum, , strTime & vbTab & strContent
+        Case Else   '其余皆当作udPrint
+            Print #intNum, strTime, strContent
+    End Select
+    
+    Close #intNum
     
 End Function

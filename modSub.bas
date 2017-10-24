@@ -105,7 +105,17 @@ Public Sub Main()
         .StatusBarPaneTime = 2303
         .StatusBarPaneUserInfo = 2304
         
+        .FolderBin = App.Path & "\Bin\"
+        .FolderNet = "\\192.168.12.100\玮之度\部门数据\公共数据\WZDMS专用(勿动)\玮之度管理系统\"
         .FolderStyles = App.Path & "\Styles\"
+        
+        .FileAppName = App.EXEName & ".exe"
+        .FileAppLoc = App.Path & "\" & .FileAppName
+        .FileAppNet = .FolderNet & .FileAppName
+        .FileLog = App.Path & "\Data\Record.LOG"
+        .FileSetupLoc = App.Path & "\" & App.EXEName & "Setup.exe"
+        .FileSetupNet = .FolderNet & App.EXEName & "Setup.exe"
+        
     End With
     
     '设置窗口主题

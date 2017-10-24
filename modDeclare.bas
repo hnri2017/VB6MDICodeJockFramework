@@ -109,11 +109,14 @@ Public Type gtypCommandBarID
     
     FolderStyles As String
     FolderBin As String
-    FolderTemp As String
-    FolderFiles As String
-    FolderData As String
+    FolderNet As String
     
     FileLog As String
+    FileAppName As String
+    FileAppNet As String
+    FileAppLoc As String
+    FileSetupNet As String
+    FileSetupLoc As String
     
     SkinPath As String
     SkinIni As String
@@ -132,6 +135,20 @@ Public Type gtypValueAndErr '用于返回布尔值的过程，顺便返回异常代号
     Result As Boolean
     ErrNum As Long
 End Type
+
+Public Enum genmFileOpenType    '打开文件方式
+    udAppend    '以顺序型访问，把字符追加到文件
+    udBinary    '以二进制访问
+    udInput     '以顺序型访问，从文件输入字符
+    udOutput    '以顺序型访问，向文件输出字符
+    udRandom    '以随机方式
+End Enum
+
+Public Enum genmFileWriteType   '写入文件方式
+    udPut       '用Get读出.For Binary、Random.
+    udWrite     '用Input读出
+    udPrint     '用Line Input 或 Input读出
+End Enum
 
 Public gID As gtypCommandBarID   '全局CommandBars的ID变量
 Public gMDI As MDIForm          '全局主窗体引用

@@ -144,6 +144,24 @@ Public Property Let ForeColor(newColor As OLE_COLOR)
     PropertyChanged "ForeColor"
 End Property
 
+Public Property Get List(ByVal Index As Long) As String
+    List = Combo1.List(Index)
+End Property
+
+Public Property Get ListCount() As Long
+    ListCount = Combo1.ListCount
+End Property
+
+Public Property Get ListIndex() As Long
+Attribute ListIndex.VB_MemberFlags = "40"
+    ListIndex = Combo1.ListIndex
+End Property
+
+Public Property Let ListIndex(ByVal newListIndex As Long)
+    Combo1.ListIndex = newListIndex
+    Text1.Text = Combo1.Text
+End Property
+
 Public Property Get Text() As String
 Attribute Text.VB_UserMemId = 0
 Attribute Text.VB_MemberFlags = "200"
