@@ -88,6 +88,59 @@ Option Explicit
 Private Const mconDot As String = ","
 
 
+Private Function mfVersionCheck() As Boolean
+    '版本检查
+    
+    Dim fsoVer As FileSystemObject
+    Dim arrNet() As String
+    Dim arrLoc() As String
+    Dim I As Long
+    Dim blnNew As Boolean
+    Dim strOut As String
+    
+    If Not gfFileExist(gID.FileAppNet) Then Exit Function   '网络上的文件是否存在
+    
+    On Error GoTo LineErr
+    
+    If GetAttr(gID.FileAppNet) <> vbNormal Then SetAttr gID.FileAppNet, vbNormal    '修改成正常属性
+    If GetAttr(gID.FileAppLoc) <> vbNormal Then SetAttr gID.FileAppLoc, vbNormal    '
+    
+    Set fsoVer = New FileSystemObject
+    arrNet = Split(fsoVer.GetFileVersion(gID.FileAppNet), ".")
+    arrLoc = Split(fsoVer.GetFileVersion(gID.FileAppLoc), ".")
+    For I = 0 To UBound(arrNet)
+        If Val(arrNet(I)) > Val(arrLoc(I)) Then
+            blnNew = True
+            Exit For
+        End If
+    Next
+    
+    If blnNew Then
+        If Not gfFileExist(gID.FileSetupNet) Then
+            MsgBox "更新程序异常！", vbCritical
+            Exit Function
+        End If
+        
+        If GetAttr(gID.FileSetupNet) <> vbNormal Then SetAttr gID.FileSetupNet, vbNormal
+        FileCopy gID.FileSetupNet, gID.FileSetupLoc
+        Shell gID.FileSetupLoc
+        
+        Set gMDI = Nothing
+        End
+        
+    End If
+    
+    Set fsoVer = Nothing
+    mfVersionCheck = True
+    
+    Exit Function
+    
+LineErr:
+    Call gsAlarmAndLog("版本检测异常")
+    
+End Function
+
+
 Private Sub msLoadUserList()
     '加载曾经登陆过的用户名列表
     
@@ -146,59 +199,6 @@ Private Sub msSaveUserList()
     SaveSetting gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserList, strSave
     
 End Sub
-
-Private Function mfVersionCheck() As Boolean
-    '版本检查
-    
-    Dim fsoVer As FileSystemObject
-    Dim arrNet() As String
-    Dim arrLoc() As String
-    Dim I As Long
-    Dim blnNew As Boolean
-    Dim strOut As String
-    
-    If Not gfFileExist(gID.FileAppNet) Then Exit Function   '网络上的文件是否存在
-    
-    On Error GoTo LineErr
-    
-    If GetAttr(gID.FileAppNet) <> vbNormal Then SetAttr gID.FileAppNet, vbNormal    '修改成正常属性
-    If GetAttr(gID.FileAppLoc) <> vbNormal Then SetAttr gID.FileAppLoc, vbNormal    '
-    
-    Set fsoVer = New FileSystemObject
-    arrNet = Split(fsoVer.GetFileVersion(gID.FileAppNet), ".")
-    arrLoc = Split(fsoVer.GetFileVersion(gID.FileAppLoc), ".")
-    For I = 0 To UBound(arrNet)
-        If Val(arrNet(I)) > Val(arrLoc(I)) Then
-            blnNew = True
-            Exit For
-        End If
-    Next
-    
-    If blnNew Then
-        If Not gfFileExist(gID.FileSetupNet) Then
-            MsgBox "更新程序异常！", vbCritical
-            Exit Function
-        End If
-        
-        If GetAttr(gID.FileSetupNet) <> vbNormal Then SetAttr gID.FileSetupNet, vbNormal
-        FileCopy gID.FileSetupNet, gID.FileSetupLoc
-        Shell gID.FileSetupLoc
-        
-        Set gMDI = Nothing
-        End
-        
-    End If
-    
-    Set fsoVer = Nothing
-    mfVersionCheck = True
-    
-    Exit Function
-    
-LineErr:
-    strOut = "版本检测异常" & vbTab & "异常代号：" & Err.Number & vbTab & "异常描述：" & Err.Description
-    Call gfFileWrite(gID.FileLog, strOut)
-    
-End Function
 
 
 Private Sub Command1_Click()

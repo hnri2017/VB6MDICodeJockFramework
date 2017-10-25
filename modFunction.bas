@@ -2,13 +2,53 @@ Attribute VB_Name = "modFunction"
 Option Explicit
 
 
+Public Function gfBackConnection(ByVal strCon As String, _
+        Optional ByVal CursorLocation As CursorLocationEnum = adUseClient) As ADODB.Connection
+    '返回数据库连接
+       
+    On Error GoTo LineErr
+    
+    Set gfBackConnection = New ADODB.Connection
+    gfBackConnection.CursorLocation = CursorLocation
+    gfBackConnection.ConnectionString = gID.CnString
+    gfBackConnection.CommandTimeout = 5
+    gfBackConnection.Open
+    
+    Exit Function
+    
+LineErr:
+    Call gsAlarmAndLog("数据库连接异常")
+    
+End Function
+
+Public Function gfBackRecordset(ByVal cnSQL As String, _
+                Optional ByVal cnCursorType As CursorTypeEnum = adOpenStatic, _
+                Optional ByVal cnLockType As LockTypeEnum = adLockReadOnly, _
+                Optional ByVal CursorLocation As CursorLocationEnum = adUseClient) As ADODB.Recordset
+    '返回指定SQL查询语句的记录集
+    
+    Dim cnBack As ADODB.Connection
+    
+    On Error GoTo LineErr
+
+    Set gfBackRecordset = New ADODB.Recordset
+    Set cnBack = gfBackConnection(gID.CnString, CursorLocation)
+    If cnBack.State = adStateClosed Then Exit Function
+    gfBackRecordset.CursorLocation = CursorLocation
+    gfBackRecordset.Open cnSQL, cnBack, cnCursorType, cnLockType
+    
+    Exit Function
+
+LineErr:
+    Call gsAlarmAndLog("返回记录集异常")
+
+End Function
 
 Public Function gfFileExist(ByVal strPath As String) As Boolean
     '判断文件、文件目录 是否存在
     
     Dim strBack As String
-    Dim strOut As String
-    
+        
     On Error GoTo LineErr
     
     If Len(strPath) > 0 Then    '空字符串不算
@@ -19,9 +59,7 @@ Public Function gfFileExist(ByVal strPath As String) As Boolean
     Exit Function
     
 LineErr:
-    strOut = "异常代号：" & Err.Number & vbCrLf & "异常描述：" & Err.Description
-    MsgBox strOut, vbCritical
-    Call gfFileWrite(gID.FileLog, Replace(strOut, vbCrLf, vbTab) & vbTab & strPath)
+    Call gsAlarmAndLog("判断文件异常")
     
 End Function
 
@@ -45,6 +83,7 @@ Public Function gfFileExistEx(ByVal strPath As String) As gtypValueAndErr
     
 LineErr:
     gfFileExistEx.ErrNum = Err.Number   '异常了，也当作不存在了
+    Call gsAlarmAndLog("文件判断返回异常")
     
 End Function
 
@@ -95,40 +134,21 @@ LineErr:
     
 End Function
 
-Public Function gfFileWrite(ByVal strFile As String, ByVal strContent As String, _
-    Optional ByVal OpenMode As genmFileOpenType = udAppend, _
-    Optional ByVal WriteMode As genmFileWriteType = udPrint) As Boolean
-    '将指定内容以指定的方式写入指定文件中
+Public Function gfStringCheck(ByVal strIn As String) As String
+    '''敏感字符检测
     
-    Dim intNum As Integer
-    Dim strTime As String
+    Dim arrStr As Variant
+    Dim I As Long
     
-    If Not gfFileRepair(strFile) Then Exit Function
-    intNum = FreeFile
-    
-    On Error Resume Next
-    
-    Select Case OpenMode
-        Case udBinary
-            Open strFile For Binary As #intNum
-        Case udInput
-            Open strFile For Input As #intNum
-        Case udOutput
-            Open strFile For Output As #intNum
-        Case Else   '其余皆当作udAppend
-            Open strFile For Append As #intNum
-    End Select
-    
-    strTime = Format(Now, "yyyy-MM-dd hh:mm:ss")
-    Select Case WriteMode
-        Case udWrite
-            Write #intNum, strTime, strContent
-        Case udPut
-            Put #intNum, , strTime & vbTab & strContent
-        Case Else   '其余皆当作udPrint
-            Print #intNum, strTime, strContent
-    End Select
-    
-    Close #intNum
-    
+    arrStr = Array(";", "--", "'", "//", "/*", "*/", "select", "update", _
+                   "delete", "insert", "alter", "drop", "create")
+    strIn = LCase(strIn)
+    For I = LBound(arrStr) To UBound(arrStr)
+        If InStr(strIn, arrStr(I)) > 0 Then
+            gfStringCheck = arrStr(I)
+            Exit Function
+        End If
+    Next
+
 End Function
+

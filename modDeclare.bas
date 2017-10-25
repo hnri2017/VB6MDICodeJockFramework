@@ -84,7 +84,7 @@ Public Type gtypCommandBarID
     OtherPaneMenuPopuAutoFold As Long
     OtherPaneMenuPopuFold As Long
     
-    OtherSave As Long
+    OtherSave As Long               '注册表中相关值与名称
     OtherSaveAppName As String
     OtherSaveRegistryKey As String
     OtherSaveCommandBarsSection As String
@@ -95,39 +95,44 @@ Public Type gtypCommandBarID
     OtherSaveSkinPath As String
     OtherSaveSkinIni As String
     OtherSaveSkinID As String
-    OtherSaveUserLast As String
-    OtherSaveUserList As String
+    OtherSaveUserLast As String     'Key名称-最后登陆过的用户名
+    OtherSaveUserList As String     'Key名称-登陆过的用户名列表
     
     
     OtherTabWorkspacePopup As Long
     
-    StatusBarPane As Long
-    StatusBarPaneProgress As Long
-    StatusBarPaneProgressText As Long
-    StatusBarPaneUserInfo As Long
-    StatusBarPaneTime As Long
+    StatusBarPane As Long               '状态栏面板
+    StatusBarPaneProgress As Long       '状态栏中进度条
+    StatusBarPaneProgressText As Long   '状态栏中进度百分值
+    StatusBarPaneUserInfo As Long       '状态栏中用户信息
+    StatusBarPaneTime As Long           '状态中时间
     
-    FolderStyles As String
-    FolderBin As String
-    FolderNet As String
+    FolderStyles As String  '本地Style文件夹路径
+    FolderBin As String     '本地Bin文件夹路径
+    FolderNet As String     '网络共享文件夹路径
     
-    FileLog As String
-    FileAppName As String
-    FileAppNet As String
-    FileAppLoc As String
-    FileSetupNet As String
-    FileSetupLoc As String
+    FileLog As String       '日志文件全路径
+    FileAppName As String   'App带扩展名的全名
+    FileAppNet As String    '网络App全路径
+    FileAppLoc As String    '本地App全路径
+    FileSetupNet As String  '网络安装包全路径
+    FileSetupLoc As String  '本地安装包存放全路径
     
-    SkinPath As String
-    SkinIni As String
+    SkinPath As String      '主题资源文件名
+    SkinIni As String       '主题配置文件名
     
-    UserLoginName As String
-    UserNickname As String
-    UserPassword As String
-    UserDepartment As String
-    UserLoginIP As String
-    UserComputerName As String
+    UserLoginName As String '用户登陆名
+    UserNickname As String  '用户昵称
+    UserPassword As String  '用户密码
+    UserDepartment As String    '用户所在部门
+    UserLoginIP As String       '用户登陆电脑IP
+    UserComputerName As String  '用户登陆电脑名称
     
+    CnSource As String      '连接数据库服务器名称或IP地址
+    CnUserID As String      '连接数据库用户名
+    CnPassword As String    '连接数据库密码
+    CnDatabase As String    '连接的数据库名
+    CnString As String      '数据库连接字符串全称
     
 End Type
 

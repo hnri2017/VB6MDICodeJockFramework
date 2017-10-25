@@ -114,7 +114,16 @@ Public Sub Main()
         .FileAppNet = .FolderNet & .FileAppName
         .FileLog = App.Path & "\Data\Record.LOG"
         .FileSetupLoc = App.Path & "\" & App.EXEName & "Setup.exe"
-        .FileSetupNet = .FolderNet & App.EXEName & "Setup.exe"
+'        .FileSetupNet = .FolderNet & App.EXEName & "Setup.exe"
+        .FileSetupNet = .FileSetupLoc
+        
+        .CnDatabase = "db_Test"
+        .CnPassword = "test"
+        .CnSource = "192.168.2.9"
+        .CnUserID = "wzd_test"
+        .CnString = "Provider=SQLOLEDB;Persist Security Info=False;DataSource=" & .CnSource & _
+                    ";UID=" & .CnUserID & ";PWD=" & .CnPassword & ";DataBase=" & .CnDatabase
+        
         
     End With
     
@@ -130,6 +139,54 @@ Public Sub Main()
 End Sub
 
 
+Public Sub gsAlarmAndLog(Optional ByVal strErr As String)
+    '异常提示并写下异常日志
+    
+    Dim strMsg As String
+    
+    strMsg = "异常代号：" & Err.Number & vbCrLf & "异常描述：" & Err.Description
+    MsgBox strMsg, vbCritical, strErr
+    Call gsFileWrite(gID.FileLog, strErr & vbTab & Replace(strMsg, vbCrLf, vbTab))
+    
+End Sub
+
+Public Sub gsFileWrite(ByVal strFile As String, ByVal strContent As String, _
+    Optional ByVal OpenMode As genmFileOpenType = udAppend, _
+    Optional ByVal WriteMode As genmFileWriteType = udPrint)
+    '将指定内容以指定的方式写入指定文件中
+    
+    Dim intNum As Integer
+    Dim strTime As String
+    
+    If Not gfFileRepair(strFile) Then Exit Sub
+    intNum = FreeFile
+    
+    On Error Resume Next
+    
+    Select Case OpenMode
+        Case udBinary
+            Open strFile For Binary As #intNum
+        Case udInput
+            Open strFile For Input As #intNum
+        Case udOutput
+            Open strFile For Output As #intNum
+        Case Else   '其余皆当作udAppend
+            Open strFile For Append As #intNum
+    End Select
+    
+    strTime = Format(Now, "yyyy-MM-dd hh:mm:ss")
+    Select Case WriteMode
+        Case udWrite
+            Write #intNum, strTime, strContent
+        Case udPut
+            Put #intNum, , strTime & vbTab & strContent
+        Case Else   '其余皆当作udPrint
+            Print #intNum, strTime, strContent
+    End Select
+    
+    Close #intNum
+    
+End Sub
 
 Public Sub gsFormScrollBar(ByRef frmCur As Form, ByRef ctlMv As Control, _
     ByRef Hsb As HScrollBar, ByRef Vsb As VScrollBar, _
@@ -210,6 +267,54 @@ Public Sub gsFormScrollBar(ByRef frmCur As Form, ByRef ctlMv As Control, _
 '    Call Vsb_Change
 'End Sub
 
+End Sub
+
+
+Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As Long = -1, Optional ByVal TimeStyle As String = "yyyy-MM-dd HH:mm:ss")  '导出至Excel
+    '将表格控件中的内容导出至Excel中
+    '参数TimeCol：为控件中的时间列的列号，TimeStyle设定格式
+    
+'    Dim xlsOut As Excel.Application    '用这个申明好编程，编完后改为Object
+    Dim xlsOut As Object
+    Dim sheetOut As Excel.Worksheet
+    Dim R As Long, C As Long, I As Long, J As Long
+    
+    On Error Resume Next
+    Screen.MousePointer = 13
+    
+    Set xlsOut = CreateObject("Excel.Application")
+    xlsOut.Workbooks.Add
+    Set sheetOut = xlsOut.ActiveSheet
+    
+    With gridControl
+        R = .Rows
+        C = .Cols
+        For I = 0 To R - 1  '表格内容复制到Excel中
+            For J = 0 To C - 1
+                sheetOut.Cells(I + 1, J + 1) = .TextMatrix(I, J)
+            Next
+        Next
+    End With
+    
+    With sheetOut
+        If TimeCol > -1 Then
+            .Columns(TimeCol + 1).NumberFormatLocal = TimeStyle
+        End If
+        .Range(.Cells(1, 1), .Cells(1, C)).Font.Bold = True '加粗显示(第一行默认标题行)
+        .Range(.Cells(1, 1), .Cells(1, C)).Font.Size = 12   '第一行12号字大小
+        .Range(.Cells(2, 1), .Cells(R, C)).Font.Size = 10   '第二行以后10号字大小
+        .Range(.Cells(1, 1), .Cells(R, C)).HorizontalAlignment = xlCenter   '居中显示
+        .Range(.Cells(1, 1), .Cells(R, C)).Borders.Weight = xlThin  '单元格显示黑色线宽
+        .Columns.EntireColumn.AutoFit   '自动列宽
+        .Rows(1).RowHeight = 23 '第一行行高
+    End With
+    
+    xlsOut.Visible = True   '显示Excel文档
+    
+    Set sheetOut = Nothing
+    Set xlsOut = Nothing
+    Screen.MousePointer = 0
+    
 End Sub
 
 

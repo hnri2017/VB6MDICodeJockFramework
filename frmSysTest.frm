@@ -31,6 +31,14 @@ Begin VB.Form frmSysTest
       TabIndex        =   0
       Top             =   240
       Width           =   6975
+      Begin VB.CommandButton Command6 
+         Caption         =   "Command6"
+         Height          =   615
+         Left            =   360
+         TabIndex        =   20
+         Top             =   3840
+         Width           =   1215
+      End
       Begin VB.CommandButton Command5 
          Caption         =   "Command5"
          Height          =   615
@@ -298,6 +306,21 @@ End Sub
 Private Sub Command5_Click()
     Dim fsoU As FileSystemObject
     
+    
+End Sub
+
+Private Sub Command6_Click()
+    Dim strSQL As String
+    Dim rsT As ADODB.Recordset
+    
+    strSQL = "SELECT * FROM tb_Test_User"
+    Set rsT = gfBackRecordset(strSQL)
+    If rsT.State = adStateOpen Then
+        MsgBox "Connection Select OK"
+        Debug.Print rsT.Fields.Count, rsT.Fields(0).Value, rsT.Fields(1).Value, rsT.Fields(2).Value
+    End If
+    
+    Set rsT = Nothing
     
 End Sub
 
