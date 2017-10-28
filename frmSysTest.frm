@@ -1,4 +1,5 @@
 VERSION 5.00
+Object = "{BEEECC20-4D5F-4F8B-BFDC-5D9B6FBDE09D}#1.0#0"; "vsFlex8.ocx"
 Begin VB.Form frmSysTest 
    Caption         =   "Form1"
    ClientHeight    =   6645
@@ -26,42 +27,155 @@ Begin VB.Form frmSysTest
    Begin VB.Frame ctlMove 
       BorderStyle     =   0  'None
       Caption         =   "Frame1"
-      Height          =   4935
-      Left            =   240
+      Height          =   5535
+      Left            =   120
       TabIndex        =   0
       Top             =   240
-      Width           =   6975
+      Width           =   8175
+      Begin VB.CommandButton Command7 
+         Caption         =   "Command7"
+         Height          =   495
+         Left            =   4800
+         TabIndex        =   23
+         Top             =   4080
+         Width           =   1095
+      End
+      Begin VB.CommandButton Command8 
+         Caption         =   "Command8"
+         Height          =   495
+         Left            =   4800
+         TabIndex        =   22
+         Top             =   4560
+         Width           =   1095
+      End
+      Begin VSFlex8Ctl.VSFlexGrid VSFlexGrid1 
+         Height          =   2775
+         Left            =   0
+         TabIndex        =   21
+         Top             =   2760
+         Width           =   4575
+         _cx             =   8070
+         _cy             =   4895
+         Appearance      =   1
+         BorderStyle     =   1
+         Enabled         =   -1  'True
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "ËÎÌå"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         MousePointer    =   0
+         BackColor       =   -2147483643
+         ForeColor       =   -2147483640
+         BackColorFixed  =   -2147483633
+         ForeColorFixed  =   -2147483630
+         BackColorSel    =   -2147483635
+         ForeColorSel    =   -2147483634
+         BackColorBkg    =   -2147483636
+         BackColorAlternate=   -2147483643
+         GridColor       =   -2147483633
+         GridColorFixed  =   -2147483632
+         TreeColor       =   -2147483632
+         FloodColor      =   192
+         SheetBorder     =   -2147483642
+         FocusRect       =   1
+         HighLight       =   1
+         AllowSelection  =   -1  'True
+         AllowBigSelection=   -1  'True
+         AllowUserResizing=   0
+         SelectionMode   =   0
+         GridLines       =   1
+         GridLinesFixed  =   2
+         GridLineWidth   =   1
+         Rows            =   50
+         Cols            =   10
+         FixedRows       =   1
+         FixedCols       =   1
+         RowHeightMin    =   0
+         RowHeightMax    =   0
+         ColWidthMin     =   0
+         ColWidthMax     =   0
+         ExtendLastCol   =   0   'False
+         FormatString    =   ""
+         ScrollTrack     =   0   'False
+         ScrollBars      =   3
+         ScrollTips      =   0   'False
+         MergeCells      =   0
+         MergeCompare    =   0
+         AutoResize      =   -1  'True
+         AutoSizeMode    =   0
+         AutoSearch      =   0
+         AutoSearchDelay =   2
+         MultiTotals     =   -1  'True
+         SubtotalPosition=   1
+         OutlineBar      =   0
+         OutlineCol      =   0
+         Ellipsis        =   0
+         ExplorerBar     =   0
+         PicturesOver    =   0   'False
+         FillStyle       =   0
+         RightToLeft     =   0   'False
+         PictureType     =   0
+         TabBehavior     =   0
+         OwnerDraw       =   0
+         Editable        =   0
+         ShowComboButton =   1
+         WordWrap        =   0   'False
+         TextStyle       =   0
+         TextStyleFixed  =   0
+         OleDragMode     =   0
+         OleDropMode     =   0
+         DataMode        =   0
+         VirtualData     =   -1  'True
+         DataMember      =   ""
+         ComboSearch     =   3
+         AutoSizeMouse   =   -1  'True
+         FrozenRows      =   0
+         FrozenCols      =   0
+         AllowUserFreezing=   0
+         BackColorFrozen =   0
+         ForeColorFrozen =   0
+         WallPaperAlignment=   9
+         AccessibleName  =   ""
+         AccessibleDescription=   ""
+         AccessibleValue =   ""
+         AccessibleRole  =   24
+      End
       Begin VB.CommandButton Command6 
          Caption         =   "Command6"
-         Height          =   615
-         Left            =   360
+         Height          =   495
+         Left            =   5760
          TabIndex        =   20
-         Top             =   3840
+         Top             =   2520
          Width           =   1215
       End
       Begin VB.CommandButton Command5 
          Caption         =   "Command5"
-         Height          =   615
-         Left            =   5040
+         Height          =   495
+         Left            =   5760
          TabIndex        =   19
-         Top             =   4320
-         Width           =   1455
+         Top             =   1920
+         Width           =   1215
       End
       Begin VB.CommandButton Command4 
          Caption         =   "Command4"
-         Height          =   615
-         Left            =   1920
+         Height          =   495
+         Left            =   5760
          TabIndex        =   18
-         Top             =   4320
+         Top             =   3120
          Width           =   1215
       End
       Begin VB.CommandButton Command3 
          Caption         =   "Command3"
          Height          =   495
-         Left            =   3720
+         Left            =   5760
          TabIndex        =   17
-         Top             =   3120
-         Width           =   1335
+         Top             =   1320
+         Width           =   1215
       End
       Begin VB.ComboBox Combo1 
          Height          =   300
@@ -75,23 +189,23 @@ Begin VB.Form frmSysTest
          Height          =   1140
          Left            =   0
          TabIndex        =   11
-         Top             =   720
+         Top             =   480
          Width           =   2055
       End
       Begin VB.CommandButton Command1 
          Caption         =   "Command1"
-         Height          =   615
-         Left            =   2760
+         Height          =   495
+         Left            =   5760
          TabIndex        =   10
-         Top             =   0
-         Width           =   1575
+         Top             =   120
+         Width           =   1215
       End
       Begin VB.Frame Frame2 
          Caption         =   "Frame1"
          Height          =   1335
-         Left            =   2520
+         Left            =   2280
          TabIndex        =   8
-         Top             =   720
+         Top             =   120
          Width           =   2175
          Begin VB.TextBox Text1 
             Height          =   735
@@ -105,54 +219,54 @@ Begin VB.Form frmSysTest
       Begin VB.CommandButton Command2 
          Caption         =   "Command2"
          Height          =   495
-         Left            =   0
+         Left            =   5760
          TabIndex        =   7
-         Top             =   2040
-         Width           =   975
+         Top             =   720
+         Width           =   1215
       End
       Begin VB.OptionButton Option1 
          Caption         =   "Option1"
          Height          =   375
-         Left            =   5280
+         Left            =   4680
          TabIndex        =   6
-         Top             =   1560
+         Top             =   1200
          Width           =   1815
       End
       Begin VB.OptionButton Option2 
          Caption         =   "Option2"
          Height          =   180
-         Left            =   5280
+         Left            =   4680
          TabIndex        =   5
-         Top             =   2040
+         Top             =   1680
          Width           =   1695
       End
       Begin VB.CheckBox Check2 
          Caption         =   "Check2"
          Height          =   255
-         Left            =   5520
+         Left            =   4680
          TabIndex        =   4
-         Top             =   2640
+         Top             =   2040
          Width           =   2055
       End
       Begin VB.CheckBox Check3 
          Caption         =   "Check3"
          Height          =   255
-         Left            =   5520
+         Left            =   4680
          TabIndex        =   3
-         Top             =   3240
+         Top             =   2640
          Width           =   1815
       End
       Begin VB.Timer timeProgress 
          Enabled         =   0   'False
          Interval        =   10
-         Left            =   1320
-         Top             =   2160
+         Left            =   3360
+         Top             =   1800
       End
       Begin ¹¤³Ì1.ucTextComboBox ucTextComboBox1 
          Height          =   300
          Left            =   0
          TabIndex        =   1
-         Top             =   2880
+         Top             =   1800
          Width           =   2535
          _ExtentX        =   4471
          _ExtentY        =   529
@@ -171,7 +285,7 @@ Begin VB.Form frmSysTest
          Height          =   300
          Left            =   0
          TabIndex        =   2
-         Top             =   3360
+         Top             =   2280
          Width           =   2535
          _ExtentX        =   4471
          _ExtentY        =   529
@@ -189,17 +303,17 @@ Begin VB.Form frmSysTest
       Begin VB.Label Label1 
          Caption         =   "Label1"
          Height          =   255
-         Left            =   5400
+         Left            =   4800
          TabIndex        =   14
-         Top             =   360
+         Top             =   240
          Width           =   1455
       End
       Begin VB.Label Label2 
          Caption         =   "Label2"
          Height          =   255
-         Left            =   5400
+         Left            =   4800
          TabIndex        =   13
-         Top             =   840
+         Top             =   720
          Width           =   1695
       End
    End
@@ -324,9 +438,27 @@ Private Sub Command6_Click()
     
 End Sub
 
+Private Sub Command7_Click()
+With VSFlexGrid1
+        .Rows = 20
+        .Cols = 20
+        .ColWidth(-1) = 500
+        .AllowUserResizing = flexResizeBoth
+        .Cell(flexcpText, 0, 0, .Rows - 1, .Cols - 1) = "abc"
+        .Cell(flexcpChecked, 1, 1, .Rows - 1) = True
+        .Cell(flexcpTextStyle, 1, 3, .Rows - 1) = 2
+        .BackColorAlternate = vbCyan
+    End With
+    
+End Sub
+
+Private Sub Command8_Click()
+    Call gsGridToExcel(VSFlexGrid1)
+End Sub
+
 Private Sub Form_Load()
     Me.WindowState = vbMaximized
-
+    
 End Sub
 
 Private Sub timeProgress_Timer()
