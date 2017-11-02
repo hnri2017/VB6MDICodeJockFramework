@@ -20,6 +20,7 @@ UserControl=ucTextComboBox.ctl
 UserControl=ucLabelComboBox.ctl
 Module=modFunction; modFunction.bas
 Module=modDeclare; modDeclare.bas
+Form=frmSysTestEx.frm
 IconForm="frmSysMDI"
 Startup="Sub Main"
 HelpFile=""

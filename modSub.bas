@@ -13,9 +13,9 @@ Public Sub Main()
         .SysReLogin = 103
         
         
-        .Help = 900
-        .HelpAbout = 901
-        .HelpDocument = 902
+        .TestWindow = 200
+        .TestWindowFirst = 201
+        .TestWindowSecond = 202
         
         
         .Wnd = 800
@@ -75,6 +75,11 @@ Public Sub Main()
         .WndThemeSkinZune = 877
         
         .WndThemeSkinSet = 899
+        
+        .Help = 900
+        .HelpAbout = 901
+        .HelpDocument = 902
+        
         
         '请将所有菜单CommandBrs的ID值设置在2000以下，。
         
@@ -139,13 +144,13 @@ Public Sub Main()
 End Sub
 
 
-Public Sub gsAlarmAndLog(Optional ByVal strErr As String)
+Public Sub gsAlarmAndLog(Optional ByVal strErr As String, Optional ByVal MsgButton As VbMsgBoxStyle = vbCritical)
     '异常提示并写下异常日志
     
     Dim strMsg As String
     
     strMsg = "异常代号：" & Err.Number & vbCrLf & "异常描述：" & Err.Description
-    MsgBox strMsg, vbCritical, strErr
+    MsgBox strMsg, MsgButton, strErr
     Call gsFileWrite(gID.FileLog, strErr & vbTab & Replace(strMsg, vbCrLf, vbTab))
     
 End Sub
@@ -317,4 +322,27 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
     
 End Sub
 
-
+Public Sub gsOpenTheWindow(ByVal strFormName As String, _
+    Optional ByVal OpenMode As FormShowConstants = vbModeless, _
+    Optional ByVal FormWndState As FormWindowStateConstants = vbMaximized)
+    '以指定窗口模式OpenMode与窗口FormWndState状态来打开指定窗体strFormName
+    
+    Dim frmOpen As Form
+    Dim C As Long
+    
+    strFormName = LCase(strFormName)
+    If gfFormLoad(strFormName) Then
+        For C = 0 To Forms.Count - 1
+            If LCase(Forms(C).Name) = strFormName Then
+                Set frmOpen = Forms(C)
+                Exit For
+            End If
+        Next
+    Else
+        Set frmOpen = Forms.Add(strFormName)
+    End If
+    
+    frmOpen.Show OpenMode
+    frmOpen.WindowState = FormWndState
+    
+End Sub

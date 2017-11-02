@@ -207,16 +207,11 @@ Private Sub Command1_Click()
     Dim I As Long
     
     strName = Trim(ucTC.Text)
-    
-    For I = 1 To 1
-        Set frmNew = New frmSysTest
-        frmNew.Caption = "Form" & I
-        frmNew.Command1.Caption = frmNew.Caption & "cmd1"
-        frmNew.Show
-    Next
-    
+        
     SaveSetting gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserLast, strName
     Call msSaveUserList
+    
+    gMDI.Show
     
     Unload Me
     

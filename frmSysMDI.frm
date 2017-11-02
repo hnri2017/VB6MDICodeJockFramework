@@ -1,9 +1,9 @@
 VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#15.3#0"; "Codejock.SkinFramework.v15.3.1.ocx"
 Object = "{945E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.DockingPane.v15.3.1.ocx"
 Object = "{555E8FCC-830E-45CC-AF00-A012D5AE7451}#15.3#0"; "Codejock.CommandBars.v15.3.1.ocx"
 Object = "{B8E5842E-102B-4289-9D57-3B3F5B5E15D3}#15.3#0"; "Codejock.TaskPanel.v15.3.1.ocx"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#15.3#0"; "Codejock.SkinFramework.v15.3.1.ocx"
 Begin VB.MDIForm frmSysMDI 
    BackColor       =   &H8000000C&
    Caption         =   "软件主窗口"
@@ -303,15 +303,24 @@ Private Sub msAddAction()
         .Add gID.SysReLogin, "重新登陆", "", "", ""
         
         
-        
-        .Add gID.Help, "帮助", "", "", "帮助"
-        .Add gID.HelpAbout, "关于", "", "", ""
-        .Add gID.HelpDocument, "帮助文档", "", "", ""
+        .Add gID.TestWindow, "测试窗口菜单", "", "", "测试窗口"
+        .Add gID.TestWindowFirst, "测试窗口一", "", "", "frmSysTest"
+        .Add gID.TestWindowSecond, "测试窗口二", "", "", "frmSysTestEx"
         
         
         .Add gID.Wnd, "窗口", "", "", "窗口"
         
         .Add gID.WndResetLayout, "重置窗口布局", "", "", ""
+        .Add gID.WndThemeSkinSet, "窗口主题设置...", "", "", "frmSysSetSkin"
+        
+        .Add gID.WndThemeSkin, "窗体主题", "", "", ""
+        .Add gID.WndThemeSkinCodejock, "Codejock", "", "", ""
+        .Add gID.WndThemeSkinOffice2007, "Office2007", "", "", ""
+        .Add gID.WndThemeSkinOffice2010, "Office2010", "", "", ""
+        .Add gID.WndThemeSkinVista, "Vista", "", "", ""
+        .Add gID.WndThemeSkinWinXPLuna, "XPLuna", "", "", ""
+        .Add gID.WndThemeSkinWinXPRoyale, "XPRoyale", "", "", ""
+        .Add gID.WndThemeSkinZune, "msZune", "", "", ""
         
         .Add gID.WndThemeCommandBars, "工具栏主题", "", "", ""
         .Add gID.WndThemeCommandBarsOffice2000, "Office2000", "", "", ""
@@ -341,18 +350,7 @@ Private Sub msAddAction()
         .Add gID.WndThemeTaskPanelToolbox, "Toolbox", "", "", ""
         .Add gID.WndThemeTaskPanelToolboxWhidbey, "ToolboxWhidbey", "", "", ""
         .Add gID.WndThemeTaskPanelVisualStudio2010, "VisualStudio2010", "", "", ""
-        
-        .Add gID.WndThemeSkin, "窗体主题", "", "", ""
-        .Add gID.WndThemeSkinCodejock, "Codejock", "", "", ""
-        .Add gID.WndThemeSkinOffice2007, "Office2007", "", "", ""
-        .Add gID.WndThemeSkinOffice2010, "Office2010", "", "", ""
-        .Add gID.WndThemeSkinVista, "Vista", "", "", ""
-        .Add gID.WndThemeSkinWinXPLuna, "XPLuna", "", "", ""
-        .Add gID.WndThemeSkinWinXPRoyale, "XPRoyale", "", "", ""
-        .Add gID.WndThemeSkinZune, "msZune", "", "", ""
-        
-        .Add gID.WndThemeSkinSet, "窗口主题设置...", "", "", ""
-        
+                
         .Add gID.WndSon, "子窗口控制", "", "", ""
         .Add gID.WndSonCloseAll, "关闭所有窗口", "", "", ""
         .Add gID.WndSonCloseCurrent, "关闭当前窗口", "", "", ""
@@ -365,6 +363,11 @@ Private Sub msAddAction()
         .Add gID.WndSonVbCascade, "层叠", "", "", ""
         .Add gID.WndSonVbTileHorizontal, "水平平铺", "", "", ""
         .Add gID.WndSonVbTileVertical, "垂直平铺", "", "", ""
+        
+        
+        .Add gID.Help, "帮助", "", "", "帮助"
+        .Add gID.HelpAbout, "关于", "", "", ""
+        .Add gID.HelpDocument, "帮助文档", "", "", ""
         
         
         .Add gID.Other, "其它", "", "", "其它"
@@ -393,14 +396,15 @@ Private Sub msAddAction()
     '填充mcbsActions的其它属性
     For Each cbsAction In mcbsActions
         With cbsAction
-            If .Id < 2000 Then
+            If .ID < 2000 Then
                 .ToolTipText = .Caption
                 .DescriptionText = .ToolTipText
                 .Key = .Category
-                .Category = mcbsActions((.Id \ 100) * 100).Category
+                .Category = mcbsActions((.ID \ 100) * 100).Category
             End If
         End With
     Next
+    mcbsActions.Action(gID.TestWindowFirst).Enabled = False
     
     '风格系列的mcbsActions的两个属性的描述补充
     For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
@@ -422,8 +426,8 @@ Private Sub msAddDesignerControls()
 
     Set cbsControls = cBS.DesignerControls
     For Each cbsAction In mcbsActions
-        If cbsAction.Id < 2000 Then
-            cbsControls.Add xtpControlButton, cbsAction.Id, ""
+        If cbsAction.ID < 2000 Then
+            cbsControls.Add xtpControlButton, cbsAction.ID, ""
         End If
     Next
     
@@ -483,6 +487,15 @@ Private Sub msAddMenu()
         cbsMenuCtrl.BeginGroup = True
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysExit, "")
         cbsMenuCtrl.BeginGroup = True
+    End With
+    
+    
+    '测试窗口菜单
+    Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.TestWindow, "")
+    With cbsMenuMain.CommandBar.Controls
+        For mLngID = gID.TestWindowFirst To gID.TestWindowSecond
+            .Add xtpControlButton, mLngID, ""
+        Next
     End With
     
     
@@ -631,6 +644,15 @@ Private Sub msAddTaskPanelItem()
         .Add gID.SysModifyPassword, mcbsActions(gID.SysModifyPassword).Caption, xtpTaskItemTypeLink
         .Add gID.SysReLogin, mcbsActions(gID.SysReLogin).Caption, xtpTaskItemTypeLink
         .Add gID.SysExit, mcbsActions(gID.SysExit).Caption, xtpTaskItemTypeLink
+    End With
+    
+    
+    '测试窗口
+    Set taskGroup = TaskPL.Groups.Add(gID.TestWindow, mcbsActions(gID.TestWindow).Caption)
+    With taskGroup.Items
+        For mLngID = gID.TestWindowFirst To gID.TestWindowSecond
+            .Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
+        Next
     End With
     
     
@@ -973,8 +995,6 @@ Private Sub msLeftClick(ByVal CID As Long)
                 Call msWindowControl(CID)
             Case .WndThemeSkinCodejock To .WndThemeSkinZune
                 Call msThemeSkin(CID)
-            Case .WndThemeSkinSet
-                frmSysSetSkin.Show vbModal, Me
             Case .WndResetLayout
                 Call msResetLayout
             Case .OtherPaneIDFirst
@@ -982,7 +1002,23 @@ Private Sub msLeftClick(ByVal CID As Long)
             Case .SysExit
                 Unload Me
             Case Else
-                MsgBox "【" & mcbsActions(CID).Caption & "】命令未定义！", vbExclamation, "命令警告"
+                
+                Dim strKey As String
+                strKey = LCase(mcbsActions.Action(CID).Key)
+                If Left(strKey, 3) = "frm" Then
+                    If mcbsActions.Action(CID).Enabled Then
+                        Select Case strKey
+                            Case LCase("frmSysSetSkin")
+                                Call gsOpenTheWindow(strKey, vbModal, vbNormal)
+                            Case Else
+                                Call gsOpenTheWindow(strKey)
+                        End Select
+                    Else
+                        MsgBox "对不起，您目前没有权限打开该窗口！", vbExclamation, "窗口权限警告"
+                    End If
+                Else
+                    MsgBox "【" & mcbsActions(CID).Caption & "】命令未定义！", vbExclamation, "命令警告"
+                End If
         End Select
     End With
     
@@ -991,7 +1027,7 @@ End Sub
 Private Sub cBS_Execute(ByVal Control As XtremeCommandBars.ICommandBarControl)
     '命令单击事件
 
-    Call msLeftClick(Control.Id)
+    Call msLeftClick(Control.ID)
     
 End Sub
 
@@ -999,9 +1035,9 @@ End Sub
 Private Sub DockingPN_Action(ByVal Action As XtremeDockingPane.DockingPaneAction, ByVal Pane As XtremeDockingPane.IPane, ByVal Container As XtremeDockingPane.IPaneActionContainer, Cancel As Boolean)
     
     If Action = PaneActionClosed Then
-        If Pane.Id = gID.OtherPaneIDFirst Then
+        If Pane.ID = gID.OtherPaneIDFirst Then
 '            Debug.Print Pane.Id, Pane.Title, Pane.TitleToolTip
-            mcbsActions(Pane.Id).Checked = False
+            mcbsActions(Pane.ID).Checked = False
         End If
     End If
     
@@ -1010,7 +1046,7 @@ End Sub
 Private Sub DockingPn_PanePopupMenu(ByVal Pane As XtremeDockingPane.IPane, ByVal x As Long, ByVal y As Long, Handled As Boolean)
     '导航菜单标题中的Popu菜单生成
 
-    If Pane.Id = gID.OtherPaneIDFirst Then
+    If Pane.ID = gID.OtherPaneIDFirst Then
         mcbsPopupNav.ShowPopup , x * 15, y * 15     '只知道不乘15会位置不对，可能x、y的单位是像素，而窗口要的缇。
     End If
     
@@ -1104,7 +1140,7 @@ Private Sub MDIForm_Load()
     'TaskPanel上的主菜单展开或收拢设置
     Dim taskGroup As TaskPanelGroup
     For Each taskGroup In TaskPL.Groups
-        taskGroup.Expanded = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, 0))
+        taskGroup.Expanded = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.ID, 0))
     Next
 
 End Sub
@@ -1180,7 +1216,7 @@ Private Sub MDIForm_Unload(Cancel As Integer)
     Dim taskGroup As TaskPanelGroup
     For Each taskGroup In TaskPL.Groups
         lngSaveID = IIf(taskGroup.Expanded, 1, 0)
-        SaveSetting Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, lngSaveID
+        SaveSetting Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.ID, lngSaveID
     Next
     
 End Sub
@@ -1217,10 +1253,10 @@ Private Sub TaskPL_ItemClick(ByVal Item As XtremeTaskPanel.ITaskPanelGroupItem)
     '自动收拢
     If mcbsActions(gID.OtherPaneMenuPopuAutoFold).Checked Then
         For Each taskGroup In TaskPL.Groups
-            If taskGroup.Id <> Item.Group.Id Then taskGroup.Expanded = False
+            If taskGroup.ID <> Item.Group.ID Then taskGroup.Expanded = False
         Next
     End If
     
-    Call msLeftClick(Item.Id)
+    Call msLeftClick(Item.ID)
     
 End Sub

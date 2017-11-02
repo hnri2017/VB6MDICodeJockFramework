@@ -21,6 +21,7 @@ LineErr:
     
 End Function
 
+
 Public Function gfBackRecordset(ByVal cnSQL As String, _
                 Optional ByVal cnCursorType As CursorTypeEnum = adOpenStatic, _
                 Optional ByVal cnLockType As LockTypeEnum = adLockReadOnly, _
@@ -44,6 +45,7 @@ LineErr:
 
 End Function
 
+
 Public Function gfFileExist(ByVal strPath As String) As Boolean
     '判断文件、文件目录 是否存在
     
@@ -63,8 +65,10 @@ LineErr:
     
 End Function
 
+
 Public Function gfFileExistEx(ByVal strPath As String) As gtypValueAndErr
     '另一种返回值方式：来判断文件、文件目录 是否存在
+    '专供后面的过程gfFileRepair调用
     
     Dim strBack As String
     
@@ -86,6 +90,7 @@ LineErr:
     Call gsAlarmAndLog("文件判断返回异常")
     
 End Function
+
 
 Public Function gfFileRepair(ByVal strFile As String, Optional ByVal blnFolder As Boolean) As Boolean
     '如果 文件/文件夹 不存在 则创建
@@ -134,6 +139,23 @@ LineErr:
     
 End Function
 
+
+Public Function gfFormLoad(ByVal strFormName As String) As Boolean
+    '判断指定窗口是否被加载了
+    
+    Dim frmLoad As Form
+    
+    strFormName = LCase(strFormName)
+    For Each frmLoad In Forms
+        If LCase(frmLoad.Name) = strFormName Then
+            gfFormLoad = True
+            Exit Function
+        End If
+    Next
+    
+End Function
+
+
 Public Function gfStringCheck(ByVal strIn As String) As String
     '''敏感字符检测
     
@@ -151,4 +173,3 @@ Public Function gfStringCheck(ByVal strIn As String) As String
     Next
 
 End Function
-

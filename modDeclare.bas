@@ -10,6 +10,9 @@ Public Type gtypCommandBarID
     SysReLogin As Long
     SysModifyPassword As Long
     
+    TestWindow As Long
+    TestWindowFirst As Long
+    TestWindowSecond As Long
     
     Help As Long
     HelpAbout As Long

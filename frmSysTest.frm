@@ -32,6 +32,14 @@ Begin VB.Form frmSysTest
       TabIndex        =   0
       Top             =   240
       Width           =   8175
+      Begin VB.CommandButton Command9 
+         Caption         =   "Command9"
+         Height          =   495
+         Left            =   6720
+         TabIndex        =   24
+         Top             =   4320
+         Width           =   975
+      End
       Begin VB.CommandButton Command7 
          Caption         =   "Command7"
          Height          =   495
@@ -439,7 +447,7 @@ Private Sub Command6_Click()
 End Sub
 
 Private Sub Command7_Click()
-With VSFlexGrid1
+    With VSFlexGrid1
         .Rows = 20
         .Cols = 20
         .ColWidth(-1) = 500
@@ -450,10 +458,23 @@ With VSFlexGrid1
         .BackColorAlternate = vbCyan
     End With
     
+    Err.Number = 13035
+    Err.Description = "description"
+    Call gsAlarmAndLog("²âÊÔ¹ý³Ì")
+    
 End Sub
 
 Private Sub Command8_Click()
     Call gsGridToExcel(VSFlexGrid1)
+End Sub
+
+Private Sub Command9_Click()
+    If gfFormLoad("frmSysMDI") Then
+        MsgBox "frmSysMDI is Load"
+        MsgBox "frmSysMDI.Visible=" & frmSysMDI.Visible
+    Else
+        MsgBox "frmSysMDI is not Load"
+    End If
 End Sub
 
 Private Sub Form_Load()
