@@ -398,11 +398,11 @@ Private Sub Command3_Click()
     Close #1
     
 '    Call gfFileWrite(gID.FileLog, "", udOutput)
-    Call gfFileWrite(gID.FileLog, strVar)
-    Call gfFileWrite(gID.FileLog, strVar, , udWrite)
-    Call gfFileWrite(gID.FileLog, strVar & vbTab & "Write")
-    Call gfFileWrite(gID.FileLog, strVar & vbTab & "print", , udWrite)
-    Call gfFileWrite(gID.FileLog, strVar, udAppend, udPut)
+    Call gsFileWrite(gID.FileLog, strVar)
+    Call gsFileWrite(gID.FileLog, strVar, , udWrite)
+    Call gsFileWrite(gID.FileLog, strVar & vbTab & "Write")
+    Call gsFileWrite(gID.FileLog, strVar & vbTab & "print", , udWrite)
+    Call gsFileWrite(gID.FileLog, strVar, udAppend, udPut)
 End Sub
 
 Private Sub Command4_Click()
@@ -422,7 +422,7 @@ Private Sub Command4_Click()
     On Error Resume Next
     strFile = 1 / 0
     strFile = Err.Number & vbTab & Err.Description
-    Call gfFileWrite(gID.FileLog, strFile, udOutput)
+    Call gsFileWrite(gID.FileLog, strFile, udOutput)
 End Sub
 
 Private Sub Command5_Click()

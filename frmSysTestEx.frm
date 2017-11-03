@@ -10,22 +10,6 @@ Begin VB.Form frmSysTestEx
    ScaleHeight     =   5430
    ScaleWidth      =   9000
    WindowState     =   2  'Maximized
-   Begin VB.CommandButton Command3 
-      Caption         =   "Form4"
-      Height          =   615
-      Left            =   4800
-      TabIndex        =   4
-      Top             =   2400
-      Width           =   1455
-   End
-   Begin VB.CommandButton Command2 
-      Caption         =   "Form3"
-      Height          =   615
-      Left            =   4800
-      TabIndex        =   3
-      Top             =   1440
-      Width           =   1455
-   End
    Begin 工程1.ucLabelComboBox ucLabelComboBox1 
       Height          =   405
       Left            =   360
@@ -44,6 +28,7 @@ Begin VB.Form frmSysTestEx
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   192
    End
    Begin 工程1.ucTextComboBox ucTextComboBox1 
       Height          =   360
@@ -54,7 +39,7 @@ Begin VB.Form frmSysTestEx
       _ExtentX        =   4471
       _ExtentY        =   635
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "幼圆"
+         Name            =   "宋体"
          Size            =   12
          Charset         =   134
          Weight          =   700
@@ -63,6 +48,7 @@ Begin VB.Form frmSysTestEx
          Strikethrough   =   0   'False
       EndProperty
       FontSize        =   12
+      ForeColor       =   16711680
       Text            =   "ucTextComboBox1"
    End
    Begin VB.CommandButton Command1 
@@ -105,13 +91,7 @@ Private Sub Command1_Click()
     
 End Sub
 
-Private Sub Command2_Click()
-    Form3.Show
-End Sub
 
-Private Sub Command3_Click()
-    Form4.Show
-End Sub
 
 Private Sub Form_Load()
     With Me.ucTextComboBox1

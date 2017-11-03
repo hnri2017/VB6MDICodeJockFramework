@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmForm3 
-   Caption         =   "Form3"
+   Caption         =   "²âÊÔ´°¿Ú3"
    ClientHeight    =   3030
    ClientLeft      =   120
    ClientTop       =   450

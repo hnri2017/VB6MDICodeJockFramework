@@ -117,10 +117,11 @@ Public Sub Main()
         
         .FileAppName = App.EXEName & ".exe"
         .FileAppLoc = App.Path & "\" & .FileAppName
-        .FileAppNet = .FolderNet & .FileAppName
+'''        .FileAppNet = .FolderNet & .FileAppName
+        .FileAppNet = .FileAppLoc
         .FileLog = App.Path & "\Data\Record.LOG"
         .FileSetupLoc = App.Path & "\" & App.EXEName & "Setup.exe"
-'        .FileSetupNet = .FolderNet & App.EXEName & "Setup.exe"
+'''        .FileSetupNet = .FolderNet & App.EXEName & "Setup.exe"
         .FileSetupNet = .FileSetupLoc
         
         .CnDatabase = "db_Test"

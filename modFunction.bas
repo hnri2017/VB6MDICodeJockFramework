@@ -48,7 +48,7 @@ End Function
 
 Public Function gfFileExist(ByVal strPath As String) As Boolean
     '判断文件、文件目录 是否存在
-    
+
     Dim strBack As String
         
     On Error GoTo LineErr
@@ -57,7 +57,7 @@ Public Function gfFileExist(ByVal strPath As String) As Boolean
         strBack = Dir(strPath, vbDirectory + vbHidden + vbReadOnly + vbSystem)
         If Len(strBack) > 0 Then gfFileExist = True
     End If
-    
+  
     Exit Function
     
 LineErr:

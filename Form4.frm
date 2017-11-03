@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmForm4 
-   Caption         =   "Form4"
+   Caption         =   "²âÊÔ´°¿Ú4"
    ClientHeight    =   3030
    ClientLeft      =   120
    ClientTop       =   450

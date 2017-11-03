@@ -1037,7 +1037,7 @@ Private Sub msWindowNameAdd(ByVal strFormName As String)
     '将已打开窗口的Name添加进数组中
     
     strFormName = LCase(strFormName)
-    ReDim Preserve marrWindowName(mlngWindowCount)
+    ReDim Preserve marrWindowName(mlngWindowCount - 1)
     marrWindowName(mlngWindowCount - 1) = strFormName
 
 End Sub
@@ -1054,7 +1054,7 @@ Private Sub msWindowNameDel()
         strFormName = LCase(strFormName)
         mLngID = 0
         Do While (mLngID <= lngCount)
-            If LCase(Forms(lngCount).Name) = strFormName Then Exit Do
+            If LCase(Forms(mLngID).Name) = strFormName Then Exit Do
             mLngID = mLngID + 1
         Loop
         If mLngID > lngCount Then Exit For
