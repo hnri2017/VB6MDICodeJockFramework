@@ -278,10 +278,12 @@ End Sub
 Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As Long = -1, Optional ByVal TimeStyle As String = "yyyy-MM-dd HH:mm:ss")  '导出至Excel
     '将表格控件中的内容导出至Excel中
     '参数TimeCol：为控件中的时间列的列号，TimeStyle设定格式
+    '最好引用Excel对象。运行时电脑上应有MSOFFICE软件。
     
 '    Dim xlsOut As Excel.Application    '用这个申明好编程，编完后改为Object
     Dim xlsOut As Object
-    Dim sheetOut As Excel.Worksheet
+'    Dim sheetOut As Excel.Worksheet
+    Dim sheetOut  As Object
     Dim R As Long, C As Long, I As Long, J As Long
     
     On Error Resume Next
@@ -308,8 +310,8 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
         .Range(.Cells(1, 1), .Cells(1, C)).Font.Bold = True '加粗显示(第一行默认标题行)
         .Range(.Cells(1, 1), .Cells(1, C)).Font.Size = 12   '第一行12号字大小
         .Range(.Cells(2, 1), .Cells(R, C)).Font.Size = 10   '第二行以后10号字大小
-        .Range(.Cells(1, 1), .Cells(R, C)).HorizontalAlignment = xlCenter   '居中显示
-        .Range(.Cells(1, 1), .Cells(R, C)).Borders.Weight = xlThin  '单元格显示黑色线宽
+        .Range(.Cells(1, 1), .Cells(R, C)).HorizontalAlignment = -4108  'xlCenter= -4108(&HFFFFEFF4)   '居中显示
+        .Range(.Cells(1, 1), .Cells(R, C)).Borders.Weight = 2   'xlThin=2  '单元格显示黑色线宽
         .Columns.EntireColumn.AutoFit   '自动列宽
         .Rows(1).RowHeight = 23 '第一行行高
     End With

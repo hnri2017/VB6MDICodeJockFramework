@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{BEEECC20-4D5F-4F8B-BFDC-5D9B6FBDE09D}#1.0#0"; "vsFlex8.ocx"
 Begin VB.Form frmSysTest 
-   Caption         =   "Form1"
+   Caption         =   "测试窗口一"
    ClientHeight    =   6645
    ClientLeft      =   120
    ClientTop       =   450
@@ -457,10 +457,6 @@ Private Sub Command7_Click()
         .Cell(flexcpTextStyle, 1, 3, .Rows - 1) = 2
         .BackColorAlternate = vbCyan
     End With
-    
-    Err.Number = 13035
-    Err.Description = "description"
-    Call gsAlarmAndLog("测试过程")
     
 End Sub
 

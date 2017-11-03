@@ -44,6 +44,7 @@ Private Const conPropForeColor As Long = &H80000012
 
 '变量
 Private mFont As New StdFont
+Private mblnLocked As Boolean
 
 
 '事件声明
@@ -75,11 +76,11 @@ Public Property Let Alignment(ByVal newAlignment As AlignmentConstants)
     PropertyChanged "Alignment"
 End Property
 
-Public Property Get Appearance() As enmAppearance
+Public Property Get Appearance() As AppearanceConstants
     Appearance = Label1.Appearance
 End Property
 
-Public Property Let Appearance(ByVal newAppearance As enmAppearance)
+Public Property Let Appearance(ByVal newAppearance As AppearanceConstants)
     Label1.Appearance = newAppearance
     PropertyChanged "Appearance"
 End Property
@@ -104,14 +105,14 @@ Public Property Let BackColor(ByVal newBackColor As OLE_COLOR)
     PropertyChanged "BackColor"
 End Property
 
-Public Property Get BackStyle() As enmBorderStyle
-    BackStyle = Label1.BorderStyle
+Public Property Get BorderStyle() As MSComctlLib.BorderStyleConstants
+    BorderStyle = Label1.BorderStyle
 End Property
 
-Public Property Let BackStyle(ByVal newBackStyle As enmBorderStyle)
+Public Property Let BorderStyle(ByVal newBackStyle As MSComctlLib.BorderStyleConstants)
     Label1.BorderStyle = newBackStyle
     If AutoSize Then Call msAutoSize
-    PropertyChanged "BackStyle"
+    PropertyChanged "BorderStyle"
 End Property
 
 Public Property Get Caption() As String
@@ -175,6 +176,19 @@ Public Property Let ListIndex(ByVal newListIndex As Long)
     If AutoSize Then Call msAutoSize
 End Property
 
+Public Property Get Locked() As Boolean
+    Locked = mblnLocked
+End Property
+
+Public Property Let Locked(ByVal newLocked As Boolean)
+    mblnLocked = newLocked
+    PropertyChanged "Locked"
+End Property
+
+
+
+
+
 
 '控件方法
 Public Sub AddItem(ByVal Item As String, Optional ByVal Index As Long = -1)
@@ -209,6 +223,10 @@ End Sub
 
 Private Sub Combo1_DropDown()
     RaiseEvent DropDown
+End Sub
+
+Private Sub Combo1_KeyPress(KeyAscii As Integer)
+    If Locked Then KeyAscii = 0
 End Sub
 
 Private Sub Combo1_LostFocus()
@@ -257,15 +275,16 @@ End Sub
 Private Sub UserControl_ReadProperties(PropBag As PropertyBag)
     '
     Alignment = PropBag.ReadProperty("Alignment", vbLeftJustify)
-    Appearance = PropBag.ReadProperty("Appearance", uc3D)
+    Appearance = PropBag.ReadProperty("Appearance", cc3D)
     AutoSize = PropBag.ReadProperty("AutoSize", False)
     BackColor = PropBag.ReadProperty("BackColor", conPropBackColor)
-    BackStyle = PropBag.ReadProperty("BackStyle", ucNone)
+    BorderStyle = PropBag.ReadProperty("BorderStyle", ccNone)
     Caption = PropBag.ReadProperty("Caption", conPropCaption)
     Enabled = PropBag.ReadProperty("Enabled", True)
     Set Font = PropBag.ReadProperty("Font", mFont)
     ForeColor = PropBag.ReadProperty("ForeColor", conPropForeColor)
-
+    Locked = PropBag.ReadProperty("Locked", True)
+    
 End Sub
 
 Private Sub UserControl_Resize()
@@ -283,13 +302,14 @@ End Sub
 Private Sub UserControl_WriteProperties(PropBag As PropertyBag)
     '
     PropBag.WriteProperty "Alignment", Alignment, vbLeftJustify
-    PropBag.WriteProperty "Appearance", Appearance, uc3D
+    PropBag.WriteProperty "Appearance", Appearance, cc3D
     PropBag.WriteProperty "AutoSize", AutoSize, False
     PropBag.WriteProperty "BackColor", BackColor, conPropBackColor
-    PropBag.WriteProperty "BackStyle", BackStyle, ucNone
+    PropBag.WriteProperty "BorderStyle", BorderStyle, ccNone
     PropBag.WriteProperty "Caption", Caption, conPropCaption
     PropBag.WriteProperty "Enabled", Enabled, True
     PropBag.WriteProperty "Font", Font, mFont
     PropBag.WriteProperty "ForeColor", ForeColor, conPropForeColor
-    
+    PropBag.WriteProperty "Locked", Locked, True
+
 End Sub

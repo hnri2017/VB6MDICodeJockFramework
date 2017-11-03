@@ -396,15 +396,14 @@ Private Sub msAddAction()
     '填充mcbsActions的其它属性
     For Each cbsAction In mcbsActions
         With cbsAction
-            If .ID < 2000 Then
+            If .Id < 2000 Then
                 .ToolTipText = .Caption
                 .DescriptionText = .ToolTipText
                 .Key = .Category
-                .Category = mcbsActions((.ID \ 100) * 100).Category
+                .Category = mcbsActions((.Id \ 100) * 100).Category
             End If
         End With
     Next
-    mcbsActions.Action(gID.TestWindowFirst).Enabled = False
     
     '风格系列的mcbsActions的两个属性的描述补充
     For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
@@ -426,8 +425,8 @@ Private Sub msAddDesignerControls()
 
     Set cbsControls = cBS.DesignerControls
     For Each cbsAction In mcbsActions
-        If cbsAction.ID < 2000 Then
-            cbsControls.Add xtpControlButton, cbsAction.ID, ""
+        If cbsAction.Id < 2000 Then
+            cbsControls.Add xtpControlButton, cbsAction.Id, ""
         End If
     Next
     
@@ -1013,6 +1012,7 @@ Private Sub msLeftClick(ByVal CID As Long)
                             Case Else
                                 Call gsOpenTheWindow(strKey)
                         End Select
+                        mcbsActions.Action(CID).Checked = True  '标记该窗口被打开
                     Else
                         MsgBox "对不起，您目前没有权限打开该窗口！", vbExclamation, "窗口权限警告"
                     End If
@@ -1027,17 +1027,16 @@ End Sub
 Private Sub cBS_Execute(ByVal Control As XtremeCommandBars.ICommandBarControl)
     '命令单击事件
 
-    Call msLeftClick(Control.ID)
-    
-End Sub
+    Call msLeftClick(Control.Id)
 
+End Sub
 
 Private Sub DockingPN_Action(ByVal Action As XtremeDockingPane.DockingPaneAction, ByVal Pane As XtremeDockingPane.IPane, ByVal Container As XtremeDockingPane.IPaneActionContainer, Cancel As Boolean)
     
     If Action = PaneActionClosed Then
-        If Pane.ID = gID.OtherPaneIDFirst Then
+        If Pane.Id = gID.OtherPaneIDFirst Then
 '            Debug.Print Pane.Id, Pane.Title, Pane.TitleToolTip
-            mcbsActions(Pane.ID).Checked = False
+            mcbsActions(Pane.Id).Checked = False
         End If
     End If
     
@@ -1046,7 +1045,7 @@ End Sub
 Private Sub DockingPn_PanePopupMenu(ByVal Pane As XtremeDockingPane.IPane, ByVal x As Long, ByVal y As Long, Handled As Boolean)
     '导航菜单标题中的Popu菜单生成
 
-    If Pane.ID = gID.OtherPaneIDFirst Then
+    If Pane.Id = gID.OtherPaneIDFirst Then
         mcbsPopupNav.ShowPopup , x * 15, y * 15     '只知道不乘15会位置不对，可能x、y的单位是像素，而窗口要的缇。
     End If
     
@@ -1140,10 +1139,11 @@ Private Sub MDIForm_Load()
     'TaskPanel上的主菜单展开或收拢设置
     Dim taskGroup As TaskPanelGroup
     For Each taskGroup In TaskPL.Groups
-        taskGroup.Expanded = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.ID, 0))
+        taskGroup.Expanded = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, 0))
     Next
 
 End Sub
+
 
 Private Sub MDIForm_Unload(Cancel As Integer)
     
@@ -1216,7 +1216,7 @@ Private Sub MDIForm_Unload(Cancel As Integer)
     Dim taskGroup As TaskPanelGroup
     For Each taskGroup In TaskPL.Groups
         lngSaveID = IIf(taskGroup.Expanded, 1, 0)
-        SaveSetting Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.ID, lngSaveID
+        SaveSetting Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, lngSaveID
     Next
     
 End Sub
@@ -1253,10 +1253,10 @@ Private Sub TaskPL_ItemClick(ByVal Item As XtremeTaskPanel.ITaskPanelGroupItem)
     '自动收拢
     If mcbsActions(gID.OtherPaneMenuPopuAutoFold).Checked Then
         For Each taskGroup In TaskPL.Groups
-            If taskGroup.ID <> Item.Group.ID Then taskGroup.Expanded = False
+            If taskGroup.Id <> Item.Group.Id Then taskGroup.Expanded = False
         Next
     End If
     
-    Call msLeftClick(Item.ID)
+    Call msLeftClick(Item.Id)
     
 End Sub
