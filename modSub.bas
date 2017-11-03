@@ -16,7 +16,8 @@ Public Sub Main()
         .TestWindow = 200
         .TestWindowFirst = 201
         .TestWindowSecond = 202
-        
+        .TestWindowThird = 203
+        .TestWindowThour = 204
         
         .Wnd = 800
         

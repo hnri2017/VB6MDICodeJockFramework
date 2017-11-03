@@ -13,6 +13,8 @@ Public Type gtypCommandBarID
     TestWindow As Long
     TestWindowFirst As Long
     TestWindowSecond As Long
+    TestWindowThird As Long
+    TestWindowThour As Long
     
     Help As Long
     HelpAbout As Long

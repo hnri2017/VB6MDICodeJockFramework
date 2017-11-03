@@ -10,6 +10,22 @@ Begin VB.Form frmSysTestEx
    ScaleHeight     =   5430
    ScaleWidth      =   9000
    WindowState     =   2  'Maximized
+   Begin VB.CommandButton Command3 
+      Caption         =   "Form4"
+      Height          =   615
+      Left            =   4800
+      TabIndex        =   4
+      Top             =   2400
+      Width           =   1455
+   End
+   Begin VB.CommandButton Command2 
+      Caption         =   "Form3"
+      Height          =   615
+      Left            =   4800
+      TabIndex        =   3
+      Top             =   1440
+      Width           =   1455
+   End
    Begin ¹¤³Ì1.ucLabelComboBox ucLabelComboBox1 
       Height          =   405
       Left            =   360
@@ -89,6 +105,14 @@ Private Sub Command1_Click()
     
 End Sub
 
+Private Sub Command2_Click()
+    Form3.Show
+End Sub
+
+Private Sub Command3_Click()
+    Form4.Show
+End Sub
+
 Private Sub Form_Load()
     With Me.ucTextComboBox1
         .AddItem "tb111"
@@ -103,6 +127,3 @@ Private Sub Form_Load()
     End With
 End Sub
 
-Private Sub Form_Unload(Cancel As Integer)
-    Call gsUnCheckedAction(Me.Name)
-End Sub

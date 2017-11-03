@@ -284,7 +284,42 @@ Dim mcbsPopupNav As CommandBar      '用于导航菜单面板上生成标题中的Popup菜单
 Dim mcbsPopupTab As CommandBar      '窗口多标签右键Popup菜单
 Dim WithEvents mTabWorkspace As TabWorkspace    '窗口多标签控件
 Attribute mTabWorkspace.VB_VarHelpID = -1
+Dim mlngWindowCount As Long         '记录已打开窗口的数量，不包括MDI窗体
+Dim marrWindowName() As String      '记录已打开窗口的Name，不包括MDI窗体
 
+
+
+Public Sub gmsThemeSkinSet(ByVal skinFile As String, ByVal SkinIni As String)
+    '窗口主题设置
+    
+    skinFW.LoadSkin gID.FolderStyles & skinFile, SkinIni
+    
+    Dim lngID As Long
+    
+    Select Case LCase(skinFile)
+        Case LCase("Codejock.cjstyles")
+            lngID = gID.WndThemeSkinCodejock
+        Case LCase("Office2007.cjstyles")
+            lngID = gID.WndThemeSkinOffice2007
+        Case LCase("Office2010.cjstyles")
+            lngID = gID.WndThemeSkinOffice2010
+        Case LCase("Vista.cjstyles")
+            lngID = gID.WndThemeSkinVista
+        Case LCase("WinXPLuna.cjstyles")
+            lngID = gID.WndThemeSkinWinXPLuna
+        Case LCase("WinXPRoyale.cjstyles")
+            lngID = gID.WndThemeSkinWinXPRoyale
+        Case LCase("Zune.msstyles")
+            lngID = gID.WndThemeSkinZune
+    End Select
+    For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+        mcbsActions(mLngID).Checked = False
+    Next
+    If lngID > 0 Then
+        mcbsActions(lngID).Checked = True
+    End If
+    
+End Sub
 
 Private Sub msAddAction()
     '创建CommandBars的Action
@@ -306,7 +341,8 @@ Private Sub msAddAction()
         .Add gID.TestWindow, "测试窗口菜单", "", "", "测试窗口"
         .Add gID.TestWindowFirst, "测试窗口一", "", "", "frmSysTest"
         .Add gID.TestWindowSecond, "测试窗口二", "", "", "frmSysTestEx"
-        
+        .Add gID.TestWindowThird, "测试窗口三", "", "", "frmForm3"
+        .Add gID.TestWindowThour, "测试窗口四", "", "", "frmForm4"
         
         .Add gID.Wnd, "窗口", "", "", "窗口"
         
@@ -492,7 +528,7 @@ Private Sub msAddMenu()
     '测试窗口菜单
     Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.TestWindow, "")
     With cbsMenuMain.CommandBar.Controls
-        For mLngID = gID.TestWindowFirst To gID.TestWindowSecond
+        For mLngID = gID.TestWindowFirst To gID.TestWindowThour
             .Add xtpControlButton, mLngID, ""
         Next
     End With
@@ -649,7 +685,7 @@ Private Sub msAddTaskPanelItem()
     '测试窗口
     Set taskGroup = TaskPL.Groups.Add(gID.TestWindow, mcbsActions(gID.TestWindow).Caption)
     With taskGroup.Items
-        For mLngID = gID.TestWindowFirst To gID.TestWindowSecond
+        For mLngID = gID.TestWindowFirst To gID.TestWindowThour
             .Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
         Next
     End With
@@ -720,6 +756,76 @@ Private Sub msAddToolBar()
     
     
 
+End Sub
+
+Private Sub msCommandBarPopu(ByVal PID As Long)
+    'Popu菜单响应
+    
+    Dim taskGroup As TaskPanelGroup
+            
+    Select Case PID
+        Case gID.OtherPaneMenuPopuAutoFold
+            mcbsActions(PID).Checked = Not mcbsActions(PID).Checked
+        Case gID.OtherPaneMenuPopuExpand
+            For Each taskGroup In TaskPL.Groups
+                taskGroup.Expanded = True
+            Next
+        Case gID.OtherPaneMenuPopuFold
+            For Each taskGroup In TaskPL.Groups
+                taskGroup.Expanded = False
+            Next
+    End Select
+    
+End Sub
+
+Private Sub msLeftClick(ByVal CID As Long)
+    'CommandBar与TaskPanelGroupItem单击命令响应公共过程
+    
+    With gID
+        Select Case CID
+            Case .WndThemeCommandBarsOffice2000 To .WndThemeCommandBarsWinXP
+                Call msThemeCommandBar(CID)
+            Case .OtherPaneMenuPopuAutoFold To .OtherPaneMenuPopuFold
+                Call msCommandBarPopu(CID)
+            Case .WndThemeTaskPanelListView To .WndThemeTaskPanelVisualStudio2010
+                Call msThemeTaskPanel(CID)
+            Case .WndSonCloseAll To .WndSonVbTileVertical
+                Call msWindowControl(CID)
+            Case .WndThemeSkinCodejock To .WndThemeSkinZune
+                Call msThemeSkin(CID)
+            Case .WndResetLayout
+                Call msResetLayout
+            Case .OtherPaneIDFirst
+                DockingPN.FindPane(CID).Closed = Not DockingPN.FindPane(CID).Closed
+            Case .SysExit
+                Unload Me
+            Case Else
+                
+                Dim strKey As String
+                strKey = LCase(mcbsActions.Action(CID).Key)
+                If Left(strKey, 3) = "frm" Then
+                    If mcbsActions.Action(CID).Enabled Then
+                        Select Case strKey
+                            Case LCase("frmSysSetSkin")
+                                Call gsOpenTheWindow(strKey, vbModal, vbNormal)
+                            Case Else
+                                Call gsOpenTheWindow(strKey)
+                                mcbsActions.Action(CID).Checked = True  '标记该窗口被打开
+                                If mlngWindowCount < Forms.Count - 1 Then
+                                    mlngWindowCount = Forms.Count - 1
+                                    Call msWindowNameAdd(strKey)        '保存已打开窗口的数量
+                                End If
+                        End Select
+                        
+                    Else
+                        MsgBox "对不起，您目前没有权限打开该窗口！", vbExclamation, "窗口权限警告"
+                    End If
+                Else
+                    MsgBox "【" & mcbsActions(CID).Caption & "】命令未定义！", vbExclamation, "命令警告"
+                End If
+        End Select
+    End With
+    
 End Sub
 
 Private Sub msResetLayout()
@@ -808,38 +914,6 @@ Private Sub msThemeSkin(ByVal SID As Long)
     gID.SkinIni = strIni
     Call gmsThemeSkinSet(strFile, strIni)
 
-End Sub
-
-Public Sub gmsThemeSkinSet(ByVal skinFile As String, ByVal SkinIni As String)
-    '窗口主题设置
-    
-    skinFW.LoadSkin gID.FolderStyles & skinFile, SkinIni
-    
-    Dim lngID As Long
-    
-    Select Case LCase(skinFile)
-        Case LCase("Codejock.cjstyles")
-            lngID = gID.WndThemeSkinCodejock
-        Case LCase("Office2007.cjstyles")
-            lngID = gID.WndThemeSkinOffice2007
-        Case LCase("Office2010.cjstyles")
-            lngID = gID.WndThemeSkinOffice2010
-        Case LCase("Vista.cjstyles")
-            lngID = gID.WndThemeSkinVista
-        Case LCase("WinXPLuna.cjstyles")
-            lngID = gID.WndThemeSkinWinXPLuna
-        Case LCase("WinXPRoyale.cjstyles")
-            lngID = gID.WndThemeSkinWinXPRoyale
-        Case LCase("Zune.msstyles")
-            lngID = gID.WndThemeSkinZune
-    End Select
-    For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
-        mcbsActions(mLngID).Checked = False
-    Next
-    If lngID > 0 Then
-        mcbsActions(lngID).Checked = True
-    End If
-    
 End Sub
 
 Private Sub msThemeTaskPanel(ByVal TID As Long)
@@ -959,76 +1033,68 @@ Private Sub msWindowControl(ByVal WID As Long)
     
 End Sub
 
-Private Sub msCommandBarPopu(ByVal PID As Long)
-    'Popu菜单响应
+Private Sub msWindowNameAdd(ByVal strFormName As String)
+    '将已打开窗口的Name添加进数组中
     
-    Dim taskGroup As TaskPanelGroup
-            
-    Select Case PID
-        Case gID.OtherPaneMenuPopuAutoFold
-            mcbsActions(PID).Checked = Not mcbsActions(PID).Checked
-        Case gID.OtherPaneMenuPopuExpand
-            For Each taskGroup In TaskPL.Groups
-                taskGroup.Expanded = True
-            Next
-        Case gID.OtherPaneMenuPopuFold
-            For Each taskGroup In TaskPL.Groups
-                taskGroup.Expanded = False
-            Next
-    End Select
-    
+    strFormName = LCase(strFormName)
+    ReDim Preserve marrWindowName(mlngWindowCount)
+    marrWindowName(mlngWindowCount - 1) = strFormName
+
 End Sub
 
-Private Sub msLeftClick(ByVal CID As Long)
-    'CommandBar与TaskPanelGroupItem单击命令响应公共过程
+Private Sub msWindowNameDel()
+    '将已关闭的窗口Name从数组中删除
     
-    With gID
-        Select Case CID
-            Case .WndThemeCommandBarsOffice2000 To .WndThemeCommandBarsWinXP
-                Call msThemeCommandBar(CID)
-            Case .OtherPaneMenuPopuAutoFold To .OtherPaneMenuPopuFold
-                Call msCommandBarPopu(CID)
-            Case .WndThemeTaskPanelListView To .WndThemeTaskPanelVisualStudio2010
-                Call msThemeTaskPanel(CID)
-            Case .WndSonCloseAll To .WndSonVbTileVertical
-                Call msWindowControl(CID)
-            Case .WndThemeSkinCodejock To .WndThemeSkinZune
-                Call msThemeSkin(CID)
-            Case .WndResetLayout
-                Call msResetLayout
-            Case .OtherPaneIDFirst
-                DockingPN.FindPane(CID).Closed = Not DockingPN.FindPane(CID).Closed
-            Case .SysExit
-                Unload Me
-            Case Else
-                
-                Dim strKey As String
-                strKey = LCase(mcbsActions.Action(CID).Key)
-                If Left(strKey, 3) = "frm" Then
-                    If mcbsActions.Action(CID).Enabled Then
-                        Select Case strKey
-                            Case LCase("frmSysSetSkin")
-                                Call gsOpenTheWindow(strKey, vbModal, vbNormal)
-                            Case Else
-                                Call gsOpenTheWindow(strKey)
-                        End Select
-                        mcbsActions.Action(CID).Checked = True  '标记该窗口被打开
-                    Else
-                        MsgBox "对不起，您目前没有权限打开该窗口！", vbExclamation, "窗口权限警告"
-                    End If
-                Else
-                    MsgBox "【" & mcbsActions(CID).Caption & "】命令未定义！", vbExclamation, "命令警告"
-                End If
-        End Select
-    End With
+    Dim strFormName As Variant
+    Dim lngCount As Long
     
+    '寻找被关闭窗口的Name值
+    lngCount = Forms.Count - 1
+    For Each strFormName In marrWindowName
+        strFormName = LCase(strFormName)
+        mLngID = 0
+        Do While (mLngID <= lngCount)
+            If LCase(Forms(lngCount).Name) = strFormName Then Exit Do
+            mLngID = mLngID + 1
+        Loop
+        If mLngID > lngCount Then Exit For
+    Next
+    
+    '删除被关闭窗口的Name值
+    For mLngID = 0 To UBound(marrWindowName)
+        If LCase(marrWindowName(mLngID)) = strFormName Then
+            If mLngID < UBound(marrWindowName) Then
+                For lngCount = mLngID To UBound(marrWindowName) - 1
+                    marrWindowName(lngCount) = marrWindowName(lngCount + 1)
+                Next
+            End If
+            Exit For
+        End If
+    Next
+    ReDim Preserve marrWindowName(mlngWindowCount)
+    
+    '去掉Action的Checked勾勾
+    Call gsUnCheckedAction(strFormName)
+
 End Sub
+
+
 
 Private Sub cBS_Execute(ByVal Control As XtremeCommandBars.ICommandBarControl)
     '命令单击事件
 
     Call msLeftClick(Control.Id)
 
+End Sub
+
+Private Sub cBS_ResizeClient(ByVal Left As Long, ByVal Top As Long, ByVal Right As Long, ByVal Bottom As Long)
+    '去掉保存在数组中的已关闭窗口
+    
+    If mlngWindowCount > Forms.Count - 1 Then
+        mlngWindowCount = Forms.Count - 1
+        Call msWindowNameDel
+    End If
+    
 End Sub
 
 Private Sub DockingPN_Action(ByVal Action As XtremeDockingPane.DockingPaneAction, ByVal Pane As XtremeDockingPane.IPane, ByVal Container As XtremeDockingPane.IPaneActionContainer, Cancel As Boolean)
@@ -1229,6 +1295,7 @@ Private Sub mTabWorkspace_RClick(ByVal Item As XtremeCommandBars.ITabControlItem
         mTabWorkspace.Refresh
         mcbsPopupTab.ShowPopup
     End If
+    
 End Sub
 
 Private Sub picList_Resize()
