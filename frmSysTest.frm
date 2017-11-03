@@ -478,6 +478,10 @@ Private Sub Form_Load()
     
 End Sub
 
+Private Sub Form_Unload(Cancel As Integer)
+    Call gsUnCheckedAction(Me.Name)
+End Sub
+
 Private Sub timeProgress_Timer()
     mstbPaneBar.Value = mlngC
     mstbPaneText.Text = CInt((mlngC / mlngMax) * 100) & "%"

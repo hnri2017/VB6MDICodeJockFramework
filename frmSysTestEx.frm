@@ -102,3 +102,7 @@ Private Sub Form_Load()
         .AddItem "lc3333"
     End With
 End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    Call gsUnCheckedAction(Me.Name)
+End Sub

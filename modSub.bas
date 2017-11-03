@@ -155,6 +155,7 @@ Public Sub gsAlarmAndLog(Optional ByVal strErr As String, Optional ByVal MsgButt
     
 End Sub
 
+
 Public Sub gsFileWrite(ByVal strFile As String, ByVal strContent As String, _
     Optional ByVal OpenMode As genmFileOpenType = udAppend, _
     Optional ByVal WriteMode As genmFileWriteType = udPrint)
@@ -192,6 +193,7 @@ Public Sub gsFileWrite(ByVal strFile As String, ByVal strContent As String, _
     Close #intNum
     
 End Sub
+
 
 Public Sub gsFormScrollBar(ByRef frmCur As Form, ByRef ctlMv As Control, _
     ByRef Hsb As HScrollBar, ByRef Vsb As VScrollBar, _
@@ -324,6 +326,7 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
     
 End Sub
 
+
 Public Sub gsOpenTheWindow(ByVal strFormName As String, _
     Optional ByVal OpenMode As FormShowConstants = vbModeless, _
     Optional ByVal FormWndState As FormWindowStateConstants = vbMaximized)
@@ -348,3 +351,23 @@ Public Sub gsOpenTheWindow(ByVal strFormName As String, _
     frmOpen.WindowState = FormWndState
     
 End Sub
+
+
+Public Sub gsUnCheckedAction(ByVal strFormName As String)
+    '当窗口关闭时，去掉主窗体中cBS控件中被勾选的对应Action
+    
+    Dim actionCur As CommandBarAction
+    
+    strFormName = LCase(strFormName)
+    For Each actionCur In gMDI.cBS.Actions
+        If Len(actionCur.Key) > 0 Then
+            If LCase(actionCur.Key) = strFormName Then
+                actionCur.Checked = False
+                Exit For
+            End If
+        End If
+    Next
+    
+End Sub
+
+
