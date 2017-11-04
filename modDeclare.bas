@@ -9,6 +9,12 @@ Public Type gtypCommandBarID
     SysExit As Long
     SysReLogin As Long
     SysModifyPassword As Long
+    SysPrint As Long
+    SysPrintPreview As Long
+    SysOutToExcel As Long
+    SysOutToWord As Long
+    SysOutToText As Long
+    
     
     TestWindow As Long
     TestWindowFirst As Long

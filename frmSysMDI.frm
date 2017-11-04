@@ -7,10 +7,10 @@ Object = "{B8E5842E-102B-4289-9D57-3B3F5B5E15D3}#15.3#0"; "Codejock.TaskPanel.v1
 Begin VB.MDIForm frmSysMDI 
    BackColor       =   &H8000000C&
    Caption         =   "软件主窗口"
-   ClientHeight    =   9630
+   ClientHeight    =   5655
    ClientLeft      =   2880
    ClientTop       =   2415
-   ClientWidth     =   14760
+   ClientWidth     =   10770
    Icon            =   "frmSysMDI.frx":0000
    LinkTopic       =   "MDIForm1"
    Begin MSComctlLib.ImageList imgListCommandBars 
@@ -24,7 +24,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   34
+         NumListImages   =   40
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
@@ -194,6 +194,35 @@ Begin VB.MDIForm frmSysMDI
             Picture         =   "frmSysMDI.frx":E683
             Key             =   ""
          EndProperty
+         BeginProperty ListImage35 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":ED1D
+            Key             =   "SysWord"
+            Object.Tag             =   "106"
+         EndProperty
+         BeginProperty ListImage36 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":F9F7
+            Key             =   "SysText"
+            Object.Tag             =   "105"
+         EndProperty
+         BeginProperty ListImage37 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":106D1
+            Key             =   "SysExcel"
+            Object.Tag             =   "104"
+         EndProperty
+         BeginProperty ListImage38 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":113AB
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage39 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":114BD
+            Key             =   "SysPreview"
+            Object.Tag             =   "108"
+         EndProperty
+         BeginProperty ListImage40 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1210F
+            Key             =   "SysPrint"
+            Object.Tag             =   "107"
+         EndProperty
       EndProperty
    End
    Begin VB.PictureBox picHide 
@@ -201,11 +230,11 @@ Begin VB.MDIForm frmSysMDI
       Height          =   2535
       Left            =   0
       ScaleHeight     =   2475
-      ScaleWidth      =   14700
+      ScaleWidth      =   10710
       TabIndex        =   0
       Top             =   0
       Visible         =   0   'False
-      Width           =   14760
+      Width           =   10770
       Begin VB.PictureBox picList 
          Height          =   1455
          Left            =   5160
@@ -336,6 +365,11 @@ Private Sub msAddAction()
         .Add gID.SysExit, "退出", "", "", ""
         .Add gID.SysModifyPassword, "修改密码", "", "", ""
         .Add gID.SysReLogin, "重新登陆", "", "", ""
+        .Add gID.SysOutToExcel, "导出至Excel", "", "", ""
+        .Add gID.SysOutToText, "导出至记事本", "", "", ""
+        .Add gID.SysOutToWord, "导出至Word", "", "", ""
+        .Add gID.SysPrint, "打印…", "", "", ""
+        .Add gID.SysPrintPreview, "打印预览", "", "", ""
         
         
         .Add gID.TestWindow, "测试窗口菜单", "", "", "测试窗口"
@@ -518,6 +552,16 @@ Private Sub msAddMenu()
     Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.Sys, "")
     With cbsMenuMain.CommandBar.Controls
         .Add xtpControlButton, gID.SysModifyPassword, ""
+        
+        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysOutToExcel, "")
+        cbsMenuCtrl.BeginGroup = True
+        .Add xtpControlButton, gID.SysOutToText, ""
+        .Add xtpControlButton, gID.SysOutToWord, ""
+        
+        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysPrint, "")
+        cbsMenuCtrl.BeginGroup = True
+        .Add xtpControlButton, gID.SysPrintPreview, ""
+                
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysReLogin, "")
         cbsMenuCtrl.BeginGroup = True
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysExit, "")
@@ -677,6 +721,11 @@ Private Sub msAddTaskPanelItem()
     Set taskGroup = TaskPL.Groups.Add(gID.Sys, mcbsActions(gID.Sys).Caption)
     With taskGroup.Items
         .Add gID.SysModifyPassword, mcbsActions(gID.SysModifyPassword).Caption, xtpTaskItemTypeLink
+        
+        For mLngID = gID.SysOutToExcel To gID.SysPrintPreview
+            .Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
+        Next
+        
         .Add gID.SysReLogin, mcbsActions(gID.SysReLogin).Caption, xtpTaskItemTypeLink
         .Add gID.SysExit, mcbsActions(gID.SysExit).Caption, xtpTaskItemTypeLink
     End With
@@ -726,6 +775,15 @@ Private Sub msAddToolBar()
     Dim cbsBar As CommandBar
     Dim cbsCtr As CommandBarControl
     
+    
+    '系统操作工具栏
+    Set cbsBar = cBS.Add(mcbsActions(gID.Sys).Caption, xtpBarTop)
+    With cbsBar.Controls
+        For mLngID = gID.SysOutToExcel To gID.SysPrintPreview
+            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
+            cbsCtr.BeginGroup = True
+        Next
+    End With
     
     '窗体主题
     Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeSkin).Caption, xtpBarTop)
@@ -799,6 +857,8 @@ Private Sub msLeftClick(ByVal CID As Long)
                 DockingPN.FindPane(CID).Closed = Not DockingPN.FindPane(CID).Closed
             Case .SysExit
                 Unload Me
+            Case .SysOutToExcel
+                Call gsGridToExcel(ActiveForm.ActiveControl)
             Case Else
                 
                 Dim strKey As String
@@ -816,7 +876,7 @@ Private Sub msLeftClick(ByVal CID As Long)
                                     Call msWindowNameAdd(strKey)        '保存已打开窗口的数量
                                 End If
                         End Select
-                        
+
                     Else
                         MsgBox "对不起，您目前没有权限打开该窗口！", vbExclamation, "窗口权限警告"
                     End If
@@ -1097,6 +1157,46 @@ Private Sub cBS_ResizeClient(ByVal Left As Long, ByVal Top As Long, ByVal Right 
     
 End Sub
 
+Private Sub cBS_Update(ByVal Control As XtremeCommandBars.ICommandBarControl)
+    '更新CommandBars集合中的控件的Enabled、Checked状态
+    
+    Dim blnActForm As Boolean
+    Dim blnActCtrl As Boolean
+    Dim blnGrid As Boolean
+    Dim blnResult As Boolean
+    Dim ctlCur As Control
+    Dim strType As String
+    
+    Select Case Control.Id
+        Case gID.SysOutToExcel To gID.SysPrintPreview
+            If Not ActiveForm Is Nothing Then
+        
+                blnActForm = True   '是否有活动窗体
+                Set ctlCur = ActiveForm.ActiveControl
+                If Not ctlCur Is Nothing Then
+                    
+                    blnActCtrl = True   '是否有活动控件
+                    If (TypeOf ctlCur Is VSFlex8Ctl.VSFlexGrid) Or (TypeOf ctlCur Is FlexCell.Grid) Then
+                        
+                        blnGrid = True  '是否是表格控件。暂仅支持VSFlexGrid和FlexCell。
+                        strType = TypeName(ctlCur)
+                        '权限判断
+                        
+                    End If
+                End If
+            End If
+            
+            blnResult = blnActForm And blnActCtrl And blnGrid
+            
+            Control.Enabled = blnResult
+            
+        Case Else
+                
+    End Select
+    
+    
+End Sub
+
 Private Sub DockingPN_Action(ByVal Action As XtremeDockingPane.DockingPaneAction, ByVal Pane As XtremeDockingPane.IPane, ByVal Container As XtremeDockingPane.IPaneActionContainer, Cancel As Boolean)
     
     If Action = PaneActionClosed Then
@@ -1138,6 +1238,8 @@ Private Sub MDIForm_Load()
 
     cBS.AddImageList imgListCommandBars '添加图标
     cBS.EnableCustomization True        '允许自定义，此属性最好放在所有CommandBars设定之后
+    cBS.Options.UpdatePeriod = 250      '更改CommandBars的Update事件的执行周期，默认100ms
+    
 
     Set mTabWorkspace = cBS.ShowTabWorkspace(True)    '允许窗口多标签显示
     mTabWorkspace.Flags = xtpWorkspaceShowActiveFiles Or xtpWorkspaceShowCloseSelectedTab
