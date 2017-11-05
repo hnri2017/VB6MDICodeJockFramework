@@ -22,7 +22,7 @@ Public Type gtypCommandBarID
     SysSearch2TextBox As Long
     SysSearch3Button As Long
     SysSearch4ListBoxCaption As Long
-    SysSearch4ListBoxName As Long
+    SysSearch4ListBoxFormID As Long
     SysSearch5Go As Long
     
     

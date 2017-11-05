@@ -395,9 +395,9 @@ Private Sub msAddAction()
         .Add gID.SysSearch, "窗口检索", "", "", ""
         .Add gID.SysSearch1Label, "输入窗口名称关键字", "", "", ""
         .Add gID.SysSearch2TextBox, "关键字输入框", "", "", ""
-        .Add gID.SysSearch3Button, "查找", "", "", ""
+        .Add gID.SysSearch3Button, "检索窗口", "", "", ""
         .Add gID.SysSearch4ListBoxCaption, "检索到的窗口标题列表", "", "", ""
-        .Add gID.SysSearch4ListBoxName, "检索到的窗体名称列表", "", "", ""
+        .Add gID.SysSearch4ListBoxFormID, "检索到的窗体名称列表", "", "", ""
         .Add gID.SysSearch5Go, "跳转至选定窗口", "", "", ""
         
         
@@ -823,18 +823,21 @@ Private Sub msAddToolBar()
     Set cbsBar = cBS.Add(mcbsActions(gID.SysSearch).Caption, xtpBarTop)
     With cbsBar.Controls
         .Add xtpControlLabel, gID.SysSearch1Label, ""
-        .Add xtpControlEdit, gID.SysSearch2TextBox, ""
+        Set cbsCtr = .Add(xtpControlEdit, gID.SysSearch2TextBox, "")
+        cbsCtr.EditHint = "输入窗口关键字"
         .Add xtpControlButton, gID.SysSearch3Button, ""
         Set cbsCtr = .Add(xtpControlComboBox, gID.SysSearch4ListBoxCaption, "")
         cbsCtr.Width = 200
-        Set cbsCtr = .Add(xtpControlComboBox, gID.SysSearch4ListBoxName, "")
-        cbsCtr.Visible = False
+        cbsCtr.EditHint = "从列表中选择一个窗口标题"
+        Set cbsCtr = .Add(xtpControlComboBox, gID.SysSearch4ListBoxFormID, "")
+        cbsCtr.Visible = False  '这个必须隐形不让用户看到，用来保存窗体对应的ID值
         .Add xtpControlButton, gID.SysSearch5Go, ""
     End With
     
     
     '窗体主题
     Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeSkin).Caption, xtpBarTop)
+    cbsBar.Visible = False
     With cbsBar.Controls
         For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
             Set cbsCtr = .Add(xtpControlButton, mLngID, "")
@@ -844,6 +847,7 @@ Private Sub msAddToolBar()
     
     '工具栏主题
     Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeCommandBars).Caption, xtpBarTop)
+    cbsBar.Visible = False
     With cbsBar.Controls
         For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
             Set cbsCtr = .Add(xtpControlButton, mLngID, "")
@@ -853,6 +857,7 @@ Private Sub msAddToolBar()
     
     '导航菜单主题
     Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeTaskPanel).Caption, xtpBarTop)
+    cbsBar.Visible = False
     With cbsBar.Controls
         For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
             Set cbsCtr = .Add(xtpControlButton, mLngID, "")
@@ -887,6 +892,8 @@ End Sub
 Private Sub msLeftClick(ByVal CID As Long)
     'CommandBar与TaskPanelGroupItem单击命令响应公共过程
     
+    Dim strKey As String
+    
     With gID
         Select Case CID
             Case .WndThemeCommandBarsOffice2000 To .WndThemeCommandBarsWinXP
@@ -907,9 +914,14 @@ Private Sub msLeftClick(ByVal CID As Long)
                 Unload Me
             Case .SysOutToExcel
                 Call gsGridToExcel(ActiveForm.ActiveControl)
+            Case .SysSearch3Button
+                Call msSearchWindow
+            Case .SysSearch5Go, .SysSearch4ListBoxCaption
+                If Len(cBS.FindControl(xtpControlComboBox, gID.SysSearch4ListBoxCaption).Text) > 0 Then
+                    Call msLeftClick(CLng(cBS.FindControl(xtpControlComboBox, gID.SysSearch4ListBoxFormID).List(cBS.FindControl(xtpControlComboBox, gID.SysSearch4ListBoxCaption).ListIndex)))
+                End If
             Case Else
                 
-                Dim strKey As String
                 strKey = LCase(mcbsActions.Action(CID).Key)
                 If Left(strKey, 3) = "frm" Then
                     If mcbsActions.Action(CID).Enabled Then
@@ -959,6 +971,48 @@ Private Sub msResetLayout()
         DockingPN.DockPane pnRe, 240, 240, DockLeftOf
     Next
 
+End Sub
+
+Private Sub msSearchWindow()
+    '检索包含指定关键字的窗口
+    
+    Dim strName As String
+    Dim cbsAction As CommandBarAction
+    Dim cbsCtrlCaption As CommandBarComboBox
+    Dim cbsCtrlFormID As CommandBarComboBox
+    Dim blnClear As Boolean
+    
+    strName = LCase(Trim(cBS.FindControl(xtpControlEdit, gID.SysSearch2TextBox).Text))
+    If Len(strName) = 0 Then Exit Sub
+    
+    Set cbsCtrlCaption = cBS.FindControl(xtpControlComboBox, gID.SysSearch4ListBoxCaption)
+    Set cbsCtrlFormID = cBS.FindControl(xtpControlComboBox, gID.SysSearch4ListBoxFormID)
+    
+    For Each cbsAction In mcbsActions
+        If cbsAction.Id < 2000 Then     '所有窗口的ID小于2000
+            If LCase(Left(cbsAction.Key, 3)) = "frm" Then   '窗口的Name属性以frm开头
+                If InStr(LCase(cbsAction.Caption), strName) > 0 Then
+                    If Not blnClear Then
+                        cbsCtrlCaption.Clear
+                        cbsCtrlFormID.Clear
+                        blnClear = True
+                    End If
+                    cbsCtrlCaption.AddItem cbsAction.Caption
+                    cbsCtrlFormID.AddItem cbsAction.Id
+                End If
+            End If
+        End If
+    Next
+    
+    If blnClear Then
+        If cbsCtrlCaption.ListCount > 0 Then cbsCtrlCaption.ListIndex = 1
+    Else
+        cbsCtrlCaption.ListIndex = 0
+    End If
+    
+    Set cbsCtrlCaption = Nothing
+    Set cbsCtrlFormID = Nothing
+    
 End Sub
 
 Private Sub msThemeCommandBar(ByVal CID As Long)

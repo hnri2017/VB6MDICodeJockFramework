@@ -23,7 +23,7 @@ Public Sub Main()
         .SysSearch2TextBox = 112
         .SysSearch3Button = 113
         .SysSearch4ListBoxCaption = 114
-        .SysSearch4ListBoxName = 115
+        .SysSearch4ListBoxFormID = 115
         .SysSearch5Go = 116
         
         
