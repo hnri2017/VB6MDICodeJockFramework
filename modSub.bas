@@ -11,11 +11,20 @@ Public Sub Main()
         .SysExit = 101
         .SysModifyPassword = 102
         .SysReLogin = 103
+        
         .SysOutToExcel = 104
         .SysOutToText = 105
         .SysOutToWord = 106
         .SysPrint = 107
         .SysPrintPreview = 108
+        
+        .SysSearch = 110
+        .SysSearch1Label = 111
+        .SysSearch2TextBox = 112
+        .SysSearch3Button = 113
+        .SysSearch4ListBoxCaption = 114
+        .SysSearch4ListBoxName = 115
+        .SysSearch5Go = 116
         
         
         .TestWindow = 200

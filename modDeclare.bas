@@ -6,17 +6,28 @@ Public Type gtypCommandBarID
     'CommandBarsµÄID¼¯ºÏ
     
     Sys As Long
+    
     SysExit As Long
     SysReLogin As Long
     SysModifyPassword As Long
+    
     SysPrint As Long
     SysPrintPreview As Long
     SysOutToExcel As Long
     SysOutToWord As Long
     SysOutToText As Long
     
+    SysSearch As Long
+    SysSearch1Label As Long
+    SysSearch2TextBox As Long
+    SysSearch3Button As Long
+    SysSearch4ListBoxCaption As Long
+    SysSearch4ListBoxName As Long
+    SysSearch5Go As Long
+    
     
     TestWindow As Long
+    
     TestWindowFirst As Long
     TestWindowSecond As Long
     TestWindowThird As Long

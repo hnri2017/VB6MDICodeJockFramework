@@ -24,7 +24,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   40
+         NumListImages   =   44
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
@@ -211,7 +211,8 @@ Begin VB.MDIForm frmSysMDI
          EndProperty
          BeginProperty ListImage38 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":113AB
-            Key             =   ""
+            Key             =   "SysSearche"
+            Object.Tag             =   "113"
          EndProperty
          BeginProperty ListImage39 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":114BD
@@ -222,6 +223,26 @@ Begin VB.MDIForm frmSysMDI
             Picture         =   "frmSysMDI.frx":1210F
             Key             =   "SysPrint"
             Object.Tag             =   "107"
+         EndProperty
+         BeginProperty ListImage41 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":12D61
+            Key             =   "SysGo"
+            Object.Tag             =   "116"
+         EndProperty
+         BeginProperty ListImage42 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":13A3B
+            Key             =   "SysExit"
+            Object.Tag             =   "101"
+         EndProperty
+         BeginProperty ListImage43 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":14715
+            Key             =   "SysRelogin"
+            Object.Tag             =   "103"
+         EndProperty
+         BeginProperty ListImage44 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":153EF
+            Key             =   "SysPassword"
+            Object.Tag             =   "102"
          EndProperty
       EndProperty
    End
@@ -370,6 +391,15 @@ Private Sub msAddAction()
         .Add gID.SysOutToWord, "导出至Word", "", "", ""
         .Add gID.SysPrint, "打印…", "", "", ""
         .Add gID.SysPrintPreview, "打印预览", "", "", ""
+        
+        .Add gID.SysSearch, "窗口检索", "", "", ""
+        .Add gID.SysSearch1Label, "输入窗口名称关键字", "", "", ""
+        .Add gID.SysSearch2TextBox, "关键字输入框", "", "", ""
+        .Add gID.SysSearch3Button, "查找", "", "", ""
+        .Add gID.SysSearch4ListBoxCaption, "检索到的窗口标题列表", "", "", ""
+        .Add gID.SysSearch4ListBoxName, "检索到的窗体名称列表", "", "", ""
+        .Add gID.SysSearch5Go, "跳转至选定窗口", "", "", ""
+        
         
         
         .Add gID.TestWindow, "测试窗口菜单", "", "", "测试窗口"
@@ -779,11 +809,29 @@ Private Sub msAddToolBar()
     '系统操作工具栏
     Set cbsBar = cBS.Add(mcbsActions(gID.Sys).Caption, xtpBarTop)
     With cbsBar.Controls
+        .Add xtpControlButton, gID.SysReLogin, ""
+        .Add xtpControlButton, gID.SysExit, ""
+        
         For mLngID = gID.SysOutToExcel To gID.SysPrintPreview
             Set cbsCtr = .Add(xtpControlButton, mLngID, "")
             cbsCtr.BeginGroup = True
         Next
     End With
+    
+    
+    '窗口检索工具栏
+    Set cbsBar = cBS.Add(mcbsActions(gID.SysSearch).Caption, xtpBarTop)
+    With cbsBar.Controls
+        .Add xtpControlLabel, gID.SysSearch1Label, ""
+        .Add xtpControlEdit, gID.SysSearch2TextBox, ""
+        .Add xtpControlButton, gID.SysSearch3Button, ""
+        Set cbsCtr = .Add(xtpControlComboBox, gID.SysSearch4ListBoxCaption, "")
+        cbsCtr.Width = 200
+        Set cbsCtr = .Add(xtpControlComboBox, gID.SysSearch4ListBoxName, "")
+        cbsCtr.Visible = False
+        .Add xtpControlButton, gID.SysSearch5Go, ""
+    End With
+    
     
     '窗体主题
     Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeSkin).Caption, xtpBarTop)

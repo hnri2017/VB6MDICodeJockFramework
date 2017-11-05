@@ -134,7 +134,7 @@ Private Sub Form_Load()
 
     '方式二。好处是控件在枚举样式文件时会排除掉所有非样式文件
     Dim dES As SkinDescriptions
-    Set dES = gMDI.skinFW.EnumerateSkinDirectory(App.Path, True)
+    Set dES = gMDI.skinFW.EnumerateSkinDirectory(gID.FolderStyles, False)
     If dES Is Nothing Then
         Exit Sub
     End If

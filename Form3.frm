@@ -6,6 +6,7 @@ Begin VB.Form frmForm3
    ClientLeft      =   120
    ClientTop       =   450
    ClientWidth     =   4560
+   Icon            =   "Form3.frx":0000
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    ScaleHeight     =   3030
@@ -30,3 +31,6 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
+Private Sub Form_Load()
+    Set Me.Icon = gMDI.imgListCommandBars.ListImages("SysPassword").Picture
+End Sub
