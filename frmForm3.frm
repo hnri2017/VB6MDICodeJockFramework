@@ -10,6 +10,14 @@ Begin VB.Form frmForm3
    MDIChild        =   -1  'True
    ScaleHeight     =   5145
    ScaleWidth      =   8400
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   495
+      Left            =   5040
+      TabIndex        =   1
+      Top             =   120
+      Width           =   1335
+   End
    Begin FlexCell.Grid Grid1 
       Height          =   3855
       Left            =   720
@@ -29,6 +37,11 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
+
+Private Sub Command1_Click()
+    MsgBox gfBackOneChar
+    MsgBox gfBackOneChar(True)
+End Sub
 
 Private Sub Form_Load()
     Set Me.Icon = frmSysMDI.imgListCommandBars.ListImages("SysPassword").Picture

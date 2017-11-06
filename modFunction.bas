@@ -46,6 +46,28 @@ LineErr:
 End Function
 
 
+Public Function gfBackOneChar(Optional ByVal OnlyUpperCase As Boolean) As String
+    '随机返回一个字符（字母或数字）
+    '48-57:0-9
+    '65-90:A-Z
+    '97-122:a-z
+    
+    Dim intRd  As Integer
+    Dim intBase As Integer
+    
+    intBase = IIf(OnlyUpperCase, 42, 74)    '判断字母是否忽略大小写
+    Randomize
+    
+    Do
+        intRd = CInt((intBase * Rnd) + 48)
+        If (intRd > 47 And intRd < 58) Or (intRd > 64 And intRd < 91) Or (intRd > 96 And intRd < 123) Then Exit Do
+    Loop
+    
+    gfBackOneChar = Chr(intRd)
+    
+End Function
+
+
 Public Function gfFileExist(ByVal strPath As String) As Boolean
     '判断文件、文件目录 是否存在
 

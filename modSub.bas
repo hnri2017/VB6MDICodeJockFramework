@@ -128,6 +128,7 @@ Public Sub Main()
         .FolderBin = App.Path & "\Bin\"
         .FolderNet = "\\192.168.12.100\玮之度\部门数据\公共数据\WZDMS专用(勿动)\玮之度管理系统\"
         .FolderStyles = App.Path & "\Styles\"
+        .FolderData = App.Path & "\Data\"
         
         .FileAppName = App.EXEName & ".exe"
         .FileAppLoc = App.Path & "\" & .FileAppName
@@ -339,6 +340,25 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
     Set sheetOut = Nothing
     Set xlsOut = Nothing
     Screen.MousePointer = 0
+    
+End Sub
+
+
+Public Sub gsGridToText(ByRef gridControl As Control)
+    '将传入的表格控件中的内容导出为文本文件
+    
+    Dim strFileName As String
+    Dim K As Integer
+    
+    For K = 1 To 8
+        strFileName = strFileName & gfBackOneChar(True) '文件名中的8个随机字符，不含小写字母
+    Next
+    strFileName = gID.FolderData & Format(Now, "yyyyMMddHHmmss_") & strFileName & ".txt"
+    If Not gfFileRepair(strFileName) Then
+        MsgBox "创建文件失败，请重试！", vbExclamation, "文件生成警告"
+        Exit Sub
+    End If
+    
     
 End Sub
 

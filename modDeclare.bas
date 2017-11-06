@@ -132,6 +132,7 @@ Public Type gtypCommandBarID
     FolderStyles As String  '本地Style文件夹路径
     FolderBin As String     '本地Bin文件夹路径
     FolderNet As String     '网络共享文件夹路径
+    FolderData As String    '本地Data文件夹路径
     
     FileLog As String       '日志文件全路径
     FileAppName As String   'App带扩展名的全名
