@@ -1,24 +1,23 @@
 VERSION 5.00
 Object = "{E08BA07E-6463-4EAB-8437-99F08000BAD9}#1.9#0"; "FlexCell.ocx"
 Begin VB.Form frmForm3 
-   Caption         =   "²âÊÔ´°¿Ú3"
-   ClientHeight    =   3030
+   Caption         =   "Form3"
+   ClientHeight    =   5145
    ClientLeft      =   120
    ClientTop       =   450
-   ClientWidth     =   4560
-   Icon            =   "Form3.frx":0000
+   ClientWidth     =   8400
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   3030
-   ScaleWidth      =   4560
+   ScaleHeight     =   5145
+   ScaleWidth      =   8400
    Begin FlexCell.Grid Grid1 
-      Height          =   1455
-      Left            =   360
+      Height          =   3855
+      Left            =   720
       TabIndex        =   0
-      Top             =   480
-      Width           =   2175
-      _ExtentX        =   3836
-      _ExtentY        =   2566
+      Top             =   720
+      Width           =   6975
+      _ExtentX        =   12303
+      _ExtentY        =   6800
       Cols            =   5
       GridColor       =   12632256
       Rows            =   30
@@ -32,5 +31,5 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub Form_Load()
-    Set Me.Icon = gMDI.imgListCommandBars.ListImages("SysPassword").Picture
+    Set Me.Icon = frmSysMDI.imgListCommandBars.ListImages("SysPassword").Picture
 End Sub
