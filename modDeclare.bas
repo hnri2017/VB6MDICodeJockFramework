@@ -2,6 +2,15 @@ Attribute VB_Name = "modDeclare"
 Option Explicit
 
 
+Public Declare Function GetDesktopWindow Lib "user32" () As Long
+Public Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, _
+    ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, _
+    ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+Public Declare Function GetSystemDirectory Lib "kernel32" Alias "GetSystemDirectoryA" _
+    (ByVal lpBuffer As String, ByVal nSize As Long) As Long
+Public Const SE_ERR_NOASSOC = 31 '没有关联的程序
+
+
 Public Type gtypCommandBarID
     'CommandBars的ID集合
     

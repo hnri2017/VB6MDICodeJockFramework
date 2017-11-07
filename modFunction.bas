@@ -114,6 +114,39 @@ LineErr:
 End Function
 
 
+Public Function gfFileOpen(ByVal strFilePath As String) As gtypValueAndErr
+    '打开指定全路径的文件
+    
+    Dim lngRet As Long
+    Dim strDir As String
+    
+    On Error GoTo LineErr
+    
+    If gfFileExist(strFilePath) Then
+        
+        lngRet = ShellExecute(GetDesktopWindow, "open", strFilePath, vbNullString, vbNullString, vbNormalFocus)
+        If lngRet = SE_ERR_NOASSOC Then     '没有关联的程序
+             strDir = Space(260)
+             lngRet = GetSystemDirectory(strDir, Len(strDir))
+             strDir = Left(strDir, lngRet)
+             
+            '显示打开方式窗口
+            Call ShellExecute(GetDesktopWindow, vbNullString, "RUNDLL32.EXE", "shell32.dll,OpenAs_RunDLL " & strFilePath, strDir, vbNormalFocus)
+        Else
+            gfFileOpen.Result = True
+        End If
+        
+    End If
+    
+    Exit Function
+    
+LineErr:
+    gfFileOpen.ErrNum = Err.Number
+    Call gsAlarmAndLog("文件打开异常")
+    
+End Function
+
+
 Public Function gfFileRepair(ByVal strFile As String, Optional ByVal blnFolder As Boolean) As Boolean
     '如果 文件/文件夹 不存在 则创建
     '前提是路径的上层目录可访问

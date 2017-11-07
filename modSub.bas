@@ -299,14 +299,17 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
     '参数TimeCol：为控件中的时间列的列号，TimeStyle设定格式
     '最好引用Excel对象。运行时电脑上应有MSOFFICE软件。
     
-'    Dim xlsOut As Excel.Application    '用这个申明好编程，编完后改为Object
+'    Dim xlsOut As Excel.Application    '用这个申明好编程但要引用，编完后改为Object
     Dim xlsOut As Object
 '    Dim sheetOut As Excel.Worksheet
     Dim sheetOut  As Object
+    Dim blnFlexCell As Boolean
     Dim R As Long, C As Long, I As Long, J As Long
     
     On Error Resume Next
     Screen.MousePointer = 13
+    
+    If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
     
     Set xlsOut = CreateObject("Excel.Application")
     xlsOut.Workbooks.Add
@@ -315,11 +318,20 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
     With gridControl
         R = .Rows
         C = .Cols
-        For I = 0 To R - 1  '表格内容复制到Excel中
-            For J = 0 To C - 1
-                sheetOut.Cells(I + 1, J + 1) = .TextMatrix(I, J)
+        '表格内容复制到Excel中
+        If blnFlexCell Then
+            For I = 0 To R - 1
+                For J = 0 To C - 1
+                    sheetOut.Cells(I + 1, J + 1) = .Cell(I, J).Text
+                Next
             Next
-        Next
+        Else
+            For I = 0 To R - 1
+                For J = 0 To C - 1
+                    sheetOut.Cells(I + 1, J + 1) = .TextMatrix(I, J)
+                Next
+            Next
+        End If
     End With
     
     With sheetOut
@@ -348,9 +360,12 @@ Public Sub gsGridToText(ByRef gridControl As Control)
     '将传入的表格控件中的内容导出为文本文件
     
     Dim strFileName As String
-    Dim K As Integer
+    Dim blnFlexCell As Boolean
+    Dim intFree As Integer
+    Dim R As Long, C As Long, I As Long, J As Long
+    Dim strTxt As String
     
-    For K = 1 To 8
+    For I = 1 To 8
         strFileName = strFileName & gfBackOneChar(True) '文件名中的8个随机字符，不含小写字母
     Next
     strFileName = gID.FolderData & Format(Now, "yyyyMMddHHmmss_") & strFileName & ".txt"
@@ -359,6 +374,35 @@ Public Sub gsGridToText(ByRef gridControl As Control)
         Exit Sub
     End If
     
+    If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
+    
+    intFree = FreeFile
+    Open strFileName For Output As #intFree
+    With gridControl
+        R = .Rows - 1
+        C = .Cols - 1
+        If blnFlexCell Then
+            For I = 0 To R
+                strTxt = ""
+                For J = 0 To C
+                    strTxt = strTxt & .Cell(I, J).Text & vbTab
+                Next
+                Print #intFree, strTxt
+            Next
+        Else
+            For I = 0 To R
+                strTxt = ""
+                For J = 0 To C
+                    strTxt = strTxt & .TextMatrix(I, J) & vbTab
+                Next
+                Print #intFree, strTxt
+            Next
+        End If
+    End With
+    
+    Close
+    
+    Call gfFileOpen(strFileName)    '打开
     
 End Sub
 
