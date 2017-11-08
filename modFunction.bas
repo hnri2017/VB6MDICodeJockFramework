@@ -132,6 +132,7 @@ Public Function gfFileOpen(ByVal strFilePath As String) As gtypValueAndErr
              
             '显示打开方式窗口
             Call ShellExecute(GetDesktopWindow, vbNullString, "RUNDLL32.EXE", "shell32.dll,OpenAs_RunDLL " & strFilePath, strDir, vbNormalFocus)
+            gfFileOpen.ErrNum = -1   '不成功，也没异常
         Else
             gfFileOpen.Result = True
         End If
