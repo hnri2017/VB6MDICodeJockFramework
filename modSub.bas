@@ -407,6 +407,56 @@ Public Sub gsGridToText(ByRef gridControl As Control)
 End Sub
 
 
+Public Sub gsGridToWord(ByRef gridControl As Control)
+    '将指定表格中的内容导出至Word文档中
+    
+'    Dim wordApp As Word.Application
+    Dim wordApp As Object
+'    Dim docOut As Word.Document
+    Dim docOut As Object
+'    Dim tbOut As Word.Table
+    Dim tbOut As Object
+    Dim lngRows As Long, lngCols As Long
+    Dim I As Long, J As Long
+    Dim blnFlexCell As Boolean
+    
+    lngRows = gridControl.Rows
+    lngCols = gridControl.Cols
+    
+    On Error Resume Next
+'    Set wordApp = New Word.Application
+    Set wordApp = CreateObject("Word.Application")
+    Set docOut = wordApp.Documents.Add()
+    Set tbOut = docOut.Tables.Add(docOut.Range, lngRows, lngCols, True)
+    
+    If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
+    
+    If blnFlexCell Then
+        For I = 0 To lngRows - 1
+            For J = 0 To lngCols - 1
+                tbOut.Cell(I + 1, J + 1).Range.Text = gridControl.Cell(I, J).Text
+            Next
+        Next
+    Else
+        For I = 0 To lngRows - 1
+            For J = 0 To lngCols - 1
+                tbOut.Cell(I + 1, J + 1).Range.Text = gridControl.TextMatrix(I, J)
+            Next
+        Next
+    End If
+    tbOut.Rows(1).Range.Bold = True             '第一行内容加粗
+    tbOut.Range.ParagraphFormat.Alignment = 1   '表格内容居中显示
+    Call tbOut.AutoFitBehavior(1)               '根据内容自动调整列宽
+    
+    wordApp.Visible = True
+    
+    Set tbOut = Nothing
+    Set docOut = Nothing
+    Set wordApp = Nothing
+    
+End Sub
+
+
 Public Sub gsOpenTheWindow(ByVal strFormName As String, _
     Optional ByVal OpenMode As FormShowConstants = vbModeless, _
     Optional ByVal FormWndState As FormWindowStateConstants = vbMaximized)

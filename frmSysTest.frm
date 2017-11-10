@@ -447,15 +447,22 @@ Private Sub Command6_Click()
 End Sub
 
 Private Sub Command7_Click()
+    Dim I As Long
     With VSFlexGrid1
         .Rows = 20
         .Cols = 20
         .ColWidth(-1) = 500
         .AllowUserResizing = flexResizeBoth
-        .Cell(flexcpText, 0, 0, .Rows - 1, .Cols - 1) = "abc"
+        .Cell(flexcpText, 1, 1, .Rows - 1, .Cols - 1) = "abc"
         .Cell(flexcpChecked, 1, 1, .Rows - 1) = True
         .Cell(flexcpTextStyle, 1, 3, .Rows - 1) = 2
         .BackColorAlternate = vbCyan
+        For I = 0 To .Rows - 1
+            .TextMatrix(I, 0) = I
+        Next
+        For I = 0 To .Cols - 1
+            .TextMatrix(0, I) = I
+        Next
     End With
     
 End Sub

@@ -915,7 +915,9 @@ Private Sub msLeftClick(ByVal CID As Long)
             Case .SysOutToExcel
                 If MsgBox("确定将当前表格内容导出为Excel文件吗？", vbQuestion + vbOKCancel, "导出询问") = vbOK Then Call gsGridToExcel(ActiveForm.ActiveControl)
             Case .SysOutToText
-                If MsgBox("确定当前表格内容导出为文本文件吗？", vbQuestion + vbOKCancel, "导出询问") = vbOK Then Call gsGridToText(ActiveForm.ActiveControl)
+                If MsgBox("确定将当前表格内容导出为文本文件吗？", vbQuestion + vbOKCancel, "导出询问") = vbOK Then Call gsGridToText(ActiveForm.ActiveControl)
+            Case .SysOutToWord
+                If MsgBox("确定将当前表格内容导出为Word文档吗？", vbQuestion + vbOKCancel, "导出询问") = vbOK Then Call gsGridToWord(ActiveForm.ActiveControl)
             Case .SysSearch3Button
                 Call msSearchWindow
             Case .SysSearch5Go, .SysSearch4ListBoxCaption
