@@ -46,21 +46,28 @@ LineErr:
 End Function
 
 
-Public Function gfBackOneChar(Optional ByVal OnlyUpperCase As Boolean) As String
+Public Function gfBackOneChar(Optional ByVal CharType As genmCharType = udUpperLowerNum) As String
     'Ëæ»ú·µ»ØÒ»¸ö×Ö·û£¨×ÖÄ¸»òÊý×Ö£©
     '48-57:0-9
     '65-90:A-Z
     '97-122:a-z
     
     Dim intRd  As Integer
-    Dim intBase As Integer
+
+    If (CharType > udUpperLowerNum) Or (CharType < udLowerCase) Then CharType = udUpperLowerNum
     
-    intBase = IIf(OnlyUpperCase, 42, 74)    'ÅÐ¶Ï×ÖÄ¸ÊÇ·ñºöÂÔ´óÐ¡Ð´
     Randomize
-    
     Do
-        intRd = CInt((intBase * Rnd) + 48)
-        If (intRd > 47 And intRd < 58) Or (intRd > 64 And intRd < 91) Or (intRd > 96 And intRd < 123) Then Exit Do
+        intRd = CInt((72 * Rnd) + 48)
+        If (CharType Or udNumber) = CharType Then
+            If (intRd > 47 And intRd < 58) Then Exit Do
+        End If
+        If (CharType Or udUpperCase) = CharType Then
+            If (intRd > 64 And intRd < 91) Then Exit Do
+        End If
+        If (CharType Or udLowerCase) = CharType Then
+            If (intRd > 96 And intRd < 123) Then Exit Do
+        End If
     Loop
     
     gfBackOneChar = Chr(intRd)

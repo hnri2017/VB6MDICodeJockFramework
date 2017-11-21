@@ -366,7 +366,7 @@ Public Sub gsGridToText(ByRef gridControl As Control)
     Dim strTxt As String
     
     For I = 1 To 8
-        strFileName = strFileName & gfBackOneChar(True) '文件名中的8个随机字符，不含小写字母
+        strFileName = strFileName & gfBackOneChar(udNumber + udUpperCase) '文件名中的8个随机字符，不含小写字母
     Next
     strFileName = gID.FolderData & Format(Now, "yyyyMMddHHmmss_") & strFileName & ".txt"
     If Not gfFileRepair(strFileName) Then

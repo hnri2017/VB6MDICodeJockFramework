@@ -187,6 +187,13 @@ Public Enum genmFileWriteType   '写入文件方式
     udPrint     '用Line Input 或 Input读出
 End Enum
 
+Public Enum genmCharType    '返回字符类型
+    udUpperCase = 4     '仅大写字母
+    udLowerCase = 1     '仅小写字母
+    udNumber = 2        '仅数字
+    udUpperLowerNum = 7 '大写、小写、数字
+End Enum
+
 Public gID As gtypCommandBarID   '全局CommandBars的ID变量
 Public gMDI As MDIForm          '全局主窗体引用
 

@@ -61,7 +61,7 @@ Private Sub Command1_Click()
             Else
                 strRand = ""
                 For K = 1 To 5
-                    strRand = strRand & gfBackOneChar(True)
+                    strRand = strRand & gfBackOneChar(udNumber + udUpperCase)
                 Next
             End If
             Grid1.Cell(I, J).Text = strRand
