@@ -23,6 +23,7 @@ Form=frmSysSetSkin.frm
 Form=frmSysTestEx.frm
 Form=Form4.frm
 Form=frmForm3.frm
+Form=frmSysAlterPWD.frm
 IconForm="frmSysMDI"
 Startup="Sub Main"
 HelpFile=""

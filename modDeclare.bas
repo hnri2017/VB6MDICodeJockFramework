@@ -10,6 +10,11 @@ Public Declare Function GetSystemDirectory Lib "kernel32" Alias "GetSystemDirect
     (ByVal lpBuffer As String, ByVal nSize As Long) As Long
 Public Const SE_ERR_NOASSOC = 31 '没有关联的程序
 
+Public Const gconAscAdd As Integer = 5      '简单加解密中字符转化的增量
+Public Const gconAddLenStart As Integer = 10    '加在密文开始部分的字符个数
+Public Const gconSumLen As Integer = 60     '密文的总字符数
+Public Const gconMaxPWD As Integer = 20     '密码的最大字符数
+
 
 Public Type gtypCommandBarID
     'CommandBars的ID集合
@@ -196,6 +201,7 @@ End Enum
 
 Public gID As gtypCommandBarID   '全局CommandBars的ID变量
 Public gMDI As MDIForm          '全局主窗体引用
+
 
 
 
