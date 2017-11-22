@@ -211,6 +211,10 @@ Private Sub Command1_Click()
     SaveSetting gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserLast, strName
     Call msSaveUserList
     
+    gID.UserLoginName = "2008"
+    gID.UserFullName = "Ò¦ÓñÃ÷"
+    gID.UserPassword = "2008"
+    
     gMDI.Show
     
     Unload Me

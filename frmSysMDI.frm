@@ -384,7 +384,7 @@ Private Sub msAddAction()
         
         .Add gID.Sys, "系统", "", "", "系统"
         .Add gID.SysExit, "退出", "", "", ""
-        .Add gID.SysModifyPassword, "修改密码", "", "", ""
+        .Add gID.SysModifyPassword, "密码修改", "", "", "frmSysAlterPWD"
         .Add gID.SysReLogin, "重新登陆", "", "", ""
         .Add gID.SysOutToExcel, "导出至Excel", "", "", ""
         .Add gID.SysOutToText, "导出至记事本", "", "", ""
@@ -930,7 +930,7 @@ Private Sub msLeftClick(ByVal CID As Long)
                 If Left(strKey, 3) = "frm" Then
                     If mcbsActions.Action(CID).Enabled Then
                         Select Case strKey
-                            Case LCase("frmSysSetSkin")
+                            Case LCase("frmSysSetSkin"), LCase("frmSysAlterPWD")
                                 Call gsOpenTheWindow(strKey, vbModal, vbNormal)
                             Case Else
                                 Call gsOpenTheWindow(strKey)
@@ -1492,6 +1492,13 @@ Private Sub MDIForm_Unload(Cancel As Integer)
         lngSaveID = IIf(taskGroup.Expanded, 1, 0)
         SaveSetting Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, lngSaveID
     Next
+    
+    '
+    Set mcbsActions = Nothing
+    Set mcbsPopupNav = Nothing
+    Set mcbsPopupTab = Nothing
+    Set mTabWorkspace = Nothing
+    Set gMDI = Nothing
     
 End Sub
 

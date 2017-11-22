@@ -188,6 +188,7 @@ Public Function gfDecryptSimple(ByVal strIn As String) As String
     For K = 1 To C Step 2
         strPt = strPt & gfAsciiSub(Mid(strVar, K, 1))
     Next
+    If Len(strPt) <> C / 2 Then GoTo LineBreak
     
     gfDecryptSimple = strPt  '将解密好的密文返回给函数的调用者
     
@@ -249,12 +250,11 @@ Public Function gfEncryptSimple(ByVal strIn As String) As String
     Loop
     strTen = Left(strTen, 1) & CStr(R) & Right(strTen, Len(strTen) - 1)
     
-    If J < (gconAddLenStart - 2) Then           '若strTen的长度不够gconAddLenStart位，则填充随机数字
-        J = (gconAddLenStart - 2 - J) + R       '再在strTen后面并上随机个数K个数字
-        For K = 1 To J
-            strTen = strTen & gfBackOneChar(udNumber)
-        Next
-    End If
+    '若strTen的长度不够gconAddLenStart位，则填充随机数字,再在strTen后面并上随机R个数字
+    J = (gconAddLenStart - 2 - J) + R
+    For K = 1 To J
+        strTen = strTen & gfBackOneChar(udNumber)
+    Next
     strEt = strTen & strEt
     
     '三、在strEt后追加intAddLenEnd个随机字符凑成gconSumLen个字符的最终密文

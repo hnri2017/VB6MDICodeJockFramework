@@ -159,7 +159,8 @@ Public Type gtypCommandBarID
     SkinIni As String       '主题配置文件名
     
     UserLoginName As String '用户登陆名
-    UserNickname As String  '用户昵称
+    UserNickName As String  '用户昵称
+    UserFullName As String  '用户姓名
     UserPassword As String  '用户密码
     UserDepartment As String    '用户所在部门
     UserLoginIP As String       '用户登陆电脑IP

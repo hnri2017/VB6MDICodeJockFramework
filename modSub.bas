@@ -477,9 +477,9 @@ Public Sub gsOpenTheWindow(ByVal strFormName As String, _
         Set frmOpen = Forms.Add(strFormName)
     End If
     
-    frmOpen.Show OpenMode
     frmOpen.WindowState = FormWndState
-    
+    frmOpen.Show OpenMode               '此句放最后，不能放上句前面，否则退出程序时MDI窗体不能完全关闭，可能因为CommandBars控件的原因。
+        
 End Sub
 
 
