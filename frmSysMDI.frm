@@ -719,7 +719,7 @@ Private Sub msAddStatuBar()
         
         .AddPane gID.StatusBarPaneUserInfo
         .FindPane(gID.StatusBarPaneUserInfo).Caption = mcbsActions(gID.StatusBarPaneUserInfo).Caption
-        .FindPane(gID.StatusBarPaneUserInfo).Text = "小明"
+'        .FindPane(gID.StatusBarPaneUserInfo).Text = "小明"
         
         .AddProgressPane gID.StatusBarPaneProgress
         .SetPaneText gID.StatusBarPaneProgress, mcbsActions(gID.StatusBarPaneProgress).Caption
@@ -910,6 +910,14 @@ Private Sub msLeftClick(ByVal CID As Long)
                 Call msResetLayout
             Case .OtherPaneIDFirst
                 DockingPN.FindPane(CID).Closed = Not DockingPN.FindPane(CID).Closed
+            Case .SysReLogin
+                Dim strName As String, strPwd As String
+                strName = gID.UserLoginName
+                strPwd = gID.UserPassword
+                Unload Me
+                Call Main
+                frmSysLogin.ucTC = strName
+                frmSysLogin.Text1.Text = strPwd
             Case .SysExit
                 Unload Me
             Case .SysOutToExcel
@@ -1294,7 +1302,8 @@ Private Sub cBS_Update(ByVal Control As XtremeCommandBars.ICommandBarControl)
             
             blnResult = blnActForm And blnActCtrl And blnGrid
             
-            Control.Enabled = blnResult
+'''            Control.Enabled = blnResult
+            mcbsActions(Control.Id).Enabled = blnResult
             
         Case Else
                 
@@ -1539,6 +1548,10 @@ Private Sub TaskPL_ItemClick(ByVal Item As XtremeTaskPanel.ITaskPanelGroupItem)
         Next
     End If
     
-    Call msLeftClick(Item.Id)
+    If mcbsActions(Item.Id).Enabled Then
+        Call msLeftClick(Item.Id)
+    Else
+        MsgBox "状态不可用！", vbExclamation
+    End If
     
 End Sub

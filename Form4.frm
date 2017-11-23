@@ -9,6 +9,14 @@ Begin VB.Form frmForm4
    MDIChild        =   -1  'True
    ScaleHeight     =   3030
    ScaleWidth      =   4560
+   Begin VB.CommandButton Command3 
+      Caption         =   "ÓÃÍê¼´É¾"
+      Height          =   495
+      Left            =   3000
+      TabIndex        =   5
+      Top             =   2280
+      Width           =   1215
+   End
    Begin VB.TextBox Text3 
       Height          =   390
       Left            =   3120
@@ -90,3 +98,23 @@ Private Sub Command2_Click()
 End Sub
 
 
+Private Sub Command3_Click()
+    Dim strSQL As String, strPWD As String
+    Dim rsT As ADODB.Recordset
+    
+    strSQL = "SELECT * FROM tb_Test_User"
+    Set rsT = gfBackRecordset(strSQL)
+    
+    If rsT.State = adStateOpen Then
+        If rsT.RecordCount > 0 Then
+            While Not rsT.EOF
+
+
+                rsT.MoveNext
+            Wend
+          
+        End If
+        rsT.Close
+    End If
+    Set rsT = Nothing
+End Sub

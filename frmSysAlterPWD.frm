@@ -43,6 +43,7 @@ Begin VB.Form frmSysAlterPWD
       Width           =   1935
    End
    Begin VB.TextBox Text1 
+      BackColor       =   &H00C0FFC0&
       Height          =   300
       Index           =   1
       Left            =   1440
@@ -52,6 +53,7 @@ Begin VB.Form frmSysAlterPWD
       Width           =   1935
    End
    Begin VB.TextBox Text1 
+      BackColor       =   &H00FFFFC0&
       Height          =   300
       Index           =   0
       Left            =   1440
@@ -175,6 +177,14 @@ Private Sub Command1_Click()
         Text1.Item(4).SetFocus
         Text1.Item(4).SelStart = 0
         Text1.Item(4).SelLength = Len(strPwdNewB)
+        Exit Sub
+    End If
+    
+    If strPwdNew = strPwdPre Then
+        MsgBox "新密码不能与旧密码相同！", vbExclamation
+        Text1.Item(3).SetFocus
+        Text1.Item(3).SelStart = 0
+        Text1.Item(3).SelLength = Len(strPwdNew)
         Exit Sub
     End If
     

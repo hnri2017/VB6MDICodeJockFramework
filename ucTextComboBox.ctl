@@ -218,6 +218,13 @@ Private Sub Text1_Click()
     
 End Sub
 
+Private Sub Text1_GotFocus()
+    Combo1.ZOrder
+    Combo1.SetFocus
+    Combo1.SelStart = 0
+    Combo1.SelLength = Len(Combo1.Text)
+End Sub
+
 
 
 '用户控件事件
@@ -244,6 +251,10 @@ Private Sub UserControl_InitProperties()
 
     Text = strName  '然后将Text属性默认值设为控件的Name值
 
+End Sub
+
+Private Sub UserControl_LostFocus()
+    Text1.ZOrder
 End Sub
 
 Private Sub UserControl_ReadProperties(PropBag As PropertyBag)

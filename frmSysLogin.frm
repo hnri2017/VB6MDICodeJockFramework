@@ -51,6 +51,7 @@ Begin VB.Form frmSysLogin
    End
    Begin VB.CommandButton Command1 
       Caption         =   "登陆"
+      Default         =   -1  'True
       Height          =   495
       Left            =   1440
       TabIndex        =   2
@@ -202,22 +203,80 @@ End Sub
 
 
 Private Sub Command1_Click()
-    Dim strName As String
-    Dim frmNew As Form
-    Dim I As Long
+    Dim strName As String, strPwd As String
+    Dim strSQL As String, strMsg As String
+    Dim rsUser As ADODB.Recordset
+    
     
     strName = Trim(ucTC.Text)
+    strPwd = Trim(Text1.Text)
+    ucTC.Text = strName
+    Text1.Text = strPwd
+    
+    If Len(strName) = 0 Then
+        MsgBox "账号不能为空，且首尾不能有空格！", vbExclamation
+        ucTC.SetFocus
+        Exit Sub
+    End If
+    
+    If Len(strPwd) = 0 Then
+        MsgBox "密码不能为空，且首尾不能有空格！", vbExclamation
+        Text1.SetFocus
+        Text1.SelStart = 0
+        Text1.SelLength = Len(Text1.Text)
+        Exit Sub
+    End If
+    
+    strMsg = gfStringCheck(strName)
+    If Len(strMsg) > 0 Then
+        MsgBox "账号中不能含有特殊字符【" & strMsg & "】！", vbExclamation
+        ucTC.SetFocus
+        Exit Sub
+    End If
+    
+    strSQL = "EXEC sp_Test_Sys_UserLogin " & strName
+    Set rsUser = gfBackRecordset(strSQL)
+    
+    If rsUser.State = adStateClosed Then GoTo LineEnd
+    
+    If rsUser.RecordCount = 0 Then
+        strMsg = "账号不存在，请重新输入或联系管理员！"
+        ucTC.SetFocus
+        GoTo LineEnd
+    End If
+    
+    If rsUser.RecordCount > 1 Then
+        strMsg = "账号信息重复，禁止登陆，请联系管理员！"
+        ucTC.SetFocus
+        GoTo LineEnd
+    End If
+    
+    If gfDecryptSimple(rsUser.Fields("UserPassword")) <> strPwd Then
+        strMsg = "密码输入错误！"
+        Text1.SetFocus
+        Text1.SelStart = 0
+        Text1.SelLength = Len(Text1.Text)
+        GoTo LineEnd
+    End If
+    
+    gID.UserLoginName = strName
+    gID.UserPassword = strPwd
+    gID.UserFullName = rsUser.Fields("UserFullName")
+    gMDI.cBS.StatusBar.FindPane(gID.StatusBarPaneUserInfo).Text = gID.UserFullName
         
+    rsUser.Close
+    
     SaveSetting gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserLast, strName
     Call msSaveUserList
-    
-    gID.UserLoginName = "2008"
-    gID.UserFullName = "姚玉明"
-    gID.UserPassword = "2008"
-    
+
     gMDI.Show
     
     Unload Me
+    
+LineEnd:
+    If rsUser.State = adStateOpen Then rsUser.Close
+    Set rsUser = Nothing
+    If Len(strMsg) > 0 Then MsgBox strMsg, vbCritical
     
 End Sub
 
