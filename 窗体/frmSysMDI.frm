@@ -197,17 +197,17 @@ Begin VB.MDIForm frmSysMDI
          BeginProperty ListImage35 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":ED1D
             Key             =   "SysWord"
-            Object.Tag             =   "106"
+            Object.Tag             =   "122"
          EndProperty
          BeginProperty ListImage36 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":F9F7
             Key             =   "SysText"
-            Object.Tag             =   "105"
+            Object.Tag             =   "121"
          EndProperty
          BeginProperty ListImage37 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":106D1
             Key             =   "SysExcel"
-            Object.Tag             =   "104"
+            Object.Tag             =   "120"
          EndProperty
          BeginProperty ListImage38 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":113AB
@@ -217,12 +217,12 @@ Begin VB.MDIForm frmSysMDI
          BeginProperty ListImage39 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":114BD
             Key             =   "SysPreview"
-            Object.Tag             =   "108"
+            Object.Tag             =   "124"
          EndProperty
          BeginProperty ListImage40 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":1210F
             Key             =   "SysPrint"
-            Object.Tag             =   "107"
+            Object.Tag             =   "123"
          EndProperty
          BeginProperty ListImage41 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":12D61
@@ -383,9 +383,14 @@ Private Sub msAddAction()
 '        mcbsActions.Add "Id","Caption","TooltipText","DescriptionText","Category"
         
         .Add gID.Sys, "系统", "", "", "系统"
+        
         .Add gID.SysExit, "退出", "", "", ""
-        .Add gID.SysModifyPassword, "密码修改", "", "", "frmSysAlterPWD"
         .Add gID.SysReLogin, "重新登陆", "", "", ""
+        
+        .Add gID.SysModifyPassword, "密码修改", "", "", "frmSysAlterPWD"
+        .Add gID.SysDepartment, "部门管理", "", "", "frmSysDepartment"
+
+
         .Add gID.SysOutToExcel, "导出至Excel", "", "", ""
         .Add gID.SysOutToText, "导出至记事本", "", "", ""
         .Add gID.SysOutToWord, "导出至Word", "", "", ""
@@ -583,6 +588,9 @@ Private Sub msAddMenu()
     With cbsMenuMain.CommandBar.Controls
         .Add xtpControlButton, gID.SysModifyPassword, ""
         
+        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysDepartment, "")
+        cbsMenuCtrl.BeginGroup = True
+        
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysOutToExcel, "")
         cbsMenuCtrl.BeginGroup = True
         .Add xtpControlButton, gID.SysOutToText, ""
@@ -751,6 +759,7 @@ Private Sub msAddTaskPanelItem()
     Set taskGroup = TaskPL.Groups.Add(gID.Sys, mcbsActions(gID.Sys).Caption)
     With taskGroup.Items
         .Add gID.SysModifyPassword, mcbsActions(gID.SysModifyPassword).Caption, xtpTaskItemTypeLink
+        .Add gID.SysDepartment, mcbsActions(gID.SysDepartment).Caption, xtpTaskItemTypeLink
         
         For mLngID = gID.SysOutToExcel To gID.SysPrintPreview
             .Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
