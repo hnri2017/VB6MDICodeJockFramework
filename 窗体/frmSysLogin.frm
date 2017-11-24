@@ -203,15 +203,15 @@ End Sub
 
 
 Private Sub Command1_Click()
-    Dim strName As String, strPwd As String
+    Dim strName As String, strPWD As String
     Dim strSQL As String, strMsg As String
     Dim rsUser As ADODB.Recordset
     
     
     strName = Trim(ucTC.Text)
-    strPwd = Trim(Text1.Text)
+    strPWD = Trim(Text1.Text)
     ucTC.Text = strName
-    Text1.Text = strPwd
+    Text1.Text = strPWD
     
     If Len(strName) = 0 Then
         MsgBox "账号不能为空，且首尾不能有空格！", vbExclamation
@@ -219,7 +219,7 @@ Private Sub Command1_Click()
         Exit Sub
     End If
     
-    If Len(strPwd) = 0 Then
+    If Len(strPWD) = 0 Then
         MsgBox "密码不能为空，且首尾不能有空格！", vbExclamation
         Text1.SetFocus
         Text1.SelStart = 0
@@ -251,7 +251,7 @@ Private Sub Command1_Click()
         GoTo LineEnd
     End If
     
-    If gfDecryptSimple(rsUser.Fields("UserPassword")) <> strPwd Then
+    If gfDecryptSimple(rsUser.Fields("UserPassword")) <> strPWD Then
         strMsg = "密码输入错误！"
         Text1.SetFocus
         Text1.SelStart = 0
@@ -260,7 +260,7 @@ Private Sub Command1_Click()
     End If
     
     gID.UserLoginName = strName
-    gID.UserPassword = strPwd
+    gID.UserPassword = strPWD
     gID.UserFullName = rsUser.Fields("UserFullName")
     gMDI.cBS.StatusBar.FindPane(gID.StatusBarPaneUserInfo).Text = gID.UserFullName
         

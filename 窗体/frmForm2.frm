@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.Form frmSysTestEx 
+Begin VB.Form frmForm2 
    Caption         =   "²âÊÔ´°¿Ú¶þ"
    ClientHeight    =   5430
    ClientLeft      =   120
@@ -60,7 +60,7 @@ Begin VB.Form frmSysTestEx
       Width           =   1455
    End
 End
-Attribute VB_Name = "frmSysTestEx"
+Attribute VB_Name = "frmForm2"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True

@@ -403,8 +403,8 @@ Private Sub msAddAction()
         
         
         .Add gID.TestWindow, "测试窗口菜单", "", "", "测试窗口"
-        .Add gID.TestWindowFirst, "测试窗口一", "", "", "frmSysTest"
-        .Add gID.TestWindowSecond, "测试窗口二", "", "", "frmSysTestEx"
+        .Add gID.TestWindowFirst, "测试窗口一", "", "", "frmForm1"
+        .Add gID.TestWindowSecond, "测试窗口二", "", "", "frmForm2"
         .Add gID.TestWindowThird, "测试窗口三", "", "", "frmForm3"
         .Add gID.TestWindowThour, "测试窗口四", "", "", "frmForm4"
         
@@ -911,13 +911,13 @@ Private Sub msLeftClick(ByVal CID As Long)
             Case .OtherPaneIDFirst
                 DockingPN.FindPane(CID).Closed = Not DockingPN.FindPane(CID).Closed
             Case .SysReLogin
-                Dim strName As String, strPwd As String
+                Dim strName As String, strPWD As String
                 strName = gID.UserLoginName
-                strPwd = gID.UserPassword
+                strPWD = gID.UserPassword
                 Unload Me
                 Call Main
                 frmSysLogin.ucTC = strName
-                frmSysLogin.Text1.Text = strPwd
+                frmSysLogin.Text1.Text = strPWD
             Case .SysExit
                 Unload Me
             Case .SysOutToExcel

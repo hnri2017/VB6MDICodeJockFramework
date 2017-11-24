@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{BEEECC20-4D5F-4F8B-BFDC-5D9B6FBDE09D}#1.0#0"; "vsFlex8.ocx"
-Begin VB.Form frmSysTest 
+Begin VB.Form frmForm1 
    Caption         =   "≤‚ ‘¥∞ø⁄“ª"
    ClientHeight    =   6645
    ClientLeft      =   120
@@ -326,7 +326,7 @@ Begin VB.Form frmSysTest
       End
    End
 End
-Attribute VB_Name = "frmSysTest"
+Attribute VB_Name = "frmForm1"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
