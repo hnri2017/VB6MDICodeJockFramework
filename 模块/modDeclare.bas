@@ -201,6 +201,18 @@ Public Enum genmCharType    '返回字符类型
     udUpperLowerNum = 7 '大写、小写、数字
 End Enum
 
+Public Enum genmLogType '操作日志类型增、删、改、查
+    udSelect        '单个查询
+    udInsert
+    udDelete
+    udUpdate
+    udSelectBatch   '多个查询
+    udInsertBatch
+    udDeleteBatch
+    udUpdateBatch
+End Enum
+
+
 Public gID As gtypCommandBarID   '全局CommandBars的ID变量
 Public gMDI As MDIForm          '全局主窗体引用
 

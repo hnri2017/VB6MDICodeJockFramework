@@ -458,6 +458,43 @@ Public Sub gsGridToWord(ByRef gridControl As Control)
 End Sub
 
 
+Public Sub gsLogAdd(ByRef frmCur As Form, Optional ByVal LogType As genmLogType = udSelect, _
+    Optional ByVal strTable As String = "", Optional ByVal strContent As String = "")
+    '添加操作日志
+    
+    Dim strType As String
+    Dim strSQL As String
+    Dim rsLog As ADODB.Recordset
+    
+    Select Case LogType
+        Case udDelete
+            strType = "Delete"
+        Case udDeleteBatch
+            strType = "DeleteBatch"
+        Case udInsert
+            strType = "Insert"
+        Case udInsertBatch
+            strType = "InsertBatch"
+        Case udSelectBatch
+            strType = "SelectBatch"
+        Case udUpdate
+            strType = "Update"
+        Case udUpdateBatch
+            strType = "UpdateBatch"
+        Case Else
+            strType = "Select"
+    End Select
+    
+    strSQL = "EXEC sp_Test_Sys_LogAdd '" & strType & "','" & frmCur.Name & frmCur.Caption & "','" & strTable & _
+             "','" & strContent & "','" & gID.UserFullName & "','" & gID.UserLoginIP & "','" & gID.UserComputerName & "'"
+'Debug.Print strSQL
+    Set rsLog = gfBackRecordset(strSQL, , adLockOptimistic)
+    If rsLog.State = adStateOpen Then rsLog.Close
+    Set rsLog = Nothing
+    
+End Sub
+
+
 Public Sub gsOpenTheWindow(ByVal strFormName As String, _
     Optional ByVal OpenMode As FormShowConstants = vbModeless, _
     Optional ByVal FormWndState As FormWindowStateConstants = vbMaximized)

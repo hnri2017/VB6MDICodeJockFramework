@@ -213,15 +213,20 @@ Private Sub Command1_Click()
         GoTo LineEnd
     End If
     
+    On Error GoTo LineErr
+    
     If MsgBox("确定修改当前密码吗？", vbQuestion + vbOKCancel, "密码修改询问") = vbOK Then
         rsEdit.Fields("UserPassword") = gfEncryptSimple(strPwdNew)
         rsEdit.Update
         rsEdit.Close
+        Call gsLogAdd(Me, udUpdate, "tb_Test_User", "修改用户ID【" & strULID & "】的登陆密码")
         MsgBox "密码已修改成功，重新登陆后生效。", vbInformation
     End If
     
     GoTo LineEnd
     
+LineErr:
+    Call gsAlarmAndLog("密码修改异常")
 LineEnd:
     If rsEdit.State = adStateOpen Then rsEdit.Close
     Set rsEdit = Nothing

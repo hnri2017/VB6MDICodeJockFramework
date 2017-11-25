@@ -315,6 +315,14 @@ End Sub
 
 
 
+Private Sub Combo1_KeyUp(Index As Integer, KeyCode As Integer, Shift As Integer)
+    If Index = 0 Then
+        If KeyCode = vbKeyBack Or KeyCode = vbKeyDelete Then
+            Combo1.Item(Index).ListIndex = -1
+        End If
+    End If
+End Sub
+
 Private Sub Command1_Click()
     '添加部门
     '要求数据库中部门表的部门ID(字段DeptID)是自增标识列
@@ -360,6 +368,9 @@ Private Sub Command1_Click()
     
     strSQL = "SELECT DeptID ,DeptName ,ParentID FROM tb_Test_Department WHERE 1<>1 "
     Set rsAdd = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
+    
+    On Error GoTo LineErr
+    
     If rsAdd.State = adStateOpen Then
         rsAdd.AddNew
         rsAdd.Fields("DeptName") = strDeptName
@@ -367,12 +378,18 @@ Private Sub Command1_Click()
         rsAdd.Update
         lngDeptID = rsAdd.Fields("DeptID")
         rsAdd.Close
-        Set rsAdd = Nothing
         Call msLoadDept(TreeView1)
+        Call gsLogAdd(Me, udInsert, "tb_Test_Department", "添加新部门【" & lngDeptID & "】【" & strDeptName & "】")
         MsgBox "部门【" & strDeptName & "】添加成功！", vbInformation
     End If
-    Set rsAdd = Nothing
     
+    GoTo LineEnd
+    
+LineErr:
+    Call gsAlarmAndLog("部门添加异常")
+LineEnd:
+    If rsAdd.State = adStateOpen Then rsAdd.Close
+    Set rsAdd = Nothing
 End Sub
 
 Private Sub Command2_Click()
@@ -380,7 +397,7 @@ Private Sub Command2_Click()
     
     Dim rsEdit As ADODB.Recordset
     Dim strSQL As String, strMsg As String, strCheck As String
-    Dim strDeptID As String, strDeptName As String, strParentID As String
+    Dim strDeptID As String, strDeptName As String, strParentID As String, strLastPN As String
     Dim blnName As Boolean, blnParent As Boolean, blnCompany As Boolean
     
     
@@ -427,8 +444,10 @@ Private Sub Command2_Click()
         
         If .SelectedItem.Text <> strDeptName Then blnName = True
         If .SelectedItem.Parent Is Nothing Then
+            strLastPN = ""
             If Len(strParentID) > 0 Then blnParent = True
         Else
+            strLastPN = .SelectedItem.Parent.Text
             If .SelectedItem.Parent.Key <> mKeyHead & strParentID Then blnParent = True
         End If
         
@@ -444,17 +463,56 @@ Private Sub Command2_Click()
             Exit Sub
         End If
         
-        strMsg = "本次对ID为【" & strDeptID & "】的部门信息修改情况如下：" & vbCrLf & _
-                 Space(6) & Space(8) & vbTab & "修改前" & vbTab & vbTab & "修改后" & vbCrLf & _
+        strMsg = "本次对ID为【" & strDeptID & "】的部门信息修改情况如下：" & vbCrLf & vbCrLf & _
+                 Space(6) & "修改位置" & vbTab & "修改前" & vbTab & vbTab & "修改后" & vbCrLf & vbCrLf & _
                  Space(6) & Label1(1).Caption & vbTab & .SelectedItem.Text & vbTab & vbTab & strDeptName & vbCrLf & _
-                 Space(6) & Label1(2).Caption & vbTab & "修改前" & vbTab & vbTab & strParentID & vbCrLf & _
+                 Space(6) & Label1(2).Caption & vbTab & strLastPN & vbTab & vbTab & Combo1.Item(0).Text & vbCrLf & vbCrLf & _
                  "是否对其进行修改？"
         If MsgBox(strMsg, vbQuestion + vbYesNo) = vbNo Then Exit Sub
         
     End With
     
-'    Call msLoadDept(TreeView1)
+    strSQL = "SELECT DeptID ,DeptName ,ParentID " & _
+             "From tb_Test_Department " & _
+             "WHERE DeptID ='" & strDeptID & "'"
+    Set rsEdit = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
     
+    On Error GoTo LineErr
+    
+    If rsEdit.State = adStateOpen Then
+        If rsEdit.RecordCount = 1 Then
+            strMsg = "【" & strDeptID & "】部门信息修改："
+            If blnName Then
+                strMsg = strMsg & "部门名称[" & rsEdit.Fields("DeptName") & "]-->[" & strDeptName & "];"
+                rsEdit.Fields("DeptName") = strDeptName
+            End If
+            If blnParent Then
+                If blnCompany Then
+                    rsEdit.Fields("ParentID") = Null
+                Else
+                    rsEdit.Fields("ParentID") = strParentID
+                End If
+                strMsg = strMsg & "上级部门[" & strLastPN & "]-->[" & Combo1.Item(0).Text & "];"
+            End If
+            rsEdit.Update
+            rsEdit.Close
+            Call msLoadDept(TreeView1)
+            Call gsLogAdd(Me, udUpdate, "tb_Test_Department", strMsg)
+            MsgBox "部门信息修改完成！", vbInformation
+        Else
+            rsEdit.Close
+            MsgBox "后台数据异常，请联系管理员！", vbCritical
+        End If
+
+    End If
+    
+    GoTo LineEnd
+    
+LineErr:
+    Call gsAlarmAndLog("部门修改异常")
+LineEnd:
+    If rsEdit.State = adStateOpen Then rsEdit.Close
+    Set rsEdit = Nothing
 End Sub
 
 Private Sub Form_Load()

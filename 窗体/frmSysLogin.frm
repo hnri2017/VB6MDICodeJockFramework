@@ -1,4 +1,5 @@
 VERSION 5.00
+Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.OCX"
 Begin VB.Form frmSysLogin 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "系统登陆"
@@ -12,6 +13,13 @@ Begin VB.Form frmSysLogin
    ScaleHeight     =   2445
    ScaleWidth      =   4005
    StartUpPosition =   2  '屏幕中心
+   Begin MSWinsockLib.Winsock Winsock1 
+      Left            =   3120
+      Top             =   1680
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   393216
+   End
    Begin 工程1.ucTextComboBox ucTC 
       Height          =   360
       Left            =   960
@@ -268,7 +276,7 @@ Private Sub Command1_Click()
     
     SaveSetting gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserLast, strName
     Call msSaveUserList
-
+    Call gsLogAdd(Me, udSelect, "tb_Test_User", "【" & strName & "】登陆系统")
     gMDI.Show
     
     Unload Me
@@ -281,6 +289,9 @@ LineEnd:
 End Sub
 
 Private Sub Form_Load()
+    
+    gID.UserComputerName = Winsock1.LocalHostName
+    gID.UserLoginIP = Winsock1.LocalIP
    
     If App.PrevInstance Then
         If MsgBox("该程序在进程中存在、已经被打开！" & vbCrLf & vbCrLf _
