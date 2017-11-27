@@ -1,0 +1,182 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  Table [dbo].[tb_Test_Department]    Script Date: 11/27/2017 17:20:48 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[tb_Test_Department](
+	[DeptID] [int] IDENTITY(1000,1) NOT NULL,
+	[DeptName] [varchar](50) NOT NULL,
+	[ParentID] [int] NULL,
+ CONSTRAINT [PK_tb_Test_Department] PRIMARY KEY CLUSTERED 
+(
+	[DeptID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  Table [dbo].[tb_Test_User]    Script Date: 11/27/2017 17:23:38 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[tb_Test_User](
+	[UserAutoID] [int] IDENTITY(2000,1) NOT NULL,
+	[UserLoginName] [varchar](50) NOT NULL,
+	[UserPassword] [varchar](60) NULL,
+	[UserFullName] [varchar](50) NULL,
+	[DeptID] [int] NULL,
+	[UserMemo] [varchar](500) NULL,
+ CONSTRAINT [PK_tb_Test_User] PRIMARY KEY CLUSTERED 
+(
+	[UserAutoID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  Table [dbo].[tb_Test_OperationLog]    Script Date: 11/27/2017 17:24:04 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[tb_Test_OperationLog](
+	[LogID] [bigint] IDENTITY(1,1) NOT NULL,
+	[LogType] [varchar](10) NULL,
+	[LogContent] [nvarchar](200) NULL,
+	[LogTime] [datetime] NULL,
+	[LogTable] [varchar](50) NULL,
+	[LogFormName] [varchar](50) NULL,
+	[LogUserFullName] [varchar](50) NULL,
+	[LogPCIP] [varchar](50) NULL,
+	[LogPCName] [varchar](50) NULL,
+ CONSTRAINT [PK_tb_Test_OperationLog] PRIMARY KEY CLUSTERED 
+(
+	[LogID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE PROCEDURE
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_Test_Sys_LogAdd]    Script Date: 11/27/2017 17:24:58 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[sp_Test_Sys_LogAdd] 
+	-- Add the parameters for the stored procedure here
+	@strType AS VARCHAR(10)='select'
+	,@strForm AS VARCHAR(50)=''
+	,@strTable AS VARCHAR(50)=''
+	,@strContent AS NVARCHAR(200)=''
+	,@strUser AS VARCHAR(50)=''
+	,@strIP AS VARCHAR(50)=''
+	,@strPC AS VARCHAR(50)=''
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO tb_Test_OperationLog
+	(LogType ,LogFormName ,LogTable ,LogContent ,LogUserFullName ,
+	LogPCIP ,LogPCName ,LogTime )
+	VALUES(@strType ,@strForm ,@strTable ,@strContent ,@strUser ,
+	@strIP ,@strPC ,GETDATE() );
+	
+END
+
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_Test_Sys_UserLogin]    Script Date: 11/27/2017 17:25:31 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[sp_Test_Sys_UserLogin] 
+	-- Add the parameters for the stored procedure here
+	@strUN AS VARCHAR(20)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * 
+	FROM tb_Test_User 
+	WHERE UserLoginName = @strUN
+
+END
+
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
