@@ -485,8 +485,8 @@ Public Sub gsLogAdd(ByRef frmCur As Form, Optional ByVal LogType As genmLogType 
             strType = "Select"
     End Select
     
-    strSQL = "EXEC sp_Test_Sys_LogAdd '" & strType & "','" & frmCur.Name & frmCur.Caption & "','" & strTable & _
-             "','" & strContent & "','" & gID.UserFullName & "','" & gID.UserLoginIP & "','" & gID.UserComputerName & "'"
+    strSQL = "EXEC sp_Test_Sys_LogAdd '" & strType & "','" & frmCur.Name & "," & frmCur.Caption & "','" & strTable & _
+             "','" & strContent & "','" & gID.UserLoginName & "," & gID.UserFullName & "','" & gID.UserLoginIP & "','" & gID.UserComputerName & "'"
 'Debug.Print strSQL
     Set rsLog = gfBackRecordset(strSQL, , adLockOptimistic)
     If rsLog.State = adStateOpen Then rsLog.Close

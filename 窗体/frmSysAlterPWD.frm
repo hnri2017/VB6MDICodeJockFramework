@@ -63,6 +63,7 @@ Begin VB.Form frmSysAlterPWD
       Width           =   1935
    End
    Begin VB.CommandButton Command2 
+      Cancel          =   -1  'True
       Caption         =   "ÍË³ö"
       Height          =   495
       Left            =   2880
@@ -72,6 +73,7 @@ Begin VB.Form frmSysAlterPWD
    End
    Begin VB.CommandButton Command1 
       Caption         =   "ÐÞ¸Ä"
+      Default         =   -1  'True
       Height          =   495
       Left            =   1200
       TabIndex        =   5
