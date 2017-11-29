@@ -24,7 +24,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   44
+         NumListImages   =   53
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
@@ -193,6 +193,7 @@ Begin VB.MDIForm frmSysMDI
          BeginProperty ListImage34 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":E683
             Key             =   ""
+            Object.Tag             =   "901"
          EndProperty
          BeginProperty ListImage35 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":ED1D
@@ -241,8 +242,48 @@ Begin VB.MDIForm frmSysMDI
          EndProperty
          BeginProperty ListImage44 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":153EF
+            Key             =   "SysCompany"
+         EndProperty
+         BeginProperty ListImage45 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":16041
+            Key             =   "SysDepartment"
+            Object.Tag             =   "104"
+         EndProperty
+         BeginProperty ListImage46 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":16C93
+            Key             =   "threemen"
+         EndProperty
+         BeginProperty ListImage47 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":178E5
+            Key             =   "twomen"
+         EndProperty
+         BeginProperty ListImage48 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":18537
+            Key             =   "man"
+         EndProperty
+         BeginProperty ListImage49 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":19189
+            Key             =   "woman"
+         EndProperty
+         BeginProperty ListImage50 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":19DDB
             Key             =   "SysPassword"
             Object.Tag             =   "102"
+         EndProperty
+         BeginProperty ListImage51 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1AA2D
+            Key             =   ""
+            Object.Tag             =   "902"
+         EndProperty
+         BeginProperty ListImage52 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1AD7F
+            Key             =   "themes"
+            Object.Tag             =   "801"
+         EndProperty
+         BeginProperty ListImage53 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1B9D1
+            Key             =   "themeSet"
+            Object.Tag             =   "802"
          EndProperty
       EndProperty
    End
@@ -785,6 +826,15 @@ Private Sub msAddTaskPanelItem()
     '重置
     Set taskItem = taskGroup.Items.Add(gID.WndResetLayout, mcbsActions(gID.WndResetLayout).Caption, xtpTaskItemTypeLink)
     
+    Set taskItem = taskGroup.Items.Add(gID.WndThemeSkinSet, mcbsActions(gID.WndThemeSkinSet).Caption, xtpTaskItemTypeLink)
+    
+    '窗口主题
+    Set taskItem = taskGroup.Items.Add(gID.WndThemeSkin, mcbsActions(gID.WndThemeSkin).Caption, xtpTaskItemTypeText)
+    taskItem.Bold = True
+    For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+        taskGroup.Items.Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
+    Next
+    
     '工具栏主题
     Set taskItem = taskGroup.Items.Add(gID.WndThemeCommandBars, mcbsActions(gID.WndThemeCommandBars).Caption, xtpTaskItemTypeText)
     taskItem.Bold = True
@@ -805,6 +855,18 @@ Private Sub msAddTaskPanelItem()
     taskGroup.Items.Add gID.HelpDocument, mcbsActions(gID.HelpDocument).Caption, xtpTaskItemTypeLink
     taskGroup.Items.Add gID.HelpAbout, mcbsActions(gID.HelpAbout).Caption, xtpTaskItemTypeLink
     
+    '添加图标
+    Dim imgIcon As MSComctlLib.ListImage
+    For Each taskGroup In TaskPL.Groups
+        For Each taskItem In taskGroup.Items
+            For Each imgIcon In imgListCommandBars.ListImages
+                If Val(imgIcon.Tag) = Val(taskItem.Id) Then
+                    taskItem.IconIndex = imgIcon.Index
+                    Exit For
+                End If
+            Next
+        Next
+    Next
     
 End Sub
 
@@ -1363,7 +1425,7 @@ Private Sub MDIForm_Load()
     cBS.AddImageList imgListCommandBars '添加图标
     cBS.EnableCustomization True        '允许自定义，此属性最好放在所有CommandBars设定之后
     cBS.Options.UpdatePeriod = 250      '更改CommandBars的Update事件的执行周期，默认100ms
-    
+    TaskPL.SetImageList imgListCommandBars
 
     Set mTabWorkspace = cBS.ShowTabWorkspace(True)    '允许窗口多标签显示
     mTabWorkspace.Flags = xtpWorkspaceShowActiveFiles Or xtpWorkspaceShowCloseSelectedTab

@@ -167,9 +167,20 @@ Begin VB.Form frmSysDepartment
       _ExtentX        =   6800
       _ExtentY        =   7223
       _Version        =   393217
+      Indentation     =   441
       LabelEdit       =   1
       Style           =   7
+      FullRowSelect   =   -1  'True
       Appearance      =   1
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "宋体"
+         Size            =   10.5
+         Charset         =   134
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
    End
 End
 Attribute VB_Name = "frmSysDepartment"
@@ -243,7 +254,7 @@ Private Sub msLoadDept(ByRef tvwDept As MSComctlLib.TreeView)
         While Not rsDept.EOF
             If IsNull(rsDept.Fields(3).Value) Then
                 lngOneCompany = lngOneCompany + 1
-                tvwDept.Nodes.Add , , mKeyHead & rsDept.Fields(0).Value, rsDept.Fields(1).Value
+                tvwDept.Nodes.Add , , mKeyHead & rsDept.Fields(0).Value, rsDept.Fields(1).Value, "SysCompany"
                 tvwDept.Nodes.Item(mKeyHead & rsDept.Fields(0).Value).Expanded = True
             Else
                 ReDim Preserve arrDept(3, lngCount)
@@ -286,7 +297,7 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
         For J = LBound(arrLoad, 2) To UBound(arrLoad, 2)
             For I = 1 To .Nodes.Count   '注意此处下标从1开始
                 If .Nodes.Item(I).Key = mKeyHead & arrLoad(2, J) Then
-                    .Nodes.Add .Nodes.Item(I).Key, tvwChild, mKeyHead & arrLoad(0, J), arrLoad(1, J)
+                    .Nodes.Add .Nodes.Item(I).Key, tvwChild, mKeyHead & arrLoad(0, J), arrLoad(1, J), "threemen"
                     .Nodes.Item(mKeyHead & arrLoad(0, J)).Expanded = True
                     Exit For
                 End If
@@ -516,10 +527,12 @@ LineEnd:
 End Sub
 
 Private Sub Form_Load()
-    
+        
+    Me.Icon = frmSysMDI.imgListCommandBars.ListImages("SysDepartment").Picture
     Text1.Item(0).Text = ""
     Text1.Item(1).Text = ""
     TreeView1.Nodes.Clear
+    TreeView1.ImageList = gMDI.imgListCommandBars
     
     Call msLoadDept(TreeView1)
     
@@ -561,5 +574,7 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
     
     Text1.Item(0).Text = Right(Node.Key, lngLen - Len(mKeyHead))
     Text1.Item(1).Text = Node.Text
+    
+    Node.SelectedImage = "SysDepartment"
     
 End Sub

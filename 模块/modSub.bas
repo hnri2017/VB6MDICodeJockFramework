@@ -90,7 +90,7 @@ Public Sub Main()
         .WndThemeSkinWinXPRoyale = 876
         .WndThemeSkinZune = 877
         
-        .WndThemeSkinSet = 899
+        .WndThemeSkinSet = 802
         
         .Help = 900
         .HelpAbout = 901
