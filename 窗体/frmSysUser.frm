@@ -789,17 +789,17 @@ Private Sub Command2_Click()
         rsUser.Close
         
         strMsg = "修改ID【" & strUID & "】的"
-        If blnLoginName Then strMsg = strMsg & "[" & Label1.Item(1).Caption & "]"
-        If blnPwd Then strMsg = strMsg & "[" & Label1.Item(2).Caption & "]"
-        If blnFullName Then strMsg = strMsg & "[" & Label1.Item(3).Caption & "]"
-        If blnSex Then strMsg = strMsg & "[" & Label1.Item(4).Caption & "]"
-        If blnDept Then strMsg = strMsg & "[" & Label1.Item(5).Caption & "]"
-        If blnMemo Then strMsg = strMsg & "[" & Label1.Item(6).Caption & "]"
+        If blnLoginName Then strMsg = strMsg & "【" & Label1.Item(1).Caption & "】"
+        If blnPwd Then strMsg = strMsg & "【" & Label1.Item(2).Caption & "】"
+        If blnFullName Then strMsg = strMsg & "[" & Label1.Item(3).Caption & "】"
+        If blnSex Then strMsg = strMsg & "【" & Label1.Item(4).Caption & "】"
+        If blnDept Then strMsg = strMsg & "【" & Label1.Item(5).Caption & "】"
+        If blnMemo Then strMsg = strMsg & "【" & Label1.Item(6).Caption & "】"
         Call gsLogAdd(Me, udUpdate, "tb_Test_User", strMsg)
         
-        MsgBox "已成功" & strMsg, vbInformation
+        MsgBox "已成功" & strMsg & "。", vbInformation
         
-        If blnLoginName Or blnFullName Then
+        If blnFullName Or blnSex Or blnDept Then
             Call msLoadDept(TreeView1)
             Call msLoadUser(TreeView1)
         End If
