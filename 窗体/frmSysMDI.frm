@@ -24,7 +24,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   53
+         NumListImages   =   55
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
@@ -255,7 +255,8 @@ Begin VB.MDIForm frmSysMDI
          EndProperty
          BeginProperty ListImage47 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":178E5
-            Key             =   "twomen"
+            Key             =   "SysUser"
+            Object.Tag             =   "105"
          EndProperty
          BeginProperty ListImage48 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":18537
@@ -284,6 +285,14 @@ Begin VB.MDIForm frmSysMDI
             Picture         =   "frmSysMDI.frx":1B9D1
             Key             =   "themeSet"
             Object.Tag             =   "802"
+         EndProperty
+         BeginProperty ListImage54 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1C623
+            Key             =   "SelectedMen"
+         EndProperty
+         BeginProperty ListImage55 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1D275
+            Key             =   "unknown"
          EndProperty
       EndProperty
    End
@@ -369,7 +378,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 
-Dim mLngID As Long  '循环变量ID
+Dim mlngID As Long  '循环变量ID
 Dim mcbsActions As CommandBarActions    'cBS控件Actions集合的引用
 Dim mcbsPopupNav As CommandBar      '用于导航菜单面板上生成标题中的Popup菜单
 Dim mcbsPopupTab As CommandBar      '窗口多标签右键Popup菜单
@@ -403,8 +412,8 @@ Public Sub gmsThemeSkinSet(ByVal skinFile As String, ByVal SkinIni As String)
         Case LCase("Zune.msstyles")
             lngID = gID.WndThemeSkinZune
     End Select
-    For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
-        mcbsActions(mLngID).Checked = False
+    For mlngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+        mcbsActions(mlngID).Checked = False
     Next
     If lngID > 0 Then
         mcbsActions(lngID).Checked = True
@@ -430,6 +439,7 @@ Private Sub msAddAction()
         
         .Add gID.SysModifyPassword, "密码修改", "", "", "frmSysAlterPWD"
         .Add gID.SysDepartment, "部门管理", "", "", "frmSysDepartment"
+        .Add gID.SysUser, "用户管理", "", "", "frmSysUser"
 
 
         .Add gID.SysOutToExcel, "导出至Excel", "", "", ""
@@ -552,13 +562,13 @@ Private Sub msAddAction()
     Next
     
     '风格系列的mcbsActions的两个属性的描述补充
-    For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-        mcbsActions.Action(mLngID).DescriptionText = mcbsActions.Action(gID.WndThemeCommandBars).Caption & "设置为：" & mcbsActions.Action(mLngID).DescriptionText
-        mcbsActions.Action(mLngID).ToolTipText = mcbsActions.Action(mLngID).DescriptionText
+    For mlngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+        mcbsActions.Action(mlngID).DescriptionText = mcbsActions.Action(gID.WndThemeCommandBars).Caption & "设置为：" & mcbsActions.Action(mlngID).DescriptionText
+        mcbsActions.Action(mlngID).ToolTipText = mcbsActions.Action(mlngID).DescriptionText
     Next
-    For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-        mcbsActions.Action(mLngID).DescriptionText = mcbsActions.Action(gID.WndThemeTaskPanel).Caption & "设置为：" & mcbsActions.Action(mLngID).DescriptionText
-        mcbsActions.Action(mLngID).ToolTipText = mcbsActions.Action(mLngID).DescriptionText
+    For mlngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+        mcbsActions.Action(mlngID).DescriptionText = mcbsActions.Action(gID.WndThemeTaskPanel).Caption & "设置为：" & mcbsActions.Action(mlngID).DescriptionText
+        mcbsActions.Action(mlngID).ToolTipText = mcbsActions.Action(mlngID).DescriptionText
     Next
     
 End Sub
@@ -632,6 +642,9 @@ Private Sub msAddMenu()
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysDepartment, "")
         cbsMenuCtrl.BeginGroup = True
         
+        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysUser, "")
+        cbsMenuCtrl.BeginGroup = True
+        
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysOutToExcel, "")
         cbsMenuCtrl.BeginGroup = True
         .Add xtpControlButton, gID.SysOutToText, ""
@@ -651,8 +664,8 @@ Private Sub msAddMenu()
     '测试窗口菜单
     Set cbsMenuMain = cbsMenuBar.Controls.Add(xtpControlPopup, gID.TestWindow, "")
     With cbsMenuMain.CommandBar.Controls
-        For mLngID = gID.TestWindowFirst To gID.TestWindowThour
-            .Add xtpControlButton, mLngID, ""
+        For mlngID = gID.TestWindowFirst To gID.TestWindowThour
+            .Add xtpControlButton, mlngID, ""
         Next
     End With
     
@@ -684,24 +697,24 @@ Private Sub msAddMenu()
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndThemeSkin, "")
     cbsMenuCtrl.BeginGroup = True
     With cbsMenuCtrl.CommandBar.Controls
-        For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
-            .Add xtpControlButton, mLngID, ""
+        For mlngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+            .Add xtpControlButton, mlngID, ""
         Next
     End With
     
     'CommandBars工具栏主题子菜单
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndThemeCommandBars, "")
     With cbsMenuCtrl.CommandBar.Controls
-        For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-            .Add xtpControlButton, mLngID, ""
+        For mlngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+            .Add xtpControlButton, mlngID, ""
         Next
     End With
     
     'TaskPanel导航菜单主题子菜单
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndThemeTaskPanel, "")
     With cbsMenuCtrl.CommandBar.Controls
-        For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-            .Add xtpControlButton, mLngID, ""
+        For mlngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+            .Add xtpControlButton, mlngID, ""
         Next
     End With
     
@@ -709,9 +722,9 @@ Private Sub msAddMenu()
     Set cbsMenuCtrl = cbsMenuMain.CommandBar.Controls.Add(xtpControlPopup, gID.WndSon, "")
     cbsMenuCtrl.BeginGroup = True
     With cbsMenuCtrl.CommandBar.Controls
-        For mLngID = gID.WndSonCloseAll To gID.WndSonVbTileVertical
-            .Add xtpControlButton, mLngID, ""
-            If mLngID = gID.WndSonVbAllBack Then .Find(, mLngID).BeginGroup = True
+        For mlngID = gID.WndSonCloseAll To gID.WndSonVbTileVertical
+            .Add xtpControlButton, mlngID, ""
+            If mlngID = gID.WndSonVbAllBack Then .Find(, mlngID).BeginGroup = True
         Next
     End With
   
@@ -749,8 +762,8 @@ Private Sub msAddPopupMenu()
     Set mcbsPopupTab = cBS.Add(mcbsActions(gID.OtherTabWorkspacePopup).Caption, xtpBarPopup)
     mcbsPopupTab.BarID = gID.OtherTabWorkspacePopup
     With mcbsPopupTab.Controls
-        For mLngID = gID.WndSonCloseAll To gID.WndSonCloseRight
-            .Add xtpControlButton, mLngID, ""
+        For mlngID = gID.WndSonCloseAll To gID.WndSonCloseRight
+            .Add xtpControlButton, mlngID, ""
         Next
     End With
     
@@ -801,9 +814,10 @@ Private Sub msAddTaskPanelItem()
     With taskGroup.Items
         .Add gID.SysModifyPassword, mcbsActions(gID.SysModifyPassword).Caption, xtpTaskItemTypeLink
         .Add gID.SysDepartment, mcbsActions(gID.SysDepartment).Caption, xtpTaskItemTypeLink
+        .Add gID.SysUser, mcbsActions(gID.SysUser).Caption, xtpTaskItemTypeLink
         
-        For mLngID = gID.SysOutToExcel To gID.SysPrintPreview
-            .Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
+        For mlngID = gID.SysOutToExcel To gID.SysPrintPreview
+            .Add mlngID, mcbsActions(mlngID).Caption, xtpTaskItemTypeLink
         Next
         
         .Add gID.SysReLogin, mcbsActions(gID.SysReLogin).Caption, xtpTaskItemTypeLink
@@ -814,8 +828,8 @@ Private Sub msAddTaskPanelItem()
     '测试窗口
     Set taskGroup = TaskPL.Groups.Add(gID.TestWindow, mcbsActions(gID.TestWindow).Caption)
     With taskGroup.Items
-        For mLngID = gID.TestWindowFirst To gID.TestWindowThour
-            .Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
+        For mlngID = gID.TestWindowFirst To gID.TestWindowThour
+            .Add mlngID, mcbsActions(mlngID).Caption, xtpTaskItemTypeLink
         Next
     End With
     
@@ -831,22 +845,22 @@ Private Sub msAddTaskPanelItem()
     '窗口主题
     Set taskItem = taskGroup.Items.Add(gID.WndThemeSkin, mcbsActions(gID.WndThemeSkin).Caption, xtpTaskItemTypeText)
     taskItem.Bold = True
-    For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
-        taskGroup.Items.Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
+    For mlngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+        taskGroup.Items.Add mlngID, mcbsActions(mlngID).Caption, xtpTaskItemTypeLink
     Next
     
     '工具栏主题
     Set taskItem = taskGroup.Items.Add(gID.WndThemeCommandBars, mcbsActions(gID.WndThemeCommandBars).Caption, xtpTaskItemTypeText)
     taskItem.Bold = True
-    For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-        taskGroup.Items.Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
+    For mlngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+        taskGroup.Items.Add mlngID, mcbsActions(mlngID).Caption, xtpTaskItemTypeLink
     Next
     
     '导航菜单主题
     Set taskItem = taskGroup.Items.Add(gID.WndThemeTaskPanel, mcbsActions(gID.WndThemeTaskPanel).Caption, xtpTaskItemTypeText)
     taskItem.Bold = True
-    For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-        taskGroup.Items.Add mLngID, mcbsActions(mLngID).Caption, xtpTaskItemTypeLink
+    For mlngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+        taskGroup.Items.Add mlngID, mcbsActions(mlngID).Caption, xtpTaskItemTypeLink
     Next
     
     
@@ -883,8 +897,8 @@ Private Sub msAddToolBar()
         .Add xtpControlButton, gID.SysReLogin, ""
         .Add xtpControlButton, gID.SysExit, ""
         
-        For mLngID = gID.SysOutToExcel To gID.SysPrintPreview
-            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
+        For mlngID = gID.SysOutToExcel To gID.SysPrintPreview
+            Set cbsCtr = .Add(xtpControlButton, mlngID, "")
             cbsCtr.BeginGroup = True
         Next
     End With
@@ -910,8 +924,8 @@ Private Sub msAddToolBar()
     Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeSkin).Caption, xtpBarTop)
     cbsBar.Visible = False
     With cbsBar.Controls
-        For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
-            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
+        For mlngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+            Set cbsCtr = .Add(xtpControlButton, mlngID, "")
             cbsCtr.BeginGroup = True
         Next
     End With
@@ -920,8 +934,8 @@ Private Sub msAddToolBar()
     Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeCommandBars).Caption, xtpBarTop)
     cbsBar.Visible = False
     With cbsBar.Controls
-        For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
+        For mlngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+            Set cbsCtr = .Add(xtpControlButton, mlngID, "")
             cbsCtr.BeginGroup = True
         Next
     End With
@@ -930,8 +944,8 @@ Private Sub msAddToolBar()
     Set cbsBar = cBS.Add(mcbsActions(gID.WndThemeTaskPanel).Caption, xtpBarTop)
     cbsBar.Visible = False
     With cbsBar.Controls
-        For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-            Set cbsCtr = .Add(xtpControlButton, mLngID, "")
+        For mlngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+            Set cbsCtr = .Add(xtpControlButton, mlngID, "")
             cbsCtr.BeginGroup = True
         Next
     End With
@@ -1042,9 +1056,9 @@ Private Sub msResetLayout()
         cBar.Visible = True
     Next
     
-    For mLngID = 2 To cBS.Count
+    For mlngID = 2 To cBS.Count
         cBS.GetClientRect L, T, R, B
-        cBS.DockToolBar cBS(mLngID), 0, B, xtpBarTop
+        cBS.DockToolBar cBS(mlngID), 0, B, xtpBarTop
     Next
 
     Dim pnRe As XtremeDockingPane.Pane
@@ -1124,8 +1138,8 @@ Private Sub msThemeCommandBar(ByVal CID As Long)
             cBS.VisualTheme = xtpThemeNativeWinXP
     End Select
     
-    For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-        mcbsActions(mLngID).Checked = False
+    For mlngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+        mcbsActions(mlngID).Checked = False
     Next
     mcbsActions(CID).Checked = True
     
@@ -1197,8 +1211,8 @@ Private Sub msThemeTaskPanel(ByVal TID As Long)
             TaskPL.VisualTheme = xtpTaskPanelThemeVisualStudio2010
     End Select
     
-    For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-        mcbsActions(mLngID).Checked = False
+    For mlngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+        mcbsActions(mlngID).Checked = False
     Next
     mcbsActions(TID).Checked = True
     
@@ -1297,19 +1311,19 @@ Private Sub msWindowNameDel()
     lngCount = Forms.Count - 1
     For Each strFormName In marrWindowName
         strFormName = LCase(strFormName)
-        mLngID = 0
-        Do While (mLngID <= lngCount)
-            If LCase(Forms(mLngID).Name) = strFormName Then Exit Do
-            mLngID = mLngID + 1
+        mlngID = 0
+        Do While (mlngID <= lngCount)
+            If LCase(Forms(mlngID).Name) = strFormName Then Exit Do
+            mlngID = mlngID + 1
         Loop
-        If mLngID > lngCount Then Exit For
+        If mlngID > lngCount Then Exit For
     Next
     
     '删除被关闭窗口的Name值
-    For mLngID = 0 To UBound(marrWindowName)
-        If LCase(marrWindowName(mLngID)) = strFormName Then
-            If mLngID < UBound(marrWindowName) Then
-                For lngCount = mLngID To UBound(marrWindowName) - 1
+    For mlngID = 0 To UBound(marrWindowName)
+        If LCase(marrWindowName(mlngID)) = strFormName Then
+            If mlngID < UBound(marrWindowName) Then
+                For lngCount = mlngID To UBound(marrWindowName) - 1
                     marrWindowName(lngCount) = marrWindowName(lngCount + 1)
                 Next
             End If
@@ -1525,9 +1539,9 @@ Private Sub MDIForm_Unload(Cancel As Integer)
     
     'skinFW窗体主题保存
     lngSaveID = 0
-    For mLngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
-        If mcbsActions(mLngID).Checked Then
-            lngSaveID = mLngID
+    For mlngID = gID.WndThemeSkinCodejock To gID.WndThemeSkinZune
+        If mcbsActions(mlngID).Checked Then
+            lngSaveID = mlngID
             Exit For
         End If
     Next
@@ -1540,9 +1554,9 @@ Private Sub MDIForm_Unload(Cancel As Integer)
     
     'CommandBas主题保存
     lngSaveID = gID.WndThemeCommandBarsVS2008
-    For mLngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
-        If mcbsActions(mLngID).Checked Then
-            lngSaveID = mLngID
+    For mlngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
+        If mcbsActions(mlngID).Checked Then
+            lngSaveID = mlngID
             Exit For
         End If
     Next
@@ -1558,9 +1572,9 @@ Private Sub MDIForm_Unload(Cancel As Integer)
     
     'TaskPanel的Popu
     lngSaveID = gID.WndThemeTaskPanelNativeWinXP
-    For mLngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
-        If mcbsActions(mLngID).Checked Then
-            lngSaveID = mLngID
+    For mlngID = gID.WndThemeTaskPanelListView To gID.WndThemeTaskPanelVisualStudio2010
+        If mcbsActions(mlngID).Checked Then
+            lngSaveID = mlngID
             Exit For
         End If
     Next

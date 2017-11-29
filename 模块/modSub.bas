@@ -12,6 +12,7 @@ Public Sub Main()
         .SysModifyPassword = 102
         .SysReLogin = 103
         .SysDepartment = 104
+        .SysUser = 105
         
         .SysOutToExcel = 120
         .SysOutToText = 121

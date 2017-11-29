@@ -4,19 +4,16 @@ CREATE TABLE
 USE [db_Test]
 GO
 
-/****** Object:  Table [dbo].[tb_Test_Department]    Script Date: 11/27/2017 17:20:48 ******/
+/****** Object:  Table [dbo].[tb_Test_Department]    Script Date: 11/29/2017 18:55:59 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-SET ANSI_PADDING ON
-GO
-
 CREATE TABLE [dbo].[tb_Test_Department](
 	[DeptID] [int] IDENTITY(1000,1) NOT NULL,
-	[DeptName] [varchar](50) NOT NULL,
+	[DeptName] [nvarchar](50) NOT NULL,
 	[ParentID] [int] NULL,
  CONSTRAINT [PK_tb_Test_Department] PRIMARY KEY CLUSTERED 
 (
@@ -26,33 +23,27 @@ CREATE TABLE [dbo].[tb_Test_Department](
 
 GO
 
-SET ANSI_PADDING OFF
-GO
 
 
---------------------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO tb_Test_User(UserLoginName ,UserPassword ,UserFullName ) VALUES('6004','69307654552824311055B55y5i9UXLorJMkIPduY34ZgxVrUwGkGWNhPqZiq','Ð¤ÃÎ»ª')
 --------------------------------------------------------------------------------------------------------------------------------------------------
 USE [db_Test]
 GO
 
-/****** Object:  Table [dbo].[tb_Test_User]    Script Date: 11/27/2017 17:23:38 ******/
+/****** Object:  Table [dbo].[tb_Test_User]    Script Date: 11/29/2017 18:55:34 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-SET ANSI_PADDING ON
-GO
-
 CREATE TABLE [dbo].[tb_Test_User](
 	[UserAutoID] [int] IDENTITY(2000,1) NOT NULL,
-	[UserLoginName] [varchar](50) NOT NULL,
-	[UserPassword] [varchar](60) NULL,
-	[UserFullName] [varchar](50) NULL,
+	[UserLoginName] [nvarchar](50) NOT NULL,
+	[UserPassword] [nvarchar](60) NULL,
+	[UserFullName] [nvarchar](50) NULL,
+	[UserSex] [nvarchar](50) NULL,
 	[DeptID] [int] NULL,
-	[UserMemo] [varchar](500) NULL,
+	[UserMemo] [nvarchar](500) NULL,
  CONSTRAINT [PK_tb_Test_User] PRIMARY KEY CLUSTERED 
 (
 	[UserAutoID] ASC
@@ -61,34 +52,31 @@ CREATE TABLE [dbo].[tb_Test_User](
 
 GO
 
-SET ANSI_PADDING OFF
-GO
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO tb_Test_User(UserLoginName ,UserPassword ,UserFullName ) VALUES('6004','69307654552824311055B55y5i9UXLorJMkIPduY34ZgxVrUwGkGWNhPqZiq','Ð¤ÃÎ»ª')
 --------------------------------------------------------------------------------------------------------------------------------------------------
 USE [db_Test]
 GO
 
-/****** Object:  Table [dbo].[tb_Test_OperationLog]    Script Date: 11/27/2017 17:24:04 ******/
+/****** Object:  Table [dbo].[tb_Test_OperationLog]    Script Date: 11/29/2017 18:56:35 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-SET ANSI_PADDING ON
-GO
-
 CREATE TABLE [dbo].[tb_Test_OperationLog](
 	[LogID] [bigint] IDENTITY(1,1) NOT NULL,
-	[LogType] [varchar](10) NULL,
+	[LogType] [nvarchar](50) NULL,
 	[LogContent] [nvarchar](200) NULL,
 	[LogTime] [datetime] NULL,
-	[LogTable] [varchar](50) NULL,
-	[LogFormName] [varchar](50) NULL,
-	[LogUserFullName] [varchar](50) NULL,
-	[LogPCIP] [varchar](50) NULL,
-	[LogPCName] [varchar](50) NULL,
+	[LogTable] [nvarchar](50) NULL,
+	[LogFormName] [nvarchar](50) NULL,
+	[LogUserFullName] [nvarchar](50) NULL,
+	[LogPCIP] [nvarchar](50) NULL,
+	[LogPCName] [nvarchar](50) NULL,
  CONSTRAINT [PK_tb_Test_OperationLog] PRIMARY KEY CLUSTERED 
 (
 	[LogID] ASC
@@ -97,8 +85,6 @@ CREATE TABLE [dbo].[tb_Test_OperationLog](
 
 GO
 
-SET ANSI_PADDING OFF
-GO
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -176,6 +162,39 @@ BEGIN
 	FROM tb_Test_User 
 	WHERE UserLoginName = @strUN
 
+END
+
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_Test_Sys_UserInfo]    Script Date: 11/29/2017 18:59:07 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[sp_Test_Sys_UserInfo]
+	-- Add the parameters for the stored procedure here
+	@strUID AS VARCHAR(20)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * FROM tb_Test_User 
+	WHERE UserAutoID = @strUID 
 END
 
 GO

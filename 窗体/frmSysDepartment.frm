@@ -15,24 +15,24 @@ Begin VB.Form frmSysDepartment
       Caption         =   "Frame1"
       Height          =   4815
       Left            =   4200
-      TabIndex        =   1
+      TabIndex        =   7
       Top             =   240
       Width           =   5775
       Begin VB.CommandButton Command2 
-         Caption         =   "修改部门"
+         Caption         =   "修改部门信息"
          Height          =   495
          Left            =   1560
-         TabIndex        =   10
+         TabIndex        =   5
          Top             =   2520
-         Width           =   1095
+         Width           =   1455
       End
       Begin VB.CommandButton Command1 
          Caption         =   "添加部门"
          Height          =   495
          Left            =   1560
-         TabIndex        =   9
+         TabIndex        =   4
          Top             =   1800
-         Width           =   1095
+         Width           =   1455
       End
       Begin VB.TextBox Text1 
          BeginProperty Font 
@@ -47,7 +47,7 @@ Begin VB.Form frmSysDepartment
          Height          =   330
          Index           =   1
          Left            =   1200
-         TabIndex        =   8
+         TabIndex        =   2
          Text            =   "Text2"
          Top             =   600
          Width           =   3375
@@ -56,7 +56,7 @@ Begin VB.Form frmSysDepartment
          Height          =   300
          Index           =   1
          Left            =   360
-         TabIndex        =   7
+         TabIndex        =   6
          Text            =   "Combo2"
          Top             =   3240
          Visible         =   0   'False
@@ -77,7 +77,7 @@ Begin VB.Form frmSysDepartment
          Index           =   0
          Left            =   1200
          Locked          =   -1  'True
-         TabIndex        =   5
+         TabIndex        =   1
          Text            =   "Text1"
          Top             =   120
          Width           =   3375
@@ -96,7 +96,7 @@ Begin VB.Form frmSysDepartment
          Index           =   0
          Left            =   1200
          Style           =   2  'Dropdown List
-         TabIndex        =   4
+         TabIndex        =   3
          Top             =   1080
          Width           =   3375
       End
@@ -115,7 +115,7 @@ Begin VB.Form frmSysDepartment
          Height          =   210
          Index           =   2
          Left            =   200
-         TabIndex        =   6
+         TabIndex        =   10
          Top             =   1140
          Width           =   900
       End
@@ -134,7 +134,7 @@ Begin VB.Form frmSysDepartment
          Height          =   210
          Index           =   1
          Left            =   200
-         TabIndex        =   3
+         TabIndex        =   9
          Top             =   660
          Width           =   900
       End
@@ -153,7 +153,7 @@ Begin VB.Form frmSysDepartment
          Height          =   210
          Index           =   0
          Left            =   400
-         TabIndex        =   2
+         TabIndex        =   8
          Top             =   180
          Width           =   690
       End
@@ -174,7 +174,7 @@ Begin VB.Form frmSysDepartment
       Appearance      =   1
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "宋体"
-         Size            =   10.5
+         Size            =   9
          Charset         =   134
          Weight          =   400
          Underline       =   0   'False
@@ -346,6 +346,7 @@ Private Sub Command1_Click()
 
     
     strDeptName = Trim(Text1.Item(1).Text)
+    strDeptName = Left(strDeptName, 50)
     Text1.Item(1).Text = strDeptName
     
     If Len(strDeptName) = 0 Then

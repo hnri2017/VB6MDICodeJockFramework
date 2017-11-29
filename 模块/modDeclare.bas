@@ -25,6 +25,7 @@ Public Type gtypCommandBarID
     SysReLogin As Long
     SysModifyPassword As Long
     SysDepartment As Long
+    SysUser As Long
     
     SysPrint As Long
     SysPrintPreview As Long

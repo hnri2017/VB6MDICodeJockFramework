@@ -26,6 +26,7 @@ Form=窗体\frmForm4.frm
 Form=窗体\frmForm3.frm
 Form=窗体\frmSysAlterPWD.frm
 Form=窗体\frmSysDepartment.frm
+Form=窗体\frmSysUser.frm
 IconForm="frmSysMDI"
 Startup="Sub Main"
 HelpFile=""
