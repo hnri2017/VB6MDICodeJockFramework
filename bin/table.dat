@@ -150,7 +150,7 @@ GO
 -- =============================================
 CREATE PROCEDURE [dbo].[sp_Test_Sys_UserLogin] 
 	-- Add the parameters for the stored procedure here
-	@strUN AS VARCHAR(20)
+	@strUN AS NVARCHAR(50)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -185,7 +185,7 @@ GO
 -- =============================================
 CREATE PROCEDURE [dbo].[sp_Test_Sys_UserInfo]
 	-- Add the parameters for the stored procedure here
-	@strUID AS VARCHAR(20)
+	@intUID AS INT
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -194,7 +194,7 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT * FROM tb_Test_User 
-	WHERE UserAutoID = @strUID 
+	WHERE UserAutoID = @intUID
 END
 
 GO
