@@ -125,6 +125,29 @@ LineErr:
 End Function
 
 
+Public Function gfBackLogType(Optional ByVal strType As genmLogType = udSelect) As String
+    '返回日志操作类型
+    Select Case strType
+        Case udDelete
+            gfBackLogType = "Delete"
+        Case udDeleteBatch
+            gfBackLogType = "DeleteBatch"
+        Case udInsert
+            gfBackLogType = "Insert"
+        Case udInsertBatch
+            gfBackLogType = "InsertBatch"
+        Case udSelectBatch
+            gfBackLogType = "SelectBatch"
+        Case udUpdate
+            gfBackLogType = "Update"
+        Case udUpdateBatch
+            gfBackLogType = "UpdateBatch"
+        Case Else
+            gfBackLogType = "Select"
+    End Select
+End Function
+
+
 Public Function gfBackOneChar(Optional ByVal CharType As genmCharType = udUpperLowerNum) As String
     '随机返回一个字符（字母或数字）
     '48-57:0-9
@@ -161,34 +184,34 @@ Public Function gfDecryptSimple(ByVal strIn As String) As String
     Dim strVar As String    '中间变量
     Dim strPt As String     '明文
     Dim strMid As String    '截取输入字符串中的每一个字符
-    Dim intMid As Integer, K As Integer, C As Integer, R As Integer   '变量
+    Dim intMid As Integer, K As Integer, c As Integer, R As Integer   '变量
     
     strIn = Trim(strIn) '去空格
-    C = Len(strIn)
-    If C <> gconSumLen Then GoTo LineBreak
+    c = Len(strIn)
+    If c <> gconSumLen Then GoTo LineBreak
     
     '一、获取密文中填充的无用字符个数、明文的长度
     R = Val(Mid(strIn, 2, 1))       '截取密文的第二位，其值即密文第gconAddLenStart+1位后填充的无用随机数个数
     If R < 1 Then GoTo LineBreak
     
     intMid = Val(Left(strIn, 1))    '截取密文的第一位，计算填充字符个数的值的 个位上的数字
-    C = IIf(intMid < (gconAddLenStart - 2), intMid, gconAddLenStart - 2)  '通过第一位的数值计算出填充数值的十位上的数字所在位置
-    K = Val(Mid(strIn, C + 2 + 1, 1))   '截取填充数值的十位上的数字
-    C = Val(CStr(K) & CStr(intMid))     '得出真正的 填充字符 总数值
-    If (C < (gconSumLen - gconMaxPWD)) Or (C > (gconSumLen - 1)) Then GoTo LineBreak
+    c = IIf(intMid < (gconAddLenStart - 2), intMid, gconAddLenStart - 2)  '通过第一位的数值计算出填充数值的十位上的数字所在位置
+    K = Val(Mid(strIn, c + 2 + 1, 1))   '截取填充数值的十位上的数字
+    c = Val(CStr(K) & CStr(intMid))     '得出真正的 填充字符 总数值
+    If (c < (gconSumLen - gconMaxPWD)) Or (c > (gconSumLen - 1)) Then GoTo LineBreak
     
-    C = gconSumLen - C  '得出明文的长度
-    C = C * 2           '因为明文中插入了相同个数的随机字符
+    c = gconSumLen - c  '得出明文的长度
+    c = c * 2           '因为明文中插入了相同个数的随机字符
     
     '二、删除加在密文前面的gconAddLenStart+ 1 + R 个字符 和 加在密文最后的字符
-    strVar = Mid(strIn, gconAddLenStart + 1 + R + 1, C)
-    If Len(strVar) <> C Then GoTo LineBreak
+    strVar = Mid(strIn, gconAddLenStart + 1 + R + 1, c)
+    If Len(strVar) <> c Then GoTo LineBreak
     
     '三、解密剩下的strVar字符
-    For K = 1 To C Step 2
+    For K = 1 To c Step 2
         strPt = strPt & gfAsciiSub(Mid(strVar, K, 1))
     Next
-    If Len(strPt) <> C / 2 Then GoTo LineBreak
+    If Len(strPt) <> c / 2 Then GoTo LineBreak
     
     gfDecryptSimple = strPt  '将解密好的密文返回给函数的调用者
     
@@ -207,24 +230,24 @@ Public Function gfEncryptSimple(ByVal strIn As String) As String
     Dim strMid As String    '截取输入字符串中的每一个字符
     Dim strTen As String    '密文的前10个字符
     Dim K As Integer, J As Integer, R As Integer  '变量
-    Dim C As Integer        '明文的字符个数
+    Dim c As Integer        '明文的字符个数
     Dim intFill As Integer  '填充字符数
     Dim intRightNum As Integer      'strFill 个位上的数字
     Dim intAddLenEnd As Integer     '加在最后的字符数量
 
-    C = Len(Trim(strIn))
-    If C = 0 Then
+    c = Len(Trim(strIn))
+    If c = 0 Then
         MsgBox "传入字符不能为空字符，且不能有空格！", vbCritical, "空字符警报"
         Exit Function
     End If
     strIn = Left(strIn, gconMaxPWD) '截取前gconMaxPWD(20)字符
-    C = Len(strIn)  '重新获取字符个数。重要！
+    c = Len(strIn)  '重新获取字符个数。重要！
     
     '一、将字符串中的每个字符的ASCII值前进N位并插入一个随机字符得到一新字符串
-    For K = 1 To C
+    For K = 1 To c
         strEt = strEt & gfAsciiAdd(Mid(strIn, K, 1)) & gfBackOneChar(udUpperLowerNum)
     Next
-    If Len(strEt) <> (C * 2) Then
+    If Len(strEt) <> (c * 2) Then
         MsgBox "输入字符不规范，只能是数字或字母！", vbCritical, "字符警报"
         Exit Function
     End If
@@ -233,7 +256,7 @@ Public Function gfEncryptSimple(ByVal strIn As String) As String
     '   在这gconAddLenStart个字符中包含明文的长度信息gconSumLen-C
     '   然后将gconSumLen-C的值的 个位与十位调换位置
     '   然后在strTen的第二位插入原strTen后应填充的随机数字个数
-    intFill = gconSumLen - C        '计算去除明文个数后要填充的总字符个数
+    intFill = gconSumLen - c        '计算去除明文个数后要填充的总字符个数
     intRightNum = intFill Mod 10    '获取个位上的数字
     strTen = CStr(intRightNum)      '将个位上的数字放在strTen的第一位,也即密文的第一位
     
@@ -258,7 +281,7 @@ Public Function gfEncryptSimple(ByVal strIn As String) As String
     strEt = strTen & strEt
     
     '三、在strEt后追加intAddLenEnd个随机字符凑成gconSumLen个字符的最终密文
-    intAddLenEnd = gconSumLen - (C * 2) - gconAddLenStart - R - 1
+    intAddLenEnd = gconSumLen - (c * 2) - gconAddLenStart - R - 1
     If intAddLenEnd > 0 Then
         For K = 1 To intAddLenEnd
             strEt = strEt & gfBackOneChar(udUpperLowerNum)

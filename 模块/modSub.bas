@@ -13,6 +13,7 @@ Public Sub Main()
         .SysReLogin = 103
         .SysDepartment = 104
         .SysUser = 105
+        .SysLog = 106
         
         .SysOutToExcel = 120
         .SysOutToText = 121
@@ -306,7 +307,7 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
 '    Dim sheetOut As Excel.Worksheet
     Dim sheetOut  As Object
     Dim blnFlexCell As Boolean
-    Dim R As Long, C As Long, I As Long, J As Long
+    Dim R As Long, c As Long, I As Long, J As Long
     
     On Error Resume Next
     Screen.MousePointer = 13
@@ -319,17 +320,17 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
     
     With gridControl
         R = .Rows
-        C = .Cols
+        c = .Cols
         '表格内容复制到Excel中
         If blnFlexCell Then
             For I = 0 To R - 1
-                For J = 0 To C - 1
+                For J = 0 To c - 1
                     sheetOut.Cells(I + 1, J + 1) = .Cell(I, J).Text
                 Next
             Next
         Else
             For I = 0 To R - 1
-                For J = 0 To C - 1
+                For J = 0 To c - 1
                     sheetOut.Cells(I + 1, J + 1) = .TextMatrix(I, J)
                 Next
             Next
@@ -340,13 +341,13 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
         If TimeCol > -1 Then
             .Columns(TimeCol + 1).NumberFormatLocal = TimeStyle
         End If
-        .Range(.Cells(1, 1), .Cells(1, C)).Font.Bold = True '加粗显示(第一行默认标题行)
-        .Range(.Cells(1, 1), .Cells(1, C)).Font.Size = 12   '第一行12号字大小
-        .Range(.Cells(2, 1), .Cells(R, C)).Font.Size = 10   '第二行以后10号字大小
-        .Range(.Cells(1, 1), .Cells(R, C)).HorizontalAlignment = -4108  'xlCenter= -4108(&HFFFFEFF4)   '居中显示
-        .Range(.Cells(1, 1), .Cells(R, C)).Borders.Weight = 2   'xlThin=2  '单元格显示黑色线宽
+        .Range(.Cells(1, 1), .Cells(1, c)).Font.Bold = True '加粗显示(第一行默认标题行)
+        .Range(.Cells(1, 1), .Cells(1, c)).Font.Size = 12   '第一行12号字大小
+        .Range(.Cells(2, 1), .Cells(R, c)).Font.Size = 10   '第二行以后10号字大小
+        .Range(.Cells(1, 1), .Cells(R, c)).HorizontalAlignment = -4108  'xlCenter= -4108(&HFFFFEFF4)   '居中显示
+        .Range(.Cells(1, 1), .Cells(R, c)).Borders.Weight = 2   'xlThin=2  '单元格显示黑色线宽
         .Columns.EntireColumn.AutoFit   '自动列宽
-        .Rows(1).RowHeight = 23 '第一行行高
+        .Rows(1).rowHeight = 23 '第一行行高
     End With
     
     xlsOut.Visible = True   '显示Excel文档
@@ -364,7 +365,7 @@ Public Sub gsGridToText(ByRef gridControl As Control)
     Dim strFileName As String
     Dim blnFlexCell As Boolean
     Dim intFree As Integer
-    Dim R As Long, C As Long, I As Long, J As Long
+    Dim R As Long, c As Long, I As Long, J As Long
     Dim strTxt As String
     
     For I = 1 To 8
@@ -382,11 +383,11 @@ Public Sub gsGridToText(ByRef gridControl As Control)
     Open strFileName For Output As #intFree
     With gridControl
         R = .Rows - 1
-        C = .Cols - 1
+        c = .Cols - 1
         If blnFlexCell Then
             For I = 0 To R
                 strTxt = ""
-                For J = 0 To C
+                For J = 0 To c
                     strTxt = strTxt & .Cell(I, J).Text & vbTab
                 Next
                 Print #intFree, strTxt
@@ -394,7 +395,7 @@ Public Sub gsGridToText(ByRef gridControl As Control)
         Else
             For I = 0 To R
                 strTxt = ""
-                For J = 0 To C
+                For J = 0 To c
                     strTxt = strTxt & .TextMatrix(I, J) & vbTab
                 Next
                 Print #intFree, strTxt
@@ -467,24 +468,7 @@ Public Sub gsLogAdd(ByRef frmCur As Form, Optional ByVal LogType As genmLogType 
     Dim strSQL As String
     Dim rsLog As ADODB.Recordset
     
-    Select Case LogType
-        Case udDelete
-            strType = "Delete"
-        Case udDeleteBatch
-            strType = "DeleteBatch"
-        Case udInsert
-            strType = "Insert"
-        Case udInsertBatch
-            strType = "InsertBatch"
-        Case udSelectBatch
-            strType = "SelectBatch"
-        Case udUpdate
-            strType = "Update"
-        Case udUpdateBatch
-            strType = "UpdateBatch"
-        Case Else
-            strType = "Select"
-    End Select
+    strType = gfBackLogType(LogType)
     
     strSQL = "EXEC sp_Test_Sys_LogAdd '" & strType & "','" & frmCur.Name & "," & frmCur.Caption & "','" & strTable & _
              "','" & strContent & "','" & gID.UserLoginName & "," & gID.UserFullName & "','" & gID.UserLoginIP & "','" & gID.UserComputerName & "'"
@@ -502,13 +486,13 @@ Public Sub gsOpenTheWindow(ByVal strFormName As String, _
     '以指定窗口模式OpenMode与窗口FormWndState状态来打开指定窗体strFormName
     
     Dim frmOpen As Form
-    Dim C As Long
+    Dim c As Long
     
     strFormName = LCase(strFormName)
     If gfFormLoad(strFormName) Then
-        For C = 0 To Forms.Count - 1
-            If LCase(Forms(C).Name) = strFormName Then
-                Set frmOpen = Forms(C)
+        For c = 0 To Forms.Count - 1
+            If LCase(Forms(c).Name) = strFormName Then
+                Set frmOpen = Forms(c)
                 Exit For
             End If
         Next

@@ -24,7 +24,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   55
+         NumListImages   =   56
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
@@ -294,6 +294,11 @@ Begin VB.MDIForm frmSysMDI
             Picture         =   "frmSysMDI.frx":1D275
             Key             =   "unknown"
          EndProperty
+         BeginProperty ListImage56 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1D37F
+            Key             =   "SysLog"
+            Object.Tag             =   "106"
+         EndProperty
       EndProperty
    End
    Begin VB.PictureBox picHide 
@@ -440,6 +445,7 @@ Private Sub msAddAction()
         .Add gID.SysModifyPassword, "密码修改", "", "", "frmSysAlterPWD"
         .Add gID.SysDepartment, "部门管理", "", "", "frmSysDepartment"
         .Add gID.SysUser, "用户管理", "", "", "frmSysUser"
+        .Add gID.SysLog, "日志查看", "", "", "frmSysLog"
 
 
         .Add gID.SysOutToExcel, "导出至Excel", "", "", ""
@@ -645,6 +651,9 @@ Private Sub msAddMenu()
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysUser, "")
         cbsMenuCtrl.BeginGroup = True
         
+        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysLog, "")
+        cbsMenuCtrl.BeginGroup = True
+        
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysOutToExcel, "")
         cbsMenuCtrl.BeginGroup = True
         .Add xtpControlButton, gID.SysOutToText, ""
@@ -815,6 +824,7 @@ Private Sub msAddTaskPanelItem()
         .Add gID.SysModifyPassword, mcbsActions(gID.SysModifyPassword).Caption, xtpTaskItemTypeLink
         .Add gID.SysDepartment, mcbsActions(gID.SysDepartment).Caption, xtpTaskItemTypeLink
         .Add gID.SysUser, mcbsActions(gID.SysUser).Caption, xtpTaskItemTypeLink
+        .Add gID.SysLog, mcbsActions(gID.SysLog).Caption, xtpTaskItemTypeLink
         
         For mlngID = gID.SysOutToExcel To gID.SysPrintPreview
             .Add mlngID, mcbsActions(mlngID).Caption, xtpTaskItemTypeLink
@@ -1222,7 +1232,7 @@ Private Sub msWindowControl(ByVal WID As Long)
     '子窗口控制
     
     Dim frmTag As Form
-    Dim C As Long
+    Dim c As Long
     Dim itemCur As XtremeCommandBars.TabControlItem
     
     With gID
@@ -1237,7 +1247,7 @@ Private Sub msWindowControl(ByVal WID As Long)
                 If Forms.Count > 2 Then
                     Set itemCur = mTabWorkspace.Selected
                     itemCur.Tag = "c"   '标记当前窗口，因为Index值在窗口数量变化时会变化，不能作为唯一判断依据
-                    For C = 0 To mTabWorkspace.ItemCount - 1
+                    For c = 0 To mTabWorkspace.ItemCount - 1
                         If mTabWorkspace.Item(0).Tag = itemCur.Tag Then
                             itemCur.Tag = ""    '记得清空。Tag属性默认值就是空字符串
                             Exit For
@@ -1261,12 +1271,12 @@ Private Sub msWindowControl(ByVal WID As Long)
                 If Forms.Count > 2 Then
                     Set itemCur = mTabWorkspace.Selected
                     itemCur.Tag = "c"
-                    For C = mTabWorkspace.ItemCount - 1 To 0 Step -1
-                        If mTabWorkspace.Item(C).Tag = itemCur.Tag Then
+                    For c = mTabWorkspace.ItemCount - 1 To 0 Step -1
+                        If mTabWorkspace.Item(c).Tag = itemCur.Tag Then
                             itemCur.Tag = ""
                             Exit For
                         Else
-                            mTabWorkspace.Item(C).Selected = True
+                            mTabWorkspace.Item(c).Selected = True
                             Unload ActiveForm
                         End If
                     Next
@@ -1408,11 +1418,11 @@ Private Sub DockingPN_Action(ByVal Action As XtremeDockingPane.DockingPaneAction
     
 End Sub
 
-Private Sub DockingPn_PanePopupMenu(ByVal Pane As XtremeDockingPane.IPane, ByVal x As Long, ByVal y As Long, Handled As Boolean)
+Private Sub DockingPn_PanePopupMenu(ByVal Pane As XtremeDockingPane.IPane, ByVal X As Long, ByVal Y As Long, Handled As Boolean)
     '导航菜单标题中的Popu菜单生成
 
     If Pane.Id = gID.OtherPaneIDFirst Then
-        mcbsPopupNav.ShowPopup , x * 15, y * 15     '只知道不乘15会位置不对，可能x、y的单位是像素，而窗口要的缇。
+        mcbsPopupNav.ShowPopup , X * 15, Y * 15     '只知道不乘15会位置不对，可能x、y的单位是像素，而窗口要的缇。
     End If
     
 End Sub

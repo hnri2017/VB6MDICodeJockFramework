@@ -201,3 +201,63 @@ GO
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_Test_Sys_LogQuery]    Script Date: 11/30/2017 15:33:07 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[sp_Test_Sys_LogQuery] 
+	-- Add the parameters for the stored procedure here
+	@strType AS NVARCHAR(10)=''
+	,@strContent AS NVARCHAR(200)=''
+	,@strTimeA AS NVARCHAR(30)=''
+	,@strTimeB AS NVARCHAR(30)=''
+	,@strForm AS NVARCHAR(50)=''
+	,@strUser AS NVARCHAR(50)=''
+	,@strIP AS NVARCHAR(50)=''
+	,@strPC AS NVARCHAR(50)=''
+	,@strField AS NVARCHAR(50)='LogTime'
+	,@strSort AS NVARCHAR(10)='ASC'
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	
+	DECLARE @strSQL AS NVARCHAR(2000) 
+	DECLARE @intLoc AS INT
+    -- Insert statements for procedure here
+    SET @strSQL ='SELECT * FROM tb_Test_OperationLog '
+    
+    IF LEN(@strType)>0 SET @strSQL =@strSQL +' AND LogType='''+@strType+'''' 
+    IF LEN(@strTimeA)>0 AND LEN(@strTimeB)>0 SET @strSQL =@strSQL +' AND LogTime BETWEEN '''+@strTimeA+''' AND '''+@strTimeB+'''' 
+    IF LEN(@strForm)>0 SET @strSQL =@strSQL +' AND LogFormName LIKE ''%'+@strForm+'%''' 
+    IF LEN(@strUser)>0 SET @strSQL =@strSQL +' AND LogUserFullName LIKE ''%'+@strUser+'%''' 
+    IF LEN(@strIP)>0 SET @strSQL =@strSQL +' AND LogPCIP LIKE ''%'+@strIP+'%''' 
+    IF LEN(@strPC)>0 SET @strSQL =@strSQL +' AND LogPCName LIKE ''%'+@strPC+'%'''
+    IF LEN(@strContent)>0 SET @strSQL =@strSQL +' AND LogContent LIKE ''%'+@strContent+'%'''
+    
+    SET @intLoc = CHARINDEX(' AND ',@strSQL)
+    IF @intLoc >0 SET @strSQL =STUFF (@strSQL,@intLoc,5,' WHERE ')
+    
+	SET @strSQL =@strSQL+' ORDER BY '+@strField+' '+@strSort  
+  
+	EXEC(@strSQL)
+	
+END
+
+GO
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
