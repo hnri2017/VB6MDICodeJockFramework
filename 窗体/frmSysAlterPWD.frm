@@ -190,7 +190,7 @@ Private Sub Command1_Click()
         Exit Sub
     End If
     
-    strSQL = "SELECT UserLoginName ,UserPassword ,UserFullName FROM tb_Test_User " & _
+    strSQL = "SELECT UserLoginName ,UserPassword ,UserFullName FROM tb_Test_Sys_User " & _
              "WHERE UserLoginName='" & strULID & "'"
 
     Set rsEdit = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
@@ -221,7 +221,7 @@ Private Sub Command1_Click()
         rsEdit.Fields("UserPassword") = gfEncryptSimple(strPwdNew)
         rsEdit.Update
         rsEdit.Close
-        Call gsLogAdd(Me, udUpdate, "tb_Test_User", "修改用户ID【" & strULID & "】的登陆密码")
+        Call gsLogAdd(Me, udUpdate, "tb_Test_Sys_User", "修改用户ID【" & strULID & "】的登陆密码")
         MsgBox "密码已修改成功，重新登陆后生效。", vbInformation
     End If
     

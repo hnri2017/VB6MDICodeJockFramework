@@ -14,6 +14,9 @@ Public Sub Main()
         .SysDepartment = 104
         .SysUser = 105
         .SysLog = 106
+        .SysRole = 107
+        .SysFunc = 108
+        
         
         .SysOutToExcel = 120
         .SysOutToText = 121

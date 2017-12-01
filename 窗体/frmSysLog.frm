@@ -187,7 +187,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   100794369
+            Format          =   100925441
             CurrentDate     =   42628
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -200,7 +200,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   100794369
+            Format          =   100925441
             CurrentDate     =   42628
          End
          Begin VB.Label Label1 
@@ -525,7 +525,7 @@ Private Sub Form_Load()
         DTPicker1.Item(1).Move (Label1(1).Left + Label1(1).Width), .Top, .Width, .Height
         DTPicker1.Item(1).CustomFormat = .CustomFormat
         DTPicker1.Item(1).Format = .Format
-        DTPicker1.Item(1).Value = Date
+        DTPicker1.Item(1).Value = Date + 1
         
     End With
     
@@ -715,7 +715,7 @@ Private Sub msLoadMen()
     Dim rsL As ADODB.Recordset
     
     strSQL = "SELECT DISTINCT RIGHT(LogUserFullName,LEN(LogUserFullName)-" & _
-            "CHARINDEX(',',LogUserFullName)) AS [LogUserFullName] FROM tb_Test_OperationLog"
+            "CHARINDEX(',',LogUserFullName)) AS [LogUserFullName] FROM tb_Test_Sys_OperationLog"
     Set rsL = gfBackRecordset(strSQL)
     
     If rsL.State = adStateClosed Then Exit Sub

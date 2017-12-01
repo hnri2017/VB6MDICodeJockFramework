@@ -384,13 +384,13 @@ Private Const mOtherText As String = "其他人员"
 Private Function mfIsChild(ByRef nodeDad As MSComctlLib.Node, ByVal strKey As String) As Boolean
     '判断传入Key值是不是自己的子结点
     
-    Dim I As Long, C As Long
+    Dim I As Long, c As Long
     Dim nodeSon As MSComctlLib.Node
     
-    C = nodeDad.Children
-    If C = 0 Then Exit Function
+    c = nodeDad.Children
+    If c = 0 Then Exit Function
 
-    For I = 1 To C
+    For I = 1 To c
         If I = 1 Then
             Set nodeSon = nodeDad.Child
         Else
@@ -424,8 +424,8 @@ Private Sub msLoadDept(ByRef tvwDept As MSComctlLib.TreeView)
     
     
     strSQL = "SELECT t1.DeptID ,t1.DeptName ,t1.ParentID ,t2.DeptName AS [ParentName] " & _
-             "FROM tb_Test_Department AS [t1] " & _
-             "LEFT JOIN tb_Test_Department AS [t2] " & _
+             "FROM tb_Test_Sys_Department AS [t1] " & _
+             "LEFT JOIN tb_Test_Sys_Department AS [t2] " & _
              "ON t1.ParentID = t2.DeptID " & _
              "ORDER BY t1.ParentID ,t1.DeptName"    '注意字段顺序不可变
     Set rsDept = gfBackRecordset(strSQL)
@@ -470,7 +470,7 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
     Dim arrOther() As String    '保存剩余的
     Dim blnOther As Boolean     '剩余标识
     Dim I As Long, J As Long, K As Long, lngCount As Long
-    Static C As Long
+    Static c As Long
     
     With tvwTree
         For J = LBound(arrLoad, 2) To UBound(arrLoad, 2)
@@ -494,8 +494,8 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
         Next
     End With
     
-    C = C + 1
-    If C > 64 Then Exit Sub '防止递归层数太深导致堆栈溢出而程序崩溃
+    c = c + 1
+    If c > 64 Then Exit Sub '防止递归层数太深导致堆栈溢出而程序崩溃
     
     If blnOther Then
         Call msLoadDeptTree(tvwTree, arrOther)
@@ -514,7 +514,7 @@ Private Sub msLoadUser(ByRef tvwUser As MSComctlLib.TreeView)
     
     If tvwUser.Nodes.Count = 0 Then Exit Sub
     
-    strSQL = "SELECT UserAutoID ,UserFullName ,UserSex ,DeptID FROM tb_Test_User"
+    strSQL = "SELECT UserAutoID ,UserFullName ,UserSex ,DeptID FROM tb_Test_Sys_User"
     Set rsUser = gfBackRecordset(strSQL)
     If rsUser.State = adStateClosed Then GoTo LineEnd
     If rsUser.RecordCount = 0 Then GoTo LineEnd
@@ -636,7 +636,7 @@ Private Sub Command1_Click()
     
     strSQL = "SELECT UserAutoID ,UserLoginName ,UserPassword ," & _
              "UserFullName ,UserSex ,DeptID ,UserMemo " & _
-             "From tb_Test_User " & _
+             "From tb_Test_Sys_User " & _
              "WHERE UserLoginName = '" & strLoginName & "'"
     Set rsUser = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
     If rsUser.State = adStateClosed Then GoTo LineEnd
@@ -658,7 +658,7 @@ Private Sub Command1_Click()
         Text1.Item(0).Text = strMsg
         rsUser.Close
         strMsg = "添加用户【" & strMsg & "】【" & strLoginName & "】【" & strFullName & "】"
-        Call gsLogAdd(Me, udInsert, "tb_Test_User", strMsg)
+        Call gsLogAdd(Me, udInsert, "tb_Test_Sys_User", strMsg)
         MsgBox "用户【" & strLoginName & "】【" & strFullName & "】添加成功！", vbInformation
         Call msLoadDept(TreeView1)
         Call msLoadUser(TreeView1)
@@ -750,7 +750,7 @@ Private Sub Command2_Click()
     
     strSQL = "SELECT UserAutoID ,UserLoginName ,UserPassword ," & _
              "UserFullName ,UserSex ,DeptID ,UserMemo " & _
-             "From tb_Test_User " & _
+             "From tb_Test_Sys_User " & _
              "WHERE UserAutoID = '" & strUID & "'"
     Set rsUser = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
     If rsUser.State = adStateClosed Then GoTo LineEnd
@@ -795,7 +795,7 @@ Private Sub Command2_Click()
         If blnSex Then strMsg = strMsg & "【" & Label1.Item(4).Caption & "】"
         If blnDept Then strMsg = strMsg & "【" & Label1.Item(5).Caption & "】"
         If blnMemo Then strMsg = strMsg & "【" & Label1.Item(6).Caption & "】"
-        Call gsLogAdd(Me, udUpdate, "tb_Test_User", strMsg)
+        Call gsLogAdd(Me, udUpdate, "tb_Test_Sys_User", strMsg)
         
         MsgBox "已成功" & strMsg & "。", vbInformation
         

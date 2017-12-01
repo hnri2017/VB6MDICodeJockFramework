@@ -27,6 +27,8 @@ Public Type gtypCommandBarID
     SysDepartment As Long
     SysUser As Long
     SysLog As Long
+    SysRole As Long
+    SysFunc As Long
     
     SysPrint As Long
     SysPrintPreview As Long
@@ -161,6 +163,7 @@ Public Type gtypCommandBarID
     SkinPath As String      '主题资源文件名
     SkinIni As String       '主题配置文件名
     
+    UserAutoID As String    '用户标识ID
     UserLoginName As String '用户登陆名
     UserNickName As String  '用户昵称
     UserFullName As String  '用户姓名

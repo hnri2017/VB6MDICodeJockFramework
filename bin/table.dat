@@ -11,7 +11,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[tb_Test_Department](
+CREATE TABLE [dbo].[tb_Test_Sys_Department](
 	[DeptID] [int] IDENTITY(1000,1) NOT NULL,
 	[DeptName] [nvarchar](50) NOT NULL,
 	[ParentID] [int] NULL,
@@ -36,7 +36,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[tb_Test_User](
+CREATE TABLE [dbo].[tb_Test_Sys_User](
 	[UserAutoID] [int] IDENTITY(2000,1) NOT NULL,
 	[UserLoginName] [nvarchar](50) NOT NULL,
 	[UserPassword] [nvarchar](60) NULL,
@@ -67,7 +67,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[tb_Test_OperationLog](
+CREATE TABLE [dbo].[tb_Test_Sys_OperationLog](
 	[LogID] [bigint] IDENTITY(1,1) NOT NULL,
 	[LogType] [nvarchar](50) NULL,
 	[LogContent] [nvarchar](200) NULL,
@@ -81,6 +81,89 @@ CREATE TABLE [dbo].[tb_Test_OperationLog](
 (
 	[LogID] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  Table [dbo].[tb_Test_Sys_Func]    Script Date: 12/01/2017 17:27:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tb_Test_Sys_Func](
+	[FuncAutoID] [int] IDENTITY(1000,1) NOT NULL,
+	[FuncName] [nvarchar](50) NOT NULL,
+	[FuncCaption] [nvarchar](50) NOT NULL,
+	[FuncType] [nvarchar](50) NOT NULL,
+	[FuncParentID] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  Table [dbo].[tb_Test_Sys_Role]    Script Date: 12/01/2017 17:27:53 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tb_Test_Sys_Role](
+	[RoleAutoID] [int] IDENTITY(1000,1) NOT NULL,
+	[RoleName] [nvarchar](50) NOT NULL,
+	[DeptID] [int] NULL,
+	[RoleMemo] [nvarchar](500) NULL
+) ON [PRIMARY]
+
+GO
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  Table [dbo].[tb_Test_Sys_RoleFunc]    Script Date: 12/01/2017 17:28:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tb_Test_Sys_RoleFunc](
+	[RoleAutoID] [int] NOT NULL,
+	[FuncAutoID] [int] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+USE [db_Test]
+GO
+
+/****** Object:  Table [dbo].[tb_Test_Sys_UserRole]    Script Date: 12/01/2017 17:28:46 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tb_Test_Sys_UserRole](
+	[UserAutoID] [int] NOT NULL,
+	[RoleAutoID] [int] NOT NULL
 ) ON [PRIMARY]
 
 GO
@@ -121,7 +204,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	INSERT INTO tb_Test_OperationLog
+	INSERT INTO tb_Test_Sys_OperationLog
 	(LogType ,LogFormName ,LogTable ,LogContent ,LogUserFullName ,
 	LogPCIP ,LogPCName ,LogTime )
 	VALUES(@strType ,@strForm ,@strTable ,@strContent ,@strUser ,
@@ -159,7 +242,7 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT * 
-	FROM tb_Test_User 
+	FROM tb_Test_Sys_User 
 	WHERE UserLoginName = @strUN
 
 END
@@ -193,7 +276,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * FROM tb_Test_User 
+	SELECT * FROM tb_Test_Sys_User 
 	WHERE UserAutoID = @intUID
 END
 
@@ -237,7 +320,7 @@ BEGIN
 	DECLARE @strSQL AS NVARCHAR(2000) 
 	DECLARE @intLoc AS INT
     -- Insert statements for procedure here
-    SET @strSQL ='SELECT * FROM tb_Test_OperationLog '
+    SET @strSQL ='SELECT * FROM tb_Test_Sys_OperationLog '
     
     IF LEN(@strType)>0 SET @strSQL =@strSQL +' AND LogType='''+@strType+'''' 
     IF LEN(@strTimeA)>0 AND LEN(@strTimeB)>0 SET @strSQL =@strSQL +' AND LogTime BETWEEN '''+@strTimeA+''' AND '''+@strTimeB+'''' 

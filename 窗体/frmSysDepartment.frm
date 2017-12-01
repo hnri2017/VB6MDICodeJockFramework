@@ -190,20 +190,20 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Private Const mKeyHead As String = "k"
+Private Const mKeyDept As String = "k"
 
 
 
 Private Function mfIsChild(ByRef nodeDad As MSComctlLib.Node, ByVal strKey As String) As Boolean
     '判断传入Key值是不是自己的子结点
     
-    Dim I As Long, C As Long
+    Dim I As Long, c As Long
     Dim nodeSon As MSComctlLib.Node
     
-    C = nodeDad.Children
-    If C = 0 Then Exit Function
+    c = nodeDad.Children
+    If c = 0 Then Exit Function
 
-    For I = 1 To C
+    For I = 1 To c
         If I = 1 Then
             Set nodeSon = nodeDad.Child
         Else
@@ -239,8 +239,8 @@ Private Sub msLoadDept(ByRef tvwDept As MSComctlLib.TreeView)
     
     
     strSQL = "SELECT t1.DeptID ,t1.DeptName ,t1.ParentID ,t2.DeptName AS [ParentName] " & _
-             "FROM tb_Test_Department AS [t1] " & _
-             "LEFT JOIN tb_Test_Department AS [t2] " & _
+             "FROM tb_Test_Sys_Department AS [t1] " & _
+             "LEFT JOIN tb_Test_Sys_Department AS [t2] " & _
              "ON t1.ParentID = t2.DeptID " & _
              "ORDER BY t1.ParentID ,t1.DeptName"    '注意字段顺序不可变
     Set rsDept = gfBackRecordset(strSQL)
@@ -254,8 +254,8 @@ Private Sub msLoadDept(ByRef tvwDept As MSComctlLib.TreeView)
         While Not rsDept.EOF
             If IsNull(rsDept.Fields(3).Value) Then
                 lngOneCompany = lngOneCompany + 1
-                tvwDept.Nodes.Add , , mKeyHead & rsDept.Fields(0).Value, rsDept.Fields(1).Value, "SysCompany"
-                tvwDept.Nodes.Item(mKeyHead & rsDept.Fields(0).Value).Expanded = True
+                tvwDept.Nodes.Add , , mKeyDept & rsDept.Fields(0).Value, rsDept.Fields(1).Value, "SysCompany"
+                tvwDept.Nodes.Item(mKeyDept & rsDept.Fields(0).Value).Expanded = True
             Else
                 ReDim Preserve arrDept(3, lngCount)
                 For I = 0 To 3
@@ -287,7 +287,7 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
     Dim arrOther() As String    '保存剩余的
     Dim blnOther As Boolean     '剩余标识
     Dim I As Long, J As Long, K As Long, lngCount As Long
-    Static C As Long
+    Static c As Long
     
     With tvwTree
 '''        For I = LBound(arrLoad, 2) To UBound(arrLoad, 2)
@@ -296,9 +296,9 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
 '''        Debug.Print "此轮总数=" & (UBound(arrLoad, 2) - LBound(arrLoad, 2) + 1)
         For J = LBound(arrLoad, 2) To UBound(arrLoad, 2)
             For I = 1 To .Nodes.Count   '注意此处下标从1开始
-                If .Nodes.Item(I).Key = mKeyHead & arrLoad(2, J) Then
-                    .Nodes.Add .Nodes.Item(I).Key, tvwChild, mKeyHead & arrLoad(0, J), arrLoad(1, J), "threemen"
-                    .Nodes.Item(mKeyHead & arrLoad(0, J)).Expanded = True
+                If .Nodes.Item(I).Key = mKeyDept & arrLoad(2, J) Then
+                    .Nodes.Add .Nodes.Item(I).Key, tvwChild, mKeyDept & arrLoad(0, J), arrLoad(1, J), "threemen"
+                    .Nodes.Item(mKeyDept & arrLoad(0, J)).Expanded = True
                     Exit For
                 End If
             Next
@@ -315,8 +315,8 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
         Next
     End With
     
-    C = C + 1
-    If C > 64 Then Exit Sub '防止递归层数太深导致堆栈溢出而程序崩溃
+    c = c + 1
+    If c > 64 Then Exit Sub '防止递归层数太深导致堆栈溢出而程序崩溃
     
     If blnOther Then
         Call msLoadDeptTree(tvwTree, arrOther)
@@ -378,7 +378,7 @@ Private Sub Command1_Click()
     End If
     If MsgBox(strMsg, vbQuestion + vbOKCancel, "确认询问") = vbCancel Then Exit Sub
     
-    strSQL = "SELECT DeptID ,DeptName ,ParentID FROM tb_Test_Department WHERE 1<>1 "
+    strSQL = "SELECT DeptID ,DeptName ,ParentID FROM tb_Test_Sys_Department WHERE 1<>1 "
     Set rsAdd = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
     
     On Error GoTo LineErr
@@ -391,7 +391,7 @@ Private Sub Command1_Click()
         lngDeptID = rsAdd.Fields("DeptID")
         rsAdd.Close
         Call msLoadDept(TreeView1)
-        Call gsLogAdd(Me, udInsert, "tb_Test_Department", "添加新部门【" & lngDeptID & "】【" & strDeptName & "】")
+        Call gsLogAdd(Me, udInsert, "tb_Test_Sys_Department", "添加新部门【" & lngDeptID & "】【" & strDeptName & "】")
         MsgBox "部门【" & strDeptName & "】添加成功！", vbInformation
     End If
     
@@ -449,7 +449,7 @@ Private Sub Command2_Click()
             Exit Sub
         End If
         
-        If .SelectedItem.Key <> mKeyHead & strDeptID Then
+        If .SelectedItem.Key <> mKeyDept & strDeptID Then
             MsgBox "内部检测异常，请重新选择一个部门！", vbExclamation
             Exit Sub
         End If
@@ -460,11 +460,11 @@ Private Sub Command2_Click()
             If Len(strParentID) > 0 Then blnParent = True
         Else
             strLastPN = .SelectedItem.Parent.Text
-            If .SelectedItem.Parent.Key <> mKeyHead & strParentID Then blnParent = True
+            If .SelectedItem.Parent.Key <> mKeyDept & strParentID Then blnParent = True
         End If
         
         If blnParent And (Len(strParentID) > 0) Then '不能修改到自己的子部门中
-            If mfIsChild(.SelectedItem, mKeyHead & strParentID) Then
+            If mfIsChild(.SelectedItem, mKeyDept & strParentID) Then
                 MsgBox Label1.Item(2).Caption & " 不能是本部门的子部门！", vbExclamation
                 Exit Sub
             End If
@@ -485,7 +485,7 @@ Private Sub Command2_Click()
     End With
     
     strSQL = "SELECT DeptID ,DeptName ,ParentID " & _
-             "From tb_Test_Department " & _
+             "From tb_Test_Sys_Department " & _
              "WHERE DeptID ='" & strDeptID & "'"
     Set rsEdit = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
     
@@ -509,7 +509,7 @@ Private Sub Command2_Click()
             rsEdit.Update
             rsEdit.Close
             Call msLoadDept(TreeView1)
-            Call gsLogAdd(Me, udUpdate, "tb_Test_Department", strMsg)
+            Call gsLogAdd(Me, udUpdate, "tb_Test_Sys_Department", strMsg)
             MsgBox "部门信息修改完成！", vbInformation
         Else
             rsEdit.Close
@@ -559,7 +559,7 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
     Dim lngLen As Long, I As Long
     
     lngLen = Len(Node.Key)
-    If lngLen < Len(mKeyHead) Then Exit Sub
+    If lngLen < Len(mKeyDept) Then Exit Sub
     If Combo1.Item(0).ListCount < 1 Then Exit Sub
     
     If Node.Parent Is Nothing Then
@@ -573,7 +573,7 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
         Next
     End If
     
-    Text1.Item(0).Text = Right(Node.Key, lngLen - Len(mKeyHead))
+    Text1.Item(0).Text = Right(Node.Key, lngLen - Len(mKeyDept))
     Text1.Item(1).Text = Node.Text
     
     Node.SelectedImage = "SysDepartment"

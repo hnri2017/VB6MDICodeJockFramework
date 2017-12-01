@@ -267,6 +267,7 @@ Private Sub Command1_Click()
         GoTo LineEnd
     End If
     
+    gID.UserAutoID = rsUser.Fields("UserAutoID")
     gID.UserLoginName = strName
     gID.UserPassword = strPWD
     gID.UserFullName = rsUser.Fields("UserFullName")
@@ -276,7 +277,7 @@ Private Sub Command1_Click()
     
     SaveSetting gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserLast, strName
     Call msSaveUserList
-    Call gsLogAdd(Me, udSelect, "tb_Test_User", "【" & strName & "】登陆系统")
+    Call gsLogAdd(Me, udSelect, "tb_Test_Sys_User", "【" & strName & "】登陆系统")
     gMDI.Show
     
     Unload Me

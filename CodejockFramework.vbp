@@ -29,6 +29,7 @@ Form=窗体\frmSysDepartment.frm
 Form=窗体\frmSysUser.frm
 Object={86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0; MSCOMCT2.OCX
 Form=窗体\frmSysLog.frm
+Form=窗体\frmSysRole.frm
 IconForm="frmSysMDI"
 Startup="Sub Main"
 HelpFile=""

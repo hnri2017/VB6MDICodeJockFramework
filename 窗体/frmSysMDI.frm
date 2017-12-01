@@ -24,7 +24,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   56
+         NumListImages   =   58
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
@@ -299,6 +299,15 @@ Begin VB.MDIForm frmSysMDI
             Key             =   "SysLog"
             Object.Tag             =   "106"
          EndProperty
+         BeginProperty ListImage57 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1DFD1
+            Key             =   "SysRole"
+            Object.Tag             =   "107"
+         EndProperty
+         BeginProperty ListImage58 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1EC23
+            Key             =   "RoleSelect"
+         EndProperty
       EndProperty
    End
    Begin VB.PictureBox picHide 
@@ -349,6 +358,15 @@ Begin VB.MDIForm frmSysMDI
             HotTrackStyle   =   1
          End
       End
+   End
+   Begin XtremeCommandBars.ImageManager ImageManager1 
+      Left            =   600
+      Top             =   3720
+      _Version        =   983043
+      _ExtentX        =   635
+      _ExtentY        =   635
+      _StockProps     =   0
+      Icons           =   "frmSysMDI.frx":1F875
    End
    Begin XtremeSkinFramework.SkinFramework skinFW 
       Left            =   3720
@@ -446,6 +464,8 @@ Private Sub msAddAction()
         .Add gID.SysDepartment, "部门管理", "", "", "frmSysDepartment"
         .Add gID.SysUser, "用户管理", "", "", "frmSysUser"
         .Add gID.SysLog, "日志查看", "", "", "frmSysLog"
+        .Add gID.SysRole, "角色设置", "", "", "frmSysRole"
+        .Add gID.SysFunc, "功能设置", "", "", "frmSysFunc"
 
 
         .Add gID.SysOutToExcel, "导出至Excel", "", "", ""
@@ -651,6 +671,9 @@ Private Sub msAddMenu()
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysUser, "")
         cbsMenuCtrl.BeginGroup = True
         
+        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysRole, "")
+        cbsMenuCtrl.BeginGroup = True
+        
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysLog, "")
         cbsMenuCtrl.BeginGroup = True
         
@@ -824,6 +847,7 @@ Private Sub msAddTaskPanelItem()
         .Add gID.SysModifyPassword, mcbsActions(gID.SysModifyPassword).Caption, xtpTaskItemTypeLink
         .Add gID.SysDepartment, mcbsActions(gID.SysDepartment).Caption, xtpTaskItemTypeLink
         .Add gID.SysUser, mcbsActions(gID.SysUser).Caption, xtpTaskItemTypeLink
+        .Add gID.SysRole, mcbsActions(gID.SysRole).Caption, xtpTaskItemTypeLink
         .Add gID.SysLog, mcbsActions(gID.SysLog).Caption, xtpTaskItemTypeLink
         
         For mlngID = gID.SysOutToExcel To gID.SysPrintPreview
