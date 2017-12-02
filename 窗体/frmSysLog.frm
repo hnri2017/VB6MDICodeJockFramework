@@ -187,7 +187,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   100925441
+            Format          =   102105089
             CurrentDate     =   42628
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -200,7 +200,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   100925441
+            Format          =   102105089
             CurrentDate     =   42628
          End
          Begin VB.Label Label1 
@@ -473,7 +473,7 @@ Private Sub Form_Load()
     With lngSize
         .frmWidth = 15800   '''初始化几个尺寸
         .frmHeight = 8900
-        .vsWidth = 15000
+        .vsWidth = 13800
         .vsHeight = 6000
         .rowHeight = 270
         .pageSize = 20
@@ -635,7 +635,7 @@ Private Sub Form_Resize()
     Dim lngH As Long
     Dim lngVar As Long
     
-    Call gsFormScrollBar(Me, Me.ctlMove, Me.Hsb, Me.Vsb, 16000, 9000)
+    Call gsFormScrollBar(Me, Me.ctlMove, Me.Hsb, Me.Vsb, 14400, 9000)
     
     If gMDI.WindowState = vbMinimized Then Exit Sub
     If Me.WindowState = vbMinimized Then Exit Sub
@@ -697,12 +697,12 @@ Private Sub msSetTable()
         .ColWidth(1) = 1100
         .ColWidth(2) = 1900
         .ColWidth(3) = 1000
-        .ColWidth(4) = 2800 + lngAddWith / 3
+        .ColWidth(4) = 4800 + lngAddWith / 3
         .ColWidth(5) = 1200 + lngAddWith / 3
         .ColWidth(6) = 1500
         .ColWidth(7) = 1500
-        .ColWidth(8) = 2000 + lngAddWith / 3
-        
+'        .ColWidth(8) = 2000 + lngAddWith / 3
+        .ColWidth(8) = 0
         .Redraw = flexRDBuffered    'flexRDDirect,flexRDBuffered
     End With
     

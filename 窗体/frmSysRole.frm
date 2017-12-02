@@ -197,36 +197,6 @@ Private Const mOtherText As String = "其他角色"
 
 
 
-Private Function mfIsChild(ByRef nodeDad As MSComctlLib.Node, ByVal strKey As String) As Boolean
-    '判断传入Key值是不是自己的子结点
-    
-    Dim I As Long, c As Long
-    Dim nodeSon As MSComctlLib.Node
-    
-    c = nodeDad.Children
-    If c = 0 Then Exit Function
-
-    For I = 1 To c
-        If I = 1 Then
-            Set nodeSon = nodeDad.Child
-        Else
-            Set nodeSon = nodeSon.Next
-        End If
-
-        If nodeSon.Key = strKey Then
-            mfIsChild = True
-            Exit Function
-        End If
-        If nodeSon.Children > 0 Then
-            If mfIsChild(nodeSon, strKey) Then
-                mfIsChild = True
-                Exit Function
-            End If
-        End If
-    Next
-
-End Function
-
 Private Sub msLoadDept(ByRef tvwDept As MSComctlLib.TreeView)
     '加载部门至TreeView控件中
     '要求：1、数据库中部门信息表Dept包含DeptID(Not Null)、DeptName(Not Null)、ParentID(Null)三个字段。
@@ -371,8 +341,8 @@ Private Sub msLoadRole(ByRef tvwUser As MSComctlLib.TreeView)
 LineEnd:
     If rsRole.State = adStateOpen Then rsRole.Close
     Set rsRole = Nothing
+    
 End Sub
-
 
 Private Sub Combo1_KeyUp(Index As Integer, KeyCode As Integer, Shift As Integer)
     If Index = 0 Then
@@ -383,7 +353,7 @@ Private Sub Combo1_KeyUp(Index As Integer, KeyCode As Integer, Shift As Integer)
 End Sub
 
 Private Sub Command1_Click()
-    '添加部门
+    '添加角色
 
     Dim rsRole As ADODB.Recordset
     Dim strRoleName As String, strSQL As String, strCheck As String, strMsg As String
@@ -489,7 +459,7 @@ Private Sub Command2_Click()
 
     With TreeView1
         If .SelectedItem Is Nothing Then
-            MsgBox "内部检测异常，请重新选择部门！", vbExclamation
+            MsgBox "内部检测异常，请重新选择角色！", vbExclamation
             Exit Sub
         End If
         
@@ -560,7 +530,7 @@ Private Sub Command2_Click()
     GoTo LineEnd
     
 LineErr:
-    Call gsAlarmAndLog("部门修改异常")
+    Call gsAlarmAndLog("角色修改异常")
 LineEnd:
     If rsRole.State = adStateOpen Then rsRole.Close
     Set rsRole = Nothing
