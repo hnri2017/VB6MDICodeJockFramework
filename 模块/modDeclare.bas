@@ -178,6 +178,10 @@ Public Type gtypCommandBarID
     CnDatabase As String    '连接的数据库名
     CnString As String      '数据库连接字符串全称
     
+    FuncButton As String
+    FuncForm As String
+    FuncControl As String
+    
 End Type
 
 Public Type gtypValueAndErr '用于返回布尔值的过程，顺便返回异常代号

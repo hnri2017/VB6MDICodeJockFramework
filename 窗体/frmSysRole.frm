@@ -256,7 +256,7 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
     Dim arrOther() As String    '保存剩余的
     Dim blnOther As Boolean     '剩余标识
     Dim I As Long, J As Long, K As Long, lngCount As Long
-    Static c As Long
+    Static C As Long
     
     With tvwTree
         For J = LBound(arrLoad, 2) To UBound(arrLoad, 2)
@@ -280,8 +280,8 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
         Next
     End With
     
-    c = c + 1
-    If c > 64 Then Exit Sub '防止递归层数太深导致堆栈溢出而程序崩溃
+    C = C + 1
+    If C > 64 Then Exit Sub '防止递归层数太深导致堆栈溢出而程序崩溃
     
     If blnOther Then
         Call msLoadDeptTree(tvwTree, arrOther)

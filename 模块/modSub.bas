@@ -152,6 +152,9 @@ Public Sub Main()
         .CnString = "Provider=SQLOLEDB;Persist Security Info=False;Data Source=" & .CnSource & _
                     ";UID=" & .CnUserID & ";PWD=" & .CnPassword & ";DataBase=" & .CnDatabase    '在自己64位系统电脑上Data Source中间要空格隔开才能建立连接，在这里可以不用，不知为何
         
+        .FuncButton = "按钮"
+        .FuncControl = "其它"
+        .FuncForm = "窗口"
         
     End With
     
@@ -310,7 +313,7 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
 '    Dim sheetOut As Excel.Worksheet
     Dim sheetOut  As Object
     Dim blnFlexCell As Boolean
-    Dim R As Long, c As Long, I As Long, J As Long
+    Dim R As Long, C As Long, I As Long, J As Long
     
     On Error Resume Next
     Screen.MousePointer = 13
@@ -323,17 +326,17 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
     
     With gridControl
         R = .Rows
-        c = .Cols
+        C = .Cols
         '表格内容复制到Excel中
         If blnFlexCell Then
             For I = 0 To R - 1
-                For J = 0 To c - 1
+                For J = 0 To C - 1
                     sheetOut.Cells(I + 1, J + 1) = .Cell(I, J).Text
                 Next
             Next
         Else
             For I = 0 To R - 1
-                For J = 0 To c - 1
+                For J = 0 To C - 1
                     sheetOut.Cells(I + 1, J + 1) = .TextMatrix(I, J)
                 Next
             Next
@@ -344,11 +347,11 @@ Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As
         If TimeCol > -1 Then
             .Columns(TimeCol + 1).NumberFormatLocal = TimeStyle
         End If
-        .Range(.Cells(1, 1), .Cells(1, c)).Font.Bold = True '加粗显示(第一行默认标题行)
-        .Range(.Cells(1, 1), .Cells(1, c)).Font.Size = 12   '第一行12号字大小
-        .Range(.Cells(2, 1), .Cells(R, c)).Font.Size = 10   '第二行以后10号字大小
-        .Range(.Cells(1, 1), .Cells(R, c)).HorizontalAlignment = -4108  'xlCenter= -4108(&HFFFFEFF4)   '居中显示
-        .Range(.Cells(1, 1), .Cells(R, c)).Borders.Weight = 2   'xlThin=2  '单元格显示黑色线宽
+        .Range(.Cells(1, 1), .Cells(1, C)).Font.Bold = True '加粗显示(第一行默认标题行)
+        .Range(.Cells(1, 1), .Cells(1, C)).Font.Size = 12   '第一行12号字大小
+        .Range(.Cells(2, 1), .Cells(R, C)).Font.Size = 10   '第二行以后10号字大小
+        .Range(.Cells(1, 1), .Cells(R, C)).HorizontalAlignment = -4108  'xlCenter= -4108(&HFFFFEFF4)   '居中显示
+        .Range(.Cells(1, 1), .Cells(R, C)).Borders.Weight = 2   'xlThin=2  '单元格显示黑色线宽
         .Columns.EntireColumn.AutoFit   '自动列宽
         .Rows(1).rowHeight = 23 '第一行行高
     End With
@@ -368,7 +371,7 @@ Public Sub gsGridToText(ByRef gridControl As Control)
     Dim strFileName As String
     Dim blnFlexCell As Boolean
     Dim intFree As Integer
-    Dim R As Long, c As Long, I As Long, J As Long
+    Dim R As Long, C As Long, I As Long, J As Long
     Dim strTxt As String
     
     For I = 1 To 8
@@ -386,11 +389,11 @@ Public Sub gsGridToText(ByRef gridControl As Control)
     Open strFileName For Output As #intFree
     With gridControl
         R = .Rows - 1
-        c = .Cols - 1
+        C = .Cols - 1
         If blnFlexCell Then
             For I = 0 To R
                 strTxt = ""
-                For J = 0 To c
+                For J = 0 To C
                     strTxt = strTxt & .Cell(I, J).Text & vbTab
                 Next
                 Print #intFree, strTxt
@@ -398,7 +401,7 @@ Public Sub gsGridToText(ByRef gridControl As Control)
         Else
             For I = 0 To R
                 strTxt = ""
-                For J = 0 To c
+                For J = 0 To C
                     strTxt = strTxt & .TextMatrix(I, J) & vbTab
                 Next
                 Print #intFree, strTxt
@@ -489,13 +492,13 @@ Public Sub gsOpenTheWindow(ByVal strFormName As String, _
     '以指定窗口模式OpenMode与窗口FormWndState状态来打开指定窗体strFormName
     
     Dim frmOpen As Form
-    Dim c As Long
+    Dim C As Long
     
     strFormName = LCase(strFormName)
     If gfFormLoad(strFormName) Then
-        For c = 0 To Forms.Count - 1
-            If LCase(Forms(c).Name) = strFormName Then
-                Set frmOpen = Forms(c)
+        For C = 0 To Forms.Count - 1
+            If LCase(Forms(C).Name) = strFormName Then
+                Set frmOpen = Forms(C)
                 Exit For
             End If
         Next

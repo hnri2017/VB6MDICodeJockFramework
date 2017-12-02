@@ -7,10 +7,10 @@ Object = "{B8E5842E-102B-4289-9D57-3B3F5B5E15D3}#15.3#0"; "Codejock.TaskPanel.v1
 Begin VB.MDIForm frmSysMDI 
    BackColor       =   &H8000000C&
    Caption         =   "软件主窗口"
-   ClientHeight    =   5655
+   ClientHeight    =   4590
    ClientLeft      =   2880
    ClientTop       =   2415
-   ClientWidth     =   10770
+   ClientWidth     =   9510
    Icon            =   "frmSysMDI.frx":0000
    LinkTopic       =   "MDIForm1"
    Begin MSComctlLib.ImageList imgListCommandBars 
@@ -24,7 +24,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   58
+         NumListImages   =   64
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
@@ -308,6 +308,31 @@ Begin VB.MDIForm frmSysMDI
             Picture         =   "frmSysMDI.frx":1EC23
             Key             =   "RoleSelect"
          EndProperty
+         BeginProperty ListImage59 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1F875
+            Key             =   "SysFunc"
+            Object.Tag             =   "108"
+         EndProperty
+         BeginProperty ListImage60 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":204C7
+            Key             =   "FuncHead"
+         EndProperty
+         BeginProperty ListImage61 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":21119
+            Key             =   "FuncSelect"
+         EndProperty
+         BeginProperty ListImage62 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":21D6B
+            Key             =   "FuncControl"
+         EndProperty
+         BeginProperty ListImage63 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":229BD
+            Key             =   "FuncButton"
+         EndProperty
+         BeginProperty ListImage64 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":230CF
+            Key             =   "FuncForm"
+         EndProperty
       EndProperty
    End
    Begin VB.PictureBox picHide 
@@ -315,11 +340,11 @@ Begin VB.MDIForm frmSysMDI
       Height          =   2535
       Left            =   0
       ScaleHeight     =   2475
-      ScaleWidth      =   10710
+      ScaleWidth      =   9450
       TabIndex        =   0
       Top             =   0
       Visible         =   0   'False
-      Width           =   10770
+      Width           =   9510
       Begin VB.PictureBox picList 
          Height          =   1455
          Left            =   5160
@@ -366,7 +391,7 @@ Begin VB.MDIForm frmSysMDI
       _ExtentX        =   635
       _ExtentY        =   635
       _StockProps     =   0
-      Icons           =   "frmSysMDI.frx":1F875
+      Icons           =   "frmSysMDI.frx":23D21
    End
    Begin XtremeSkinFramework.SkinFramework skinFW 
       Left            =   3720
@@ -674,6 +699,9 @@ Private Sub msAddMenu()
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysRole, "")
         cbsMenuCtrl.BeginGroup = True
         
+        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysFunc, "")
+        cbsMenuCtrl.BeginGroup = True
+        
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysLog, "")
         cbsMenuCtrl.BeginGroup = True
         
@@ -848,6 +876,7 @@ Private Sub msAddTaskPanelItem()
         .Add gID.SysDepartment, mcbsActions(gID.SysDepartment).Caption, xtpTaskItemTypeLink
         .Add gID.SysUser, mcbsActions(gID.SysUser).Caption, xtpTaskItemTypeLink
         .Add gID.SysRole, mcbsActions(gID.SysRole).Caption, xtpTaskItemTypeLink
+        .Add gID.SysFunc, mcbsActions(gID.SysFunc).Caption, xtpTaskItemTypeLink
         .Add gID.SysLog, mcbsActions(gID.SysLog).Caption, xtpTaskItemTypeLink
         
         For mlngID = gID.SysOutToExcel To gID.SysPrintPreview
@@ -1256,7 +1285,7 @@ Private Sub msWindowControl(ByVal WID As Long)
     '子窗口控制
     
     Dim frmTag As Form
-    Dim c As Long
+    Dim C As Long
     Dim itemCur As XtremeCommandBars.TabControlItem
     
     With gID
@@ -1271,7 +1300,7 @@ Private Sub msWindowControl(ByVal WID As Long)
                 If Forms.Count > 2 Then
                     Set itemCur = mTabWorkspace.Selected
                     itemCur.Tag = "c"   '标记当前窗口，因为Index值在窗口数量变化时会变化，不能作为唯一判断依据
-                    For c = 0 To mTabWorkspace.ItemCount - 1
+                    For C = 0 To mTabWorkspace.ItemCount - 1
                         If mTabWorkspace.Item(0).Tag = itemCur.Tag Then
                             itemCur.Tag = ""    '记得清空。Tag属性默认值就是空字符串
                             Exit For
@@ -1295,12 +1324,12 @@ Private Sub msWindowControl(ByVal WID As Long)
                 If Forms.Count > 2 Then
                     Set itemCur = mTabWorkspace.Selected
                     itemCur.Tag = "c"
-                    For c = mTabWorkspace.ItemCount - 1 To 0 Step -1
-                        If mTabWorkspace.Item(c).Tag = itemCur.Tag Then
+                    For C = mTabWorkspace.ItemCount - 1 To 0 Step -1
+                        If mTabWorkspace.Item(C).Tag = itemCur.Tag Then
                             itemCur.Tag = ""
                             Exit For
                         Else
-                            mTabWorkspace.Item(c).Selected = True
+                            mTabWorkspace.Item(C).Selected = True
                             Unload ActiveForm
                         End If
                     Next

@@ -194,37 +194,6 @@ Private Const mKeyDept As String = "k"
 
 
 
-Private Function mfIsChild(ByRef nodeDad As MSComctlLib.Node, ByVal strKey As String) As Boolean
-    '判断传入Key值是不是自己的子结点
-    
-    Dim I As Long, c As Long
-    Dim nodeSon As MSComctlLib.Node
-    
-    c = nodeDad.Children
-    If c = 0 Then Exit Function
-
-    For I = 1 To c
-        If I = 1 Then
-            Set nodeSon = nodeDad.Child
-        Else
-            Set nodeSon = nodeSon.Next
-        End If
-
-'Debug.Print nodeSon.Text & "--" & nodeSon.Key
-
-        If nodeSon.Key = strKey Then
-            mfIsChild = True
-            Exit Function
-        End If
-        If nodeSon.Children > 0 Then
-            If mfIsChild(nodeSon, strKey) Then
-                mfIsChild = True
-                Exit Function
-            End If
-        End If
-    Next
-
-End Function
 
 Private Sub msLoadDept(ByRef tvwDept As MSComctlLib.TreeView)
     '加载部门至TreeView控件中
@@ -287,7 +256,7 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
     Dim arrOther() As String    '保存剩余的
     Dim blnOther As Boolean     '剩余标识
     Dim I As Long, J As Long, K As Long, lngCount As Long
-    Static c As Long
+    Static C As Long
     
     With tvwTree
 '''        For I = LBound(arrLoad, 2) To UBound(arrLoad, 2)
@@ -315,8 +284,8 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
         Next
     End With
     
-    c = c + 1
-    If c > 64 Then Exit Sub '防止递归层数太深导致堆栈溢出而程序崩溃
+    C = C + 1
+    If C > 64 Then Exit Sub '防止递归层数太深导致堆栈溢出而程序崩溃
     
     If blnOther Then
         Call msLoadDeptTree(tvwTree, arrOther)
@@ -464,7 +433,7 @@ Private Sub Command2_Click()
         End If
         
         If blnParent And (Len(strParentID) > 0) Then '不能修改到自己的子部门中
-            If mfIsChild(.SelectedItem, mKeyDept & strParentID) Then
+            If gfIsTreeViewChild(.SelectedItem, mKeyDept & strParentID) Then
                 MsgBox Label1.Item(2).Caption & " 不能是本部门的子部门！", vbExclamation
                 Exit Sub
             End If
