@@ -382,6 +382,191 @@ Private Sub Combo1_KeyUp(Index As Integer, KeyCode As Integer, Shift As Integer)
     End If
 End Sub
 
+Private Sub Command1_Click()
+    '添加部门
+
+    Dim rsRole As ADODB.Recordset
+    Dim strRoleName As String, strSQL As String, strCheck As String, strMsg As String
+    Dim strDeptID As Variant
+    Dim lngRID As Long
+
+    
+    strRoleName = Trim(Text1.Item(1).Text)
+    strRoleName = Left(strRoleName, 50)
+    Text1.Item(1).Text = strRoleName
+    
+    If Len(strRoleName) = 0 Then
+        MsgBox Label1.Item(1).Caption & " 不能为空字符！", vbExclamation
+        Text1.Item(1).SetFocus
+        Exit Sub
+    End If
+    
+    strCheck = gfStringCheck(strRoleName)
+    If Len(strCheck) > 0 Then
+        MsgBox Label1.Item(1).Caption & "中不能包含特殊字符【" & strCheck & "】！", vbExclamation
+        Text1.Item(1).SetFocus
+        Text1.Item(1).SelStart = 0
+        Text1.Item(0).SelLength = Len(strRoleName)
+        Exit Sub
+    End If
+    
+    If Combo1.Item(0).ListIndex = -1 Then
+        strDeptID = Null
+    Else
+        strDeptID = Combo1.Item(1).List(Combo1.Item(0).ListIndex)
+    End If
+    
+    strMsg = "确定添加" & Label1.Item(1).Caption & "【" & strRoleName & "】吗？"
+    If MsgBox(strMsg, vbQuestion + vbOKCancel, "确认询问") = vbCancel Then Exit Sub
+    
+    strSQL = "SELECT RoleAutoID ,RoleName ,DeptID FROM tb_Test_Sys_Role WHERE 1<>1 "
+    Set rsRole = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
+    
+    On Error GoTo LineErr
+    
+    If rsRole.State = adStateOpen Then
+        rsRole.AddNew
+        rsRole.Fields("RoleName") = strRoleName
+        rsRole.Fields("DeptID") = strDeptID
+        rsRole.Update
+        lngRID = rsRole.Fields("RoleAutoID")
+        rsRole.Close
+        Call msLoadDept(TreeView1)
+        Call msLoadRole(TreeView1)
+        Call gsLogAdd(Me, udInsert, "tb_Test_Sys_Role", "添加新角色【" & lngRID & "】【" & strRoleName & "】")
+        MsgBox "角色【" & strRoleName & "】添加成功！", vbInformation
+    End If
+    
+    GoTo LineEnd
+    
+LineErr:
+    Call gsAlarmAndLog("角色添加异常")
+LineEnd:
+    If rsRole.State = adStateOpen Then rsRole.Close
+    Set rsRole = Nothing
+
+End Sub
+
+Private Sub Command2_Click()
+    '修改角色
+    
+    Dim rsRole As ADODB.Recordset
+    Dim strSQL As String, strMsg As String, strCheck As String
+    Dim strRID As String, strRoleName As String, strLastDept As String
+    Dim strDeptID As Variant
+    Dim blnName As Boolean, blnDeptID As Boolean
+    
+    
+    strRID = Trim(Text1.Item(0).Text)
+    
+    strRoleName = Trim(Text1.Item(1).Text)
+    Text1.Item(1).Text = strRoleName
+    
+    If Combo1.Item(0).ListIndex = -1 Then
+        strDeptID = Null
+    Else
+        strDeptID = Trim(Combo1.Item(1).List(Combo1.Item(0).ListIndex))
+    End If
+    
+    If Len(strRID) = 0 Then
+        MsgBox "请先选择一个角色！", vbExclamation
+        Exit Sub
+    End If
+    
+    If Len(strRoleName) = 0 Then
+        MsgBox Label1.Item(1).Caption & " 不能为空字符！", vbExclamation
+        Text1.Item(1).SetFocus
+        Exit Sub
+    End If
+    strCheck = gfStringCheck(strRoleName)
+    If Len(strCheck) > 0 Then
+        MsgBox Label1.Item(1).Caption & " 不能含有特殊字符【" & strCheck & "】！", vbExclamation
+        Text1.Item(1).SetFocus
+        Text1.Item(1).SelStart = 0
+        Text1.Item(1).SelLength = Len(strRoleName)
+        Exit Sub
+    End If
+
+    With TreeView1
+        If .SelectedItem Is Nothing Then
+            MsgBox "内部检测异常，请重新选择部门！", vbExclamation
+            Exit Sub
+        End If
+        
+        If .SelectedItem.Key <> mKeyRole & strRID Then
+            MsgBox "内部检测异常，请重新选择一个角色！", vbExclamation
+            Exit Sub
+        End If
+        
+        If .SelectedItem.Text <> strRoleName Then blnName = True
+        
+        If .SelectedItem.Parent.Key = mOtherKey Then
+            If Not IsNull(strDeptID) Then blnDeptID = True
+            strLastDept = ""
+        Else
+            If IsNull(strDeptID) Then
+                blnDeptID = True
+            Else
+               If (mKeyDept & strDeptID) <> .SelectedItem.Parent.Key Then blnDeptID = True
+            End If
+            strLastDept = .SelectedItem.Parent.Text
+        End If
+                
+        If Not (blnName Or blnDeptID) Then
+            MsgBox "没有实质性的改动，不作修改。", vbExclamation
+            Exit Sub
+        End If
+        
+        strMsg = "本次对ID为【" & strRID & "】的角色信息修改情况如下：" & vbCrLf & vbCrLf & _
+                 Space(6) & "修改位置" & vbTab & "修改前" & vbTab & vbTab & "修改后" & vbCrLf & vbCrLf & _
+                 Space(6) & Label1(1).Caption & vbTab & .SelectedItem.Text & vbTab & vbTab & strRoleName & vbCrLf & _
+                 Space(6) & Label1(2).Caption & vbTab & strLastDept & vbTab & vbTab & Combo1.Item(0).Text & vbCrLf & vbCrLf & _
+                 "是否对其进行修改？"
+        If MsgBox(strMsg, vbQuestion + vbYesNo) = vbNo Then Exit Sub
+        
+    End With
+    
+    strSQL = "SELECT RoleAutoID ,RoleName ,DeptID " & _
+             "FROM tb_Test_Sys_Role " & _
+             "WHERE RoleAutoID =" & strRID & ""
+    Set rsRole = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
+    
+    On Error GoTo LineErr
+    
+    If rsRole.State = adStateOpen Then
+        If rsRole.RecordCount = 1 Then
+            strMsg = "【" & strRID & "】角色信息修改："
+            If blnName Then
+                strMsg = strMsg & Label1.Item(1).Caption & "[" & rsRole.Fields("RoleName") & "]-->[" & strRoleName & "];"
+                rsRole.Fields("RoleName") = strRoleName
+            End If
+            If blnDeptID Then
+                rsRole.Fields("DeptID") = strDeptID
+                strMsg = strMsg & Label1.Item(2).Caption & "[" & strLastDept & "]-->[" & Combo1.Item(0).Text & "];"
+            End If
+            rsRole.Update
+            rsRole.Close
+            Call msLoadDept(TreeView1)
+            Call msLoadRole(TreeView1)
+            Call gsLogAdd(Me, udUpdate, "tb_Test_Sys_Role", strMsg)
+            MsgBox "角色信息修改完成！", vbInformation
+        Else
+            rsRole.Close
+            MsgBox "后台数据异常，请联系管理员！", vbCritical
+        End If
+
+    End If
+    
+    GoTo LineEnd
+    
+LineErr:
+    Call gsAlarmAndLog("部门修改异常")
+LineEnd:
+    If rsRole.State = adStateOpen Then rsRole.Close
+    Set rsRole = Nothing
+    
+End Sub
+
 Private Sub Form_Load()
     
     Me.Icon = gMDI.imgListCommandBars.ListImages("SysRole").Picture
@@ -412,47 +597,37 @@ Private Sub Form_Resize()
     
 End Sub
 
-Private Sub TreeView1_BeforeLabelEdit(Cancel As Integer)
+Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
 
     Dim lngLen As Long, I As Long
-    Dim strKey As String, strUID As String, strSQL As String, strMsg As String
+    Dim strKey As String, strRID As String, strSQL As String, strMsg As String
     Dim rsRole As ADODB.Recordset
     
     strKey = Node.Key
     lngLen = Len(strKey)
     If lngLen < Len(mKeyRole) Then Exit Sub
     If Left(strKey, Len(mKeyDept)) = mKeyDept Then
-        For mlngID = Text1.LBound To Text1.UBound
-            Text1.Item(mlngID).Text = ""
-        Next
-        Option1.Item(1).Value = True
+        Text1.Item(0).Text = ""
+        Text1.Item(1).Text = ""
         Combo1.Item(0).ListIndex = -1
         Exit Sub
     End If
     If Left(strKey, Len(mKeyRole)) <> mKeyRole Then Exit Sub
     
-    strUID = Right(Node.Key, lngLen - Len(mKeyRole))
-    strSQL = "EXEC sp_Test_Sys_UserInfo '" & strUID & "'"
+    strRID = Right(Node.Key, lngLen - Len(mKeyRole))
+    strSQL = "SELECT RoleAutoID ,RoleName ,DeptID FROM tb_Test_Sys_Role " & _
+             "WHERE RoleAutoID =" & strRID
     Set rsRole = gfBackRecordset(strSQL)
     If rsRole.State = adStateClosed Then GoTo LineEnd
     If rsRole.RecordCount = 0 Then
-        strMsg = "用户信息丢失了，请联系管理员！"
-        rsRole.Close
+        strMsg = "角色信息丢失了，请联系管理员！"
         GoTo LineBreak
     ElseIf rsRole.RecordCount > 1 Then
-        strMsg = "用户信息异常，请联系管理员！"
-        rsRole.Close
+        strMsg = "角色信息异常，请联系管理员！"
         GoTo LineBreak
     Else
-        Text1.Item(0).Text = strUID
-        Text1.Item(1).Text = rsRole.Fields("UserLoginName").Value & ""
-        Text1.Item(2).Text = gfDecryptSimple(rsRole.Fields("UserPassword").Value & "")
-        Text1.Item(3).Text = rsRole.Fields("UserFullName").Value & ""
-        Text1.Item(4).Text = rsRole.Fields("UserMemo").Value & ""
-        
-        Option1.Item(0).Value = IIf(rsRole.Fields("UserSex").Value = "女", True, False)
-        Option1.Item(1).Value = IIf(rsRole.Fields("UserSex").Value = "男", True, False)
-        
+        Text1.Item(0).Text = strRID
+        Text1.Item(1).Text = rsRole.Fields("RoleName").Value
         If IsNull(rsRole.Fields("DeptID").Value) Then
             Combo1.Item(0).ListIndex = -1
         Else
@@ -465,12 +640,13 @@ Private Sub TreeView1_BeforeLabelEdit(Cancel As Integer)
             If I = Combo1.Item(1).ListCount Then Combo1.Item(0).ListIndex = -1
         End If
 
-        Node.SelectedImage = "SelectedMen"
+        Node.SelectedImage = "RoleSelect"
     End If
 
     GoTo LineEnd
     
 LineBreak:
+    rsRole.Close
     MsgBox strMsg, vbExclamation
 LineEnd:
     If rsRole.State = adStateOpen Then rsRole.Close

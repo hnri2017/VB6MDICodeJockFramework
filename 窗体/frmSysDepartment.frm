@@ -485,7 +485,7 @@ Private Sub Command2_Click()
     End With
     
     strSQL = "SELECT DeptID ,DeptName ,ParentID " & _
-             "From tb_Test_Sys_Department " & _
+             "FROM tb_Test_Sys_Department " & _
              "WHERE DeptID ='" & strDeptID & "'"
     Set rsEdit = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
     
