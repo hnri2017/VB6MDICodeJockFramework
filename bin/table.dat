@@ -122,8 +122,7 @@ GO
 CREATE TABLE [dbo].[tb_Test_Sys_Role](
 	[RoleAutoID] [int] IDENTITY(1000,1) NOT NULL,
 	[RoleName] [nvarchar](50) NOT NULL,
-	[DeptID] [int] NULL,
-	[RoleMemo] [nvarchar](500) NULL
+	[DeptID] [int] NULL
 ) ON [PRIMARY]
 
 GO
