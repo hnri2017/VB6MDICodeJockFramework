@@ -187,7 +187,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   102105089
+            Format          =   91422721
             CurrentDate     =   42628
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -200,7 +200,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   102105089
+            Format          =   91422721
             CurrentDate     =   42628
          End
          Begin VB.Label Label1 
@@ -416,13 +416,13 @@ Private Sub Command1_Click()
     End If
     
     If Check1.Value Then
-        strDateA = CStr(DTPicker1.Item(0).Value)
-        strDateB = CStr(DTPicker1.Item(1).Value)
+        strDateA = Format(DTPicker1.Item(0).Value, "yyyy-MM-dd hh:mm:ss")
+        strDateB = Format(DTPicker1.Item(1).Value, "yyyy-MM-dd hh:mm:ss")
     End If
     
     strSQL = "EXEC sp_Test_Sys_LogQuery '" & strClass & "','" & strInfo & "','" & _
             strDateA & "','" & strDateB & "','','" & strMen & "'"
-    
+
     Set rsLog = gfBackRecordset(strSQL)
     
     lngPageCur = 1
