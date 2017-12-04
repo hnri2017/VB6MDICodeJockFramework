@@ -17,7 +17,7 @@ Begin VB.Form frmSysSetSkin
       Caption         =   "默认主题"
       Height          =   375
       Left            =   360
-      TabIndex        =   8
+      TabIndex        =   3
       Top             =   3000
       Width           =   1215
    End
@@ -25,7 +25,7 @@ Begin VB.Form frmSysSetSkin
       Height          =   300
       Left            =   1320
       Locked          =   -1  'True
-      TabIndex        =   7
+      TabIndex        =   0
       Text            =   "Text1"
       Top             =   160
       Width           =   3735
@@ -33,14 +33,14 @@ Begin VB.Form frmSysSetSkin
    Begin VB.ListBox List2 
       Height          =   1140
       Left            =   2880
-      TabIndex        =   3
+      TabIndex        =   2
       Top             =   960
       Width           =   2400
    End
    Begin VB.ListBox List1 
       Height          =   1860
       Left            =   120
-      TabIndex        =   2
+      TabIndex        =   1
       Top             =   960
       Width           =   2400
    End
@@ -48,7 +48,7 @@ Begin VB.Form frmSysSetSkin
       Caption         =   "退出"
       Height          =   375
       Left            =   3600
-      TabIndex        =   1
+      TabIndex        =   5
       Top             =   3000
       Width           =   1215
    End
@@ -56,7 +56,7 @@ Begin VB.Form frmSysSetSkin
       Caption         =   "应用"
       Height          =   375
       Left            =   2040
-      TabIndex        =   0
+      TabIndex        =   4
       Top             =   3000
       Width           =   1215
    End
@@ -66,7 +66,7 @@ Begin VB.Form frmSysSetSkin
       Height          =   180
       Index           =   2
       Left            =   120
-      TabIndex        =   6
+      TabIndex        =   8
       Top             =   240
       Width           =   1260
    End
@@ -77,7 +77,7 @@ Begin VB.Form frmSysSetSkin
       Height          =   180
       Index           =   1
       Left            =   2880
-      TabIndex        =   5
+      TabIndex        =   7
       Top             =   720
       Width           =   900
    End
@@ -88,7 +88,7 @@ Begin VB.Form frmSysSetSkin
       Height          =   180
       Index           =   0
       Left            =   120
-      TabIndex        =   4
+      TabIndex        =   6
       Top             =   720
       Width           =   900
    End

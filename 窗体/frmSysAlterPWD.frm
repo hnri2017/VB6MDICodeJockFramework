@@ -18,7 +18,7 @@ Begin VB.Form frmSysAlterPWD
       Index           =   4
       Left            =   1440
       PasswordChar    =   "*"
-      TabIndex        =   11
+      TabIndex        =   4
       Top             =   1800
       Width           =   1935
    End
@@ -28,7 +28,7 @@ Begin VB.Form frmSysAlterPWD
       Index           =   3
       Left            =   1440
       PasswordChar    =   "*"
-      TabIndex        =   10
+      TabIndex        =   3
       Top             =   1440
       Width           =   1935
    End
@@ -38,7 +38,7 @@ Begin VB.Form frmSysAlterPWD
       Index           =   2
       Left            =   1440
       PasswordChar    =   "*"
-      TabIndex        =   9
+      TabIndex        =   2
       Top             =   1080
       Width           =   1935
    End
@@ -48,7 +48,7 @@ Begin VB.Form frmSysAlterPWD
       Index           =   1
       Left            =   1440
       Locked          =   -1  'True
-      TabIndex        =   8
+      TabIndex        =   1
       Top             =   720
       Width           =   1935
    End
@@ -58,7 +58,7 @@ Begin VB.Form frmSysAlterPWD
       Index           =   0
       Left            =   1440
       Locked          =   -1  'True
-      TabIndex        =   7
+      TabIndex        =   0
       Top             =   360
       Width           =   1935
    End
@@ -96,7 +96,7 @@ Begin VB.Form frmSysAlterPWD
       Height          =   180
       Index           =   4
       Left            =   480
-      TabIndex        =   4
+      TabIndex        =   11
       Top             =   1850
       Width           =   900
    End
@@ -106,7 +106,7 @@ Begin VB.Form frmSysAlterPWD
       Height          =   180
       Index           =   3
       Left            =   840
-      TabIndex        =   3
+      TabIndex        =   10
       Top             =   1500
       Width           =   540
    End
@@ -116,7 +116,7 @@ Begin VB.Form frmSysAlterPWD
       Height          =   180
       Index           =   2
       Left            =   840
-      TabIndex        =   2
+      TabIndex        =   9
       Top             =   1150
       Width           =   540
    End
@@ -126,7 +126,7 @@ Begin VB.Form frmSysAlterPWD
       Height          =   180
       Index           =   1
       Left            =   1000
-      TabIndex        =   1
+      TabIndex        =   8
       Top             =   765
       Width           =   360
    End
@@ -136,7 +136,7 @@ Begin VB.Form frmSysAlterPWD
       Height          =   180
       Index           =   0
       Left            =   1000
-      TabIndex        =   0
+      TabIndex        =   7
       Top             =   400
       Width           =   360
    End

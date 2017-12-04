@@ -15,7 +15,7 @@ Begin VB.Form frmSysRole
       Caption         =   "Frame1"
       Height          =   4815
       Left            =   240
-      TabIndex        =   0
+      TabIndex        =   6
       Top             =   240
       Width           =   5775
       Begin VB.ComboBox Combo1 
@@ -32,7 +32,7 @@ Begin VB.Form frmSysRole
          Index           =   0
          Left            =   1200
          Style           =   2  'Dropdown List
-         TabIndex        =   6
+         TabIndex        =   2
          Top             =   1080
          Width           =   3375
       End
@@ -51,7 +51,7 @@ Begin VB.Form frmSysRole
          Index           =   0
          Left            =   1200
          Locked          =   -1  'True
-         TabIndex        =   5
+         TabIndex        =   0
          Text            =   "Text1"
          Top             =   120
          Width           =   3375
@@ -60,7 +60,7 @@ Begin VB.Form frmSysRole
          Height          =   300
          Index           =   1
          Left            =   360
-         TabIndex        =   4
+         TabIndex        =   7
          Text            =   "Combo2"
          Top             =   3240
          Visible         =   0   'False
@@ -79,7 +79,7 @@ Begin VB.Form frmSysRole
          Height          =   330
          Index           =   1
          Left            =   1200
-         TabIndex        =   3
+         TabIndex        =   1
          Text            =   "Text2"
          Top             =   600
          Width           =   3375
@@ -88,7 +88,7 @@ Begin VB.Form frmSysRole
          Caption         =   "添加角色"
          Height          =   495
          Left            =   1560
-         TabIndex        =   2
+         TabIndex        =   3
          Top             =   1800
          Width           =   1455
       End
@@ -96,7 +96,7 @@ Begin VB.Form frmSysRole
          Caption         =   "修改角色信息"
          Height          =   495
          Left            =   1560
-         TabIndex        =   1
+         TabIndex        =   4
          Top             =   2520
          Width           =   1455
       End
@@ -115,7 +115,7 @@ Begin VB.Form frmSysRole
          Height          =   210
          Index           =   0
          Left            =   200
-         TabIndex        =   9
+         TabIndex        =   10
          Top             =   180
          Width           =   900
       End
@@ -134,7 +134,7 @@ Begin VB.Form frmSysRole
          Height          =   210
          Index           =   1
          Left            =   200
-         TabIndex        =   8
+         TabIndex        =   9
          Top             =   660
          Width           =   900
       End
@@ -153,7 +153,7 @@ Begin VB.Form frmSysRole
          Height          =   210
          Index           =   2
          Left            =   200
-         TabIndex        =   7
+         TabIndex        =   8
          Top             =   1140
          Width           =   900
       End
@@ -161,7 +161,7 @@ Begin VB.Form frmSysRole
    Begin MSComctlLib.TreeView TreeView1 
       Height          =   4095
       Left            =   6120
-      TabIndex        =   10
+      TabIndex        =   5
       Top             =   120
       Width           =   3855
       _ExtentX        =   6800

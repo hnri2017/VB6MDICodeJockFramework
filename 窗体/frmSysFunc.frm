@@ -15,7 +15,7 @@ Begin VB.Form frmSysFunc
       Caption         =   "Frame1"
       Height          =   6255
       Left            =   120
-      TabIndex        =   7
+      TabIndex        =   8
       Top             =   120
       Width           =   5175
       Begin VB.TextBox Text1 
@@ -31,7 +31,7 @@ Begin VB.Form frmSysFunc
          Height          =   330
          Index           =   2
          Left            =   1200
-         TabIndex        =   14
+         TabIndex        =   2
          Text            =   "Text2"
          Top             =   1080
          Width           =   3375
@@ -50,7 +50,7 @@ Begin VB.Form frmSysFunc
          Index           =   2
          Left            =   1200
          Style           =   2  'Dropdown List
-         TabIndex        =   2
+         TabIndex        =   3
          Top             =   1560
          Width           =   3375
       End
@@ -58,7 +58,7 @@ Begin VB.Form frmSysFunc
          Caption         =   "修改功能信息"
          Height          =   495
          Left            =   3120
-         TabIndex        =   5
+         TabIndex        =   6
          Top             =   3480
          Width           =   1335
       End
@@ -66,7 +66,7 @@ Begin VB.Form frmSysFunc
          Caption         =   "添加功能"
          Height          =   495
          Left            =   1200
-         TabIndex        =   4
+         TabIndex        =   5
          Top             =   3480
          Width           =   1095
       End
@@ -92,7 +92,7 @@ Begin VB.Form frmSysFunc
          Height          =   300
          Index           =   1
          Left            =   3720
-         TabIndex        =   8
+         TabIndex        =   9
          Text            =   "Combo2"
          Top             =   2520
          Visible         =   0   'False
@@ -132,7 +132,7 @@ Begin VB.Form frmSysFunc
          Index           =   0
          Left            =   1200
          Style           =   2  'Dropdown List
-         TabIndex        =   3
+         TabIndex        =   4
          Top             =   2040
          Width           =   3375
       End
@@ -151,7 +151,7 @@ Begin VB.Form frmSysFunc
          Height          =   210
          Index           =   2
          Left            =   250
-         TabIndex        =   13
+         TabIndex        =   14
          Top             =   1140
          Width           =   900
       End
@@ -170,7 +170,7 @@ Begin VB.Form frmSysFunc
          Height          =   210
          Index           =   1
          Left            =   250
-         TabIndex        =   12
+         TabIndex        =   13
          Top             =   660
          Width           =   900
       End
@@ -189,7 +189,7 @@ Begin VB.Form frmSysFunc
          Height          =   210
          Index           =   0
          Left            =   250
-         TabIndex        =   11
+         TabIndex        =   12
          Top             =   180
          Width           =   900
       End
@@ -208,7 +208,7 @@ Begin VB.Form frmSysFunc
          Height          =   210
          Index           =   3
          Left            =   250
-         TabIndex        =   10
+         TabIndex        =   11
          Top             =   1620
          Width           =   900
       End
@@ -227,7 +227,7 @@ Begin VB.Form frmSysFunc
          Height          =   210
          Index           =   4
          Left            =   250
-         TabIndex        =   9
+         TabIndex        =   10
          Top             =   2100
          Width           =   900
       End
@@ -235,7 +235,7 @@ Begin VB.Form frmSysFunc
    Begin MSComctlLib.TreeView TreeView1 
       Height          =   4095
       Left            =   5640
-      TabIndex        =   6
+      TabIndex        =   7
       Top             =   120
       Width           =   3855
       _ExtentX        =   6800
