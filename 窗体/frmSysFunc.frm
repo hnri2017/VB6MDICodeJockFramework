@@ -2,14 +2,14 @@ VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmSysFunc 
    Caption         =   "功能设置"
-   ClientHeight    =   4290
+   ClientHeight    =   5310
    ClientLeft      =   120
    ClientTop       =   450
-   ClientWidth     =   10035
+   ClientWidth     =   11520
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   4290
-   ScaleWidth      =   10035
+   ScaleHeight     =   5310
+   ScaleWidth      =   11520
    Begin VB.Frame Frame1 
       BorderStyle     =   0  'None
       Caption         =   "Frame1"
@@ -277,7 +277,7 @@ Private Function mfFuncTypeCheck(ByVal strType As String) As Boolean
     Select Case strType
         Case gID.FuncButton, gID.FuncControl, gID.FuncForm
             mfFuncTypeCheck = True
-        Else
+        Case Else
     End Select
     
 End Function
@@ -576,7 +576,7 @@ Private Sub Command2_Click()
         strMsg = "该功能相关信息异常，请联系管理员！"
         GoTo LineBrk
     Else
-        If strType = gID.FuncForm And strParent = strFID Then
+        If strParent = strFID Then
             strMsg = Label1.Item(4).Caption & " 不能是本部门，请更换！"
             Combo1.Item(0).SetFocus
             GoTo LineBrk
@@ -607,8 +607,8 @@ Private Sub Command2_Click()
         strMsg = "修改ID【" & strFID & "】的"
         If blnName Then strMsg = strMsg & "【" & Label1.Item(1).Caption & "】"
         If blnCaption Then strMsg = strMsg & "【" & Label1.Item(2).Caption & "】"
-        If blnType Then strMsg = strMsg & "【" & Label1.Item(4).Caption & "】"
-        If blnParent Then strMsg = strMsg & "【" & Label1.Item(5).Caption & "】"
+        If blnType Then strMsg = strMsg & "【" & Label1.Item(3).Caption & "】"
+        If blnParent Then strMsg = strMsg & "【" & Label1.Item(4).Caption & "】"
         
         Call gsLogAdd(Me, udUpdate, "tb_Test_Sys_Func", strMsg)
         MsgBox "已成功" & strMsg & "。", vbInformation
