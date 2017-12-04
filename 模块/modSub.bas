@@ -155,6 +155,7 @@ Public Sub Main()
         .FuncButton = "按钮"
         .FuncControl = "其它"
         .FuncForm = "窗口"
+        .FuncMainMenu = "主菜单"
         
     End With
     

@@ -181,6 +181,7 @@ Public Type gtypCommandBarID
     FuncButton As String
     FuncForm As String
     FuncControl As String
+    FuncMainMenu As String
     
 End Type
 

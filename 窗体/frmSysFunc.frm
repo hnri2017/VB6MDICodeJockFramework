@@ -283,6 +283,24 @@ Private Function mfFuncTypeCheck(ByVal strType As String) As Boolean
     
 End Function
 
+Private Sub msFuncTypeCheck()
+    '功能类别与上级功能之间的相互约束
+    
+    If Combo1.Item(2).Text = gID.FuncMainMenu Then
+        Combo1.Item(0).Text = mHeadText
+    End If
+'    If Combo1.Item(2).Text = gID.FuncForm Then
+'        Combo1.Item(0).Text = gID.FuncMainMenu
+'    End If
+    If Combo1.Item(0).Text = mHeadText Then
+        Combo1.Item(2).Text = gID.FuncMainMenu
+    End If
+'    If Combo1.Item(0).Text = gID.FuncMainMenu Then
+'        Combo1.Item(2).Text = gID.FuncForm
+'    End If
+    
+End Sub
+
 Private Sub msLoadFunc(ByRef tvwLoad As MSComctlLib.TreeView)
     '加载功能列表
     
@@ -299,14 +317,14 @@ Private Sub msLoadFunc(ByRef tvwLoad As MSComctlLib.TreeView)
     strSQL = "SELECT FuncAutoID ,FuncName ,FuncCaption ,FuncType ,FuncParentID " & _
              "FROM tb_Test_Sys_Func ORDER BY FuncType ,FuncName " & _
              "SELECT FuncAutoID ,FuncCaption FROM tb_Test_Sys_Func " & _
-             "WHERE FuncType ='" & gID.FuncForm & "' ORDER BY FuncCaption "
+             "WHERE FuncType ='" & gID.FuncMainMenu & "' OR FuncType ='" & gID.FuncForm & "' ORDER BY FuncCaption "
     Set rsFunc = gfBackRecordset(strSQL)
     If rsFunc.State = adStateClosed Then Exit Sub
     
     If rsFunc.RecordCount > 0 Then
         While Not rsFunc.EOF
-            If rsFunc.Fields("FuncType") = gID.FuncForm Then
-                tvwLoad.Nodes.Add mHeadKey, tvwChild, mKeyFunc & rsFunc.Fields("FuncAutoID"), rsFunc.Fields("FuncCaption"), "FuncForm"
+            If rsFunc.Fields("FuncType") = gID.FuncMainMenu Then
+                tvwLoad.Nodes.Add mHeadKey, tvwChild, mKeyFunc & rsFunc.Fields("FuncAutoID"), rsFunc.Fields("FuncCaption"), "FuncMainMenu"
                 tvwLoad.Nodes.Item(mKeyFunc & rsFunc.Fields("FuncAutoID")).Expanded = True
             Else
                 ReDim Preserve arrFunc(4, lngCount)
@@ -351,31 +369,45 @@ Private Sub msLoadFuncTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
     Dim arrOther() As String    '保存剩余的
     Dim blnOther As Boolean     '剩余标识
     Dim I As Long, J As Long, K As Long, lngCount As Long
+    Dim strImage As String
 
     With tvwTree
         For J = LBound(arrLoad, 2) To UBound(arrLoad, 2)
             For I = 1 To .Nodes.Count   '注意此处下标从1开始
                 If .Nodes.Item(I).Key = mKeyFunc & arrLoad(4, J) Then   ' FuncAutoID ,FuncName ,FuncCaption ,FuncType ,FuncParentID
-                    .Nodes.Add .Nodes.Item(I).Key, tvwChild, mKeyFunc & arrLoad(0, J), arrLoad(2, J), IIf(arrLoad(3, J) = gID.FuncButton, "FuncButton", "FuncControl")
+                    If arrLoad(3, J) = gID.FuncButton Then
+                        strImage = "FuncButton"
+                    ElseIf arrLoad(3, J) = gID.FuncForm Then
+                        strImage = "FuncForm"
+                    Else
+                        strImage = "FuncControl"
+                    End If
+                    .Nodes.Add .Nodes.Item(I).Key, tvwChild, mKeyFunc & arrLoad(0, J), arrLoad(2, J), strImage
+                    If arrLoad(3, J) = gID.FuncForm Then .Nodes(mKeyFunc & arrLoad(0, J)).Expanded = True
                     Exit For
                 End If
             Next
-            
+
             If I = .Nodes.Count + 1 Then
-                blnOther = True
-                ReDim Preserve arrOther(3, lngCount)
-                For K = 0 To 3
-                    arrOther(K, lngCount) = arrLoad(K, J)
-                Next
-                lngCount = lngCount + 1
+                If arrLoad(3, J) = gID.FuncForm Then
+                    .Nodes.Add mHeadKey, tvwChild, mKeyFunc & arrLoad(0, J), arrLoad(2, J), "FuncMainMenu"
+                    .Nodes(mKeyFunc & arrLoad(0, J)).Expanded = True
+                Else
+                    blnOther = True
+                    ReDim Preserve arrOther(4, lngCount)
+                    For K = 0 To 4
+                        arrOther(K, lngCount) = arrLoad(K, J)
+                    Next
+                    lngCount = lngCount + 1
+                End If
             End If
             
         Next
     End With
     
     If blnOther Then
-        'Call msLoadFuncTree(tvwTree, arrOther)
-        MsgBox mHeadText & "加载不完全，请通知管理员！", vbCritical
+        Call msLoadFuncTree(tvwTree, arrOther)
+'        MsgBox mHeadText & "加载不完全，请通知管理员！", vbCritical
     End If
 
 End Sub
@@ -395,12 +427,7 @@ Private Sub Command1_Click()
     Dim strSQL As String, strMsg As String
     Dim rsFunc As ADODB.Recordset
     
-    If Combo1.Item(2).Text = gID.FuncForm Then
-        Combo1.Item(0).Text = mHeadText
-    End If
-    If Combo1.Item(0).Text = mHeadText Then
-        Combo1.Item(2).Text = gID.FuncForm
-    End If
+    Call msFuncTypeCheck
     
     strName = Trim(Text1.Item(1).Text)
     strCaption = Trim(Text1.Item(2).Text)
@@ -510,12 +537,7 @@ Private Sub Command2_Click()
     Dim blnType As Boolean, blnParent As Boolean
     Dim rsFunc As ADODB.Recordset
     
-    If Combo1.Item(2).Text = gID.FuncForm Then
-        Combo1.Item(0).Text = mHeadText
-    End If
-    If Combo1.Item(0).Text = mHeadText Then
-        Combo1.Item(2).Text = gID.FuncForm
-    End If
+    Call msFuncTypeCheck
     
     strFID = Trim(Text1.Item(0).Text)
     strName = Trim(Text1.Item(1).Text)
@@ -647,6 +669,7 @@ Private Sub Form_Load()
     TreeView1.ImageList = gMDI.imgListCommandBars
     
     Combo1.Item(2).Clear
+    Combo1.Item(2).AddItem gID.FuncMainMenu
     Combo1.Item(2).AddItem gID.FuncForm
     Combo1.Item(2).AddItem gID.FuncButton
     Combo1.Item(2).AddItem gID.FuncControl
@@ -713,7 +736,7 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
             End If
         Next
         If I = Combo1.Item(1).ListCount Then
-            Combo1.Item(0).ListIndex = IIf(rsFunc.Fields("FuncType") = gID.FuncForm, 0, -1)
+            Combo1.Item(0).ListIndex = IIf(Node.Parent.Key = mHeadKey, 0, -1)
         End If
 
         Node.SelectedImage = "FuncSelect"

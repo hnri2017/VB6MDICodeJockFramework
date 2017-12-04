@@ -2,317 +2,340 @@ VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmSysRole 
    Caption         =   "角色设置"
-   ClientHeight    =   5670
+   ClientHeight    =   6510
    ClientLeft      =   120
    ClientTop       =   450
-   ClientWidth     =   16455
+   ClientWidth     =   16725
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   5670
-   ScaleWidth      =   16455
-   Begin VB.Frame Frame1 
-      Caption         =   "角色权限分配"
-      ForeColor       =   &H00FF0000&
-      Height          =   5535
-      Index           =   1
-      Left            =   8160
-      TabIndex        =   10
-      Top             =   120
-      Width           =   7695
-      Begin VB.ComboBox Combo1 
-         Height          =   300
-         Index           =   3
-         Left            =   5160
-         TabIndex        =   18
-         Text            =   "Combo2"
-         Top             =   2640
-         Visible         =   0   'False
-         Width           =   2295
-      End
-      Begin VB.ComboBox Combo1 
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Index           =   2
-         Left            =   5040
-         Style           =   2  'Dropdown List
-         TabIndex        =   17
-         Top             =   1320
-         Width           =   2500
-      End
-      Begin VB.TextBox Text1 
-         BackColor       =   &H80000003&
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H000000FF&
-         Height          =   330
-         Index           =   2
-         Left            =   5040
-         Locked          =   -1  'True
-         TabIndex        =   15
-         Text            =   "Text1"
-         Top             =   720
-         Width           =   2500
-      End
-      Begin VB.CommandButton Command3 
-         Caption         =   "保存角色权限分配结果"
-         Height          =   495
-         Left            =   4920
-         TabIndex        =   14
-         Top             =   1920
-         Width           =   2175
-      End
-      Begin MSComctlLib.TreeView TreeView2 
-         Height          =   4095
-         Left            =   120
-         TabIndex        =   11
-         Top             =   240
-         Width           =   3855
-         _ExtentX        =   6800
-         _ExtentY        =   7223
-         _Version        =   393217
-         Indentation     =   441
-         LabelEdit       =   1
-         LineStyle       =   1
-         Style           =   7
-         Checkboxes      =   -1  'True
-         Appearance      =   1
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "宋体"
-            Size            =   9
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-      End
-      Begin VB.Label Label1 
-         Caption         =   "导入其他角色权限"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FF0000&
-         Height          =   450
-         Index           =   3
-         Left            =   4080
-         TabIndex        =   16
-         Top             =   1260
-         Width           =   960
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "已选角色"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FF0000&
-         Height          =   210
-         Index           =   4
-         Left            =   4080
-         TabIndex        =   13
-         Top             =   750
-         Width           =   900
-      End
+   ScaleHeight     =   6510
+   ScaleWidth      =   16725
+   Begin VB.HScrollBar Hsb 
+      Height          =   255
+      Left            =   15360
+      TabIndex        =   21
+      Top             =   6120
+      Width           =   1455
    End
-   Begin VB.Frame Frame1 
-      Caption         =   "角色设置"
-      ForeColor       =   &H00FF0000&
-      Height          =   5535
-      Index           =   0
+   Begin VB.VScrollBar Vsb 
+      Height          =   1935
+      Left            =   16440
+      TabIndex        =   20
+      Top             =   4080
+      Width           =   255
+   End
+   Begin VB.Frame ctlMove 
+      BorderStyle     =   0  'None
+      Caption         =   "Frame1"
+      Height          =   5775
       Left            =   120
-      TabIndex        =   5
+      TabIndex        =   0
       Top             =   120
-      Width           =   7815
-      Begin VB.ComboBox Combo1 
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
+      Width           =   15855
+      Begin VB.Frame Frame1 
+         Caption         =   "角色设置"
+         ForeColor       =   &H00FF0000&
+         Height          =   5535
          Index           =   0
-         Left            =   1200
-         Style           =   2  'Dropdown List
-         TabIndex        =   2
-         Top             =   1320
-         Width           =   2500
-      End
-      Begin VB.TextBox Text1 
-         BackColor       =   &H80000003&
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Index           =   0
-         Left            =   1200
-         Locked          =   -1  'True
-         TabIndex        =   0
-         Text            =   "Text1"
-         Top             =   360
-         Width           =   2500
-      End
-      Begin VB.ComboBox Combo1 
-         Height          =   300
-         Index           =   1
-         Left            =   360
-         TabIndex        =   6
-         Text            =   "Combo2"
-         Top             =   3240
-         Visible         =   0   'False
-         Width           =   2295
-      End
-      Begin VB.TextBox Text1 
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Index           =   1
-         Left            =   1200
-         TabIndex        =   1
-         Text            =   "Text2"
-         Top             =   840
-         Width           =   2500
-      End
-      Begin VB.CommandButton Command1 
-         Caption         =   "添加角色"
-         Height          =   495
-         Left            =   1560
-         TabIndex        =   3
-         Top             =   2040
-         Width           =   1455
-      End
-      Begin VB.CommandButton Command2 
-         Caption         =   "修改角色信息"
-         Height          =   495
-         Left            =   1560
-         TabIndex        =   4
-         Top             =   2760
-         Width           =   1455
-      End
-      Begin MSComctlLib.TreeView TreeView1 
-         Height          =   4095
-         Left            =   3840
-         TabIndex        =   12
-         Top             =   240
-         Width           =   3855
-         _ExtentX        =   6800
-         _ExtentY        =   7223
-         _Version        =   393217
-         Indentation     =   441
-         LabelEdit       =   1
-         LineStyle       =   1
-         Style           =   7
-         FullRowSelect   =   -1  'True
-         Appearance      =   1
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "宋体"
-            Size            =   9
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "角色标识"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Index           =   0
-         Left            =   195
+         Left            =   0
          TabIndex        =   9
-         Top             =   420
-         Width           =   900
+         Top             =   0
+         Width           =   7815
+         Begin VB.CommandButton Command2 
+            Caption         =   "修改角色信息"
+            Height          =   495
+            Left            =   1560
+            TabIndex        =   15
+            Top             =   2760
+            Width           =   1455
+         End
+         Begin VB.CommandButton Command1 
+            Caption         =   "添加角色"
+            Height          =   495
+            Left            =   1560
+            TabIndex        =   14
+            Top             =   2040
+            Width           =   1455
+         End
+         Begin VB.TextBox Text1 
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   1
+            Left            =   1200
+            TabIndex        =   13
+            Text            =   "Text2"
+            Top             =   840
+            Width           =   2500
+         End
+         Begin VB.ComboBox Combo1 
+            Height          =   300
+            Index           =   1
+            Left            =   360
+            TabIndex        =   12
+            Text            =   "Combo2"
+            Top             =   3240
+            Visible         =   0   'False
+            Width           =   2295
+         End
+         Begin VB.TextBox Text1 
+            BackColor       =   &H80000003&
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   0
+            Left            =   1200
+            Locked          =   -1  'True
+            TabIndex        =   11
+            Text            =   "Text1"
+            Top             =   360
+            Width           =   2500
+         End
+         Begin VB.ComboBox Combo1 
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   0
+            Left            =   1200
+            Style           =   2  'Dropdown List
+            TabIndex        =   10
+            Top             =   1320
+            Width           =   2500
+         End
+         Begin MSComctlLib.TreeView TreeView1 
+            Height          =   4095
+            Left            =   3840
+            TabIndex        =   16
+            Top             =   240
+            Width           =   3855
+            _ExtentX        =   6800
+            _ExtentY        =   7223
+            _Version        =   393217
+            Indentation     =   441
+            LabelEdit       =   1
+            LineStyle       =   1
+            Style           =   7
+            FullRowSelect   =   -1  'True
+            Appearance      =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "所属部门"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   2
+            Left            =   195
+            TabIndex        =   19
+            Top             =   1380
+            Width           =   900
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "角色名称"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   1
+            Left            =   195
+            TabIndex        =   18
+            Top             =   900
+            Width           =   900
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "角色标识"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   0
+            Left            =   195
+            TabIndex        =   17
+            Top             =   420
+            Width           =   900
+         End
       End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "角色名称"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
+      Begin VB.Frame Frame1 
+         Caption         =   "角色权限分配"
+         ForeColor       =   &H00FF0000&
+         Height          =   5535
          Index           =   1
-         Left            =   195
-         TabIndex        =   8
-         Top             =   900
-         Width           =   900
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "所属部门"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Index           =   2
-         Left            =   195
-         TabIndex        =   7
-         Top             =   1380
-         Width           =   900
+         Left            =   8040
+         TabIndex        =   1
+         Top             =   0
+         Width           =   7695
+         Begin VB.CommandButton Command3 
+            Caption         =   "保存角色权限分配结果"
+            Height          =   495
+            Left            =   4920
+            TabIndex        =   5
+            Top             =   1920
+            Width           =   2175
+         End
+         Begin VB.TextBox Text1 
+            BackColor       =   &H80000003&
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H000000FF&
+            Height          =   330
+            Index           =   2
+            Left            =   5040
+            Locked          =   -1  'True
+            TabIndex        =   4
+            Text            =   "Text1"
+            Top             =   720
+            Width           =   2500
+         End
+         Begin VB.ComboBox Combo1 
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   2
+            Left            =   5040
+            Style           =   2  'Dropdown List
+            TabIndex        =   3
+            Top             =   1320
+            Width           =   2500
+         End
+         Begin VB.ComboBox Combo1 
+            Height          =   300
+            Index           =   3
+            Left            =   5160
+            TabIndex        =   2
+            Text            =   "Combo2"
+            Top             =   2640
+            Visible         =   0   'False
+            Width           =   2295
+         End
+         Begin MSComctlLib.TreeView TreeView2 
+            Height          =   4095
+            Left            =   120
+            TabIndex        =   6
+            Top             =   240
+            Width           =   3855
+            _ExtentX        =   6800
+            _ExtentY        =   7223
+            _Version        =   393217
+            Indentation     =   441
+            LabelEdit       =   1
+            LineStyle       =   1
+            Style           =   7
+            Checkboxes      =   -1  'True
+            Appearance      =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "已选角色"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FF0000&
+            Height          =   210
+            Index           =   4
+            Left            =   4080
+            TabIndex        =   8
+            Top             =   750
+            Width           =   900
+         End
+         Begin VB.Label Label1 
+            Caption         =   "导入其他角色权限"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FF0000&
+            Height          =   450
+            Index           =   3
+            Left            =   4080
+            TabIndex        =   7
+            Top             =   1260
+            Width           =   960
+         End
       End
    End
 End
@@ -1062,10 +1085,29 @@ Private Sub Form_Resize()
                 Frame1.Item(1).Height = Frame1.Item(0).Height
                 TreeView1.Height = Frame1.Item(0).Height - conTB
                 TreeView2.Height = TreeView1.Height
+                ctlMove.Height = Frame1.Item(0).Height
             End If
         End If
     End If
     
+    Call gsFormScrollBar(Me, Me.ctlMove, Me.Hsb, Me.Vsb, 16300, 9000)  '注意长、宽的修改
+
+End Sub
+
+Private Sub Hsb_Change()
+    ctlMove.Left = -Hsb.Value
+End Sub
+
+Private Sub Hsb_Scroll()
+    Call Hsb_Change    '当滑动滚动条中的滑块时会同时更新对应内容，以下同。
+End Sub
+
+Private Sub Vsb_Change()
+    ctlMove.Top = -Vsb.Value
+End Sub
+
+Private Sub Vsb_Scroll()
+    Call Vsb_Change
 End Sub
 
 Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)

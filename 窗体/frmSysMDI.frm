@@ -24,7 +24,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   64
+         NumListImages   =   65
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
@@ -333,6 +333,10 @@ Begin VB.MDIForm frmSysMDI
             Picture         =   "frmSysMDI.frx":230CF
             Key             =   "FuncForm"
          EndProperty
+         BeginProperty ListImage65 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":23D21
+            Key             =   "FuncMainMenu"
+         EndProperty
       EndProperty
    End
    Begin VB.PictureBox picHide 
@@ -391,7 +395,7 @@ Begin VB.MDIForm frmSysMDI
       _ExtentX        =   635
       _ExtentY        =   635
       _StockProps     =   0
-      Icons           =   "frmSysMDI.frx":23D21
+      Icons           =   "frmSysMDI.frx":25873
    End
    Begin XtremeSkinFramework.SkinFramework skinFW 
       Left            =   3720
