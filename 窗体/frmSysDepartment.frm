@@ -169,6 +169,7 @@ Begin VB.Form frmSysDepartment
       _Version        =   393217
       Indentation     =   441
       LabelEdit       =   1
+      LineStyle       =   1
       Style           =   7
       FullRowSelect   =   -1  'True
       Appearance      =   1

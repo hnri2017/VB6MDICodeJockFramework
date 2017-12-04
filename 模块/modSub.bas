@@ -486,6 +486,56 @@ Public Sub gsLogAdd(ByRef frmCur As Form, Optional ByVal LogType As genmLogType 
 End Sub
 
 
+Public Sub gsNodeCheckCascade(ByRef nodeCheck As MSComctlLib.Node, Optional ByVal blnCheck As Boolean)
+    '结点的Checked属性级联变化
+    
+    If blnCheck Then    '=False时不处理
+        Call gsNodeCheckUp(nodeCheck)
+    End If
+    
+    Call gsNodeCheckDown(nodeCheck, blnCheck)
+    
+End Sub
+
+Public Sub gsNodeCheckDown(ByRef nodeCheck As MSComctlLib.Node, Optional ByVal blnCheck As Boolean)
+    '不/勾选结点的所有子结点
+    
+    Dim nodeSon As MSComctlLib.Node
+    Dim C As Long, K As Long
+    
+    C = nodeCheck.Children
+    If C > 0 Then
+        For K = 1 To C
+            If K = 1 Then
+                Set nodeSon = nodeCheck.Child
+            Else
+                Set nodeSon = nodeSon.Next
+            End If
+            If nodeSon.Checked <> blnCheck Then nodeSon.Checked = blnCheck
+            If nodeSon.Children > 0 Then
+                Call gsNodeCheckDown(nodeSon, blnCheck)
+            End If
+        Next
+    End If
+    
+End Sub
+
+Public Sub gsNodeCheckUp(ByRef nodeCheck As MSComctlLib.Node, Optional ByVal blnCheck As Boolean = True)
+    '勾选结点的所有父结点
+    
+    Dim nodeDad As MSComctlLib.Node
+    
+    If Not nodeCheck.Parent Is Nothing Then
+        Set nodeDad = nodeCheck.Parent
+        If Not nodeDad.Checked Then nodeDad.Checked = blnCheck
+        If Not nodeDad.Parent Is Nothing Then
+            Call gsNodeCheckUp(nodeDad)
+        End If
+    End If
+    
+End Sub
+
+
 Public Sub gsOpenTheWindow(ByVal strFormName As String, _
     Optional ByVal OpenMode As FormShowConstants = vbModeless, _
     Optional ByVal FormWndState As FormWindowStateConstants = vbMaximized)

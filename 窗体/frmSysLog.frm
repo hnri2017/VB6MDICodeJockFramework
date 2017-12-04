@@ -187,7 +187,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   91422721
+            Format          =   101515265
             CurrentDate     =   42628
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -200,7 +200,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   91422721
+            Format          =   101515265
             CurrentDate     =   42628
          End
          Begin VB.Label Label1 
@@ -424,7 +424,7 @@ Private Sub Command1_Click()
             strDateA & "','" & strDateB & "','','" & strMen & "'"
 
     Set rsLog = gfBackRecordset(strSQL)
-    
+
     lngPageCur = 1
     
     Call msShowValue
@@ -440,7 +440,7 @@ End Sub
 
 Private Sub Command3_Click(Index As Integer)
     '''·­Ò³
-    Dim c As Long
+    Dim C As Long
     
     Select Case Index
         Case 1
@@ -452,10 +452,10 @@ Private Sub Command3_Click(Index As Integer)
         Case 4
             lngPageCur = lngPageCount
         Case 0
-            c = Val(Text2.Text)
-            If c < 1 Then c = 1
-            If c > lngPageCount Then c = lngPageCount
-            lngPageCur = c
+            C = Val(Text2.Text)
+            If C < 1 Then C = 1
+            If C > lngPageCount Then C = lngPageCount
+            lngPageCur = C
 '            Text2.Text = CStr(c)
         Case Else
             Exit Sub
