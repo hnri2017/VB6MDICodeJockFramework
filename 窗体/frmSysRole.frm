@@ -491,6 +491,8 @@ Private Sub msLoadFunc(ByRef tvwLoad As MSComctlLib.TreeView)
     Dim blnLoop As Boolean
     
     tvwLoad.Nodes.Clear
+    tvwLoad.Nodes.Add , , mHeadKey, mHeadText, "FuncHead"   '添加首结点
+    tvwLoad.Nodes(mHeadKey).Expanded = True     '展开结点
         
     strSQL = "SELECT FuncAutoID ,FuncName ,FuncCaption ,FuncType ,FuncParentID " & _
              "FROM tb_Test_Sys_Func ORDER BY FuncType ,FuncName "
@@ -498,12 +500,9 @@ Private Sub msLoadFunc(ByRef tvwLoad As MSComctlLib.TreeView)
     If rsFunc.State = adStateClosed Then Exit Sub
     
     If rsFunc.RecordCount > 0 Then
-        tvwLoad.Nodes.Add , , mHeadKey, mHeadText, "FuncHead"   '添加首结点
-        tvwLoad.Nodes(mHeadKey).Expanded = True     '展开结点
-        
         While Not rsFunc.EOF
-            If rsFunc.Fields("FuncType") = gID.FuncForm Then
-                tvwLoad.Nodes.Add mHeadKey, tvwChild, mKeyFunc & rsFunc.Fields("FuncAutoID"), rsFunc.Fields("FuncCaption"), "FuncForm"
+            If rsFunc.Fields("FuncType") = gID.FuncMainMenu Then
+                tvwLoad.Nodes.Add mHeadKey, tvwChild, mKeyFunc & rsFunc.Fields("FuncAutoID"), rsFunc.Fields("FuncCaption"), "FuncMainMenu"
                 tvwLoad.Nodes.Item(mKeyFunc & rsFunc.Fields("FuncAutoID")).Expanded = True
             Else
                 ReDim Preserve arrFunc(4, lngCount)
@@ -515,7 +514,6 @@ Private Sub msLoadFunc(ByRef tvwLoad As MSComctlLib.TreeView)
             End If
             rsFunc.MoveNext
         Wend
-        
     End If
     
     If blnLoop Then Call msLoadFuncTree(tvwLoad, arrFunc)
@@ -531,31 +529,45 @@ Private Sub msLoadFuncTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
     Dim arrOther() As String    '保存剩余的
     Dim blnOther As Boolean     '剩余标识
     Dim I As Long, J As Long, K As Long, lngCount As Long
-
+    Dim strImage As String
+    
     With tvwTree
         For J = LBound(arrLoad, 2) To UBound(arrLoad, 2)
             For I = 1 To .Nodes.Count   '注意此处下标从1开始
                 If .Nodes.Item(I).Key = mKeyFunc & arrLoad(4, J) Then   ' FuncAutoID ,FuncName ,FuncCaption ,FuncType ,FuncParentID
-                    .Nodes.Add .Nodes.Item(I).Key, tvwChild, mKeyFunc & arrLoad(0, J), arrLoad(2, J), IIf(arrLoad(3, J) = gID.FuncButton, "FuncButton", "FuncControl")
+                    If arrLoad(3, J) = gID.FuncButton Then
+                        strImage = "FuncButton"
+                    ElseIf arrLoad(3, J) = gID.FuncForm Then
+                        strImage = "FuncForm"
+                    Else
+                        strImage = "FuncControl"
+                    End If
+                    .Nodes.Add .Nodes.Item(I).Key, tvwChild, mKeyFunc & arrLoad(0, J), arrLoad(2, J), strImage
+                    If arrLoad(3, J) = gID.FuncForm Then .Nodes(mKeyFunc & arrLoad(0, J)).Expanded = True
                     Exit For
                 End If
             Next
-            
+
             If I = .Nodes.Count + 1 Then
-                blnOther = True
-                ReDim Preserve arrOther(3, lngCount)
-                For K = 0 To 3
-                    arrOther(K, lngCount) = arrLoad(K, J)
-                Next
-                lngCount = lngCount + 1
+                If arrLoad(3, J) = gID.FuncForm Then
+                    .Nodes.Add mHeadKey, tvwChild, mKeyFunc & arrLoad(0, J), arrLoad(2, J), "FuncMainMenu"
+                    .Nodes(mKeyFunc & arrLoad(0, J)).Expanded = True
+                Else
+                    blnOther = True
+                    ReDim Preserve arrOther(4, lngCount)
+                    For K = 0 To 4
+                        arrOther(K, lngCount) = arrLoad(K, J)
+                    Next
+                    lngCount = lngCount + 1
+                End If
             End If
             
         Next
     End With
     
     If blnOther Then
-        'Call msLoadFuncTree(tvwTree, arrOther)
-        MsgBox mHeadText & "加载不完全，请通知管理员！", vbCritical
+        Call msLoadFuncTree(tvwTree, arrOther)
+'        MsgBox mHeadText & "加载不完全，请通知管理员！", vbCritical
     End If
 
 End Sub
@@ -578,7 +590,7 @@ Private Sub msLoadRole(ByRef tvwUser As MSComctlLib.TreeView)
     If rsRole.RecordCount = 0 Then GoTo LineEnd
     
     Combo1.Item(2).Clear
-    Combo1.Item(2).Clear
+    Combo1.Item(3).Clear
     
     With tvwUser
         While Not rsRole.EOF
@@ -629,7 +641,9 @@ Private Sub msLoadRoleFunc(ByVal strRID As String)
     Dim strSQL As String
     Dim rsRole As ADODB.Recordset
     
-    strSQL = "EXEC sp_Test_Sys_FuncForRole " & strRID
+    strSQL = "SELECT RoleAutoID ,FuncAutoID " & _
+             "From tb_Test_Sys_RoleFunc " & _
+             "WHERE RoleAutoID = " & strRID & "  ORDER BY FuncAutoID"
     Set rsRole = gfBackRecordset(strSQL)
     If rsRole.State = adStateOpen Then
         With TreeView2.Nodes
@@ -1057,6 +1071,7 @@ Private Sub Form_Load()
     
     Me.Icon = gMDI.imgListCommandBars.ListImages("SysRole").Picture
     Me.Caption = gMDI.cBS.Actions(gID.SysRole).Caption
+    Frame1.Item(0).Caption = Me.Caption
     
     Text1.Item(0).Text = ""
     Text1.Item(1).Text = ""
@@ -1091,7 +1106,7 @@ Private Sub Form_Resize()
     End If
     
     Call gsFormScrollBar(Me, Me.ctlMove, Me.Hsb, Me.Vsb, 16300, 9000)  '注意长、宽的修改
-
+    
 End Sub
 
 Private Sub Hsb_Change()
@@ -1116,6 +1131,7 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
     Dim strKey As String, strRID As String, strSQL As String, strMsg As String
     Dim rsRole As ADODB.Recordset
     
+    Text1.Item(2).Text = ""
     strKey = Node.Key
     lngLen = Len(strKey)
     If lngLen < Len(mKeyRole) Then Exit Sub
@@ -1166,7 +1182,6 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
     GoTo LineEnd
     
 LineBreak:
-    Text1.Item(2).Text = ""
     rsRole.Close
     MsgBox strMsg, vbExclamation
 LineEnd:
