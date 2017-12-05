@@ -695,6 +695,39 @@ LineEnd:
     Set rsUser = Nothing
 End Sub
 
+Private Sub msLoadUserRole(ByVal strUID As String)
+    
+    Dim strSQL As String
+    Dim rsUser As ADODB.Recordset
+    Dim I As Long
+    
+    strSQL = "SELECT UserAutoID ,RoleAutoID FROM tb_Test_Sys_UserRole WHERE UserAutoID =" & strUID
+    Set rsUser = gfBackRecordset(strSQL)
+    If rsUser.State = adStateOpen Then
+        With TreeView2.Nodes
+            For I = 2 To .Count
+                If Left(.Item(I).Key, Len(mKeyRole)) = mKeyRole Then
+                    If rsUser.RecordCount > 0 Then rsUser.MoveFirst
+                    Do While Not rsUser.EOF
+                        If .Item(I).Key = mKeyRole & rsUser.Fields("RoleAutoID") Then
+                            .Item(I).Checked = True
+                            Exit Do
+                        End If
+                        rsUser.MoveNext
+                    Loop
+                    If rsUser.EOF Then .Item(I).Checked = False
+                Else
+                     .Item(I).Checked = False
+                End If
+            Next
+        End With
+        rsUser.Close
+    End If
+    
+    Set rsUser = Nothing
+    
+End Sub
+
 
 Private Sub Combo1_KeyUp(Index As Integer, KeyCode As Integer, Shift As Integer)
     If Index = 0 Then
@@ -957,6 +990,91 @@ LineEnd:
     
 End Sub
 
+Private Sub Command3_Click()
+    '保存
+    
+    Dim strUID As String, strTemp As String, strMsg As String, strSQL As String
+    Dim cnUser As ADODB.Connection
+    Dim rsUser As ADODB.Recordset
+    Dim blnTran As Boolean
+    Dim I As Long
+    
+    If (TreeView1.Nodes.Count = 0) Or (TreeView2.Nodes.Count = 0) Then
+        MsgBox "请先保证部门、用户、角色都已经设置好，再为用户指定角色！", vbExclamation
+        Exit Sub
+    End If
+    strTemp = Trim(Text1.Item(5).Text)
+    If (TreeView1.SelectedItem Is Nothing) Or (Len(strTemp) = 0) Then
+        MsgBox "请先选择一个用户！", vbExclamation
+        Exit Sub
+    End If
+    strUID = Left(strTemp, InStr(strTemp, mTwoBar) - 1)
+    If Trim(strUID) <> Trim(Text1.Item(0).Text) Then
+        MsgBox "用户检测异常，请重新选择一次用户！", vbExclamation
+        Exit Sub
+    End If
+    
+    If MsgBox("确定对【" & strTemp & "】进行" & Command3.Caption & "吗？", vbQuestion + vbOKCancel, Command3.Caption & "询问") = vbCancel Then Exit Sub
+    
+    
+    Set cnUser = New ADODB.Connection
+    Set rsUser = New ADODB.Recordset
+    cnUser.CursorLocation = adUseClient
+    
+    On Error GoTo LineErr
+    
+    cnUser.Open gID.CnString
+    strSQL = "DELETE FROM tb_Test_Sys_UserRole WHERE UserAutoID =" & strUID
+    cnUser.BeginTrans
+    blnTran = True
+    cnUser.Execute strSQL
+    
+    strSQL = "SELECT UserAutoID ,RoleAutoID FROM tb_Test_Sys_UserRole WHERE UserAutoID =" & strUID
+    rsUser.Open strSQL, cnUser, adOpenStatic, adLockBatchOptimistic
+    If rsUser.RecordCount > 0 Then
+        strMsg = strTemp & " 的后台数据检测异常，请重试或联系管理员！"
+        GoTo LineErr
+    Else
+        With TreeView2.Nodes
+            For I = 2 To .Count
+                If Left(.Item(I).Key, Len(mKeyRole)) = mKeyRole Then
+                    If .Item(I).Checked Then
+                        rsUser.AddNew
+                        rsUser.Fields("UserAutoID") = strUID
+                        rsUser.Fields("RoleAutoID") = Right(.Item(I).Key, Len(.Item(I).Key) - Len(mKeyRole))
+                    End If
+                End If
+            Next
+        End With
+        rsUser.UpdateBatch
+        cnUser.CommitTrans
+       
+    End If
+    
+    rsUser.Close
+    cnUser.Close
+    Set rsUser = Nothing
+    Set cnUser = Nothing
+    
+    Call gsLogAdd(Me, udInsertBatch, "tb_Test_Sys_UserRole", "为【" & strTemp & "】指定角色")
+    MsgBox "【" & strTemp & "】" & Command3.Caption & " 成功！", vbInformation
+    
+    Exit Sub
+    
+LineErr:
+    If blnTran Then cnUser.RollbackTrans
+    If rsUser.State = adStateOpen Then rsUser.Close
+    If cnUser.State = adStateOpen Then cnUser.Close
+    Set rsUser = Nothing
+    Set cnUser = Nothing
+    If Len(strMsg) = 0 Then
+        Call gsAlarmAndLog(Command3.Caption & "异常")
+    Else
+        MsgBox strMsg, vbExclamation
+    End If
+    
+End Sub
+
 Private Sub Form_Load()
 
     Set Me.Icon = gMDI.imgListCommandBars.ListImages("SysUser").Picture
@@ -1045,11 +1163,9 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
     If rsUser.State = adStateClosed Then GoTo LineEnd
     If rsUser.RecordCount = 0 Then
         strMsg = "用户信息丢失了，请联系管理员！"
-        rsUser.Close
         GoTo LineBreak
     ElseIf rsUser.RecordCount > 1 Then
         strMsg = "用户信息异常，请联系管理员！"
-        rsUser.Close
         GoTo LineBreak
     Else
         Text1.Item(0).Text = strUID
@@ -1057,6 +1173,7 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
         Text1.Item(2).Text = gfDecryptSimple(rsUser.Fields("UserPassword").Value & "")
         Text1.Item(3).Text = rsUser.Fields("UserFullName").Value & ""
         Text1.Item(4).Text = rsUser.Fields("UserMemo").Value & ""
+        Text1.Item(5).Text = strUID & mTwoBar & rsUser.Fields("UserFullName")
         
         Option1.Item(0).Value = IIf(rsUser.Fields("UserSex").Value = "女", True, False)
         Option1.Item(1).Value = IIf(rsUser.Fields("UserSex").Value = "男", True, False)
@@ -1074,17 +1191,26 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
         End If
 
         Node.SelectedImage = "SelectedMen"
+        
+        rsUser.Close
+        
+        Call msLoadUserRole(strUID)
+        
     End If
-
+    
     GoTo LineEnd
     
 LineBreak:
+    rsUser.Close
     MsgBox strMsg, vbExclamation
 LineEnd:
     If rsUser.State = adStateOpen Then rsUser.Close
     Set rsUser = Nothing
+    
 End Sub
 
 Private Sub TreeView2_NodeCheck(ByVal Node As MSComctlLib.Node)
     '
+    Call gsNodeCheckCascade(Node, Node.Checked)
+    
 End Sub
