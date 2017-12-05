@@ -491,7 +491,7 @@ Private Sub msAddAction()
         
         .Add gID.SysModifyPassword, "密码修改", "", "", "frmSysAlterPWD"
         .Add gID.SysDepartment, "部门管理", "", "", "frmSysDepartment"
-        .Add gID.SysUser, "用户管理", "", "", "frmSysUser"
+        .Add gID.SysUser, "用户设置", "", "", "frmSysUser"
         .Add gID.SysLog, "日志查看", "", "", "frmSysLog"
         .Add gID.SysRole, "角色设置", "", "", "frmSysRole"
         .Add gID.SysFunc, "功能设置", "", "", "frmSysFunc"

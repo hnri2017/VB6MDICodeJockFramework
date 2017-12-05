@@ -2,368 +2,476 @@ VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmSysUser 
    Caption         =   "用户管理"
-   ClientHeight    =   5100
+   ClientHeight    =   7290
    ClientLeft      =   120
    ClientTop       =   450
-   ClientWidth     =   13215
+   ClientWidth     =   15870
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   5100
-   ScaleWidth      =   13215
-   Begin VB.Frame Frame1 
-      BorderStyle     =   0  'None
-      Caption         =   "Frame1"
-      Height          =   6255
-      Left            =   4080
-      TabIndex        =   12
-      Top             =   120
-      Width           =   8175
-      Begin VB.OptionButton Option1 
-         Caption         =   "男"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FF0000&
-         Height          =   255
-         Index           =   1
-         Left            =   2520
-         TabIndex        =   6
-         Top             =   2040
-         Value           =   -1  'True
-         Width           =   855
-      End
-      Begin VB.OptionButton Option1 
-         Caption         =   "女"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H000000FF&
-         Height          =   255
-         Index           =   0
-         Left            =   1440
-         TabIndex        =   5
-         Top             =   2040
-         Width           =   855
-      End
-      Begin VB.TextBox Text1 
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   930
-         Index           =   4
-         Left            =   1200
-         MultiLine       =   -1  'True
-         ScrollBars      =   2  'Vertical
-         TabIndex        =   8
-         Top             =   3000
-         Width           =   3375
-      End
-      Begin VB.TextBox Text1 
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Index           =   3
-         Left            =   1200
-         TabIndex        =   4
-         Text            =   "Text2"
-         Top             =   1560
-         Width           =   3375
-      End
-      Begin VB.TextBox Text1 
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         IMEMode         =   3  'DISABLE
-         Index           =   2
-         Left            =   1200
-         PasswordChar    =   "*"
-         TabIndex        =   3
-         Text            =   "Text2"
-         Top             =   1080
-         Width           =   3375
-      End
-      Begin VB.ComboBox Combo1 
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Index           =   0
-         Left            =   1200
-         Style           =   2  'Dropdown List
-         TabIndex        =   7
-         Top             =   2520
-         Width           =   3375
-      End
-      Begin VB.TextBox Text1 
-         BackColor       =   &H80000003&
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Index           =   0
-         Left            =   1200
-         Locked          =   -1  'True
-         TabIndex        =   1
-         Text            =   "Text1"
-         Top             =   120
-         Width           =   3375
-      End
-      Begin VB.ComboBox Combo1 
-         Height          =   300
-         Index           =   1
-         Left            =   4680
-         TabIndex        =   11
-         Text            =   "Combo2"
-         Top             =   2520
-         Visible         =   0   'False
-         Width           =   1095
-      End
-      Begin VB.TextBox Text1 
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   330
-         Index           =   1
-         Left            =   1200
-         TabIndex        =   2
-         Text            =   "Text2"
-         Top             =   600
-         Width           =   3375
-      End
-      Begin VB.CommandButton Command1 
-         Caption         =   "添加用户"
-         Height          =   495
-         Left            =   1320
-         TabIndex        =   9
-         Top             =   4200
-         Width           =   1095
-      End
-      Begin VB.CommandButton Command2 
-         Caption         =   "修改用户信息"
-         Height          =   495
-         Left            =   3240
-         TabIndex        =   10
-         Top             =   4200
-         Width           =   1335
-      End
-      Begin VB.Label Label1 
-         Caption         =   "密码只能包含数字或大小字母，且长度在20位以内"
-         ForeColor       =   &H000000FF&
-         Height          =   420
-         Index           =   7
-         Left            =   4680
-         TabIndex        =   20
-         Top             =   1080
-         Width           =   2100
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "备注"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Index           =   6
-         Left            =   650
-         TabIndex        =   19
-         Top             =   3060
-         Width           =   450
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "部门"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Index           =   5
-         Left            =   650
-         TabIndex        =   18
-         Top             =   2580
-         Width           =   450
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "性别"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Index           =   4
-         Left            =   650
-         TabIndex        =   17
-         Top             =   2100
-         Width           =   450
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "姓名"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Index           =   3
-         Left            =   650
-         TabIndex        =   16
-         Top             =   1620
-         Width           =   450
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "标识"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Index           =   0
-         Left            =   650
-         TabIndex        =   15
-         Top             =   180
-         Width           =   450
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "账号"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Index           =   1
-         Left            =   650
-         TabIndex        =   14
-         Top             =   660
-         Width           =   450
-      End
-      Begin VB.Label Label1 
-         AutoSize        =   -1  'True
-         Caption         =   "密码"
-         BeginProperty Font 
-            Name            =   "宋体"
-            Size            =   10.5
-            Charset         =   134
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   210
-         Index           =   2
-         Left            =   650
-         TabIndex        =   13
-         Top             =   1140
-         Width           =   450
-      End
+   ScaleHeight     =   7290
+   ScaleWidth      =   15870
+   Begin VB.HScrollBar Hsb 
+      Height          =   255
+      Left            =   14520
+      TabIndex        =   28
+      Top             =   6720
+      Width           =   1455
    End
-   Begin MSComctlLib.TreeView TreeView1 
-      Height          =   4095
+   Begin VB.VScrollBar Vsb 
+      Height          =   1935
+      Left            =   15600
+      TabIndex        =   27
+      Top             =   4680
+      Width           =   255
+   End
+   Begin VB.Frame ctlMove 
+      BorderStyle     =   0  'None
+      Caption         =   "Frame2"
+      Height          =   6135
       Left            =   120
       TabIndex        =   0
-      Top             =   120
-      Width           =   3855
-      _ExtentX        =   6800
-      _ExtentY        =   7223
-      _Version        =   393217
-      Indentation     =   441
-      LabelEdit       =   1
-      LineStyle       =   1
-      Style           =   7
-      FullRowSelect   =   -1  'True
-      Appearance      =   1
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "宋体"
-         Size            =   9
-         Charset         =   134
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
+      Top             =   240
+      Width           =   15615
+      Begin VB.Frame Frame1 
+         Caption         =   "用户角色指定"
+         ForeColor       =   &H00FF0000&
+         Height          =   5895
+         Index           =   1
+         Left            =   7680
+         TabIndex        =   22
+         Top             =   0
+         Width           =   7695
+         Begin VB.CommandButton Command3 
+            Caption         =   "用户角色指定结果保存"
+            Height          =   495
+            Left            =   4680
+            TabIndex        =   24
+            Top             =   1920
+            Width           =   2415
+         End
+         Begin VB.TextBox Text1 
+            BackColor       =   &H80000003&
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H000000FF&
+            Height          =   330
+            Index           =   5
+            Left            =   5040
+            Locked          =   -1  'True
+            TabIndex        =   23
+            Text            =   "Text1"
+            Top             =   720
+            Width           =   2500
+         End
+         Begin MSComctlLib.TreeView TreeView2 
+            Height          =   4095
+            Left            =   120
+            TabIndex        =   25
+            Top             =   240
+            Width           =   3855
+            _ExtentX        =   6800
+            _ExtentY        =   7223
+            _Version        =   393217
+            Indentation     =   441
+            LabelEdit       =   1
+            LineStyle       =   1
+            Style           =   7
+            Checkboxes      =   -1  'True
+            Appearance      =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "已选用户"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FF0000&
+            Height          =   210
+            Index           =   8
+            Left            =   4080
+            TabIndex        =   26
+            Top             =   750
+            Width           =   900
+         End
+      End
+      Begin VB.Frame Frame1 
+         Caption         =   "用户"
+         ForeColor       =   &H00FF0000&
+         Height          =   5895
+         Index           =   0
+         Left            =   0
+         TabIndex        =   1
+         Top             =   0
+         Width           =   7455
+         Begin VB.CommandButton Command2 
+            Caption         =   "修改用户信息"
+            Height          =   495
+            Left            =   1800
+            TabIndex        =   12
+            Top             =   4320
+            Width           =   1335
+         End
+         Begin VB.CommandButton Command1 
+            Caption         =   "添加用户"
+            Height          =   495
+            Left            =   240
+            TabIndex        =   11
+            Top             =   4320
+            Width           =   1095
+         End
+         Begin VB.TextBox Text1 
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   1
+            Left            =   720
+            TabIndex        =   10
+            Text            =   "Text2"
+            Top             =   720
+            Width           =   2500
+         End
+         Begin VB.ComboBox Combo1 
+            Height          =   300
+            Index           =   1
+            Left            =   1080
+            TabIndex        =   9
+            Text            =   "Combo2"
+            Top             =   4800
+            Visible         =   0   'False
+            Width           =   1095
+         End
+         Begin VB.TextBox Text1 
+            BackColor       =   &H80000003&
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   0
+            Left            =   720
+            Locked          =   -1  'True
+            TabIndex        =   8
+            Text            =   "Text1"
+            Top             =   240
+            Width           =   2500
+         End
+         Begin VB.ComboBox Combo1 
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   0
+            Left            =   720
+            Style           =   2  'Dropdown List
+            TabIndex        =   7
+            Top             =   2640
+            Width           =   2500
+         End
+         Begin VB.TextBox Text1 
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            IMEMode         =   3  'DISABLE
+            Index           =   2
+            Left            =   720
+            PasswordChar    =   "*"
+            TabIndex        =   6
+            Text            =   "Text2"
+            Top             =   1200
+            Width           =   2500
+         End
+         Begin VB.TextBox Text1 
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   3
+            Left            =   720
+            TabIndex        =   5
+            Text            =   "Text2"
+            Top             =   1680
+            Width           =   2500
+         End
+         Begin VB.TextBox Text1 
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   930
+            Index           =   4
+            Left            =   720
+            MultiLine       =   -1  'True
+            ScrollBars      =   2  'Vertical
+            TabIndex        =   4
+            Top             =   3120
+            Width           =   2500
+         End
+         Begin VB.OptionButton Option1 
+            Caption         =   "女"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H000000FF&
+            Height          =   255
+            Index           =   0
+            Left            =   960
+            TabIndex        =   3
+            Top             =   2160
+            Width           =   855
+         End
+         Begin VB.OptionButton Option1 
+            Caption         =   "男"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00FF0000&
+            Height          =   255
+            Index           =   1
+            Left            =   2040
+            TabIndex        =   2
+            Top             =   2160
+            Value           =   -1  'True
+            Width           =   855
+         End
+         Begin MSComctlLib.TreeView TreeView1 
+            Height          =   4095
+            Left            =   3480
+            TabIndex        =   13
+            Top             =   240
+            Width           =   3855
+            _ExtentX        =   6800
+            _ExtentY        =   7223
+            _Version        =   393217
+            Indentation     =   441
+            LabelEdit       =   1
+            LineStyle       =   1
+            Style           =   7
+            FullRowSelect   =   -1  'True
+            Appearance      =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "密码"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   2
+            Left            =   165
+            TabIndex        =   21
+            Top             =   1260
+            Width           =   450
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "账号"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   1
+            Left            =   165
+            TabIndex        =   20
+            Top             =   780
+            Width           =   450
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "标识"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   0
+            Left            =   165
+            TabIndex        =   19
+            Top             =   300
+            Width           =   450
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "姓名"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   3
+            Left            =   165
+            TabIndex        =   18
+            Top             =   1740
+            Width           =   450
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "性别"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   4
+            Left            =   165
+            TabIndex        =   17
+            Top             =   2220
+            Width           =   450
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "部门"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   5
+            Left            =   165
+            TabIndex        =   16
+            Top             =   2700
+            Width           =   450
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
+            Caption         =   "备注"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   6
+            Left            =   165
+            TabIndex        =   15
+            Top             =   3180
+            Width           =   450
+         End
+         Begin VB.Label Label1 
+            Caption         =   "*** 密码只能包含数字或大小字母，且长度在20位以内"
+            ForeColor       =   &H000000FF&
+            Height          =   540
+            Index           =   7
+            Left            =   240
+            TabIndex        =   14
+            Top             =   5160
+            Width           =   3060
+         End
+      End
    End
 End
 Attribute VB_Name = "frmSysUser"
@@ -379,7 +487,10 @@ Private Const mKeyDept As String = "k"
 Private Const mKeyUser As String = "u"
 Private Const mOtherKey As String = "kOther"
 Private Const mOtherText As String = "其他人员"
-
+Private Const mKeyRole As String = "r"
+Private Const mOtherKeyRole As String = "kOtherRole"
+Private Const mOtherTextRole As String = "其他角色"
+Private Const mTwoBar As String = "--"
 
 
 Private Sub msLoadDept(ByRef tvwDept As MSComctlLib.TreeView)
@@ -472,6 +583,61 @@ Private Sub msLoadDeptTree(ByRef tvwTree As MSComctlLib.TreeView, ByRef arrLoad(
         Call msLoadDeptTree(tvwTree, arrOther)
     End If
 
+End Sub
+
+Private Sub msLoadRole(ByRef tvwUser As MSComctlLib.TreeView)
+    '加载角色，前提是已加载好部门
+    
+    Dim strSQL As String
+    Dim rsRole As ADODB.Recordset
+    Dim arrOther() As String    '保存剩余的
+    Dim blnOther As Boolean     '剩余标识
+    Dim I As Long, J As Long, K As Long, lngCount As Long
+    
+    If tvwUser.Nodes.Count = 0 Then Exit Sub
+    
+    strSQL = "SELECT RoleAutoID ,RoleName ,DeptID FROM tb_Test_Sys_Role "
+    Set rsRole = gfBackRecordset(strSQL)
+    If rsRole.State = adStateClosed Then GoTo LineEnd
+    If rsRole.RecordCount = 0 Then GoTo LineEnd
+    
+    With tvwUser
+        While Not rsRole.EOF
+            For I = 1 To .Nodes.Count
+                If .Nodes(I).Key = mKeyDept & rsRole.Fields("DeptID").Value Then
+                    .Nodes.Add .Nodes.Item(I).Key, tvwChild, _
+                        mKeyRole & rsRole.Fields("RoleAutoID").Value, rsRole.Fields("RoleName").Value, "SysRole"
+                    Exit For
+                End If
+            Next
+            
+            If I = .Nodes.Count + 1 Then
+                blnOther = True
+                ReDim Preserve arrOther(2, lngCount)
+                For K = 0 To 2
+                    arrOther(K, lngCount) = rsRole.Fields(K).Value & ""
+                Next
+                lngCount = lngCount + 1
+            End If
+            
+            rsRole.MoveNext
+        Wend
+        
+        If blnOther Then
+            .Nodes.Add 1, tvwChild, mOtherKey, mOtherText, "unknown"
+            .Nodes(mOtherKey).Expanded = True
+            For I = LBound(arrOther, 2) To UBound(arrOther, 2)
+                .Nodes.Add mOtherKey, tvwChild, mKeyRole & arrOther(0, I), _
+                    arrOther(1, I), "SysRole"
+            Next
+        End If
+
+    End With
+    
+LineEnd:
+    If rsRole.State = adStateOpen Then rsRole.Close
+    Set rsRole = Nothing
+    
 End Sub
 
 Private Sub msLoadUser(ByRef tvwUser As MSComctlLib.TreeView)
@@ -795,16 +961,24 @@ Private Sub Form_Load()
 
     Set Me.Icon = gMDI.imgListCommandBars.ListImages("SysUser").Picture
     Me.Caption = gMDI.cBS.Actions(gID.SysUser).Caption
+    Frame1.Item(0).Caption = Me.Caption
     
     For mlngID = Text1.LBound To Text1.UBound
         Text1.Item(mlngID).Text = ""
     Next
     
+    Text1.Item(2).ToolTipText = "密码只能包含数字或大小字母，且长度在20位以内"
+    
     TreeView1.Nodes.Clear
     TreeView1.ImageList = gMDI.imgListCommandBars
+    TreeView2.Nodes.Clear
+    TreeView2.ImageList = gMDI.imgListCommandBars
     
     Call msLoadDept(TreeView1)  '部门先加载
     Call msLoadUser(TreeView1)  '人员后加载
+    
+    Call msLoadDept(TreeView2)
+    Call msLoadRole(TreeView2)
     
 End Sub
 
@@ -812,15 +986,38 @@ Private Sub Form_Resize()
 
     Const conHeight As Long = 9000
     Const conEdge As Long = 120
+    Const conTB As Long = 400
     
     If Me.WindowState <> vbMinimized Then
         If Me.Height > conHeight Then
             If Me.ScaleHeight > conEdge * 2 Then
-                TreeView1.Height = Me.ScaleHeight - conEdge * 2
+                Frame1.Item(0).Height = Me.ScaleHeight - conEdge * 2
+                Frame1.Item(1).Height = Frame1.Item(0).Height
+                TreeView1.Height = Frame1.Item(0).Height - conTB
+                TreeView2.Height = TreeView1.Height
+                ctlMove.Height = Frame1.Item(0).Height
             End If
         End If
     End If
     
+    Call gsFormScrollBar(Me, Me.ctlMove, Me.Hsb, Me.Vsb, 16000, 9000)  '注意长、宽的修改
+    
+End Sub
+
+Private Sub Hsb_Change()
+    ctlMove.Left = -Hsb.Value
+End Sub
+
+Private Sub Hsb_Scroll()
+    Call Hsb_Change    '当滑动滚动条中的滑块时会同时更新对应内容，以下同。
+End Sub
+
+Private Sub Vsb_Change()
+    ctlMove.Top = -Vsb.Value
+End Sub
+
+Private Sub Vsb_Scroll()
+    Call Vsb_Change
 End Sub
 
 Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
@@ -886,4 +1083,8 @@ LineBreak:
 LineEnd:
     If rsUser.State = adStateOpen Then rsUser.Close
     Set rsUser = Nothing
+End Sub
+
+Private Sub TreeView2_NodeCheck(ByVal Node As MSComctlLib.Node)
+    '
 End Sub
