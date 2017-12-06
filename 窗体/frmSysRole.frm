@@ -29,7 +29,7 @@ Begin VB.Form frmSysRole
       Caption         =   "Frame1"
       Height          =   5775
       Left            =   120
-      TabIndex        =   0
+      TabIndex        =   10
       Top             =   120
       Width           =   15855
       Begin VB.Frame Frame1 
@@ -38,14 +38,14 @@ Begin VB.Form frmSysRole
          Height          =   5535
          Index           =   0
          Left            =   0
-         TabIndex        =   9
+         TabIndex        =   15
          Top             =   0
          Width           =   7815
          Begin VB.CommandButton Command2 
             Caption         =   "修改角色信息"
             Height          =   495
             Left            =   1560
-            TabIndex        =   15
+            TabIndex        =   4
             Top             =   2760
             Width           =   1455
          End
@@ -53,7 +53,7 @@ Begin VB.Form frmSysRole
             Caption         =   "添加角色"
             Height          =   495
             Left            =   1560
-            TabIndex        =   14
+            TabIndex        =   3
             Top             =   2040
             Width           =   1455
          End
@@ -70,7 +70,7 @@ Begin VB.Form frmSysRole
             Height          =   330
             Index           =   1
             Left            =   1200
-            TabIndex        =   13
+            TabIndex        =   1
             Text            =   "Text2"
             Top             =   840
             Width           =   2500
@@ -79,7 +79,7 @@ Begin VB.Form frmSysRole
             Height          =   300
             Index           =   1
             Left            =   360
-            TabIndex        =   12
+            TabIndex        =   16
             Text            =   "Combo2"
             Top             =   3240
             Visible         =   0   'False
@@ -100,7 +100,7 @@ Begin VB.Form frmSysRole
             Index           =   0
             Left            =   1200
             Locked          =   -1  'True
-            TabIndex        =   11
+            TabIndex        =   0
             Text            =   "Text1"
             Top             =   360
             Width           =   2500
@@ -119,14 +119,14 @@ Begin VB.Form frmSysRole
             Index           =   0
             Left            =   1200
             Style           =   2  'Dropdown List
-            TabIndex        =   10
+            TabIndex        =   2
             Top             =   1320
             Width           =   2500
          End
          Begin MSComctlLib.TreeView TreeView1 
             Height          =   4095
             Left            =   3840
-            TabIndex        =   16
+            TabIndex        =   5
             Top             =   240
             Width           =   3855
             _ExtentX        =   6800
@@ -212,14 +212,14 @@ Begin VB.Form frmSysRole
          Height          =   5535
          Index           =   1
          Left            =   8040
-         TabIndex        =   1
+         TabIndex        =   11
          Top             =   0
          Width           =   7695
          Begin VB.CommandButton Command3 
             Caption         =   "保存角色权限分配结果"
             Height          =   495
             Left            =   4920
-            TabIndex        =   5
+            TabIndex        =   9
             Top             =   1920
             Width           =   2175
          End
@@ -239,7 +239,7 @@ Begin VB.Form frmSysRole
             Index           =   2
             Left            =   5040
             Locked          =   -1  'True
-            TabIndex        =   4
+            TabIndex        =   7
             Text            =   "Text1"
             Top             =   720
             Width           =   2500
@@ -258,7 +258,7 @@ Begin VB.Form frmSysRole
             Index           =   2
             Left            =   5040
             Style           =   2  'Dropdown List
-            TabIndex        =   3
+            TabIndex        =   8
             Top             =   1320
             Width           =   2500
          End
@@ -266,7 +266,7 @@ Begin VB.Form frmSysRole
             Height          =   300
             Index           =   3
             Left            =   5160
-            TabIndex        =   2
+            TabIndex        =   12
             Text            =   "Combo2"
             Top             =   2640
             Visible         =   0   'False
@@ -313,7 +313,7 @@ Begin VB.Form frmSysRole
             Height          =   210
             Index           =   4
             Left            =   4080
-            TabIndex        =   8
+            TabIndex        =   14
             Top             =   750
             Width           =   900
          End
@@ -332,7 +332,7 @@ Begin VB.Form frmSysRole
             Height          =   450
             Index           =   3
             Left            =   4080
-            TabIndex        =   7
+            TabIndex        =   13
             Top             =   1260
             Width           =   960
          End
@@ -1084,6 +1084,12 @@ Private Sub Form_Load()
     Call msLoadDept(TreeView1)
     Call msLoadRole(TreeView1)  '角色后加载
     Call msLoadFunc(TreeView2)
+    
+    Call gsLoadAuthority(Me, TreeView1)
+    Call gsLoadAuthority(Me, Command1)
+    Call gsLoadAuthority(Me, Command2)
+    Call gsLoadAuthority(Me, Command3)
+    Call gsLoadAuthority(Me, Combo1.Item(2))
     
 End Sub
 

@@ -627,6 +627,9 @@ Private Sub msAddAction()
             End If
         End If
     Next
+    '******不需要控制权限的窗口******
+    mcbsActions(gID.SysModifyPassword).Enabled = True
+    mcbsActions(gID.WndThemeSkinSet).Enabled = True
     
     '风格系列的mcbsActions的两个属性的描述补充
     For mlngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
@@ -1710,7 +1713,7 @@ Private Sub TaskPL_ItemClick(ByVal Item As XtremeTaskPanel.ITaskPanelGroupItem)
     If mcbsActions(Item.Id).Enabled Then
         Call msLeftClick(Item.Id)
     Else
-        MsgBox "状态不可用！", vbExclamation
+        MsgBox "状态不可用 或 没有相关权限！", vbExclamation
     End If
     
 End Sub

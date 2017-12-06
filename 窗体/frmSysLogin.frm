@@ -173,13 +173,14 @@ Private Sub msLoadUserAuthority(ByVal strUID As String)
     '权限控制
     
     Dim cbsAction As CommandBarAction
-    Dim strSQL As String, strKey As String
+    Dim strSQL As String, strKey As String, strSys As String
     Const strFRM As String = "frm"
     
     strUID = Trim(strUID)
     If Len(strUID) = 0 Then Exit Sub
     
-    If strUID = LCase(gID.UserAdmin) Or strUID = LCase(gID.UserSystem) Then   '程序内定两个用户拥有所有权限
+    strSys = LCase(gID.UserLoginName)
+    If strSys = LCase(gID.UserAdmin) Or strSys = LCase(gID.UserSystem) Then   '程序内定两个用户拥有所有权限
         For Each cbsAction In gMDI.cBS.Actions
             cbsAction.Enabled = True
         Next
@@ -187,8 +188,8 @@ Private Sub msLoadUserAuthority(ByVal strUID As String)
     End If
     
     strSQL = "SELECT DISTINCT t1.UserAutoID ,t1.UserLoginName ,t1.UserFullName " & _
-             ",t5.FuncAutoID ,t5.FuncCaption ,t5.FuncName ,t5.FuncType ,t6.FuncName" & _
-             "FROM tb_Test_Sys_User AS [t1] " & _
+             ",t5.FuncAutoID ,t5.FuncCaption ,t5.FuncName ,t5.FuncType " & _
+             ",t6.FuncName AS [FuncFormName] FROM tb_Test_Sys_User AS [t1] " & _
              "INNER JOIN tb_Test_Sys_UserRole AS [t2] ON t1.UserAutoID =t2.UserAutoID " & _
              "INNER JOIN tb_Test_Sys_RoleFunc AS [t4] ON t2.RoleAutoID =t4.RoleAutoID " & _
              "INNER JOIN tb_Test_Sys_Func AS [t5] ON t4.FuncAutoID =t5.FuncAutoID " & _
@@ -371,4 +372,12 @@ Private Sub Form_Unload(Cancel As Integer)
     If Not gMDI.Visible Then
         Unload gMDI
     End If
+End Sub
+
+
+Private Sub Text1_GotFocus()
+    With Text1
+        .SelStart = 0
+        .SelLength = Len(.Text)
+    End With
 End Sub

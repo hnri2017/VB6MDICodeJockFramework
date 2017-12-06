@@ -507,6 +507,10 @@ Private Sub Form_Load()
     
     Call msLoadDept(TreeView1)
     
+    Call gsLoadAuthority(Me, TreeView1)
+    Call gsLoadAuthority(Me, Command1)
+    Call gsLoadAuthority(Me, Command2)
+    
 End Sub
 
 Private Sub Form_Resize()

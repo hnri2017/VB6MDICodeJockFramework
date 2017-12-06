@@ -469,9 +469,34 @@ Public Sub gsGridToWord(ByRef gridControl As Control)
     
 End Sub
 
-Public Sub gsLoadAuthority(ByRef frmCur As Form, ctlCur As Control)
+Public Sub gsLoadAuthority(ByRef frmCur As Form, ByRef ctlCur As Control)
     '加载窗口中的控制权限
     
+    Dim strUser As String, strForm As String, strCtlName As String
+    
+    strUser = LCase(gID.UserLoginName)
+    strForm = LCase(frmCur.Name)
+    strCtlName = LCase(ctlCur.Name)
+    
+    If strUser = LCase(gID.UserAdmin) Or strUser = LCase(gID.UserSystem) Then Exit Sub
+    ctlCur.Enabled = False
+    
+    With gID.rsRF
+        If .State = adStateOpen Then
+            If .RecordCount > 0 Then
+                .MoveFirst
+                Do While Not .EOF
+                    If strForm = LCase(.Fields("FuncFormName")) Then
+                        If strCtlName = LCase(.Fields("FuncName")) Then
+                            ctlCur.Enabled = True
+                            Exit Do
+                        End If
+                    End If
+                    .MoveNext
+                Loop
+            End If
+        End If
+    End With
     
 End Sub
 

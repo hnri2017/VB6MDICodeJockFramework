@@ -187,7 +187,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   101515265
+            Format          =   92733441
             CurrentDate     =   42628
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -200,7 +200,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   101515265
+            Format          =   92733441
             CurrentDate     =   42628
          End
          Begin VB.Label Label1 
@@ -626,6 +626,8 @@ Private Sub Form_Load()
     For lngColor = udSelect To udUpdateBatch
         Combo2.Item(0).AddItem gfBackLogType(lngColor)
     Next
+    
+    Call gsLoadAuthority(Me, Command1)
     
 End Sub
 
