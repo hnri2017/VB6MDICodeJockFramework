@@ -616,6 +616,18 @@ Private Sub msAddAction()
         End With
     Next
     
+    
+    '******关闭所有窗口打开的权限******
+    For Each cbsAction In mcbsActions
+        If cbsAction.Id < 2000 Then         '程序内定所有窗口的ID值<2000
+            If Len(cbsAction.Key) > 0 Then  '程序内定所有窗口的Name值保存Action对象的Key属性中
+                If Left(LCase(cbsAction.Key), 3) = "frm" Then   '程序内容所有窗口的Name值以frm三字母开头
+                    cbsAction.Enabled = False
+                End If
+            End If
+        End If
+    Next
+    
     '风格系列的mcbsActions的两个属性的描述补充
     For mlngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP
         mcbsActions.Action(mlngID).DescriptionText = mcbsActions.Action(gID.WndThemeCommandBars).Caption & "设置为：" & mcbsActions.Action(mlngID).DescriptionText
@@ -1486,9 +1498,9 @@ End Sub
 
 Private Sub MDIForm_Load()
 
-'    Debug.Print Screen.TwipsPerPixelX, Screen.TwipsPerPixelY    '返回水平与垂直度量的对象的每一像素中的缇数。测试结果：1像素=15缇
-'    Me.Width = 15360    '设置窗口大小1024*768像素
-'    Me.Height = 11520
+'''    Debug.Print Screen.TwipsPerPixelX, Screen.TwipsPerPixelY    '返回水平与垂直度量的对象的每一像素中的缇数。测试结果：1像素=15缇
+'''    Me.Width = 15360    '设置窗口大小1024*768像素
+'''    Me.Height = 11520
     
     CommandBarsGlobalSettings.App = App
     
@@ -1506,7 +1518,7 @@ Private Sub MDIForm_Load()
     cBS.AddImageList imgListCommandBars '添加图标
     cBS.EnableCustomization True        '允许自定义，此属性最好放在所有CommandBars设定之后
     cBS.Options.UpdatePeriod = 250      '更改CommandBars的Update事件的执行周期，默认100ms
-    TaskPL.SetImageList imgListCommandBars
+    TaskPL.SetImageList imgListCommandBars  '添加导航菜单图标，与cBS保持一致
 
     Set mTabWorkspace = cBS.ShowTabWorkspace(True)    '允许窗口多标签显示
     mTabWorkspace.Flags = xtpWorkspaceShowActiveFiles Or xtpWorkspaceShowCloseSelectedTab
@@ -1520,15 +1532,9 @@ Private Sub MDIForm_Load()
     DockingPN.Options.ShowDockingContextStickers = True
     DockingPN.VisualTheme = ThemeWord2007
     
-'''    Dim frmNew As Form
-'''    For mLngID = 2 To 15
-'''        Set frmNew = New frmSysTest
-'''        frmNew.Caption = "Form" & mLngID
-'''        frmNew.Command1.Caption = frmNew.Caption & "cmd1"
-'''        frmNew.Show
-'''    Next
     
     
+    '******从注册表中读取软件上次退出时保存的相关配置数据******
     '注册表中保存用的几个变量值初始化
     With gID
         .OtherSaveRegistryKey = Me.Name
@@ -1576,7 +1582,8 @@ Private Sub MDIForm_Load()
     For Each taskGroup In TaskPL.Groups
         taskGroup.Expanded = Val(GetSetting(Me.Name, gID.OtherSaveSettings, "TaskPL" & taskGroup.Id, 0))
     Next
-
+    
+    
 End Sub
 
 

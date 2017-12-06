@@ -145,6 +145,9 @@ Public Sub Main()
 '''        .FileSetupNet = .FolderNet & App.EXEName & "Setup.exe"
         .FileSetupNet = .FileSetupLoc
         
+        .UserAdmin = "Admin"    '两个特殊用户
+        .UserSystem = "System"  '两个特殊用户
+        
         .CnDatabase = "db_Test"
         .CnPassword = "test"
         .CnSource = "192.168.2.9"
@@ -466,6 +469,11 @@ Public Sub gsGridToWord(ByRef gridControl As Control)
     
 End Sub
 
+Public Sub gsLoadAuthority(ByRef frmCur As Form, ctlCur As Control)
+    '加载窗口中的控制权限
+    
+    
+End Sub
 
 Public Sub gsLogAdd(ByRef frmCur As Form, Optional ByVal LogType As genmLogType = udSelect, _
     Optional ByVal strTable As String = "", Optional ByVal strContent As String = "")

@@ -171,12 +171,15 @@ Public Type gtypCommandBarID
     UserDepartment As String    '用户所在部门
     UserLoginIP As String       '用户登陆电脑IP
     UserComputerName As String  '用户登陆电脑名称
+    UserAdmin As String         '特别用户名：系统管理员
+    UserSystem As String        '特别用户名：系统管理员
     
     CnSource As String      '连接数据库服务器名称或IP地址
     CnUserID As String      '连接数据库用户名
     CnPassword As String    '连接数据库密码
     CnDatabase As String    '连接的数据库名
     CnString As String      '数据库连接字符串全称
+    rsRF As New ADODB.Recordset '保存用户的所有权限信息
     
     FuncButton As String
     FuncForm As String

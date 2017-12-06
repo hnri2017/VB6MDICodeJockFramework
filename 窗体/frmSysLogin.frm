@@ -169,6 +169,55 @@ Private Sub msLoadUserList()
     
 End Sub
 
+Private Sub msLoadUserAuthority(ByVal strUID As String)
+    '权限控制
+    
+    Dim cbsAction As CommandBarAction
+    Dim strSQL As String, strKey As String
+    Const strFRM As String = "frm"
+    
+    strUID = Trim(strUID)
+    If Len(strUID) = 0 Then Exit Sub
+    
+    If strUID = LCase(gID.UserAdmin) Or strUID = LCase(gID.UserSystem) Then   '程序内定两个用户拥有所有权限
+        For Each cbsAction In gMDI.cBS.Actions
+            cbsAction.Enabled = True
+        Next
+        Exit Sub
+    End If
+    
+    strSQL = "SELECT DISTINCT t1.UserAutoID ,t1.UserLoginName ,t1.UserFullName " & _
+             ",t5.FuncAutoID ,t5.FuncCaption ,t5.FuncName ,t5.FuncType ,t6.FuncName" & _
+             "FROM tb_Test_Sys_User AS [t1] " & _
+             "INNER JOIN tb_Test_Sys_UserRole AS [t2] ON t1.UserAutoID =t2.UserAutoID " & _
+             "INNER JOIN tb_Test_Sys_RoleFunc AS [t4] ON t2.RoleAutoID =t4.RoleAutoID " & _
+             "INNER JOIN tb_Test_Sys_Func AS [t5] ON t4.FuncAutoID =t5.FuncAutoID " & _
+             "INNER JOIN tb_Test_Sys_Func AS [t6] ON t5.FuncParentID =t6.FuncAutoID " & _
+             "WHERE t1.UserAutoID =" & strUID
+    Set gID.rsRF = gfBackRecordset(strSQL)
+    With gID.rsRF
+        If .State = adStateOpen Then
+            If .RecordCount > 0 Then
+                For Each cbsAction In gMDI.cBS.Actions
+                    strKey = LCase(cbsAction.Key)
+                    If Len(strKey) > 0 Then
+                        If Left(strKey, 3) = strFRM Then
+                            .MoveFirst
+                            Do While Not .EOF
+                                If LCase(.Fields("FuncName")) = strKey Then
+                                    cbsAction.Enabled = True
+                                End If
+                                .MoveNext
+                            Loop
+                        End If
+                    End If
+                Next
+            End If
+        End If
+    End With
+    
+End Sub
+
 Private Sub msSaveUserList()
     '将当前用户名保存至登陆过的用户名列表中
     '并提升至列表的第一位，即表示越近登陆过的用户名越靠近列表前面
@@ -278,8 +327,9 @@ Private Sub Command1_Click()
     SaveSetting gMDI.Name, gID.OtherSaveSettings, gID.OtherSaveUserLast, strName
     Call msSaveUserList
     Call gsLogAdd(Me, udSelect, "tb_Test_Sys_User", "【" & strName & "】登陆系统")
-    gMDI.Show
+    Call msLoadUserAuthority(gID.UserAutoID) '******加载用户拥有的权限******
     
+    gMDI.Show
     Unload Me
     
 LineEnd:
