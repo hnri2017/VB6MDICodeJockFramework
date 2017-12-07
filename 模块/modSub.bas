@@ -152,8 +152,9 @@ Public Sub Main()
         .CnPassword = "test"
         .CnSource = "192.168.2.9"
         .CnUserID = "wzd_test"
-        .CnString = "Provider=SQLOLEDB;Persist Security Info=False;Data Source=" & .CnSource & _
-                    ";UID=" & .CnUserID & ";PWD=" & .CnPassword & ";DataBase=" & .CnDatabase    '在自己64位系统电脑上Data Source中间要空格隔开才能建立连接，在这里可以不用，不知为何
+        .CnString = "Provider='SQLOLEDB';Persist Security Info=False;Data Source='" & .CnSource & _
+                    "';User ID='" & .CnUserID & "';Password='" & .CnPassword & _
+                    "';Initial Catalog='" & .CnDatabase & "';"   '在自己64位系统电脑上Data Source中间要空格隔开才能建立连接，在这里可以不用，不知为何
         
         .FuncButton = "按钮"
         .FuncControl = "其它"

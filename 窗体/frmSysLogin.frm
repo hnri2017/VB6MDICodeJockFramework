@@ -309,6 +309,12 @@ Private Sub Command1_Click()
         GoTo LineEnd
     End If
     
+    If rsUser.Fields("UserState") <> "启用" Then
+        strMsg = "账号【" & strName & "】状态已停用，禁止登陆。启用请联系管理员！"
+        ucTC.SetFocus
+        GoTo LineEnd
+    End If
+    
     If gfDecryptSimple(rsUser.Fields("UserPassword")) <> strPWD Then
         strMsg = "密码输入错误！"
         Text1.SetFocus
@@ -320,7 +326,7 @@ Private Sub Command1_Click()
     gID.UserAutoID = rsUser.Fields("UserAutoID")
     gID.UserLoginName = strName
     gID.UserPassword = strPWD
-    gID.UserFullName = rsUser.Fields("UserFullName")
+    gID.UserFullName = rsUser.Fields("UserFullName") & ""
     gMDI.cBS.StatusBar.FindPane(gID.StatusBarPaneUserInfo).Text = gID.UserFullName
         
     rsUser.Close

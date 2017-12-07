@@ -13,14 +13,14 @@ Begin VB.Form frmSysUser
    Begin VB.HScrollBar Hsb 
       Height          =   255
       Left            =   14520
-      TabIndex        =   28
+      TabIndex        =   26
       Top             =   6720
       Width           =   1455
    End
    Begin VB.VScrollBar Vsb 
       Height          =   1935
       Left            =   15600
-      TabIndex        =   27
+      TabIndex        =   25
       Top             =   4680
       Width           =   255
    End
@@ -29,7 +29,7 @@ Begin VB.Form frmSysUser
       Caption         =   "Frame2"
       Height          =   6135
       Left            =   120
-      TabIndex        =   14
+      TabIndex        =   12
       Top             =   240
       Width           =   15615
       Begin VB.Frame Frame1 
@@ -38,14 +38,14 @@ Begin VB.Form frmSysUser
          Height          =   5895
          Index           =   1
          Left            =   7680
-         TabIndex        =   25
+         TabIndex        =   23
          Top             =   0
          Width           =   7695
          Begin VB.CommandButton Command3 
             Caption         =   "用户角色指定结果保存"
             Height          =   495
             Left            =   4680
-            TabIndex        =   13
+            TabIndex        =   11
             Top             =   1920
             Width           =   2415
          End
@@ -65,7 +65,7 @@ Begin VB.Form frmSysUser
             Index           =   5
             Left            =   5040
             Locked          =   -1  'True
-            TabIndex        =   12
+            TabIndex        =   10
             Text            =   "Text1"
             Top             =   720
             Width           =   2500
@@ -73,7 +73,7 @@ Begin VB.Form frmSysUser
          Begin MSComctlLib.TreeView TreeView2 
             Height          =   4095
             Left            =   120
-            TabIndex        =   11
+            TabIndex        =   9
             Top             =   240
             Width           =   3855
             _ExtentX        =   6800
@@ -109,9 +109,9 @@ Begin VB.Form frmSysUser
             EndProperty
             ForeColor       =   &H00FF0000&
             Height          =   210
-            Index           =   8
+            Index           =   31
             Left            =   4080
-            TabIndex        =   26
+            TabIndex        =   24
             Top             =   750
             Width           =   900
          End
@@ -122,23 +122,115 @@ Begin VB.Form frmSysUser
          Height          =   5895
          Index           =   0
          Left            =   0
-         TabIndex        =   15
+         TabIndex        =   13
          Top             =   0
          Width           =   7455
+         Begin VB.Frame Frame1 
+            Height          =   405
+            Index           =   3
+            Left            =   675
+            TabIndex        =   30
+            Top             =   4080
+            Width           =   2500
+            Begin VB.OptionButton Option1 
+               Caption         =   "启用"
+               BeginProperty Font 
+                  Name            =   "宋体"
+                  Size            =   10.5
+                  Charset         =   134
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H0000FF00&
+               Height          =   210
+               Index           =   2
+               Left            =   120
+               TabIndex        =   32
+               Top             =   150
+               Width           =   855
+            End
+            Begin VB.OptionButton Option1 
+               Caption         =   "停用"
+               BeginProperty Font 
+                  Name            =   "宋体"
+                  Size            =   10.5
+                  Charset         =   134
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00000000&
+               Height          =   210
+               Index           =   3
+               Left            =   1200
+               TabIndex        =   31
+               Top             =   150
+               Width           =   855
+            End
+         End
+         Begin VB.Frame Frame1 
+            Height          =   405
+            Index           =   2
+            Left            =   720
+            TabIndex        =   27
+            Top             =   2100
+            Width           =   2500
+            Begin VB.OptionButton Option1 
+               Caption         =   "男"
+               BeginProperty Font 
+                  Name            =   "宋体"
+                  Size            =   10.5
+                  Charset         =   134
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00FF0000&
+               Height          =   210
+               Index           =   1
+               Left            =   1200
+               TabIndex        =   29
+               Top             =   150
+               Width           =   855
+            End
+            Begin VB.OptionButton Option1 
+               Caption         =   "女"
+               BeginProperty Font 
+                  Name            =   "宋体"
+                  Size            =   10.5
+                  Charset         =   134
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H000000FF&
+               Height          =   210
+               Index           =   0
+               Left            =   120
+               TabIndex        =   28
+               Top             =   150
+               Width           =   855
+            End
+         End
          Begin VB.CommandButton Command2 
             Caption         =   "修改用户信息"
             Height          =   495
             Left            =   1800
-            TabIndex        =   9
-            Top             =   4320
+            TabIndex        =   7
+            Top             =   4800
             Width           =   1335
          End
          Begin VB.CommandButton Command1 
             Caption         =   "添加用户"
             Height          =   495
             Left            =   240
-            TabIndex        =   8
-            Top             =   4320
+            TabIndex        =   6
+            Top             =   4800
             Width           =   1095
          End
          Begin VB.TextBox Text1 
@@ -162,10 +254,10 @@ Begin VB.Form frmSysUser
          Begin VB.ComboBox Combo1 
             Height          =   300
             Index           =   1
-            Left            =   1080
-            TabIndex        =   16
+            Left            =   1320
+            TabIndex        =   14
             Text            =   "Combo2"
-            Top             =   4800
+            Top             =   3240
             Visible         =   0   'False
             Width           =   1095
          End
@@ -203,7 +295,7 @@ Begin VB.Form frmSysUser
             Index           =   0
             Left            =   720
             Style           =   2  'Dropdown List
-            TabIndex        =   6
+            TabIndex        =   4
             Top             =   2640
             Width           =   2500
          End
@@ -260,53 +352,14 @@ Begin VB.Form frmSysUser
             Left            =   720
             MultiLine       =   -1  'True
             ScrollBars      =   2  'Vertical
-            TabIndex        =   7
+            TabIndex        =   5
             Top             =   3120
             Width           =   2500
-         End
-         Begin VB.OptionButton Option1 
-            Caption         =   "女"
-            BeginProperty Font 
-               Name            =   "宋体"
-               Size            =   10.5
-               Charset         =   134
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H000000FF&
-            Height          =   255
-            Index           =   0
-            Left            =   960
-            TabIndex        =   4
-            Top             =   2160
-            Width           =   855
-         End
-         Begin VB.OptionButton Option1 
-            Caption         =   "男"
-            BeginProperty Font 
-               Name            =   "宋体"
-               Size            =   10.5
-               Charset         =   134
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00FF0000&
-            Height          =   255
-            Index           =   1
-            Left            =   2040
-            TabIndex        =   5
-            Top             =   2160
-            Value           =   -1  'True
-            Width           =   855
          End
          Begin MSComctlLib.TreeView TreeView1 
             Height          =   4095
             Left            =   3480
-            TabIndex        =   10
+            TabIndex        =   8
             Top             =   240
             Width           =   3855
             _ExtentX        =   6800
@@ -330,6 +383,25 @@ Begin VB.Form frmSysUser
          End
          Begin VB.Label Label1 
             AutoSize        =   -1  'True
+            Caption         =   "状态"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   10.5
+               Charset         =   134
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   210
+            Index           =   7
+            Left            =   120
+            TabIndex        =   33
+            Top             =   4200
+            Width           =   450
+         End
+         Begin VB.Label Label1 
+            AutoSize        =   -1  'True
             Caption         =   "密码"
             BeginProperty Font 
                Name            =   "宋体"
@@ -343,7 +415,7 @@ Begin VB.Form frmSysUser
             Height          =   210
             Index           =   2
             Left            =   165
-            TabIndex        =   24
+            TabIndex        =   22
             Top             =   1260
             Width           =   450
          End
@@ -362,7 +434,7 @@ Begin VB.Form frmSysUser
             Height          =   210
             Index           =   1
             Left            =   165
-            TabIndex        =   23
+            TabIndex        =   21
             Top             =   780
             Width           =   450
          End
@@ -381,7 +453,7 @@ Begin VB.Form frmSysUser
             Height          =   210
             Index           =   0
             Left            =   165
-            TabIndex        =   22
+            TabIndex        =   20
             Top             =   300
             Width           =   450
          End
@@ -400,7 +472,7 @@ Begin VB.Form frmSysUser
             Height          =   210
             Index           =   3
             Left            =   165
-            TabIndex        =   21
+            TabIndex        =   19
             Top             =   1740
             Width           =   450
          End
@@ -419,7 +491,7 @@ Begin VB.Form frmSysUser
             Height          =   210
             Index           =   4
             Left            =   165
-            TabIndex        =   20
+            TabIndex        =   18
             Top             =   2220
             Width           =   450
          End
@@ -438,7 +510,7 @@ Begin VB.Form frmSysUser
             Height          =   210
             Index           =   5
             Left            =   165
-            TabIndex        =   19
+            TabIndex        =   17
             Top             =   2700
             Width           =   450
          End
@@ -457,18 +529,18 @@ Begin VB.Form frmSysUser
             Height          =   210
             Index           =   6
             Left            =   165
-            TabIndex        =   18
+            TabIndex        =   16
             Top             =   3180
             Width           =   450
          End
          Begin VB.Label Label1 
             Caption         =   "*** 密码只能包含数字或大小字母，且长度在20位以内"
             ForeColor       =   &H000000FF&
-            Height          =   540
-            Index           =   7
+            Height          =   420
+            Index           =   21
             Left            =   240
-            TabIndex        =   17
-            Top             =   5160
+            TabIndex        =   15
+            Top             =   5640
             Width           =   3060
          End
       End
@@ -742,7 +814,7 @@ Private Sub Command1_Click()
     '添加
     
     Dim strLoginName As String, strPWD As String, strFullName As String
-    Dim strSex As String, strMemo As String
+    Dim strSex As String, strMemo As String, strState As String
     Dim strDept As Variant
     Dim strSQL As String, strMsg As String
     Dim rsUser As ADODB.Recordset
@@ -764,6 +836,8 @@ Private Sub Command1_Click()
     
     If Option1.Item(0).Value Then strSex = Option1.Item(0).Caption
     If Option1.Item(1).Value Then strSex = Option1.Item(1).Caption
+    If Option1.Item(2).Value Then strState = Option1.Item(2).Caption
+    If Option1.Item(3).Value Then strState = Option1.Item(3).Caption
     strDept = Combo1.Item(1).List(Combo1.Item(0).ListIndex)
     
     If Len(strLoginName) = 0 Then
@@ -799,14 +873,21 @@ Private Sub Command1_Click()
         Exit Sub
     End If
     
-    If Len(strSex) = 0 Then Option1.Item(0).Value = True
+    If Len(strSex) = 0 Then
+        Option1.Item(0).Value = True
+        strSex = Option1.Item(0).Caption
+    End If
+    If Len(strState) = 0 Then
+        Option1.Item(3).Value = True
+        strState = Option1.Item(3).Caption
+    End If
     
     If Len(strDept) = 0 Then strDept = Null
     
     If MsgBox("是否添加用户【" & strLoginName & "】【" & strFullName & "】？", vbQuestion + vbYesNo) = vbNo Then Exit Sub
     
     strSQL = "SELECT UserAutoID ,UserLoginName ,UserPassword ," & _
-             "UserFullName ,UserSex ,DeptID ,UserMemo " & _
+             "UserFullName ,UserSex ,UserState ,DeptID ,UserMemo " & _
              "From tb_Test_Sys_User " & _
              "WHERE UserLoginName = '" & strLoginName & "'"
     Set rsUser = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
@@ -822,6 +903,7 @@ Private Sub Command1_Click()
         rsUser.Fields("UserPassword") = gfEncryptSimple(strPWD)
         rsUser.Fields("UserFullName") = strFullName
         rsUser.Fields("UserSex") = strSex
+        rsUser.Fields("UserState") = strState
         rsUser.Fields("DeptID") = strDept
         rsUser.Fields("UserMemo") = strMemo
         rsUser.Update
@@ -851,10 +933,10 @@ End Sub
 Private Sub Command2_Click()
     '修改
     
-    Dim strUID As String, strLoginName As String, strPWD As String
+    Dim strUID As String, strLoginName As String, strPWD As String, strState As String
     Dim strFullName As String, strSex As String, strDept As String, strMemo As String
     Dim blnLoginName As Boolean, blnPwd As Boolean, blnFullName As Boolean
-    Dim blnSex As Boolean, blnDept As Boolean, blnMemo As Boolean
+    Dim blnSex As Boolean, blnDept As Boolean, blnMemo As Boolean, blnState As Boolean
     Dim strSQL As String, strMsg As String
     Dim rsUser As ADODB.Recordset
     
@@ -876,6 +958,8 @@ Private Sub Command2_Click()
     
     If Option1.Item(0).Value Then strSex = Option1.Item(0).Caption
     If Option1.Item(1).Value Then strSex = Option1.Item(1).Caption
+    If Option1.Item(2).Value Then strState = Option1.Item(2).Caption
+    If Option1.Item(3).Value Then strState = Option1.Item(3).Caption
     strDept = Combo1.Item(1).List(Combo1.Item(0).ListIndex)
     
     If Len(strLoginName) = 0 Then
@@ -917,10 +1001,17 @@ Private Sub Command2_Click()
         Exit Sub
     End If
     
-    If Len(strSex) = 0 Then Option1.Item(0).Value = True
+    If Len(strSex) = 0 Then
+        Option1.Item(0).Value = True
+        strSex = Option1.Item(0).Caption
+    End If
+    If Len(strState) = 0 Then
+        Option1.Item(3).Value = True
+        strState = Option1.Item(3).Caption
+    End If
     
     strSQL = "SELECT UserAutoID ,UserLoginName ,UserPassword ," & _
-             "UserFullName ,UserSex ,DeptID ,UserMemo " & _
+             "UserFullName ,UserSex ,UserState ,DeptID ,UserMemo " & _
              "From tb_Test_Sys_User " & _
              "WHERE UserAutoID = '" & strUID & "'"
     Set rsUser = gfBackRecordset(strSQL, adOpenStatic, adLockOptimistic)
@@ -932,14 +1023,15 @@ Private Sub Command2_Click()
         strMsg = "该账号相关信息异常，请联系管理员！"
         GoTo LineBrk
     Else
-        If strLoginName <> rsUser.Fields("UserLoginName").Value Then blnLoginName = True
-        If strPWD <> gfDecryptSimple(rsUser.Fields("UserPassword").Value) Then blnPwd = True
-        If strFullName <> rsUser.Fields("UserFullName").Value Then blnFullName = True
-        If IsNull(rsUser.Fields("UserSex").Value) Or strSex <> rsUser.Fields("UserSex").Value Then blnSex = True
-        If IsNull(rsUser.Fields("DeptID").Value) Or strDept <> rsUser.Fields("DeptID").Value Then blnDept = True
-        If IsNull(rsUser.Fields("UserMemo").Value) Or strMemo <> rsUser.Fields("UserMemo").Value Then blnMemo = True
+        If strLoginName <> rsUser.Fields("UserLoginName") Then blnLoginName = True
+        If IsNull(rsUser.Fields("UserPassword")) Or strPWD <> gfDecryptSimple(rsUser.Fields("UserPassword")) Then blnPwd = True
+        If IsNull(rsUser.Fields("UserFullName")) Or strFullName <> rsUser.Fields("UserFullName") Then blnFullName = True
+        If IsNull(rsUser.Fields("UserSex")) Or strSex <> rsUser.Fields("UserSex") Then blnSex = True
+        If IsNull(rsUser.Fields("DeptID")) Or strDept <> rsUser.Fields("DeptID") Then blnDept = True
+        If IsNull(rsUser.Fields("UserMemo")) Or strMemo <> rsUser.Fields("UserMemo") Then blnMemo = True
+        If IsNull(rsUser.Fields("UserState")) Or strState <> rsUser.Fields("UserState") Then blnState = True
         
-        If Not (blnLoginName Or blnPwd Or blnFullName Or blnSex Or blnDept Or blnMemo) Then
+        If Not (blnLoginName Or blnPwd Or blnFullName Or blnSex Or blnState Or blnDept Or blnMemo) Then
             strMsg = "没有实质性的改动，不进行修改！"
             GoTo LineBrk
         End If
@@ -955,6 +1047,7 @@ Private Sub Command2_Click()
         If blnSex Then rsUser.Fields("UserSex") = strSex
         If blnDept Then rsUser.Fields("DeptID") = strDept
         If blnMemo Then rsUser.Fields("UserMemo") = strMemo
+        If blnState Then rsUser.Fields("UserState") = strState
         
         rsUser.Update
         rsUser.Close
@@ -966,6 +1059,7 @@ Private Sub Command2_Click()
         If blnSex Then strMsg = strMsg & "【" & Label1.Item(4).Caption & "】"
         If blnDept Then strMsg = strMsg & "【" & Label1.Item(5).Caption & "】"
         If blnMemo Then strMsg = strMsg & "【" & Label1.Item(6).Caption & "】"
+        If blnState Then strMsg = strMsg & "【" & Label1.Item(7).Caption & "】"
         Call gsLogAdd(Me, udUpdate, "tb_Test_Sys_User", strMsg)
         
         MsgBox "已成功" & strMsg & "。", vbInformation
@@ -1181,8 +1275,10 @@ Private Sub TreeView1_NodeClick(ByVal Node As MSComctlLib.Node)
         Text1.Item(4).Text = rsUser.Fields("UserMemo").Value & ""
         Text1.Item(5).Text = strUID & mTwoBar & rsUser.Fields("UserFullName")
         
-        Option1.Item(0).Value = IIf(rsUser.Fields("UserSex").Value = "女", True, False)
-        Option1.Item(1).Value = IIf(rsUser.Fields("UserSex").Value = "男", True, False)
+        Option1.Item(0).Value = IIf(rsUser.Fields("UserSex") = Option1.Item(0).Caption, True, False)
+        Option1.Item(1).Value = IIf(rsUser.Fields("UserSex") = Option1.Item(1).Caption, True, False)
+        Option1.Item(2).Value = IIf(rsUser.Fields("UserState") = Option1.Item(2).Caption, True, False)
+        Option1.Item(3).Value = IIf(rsUser.Fields("UserState") = Option1.Item(3).Caption, True, False)
         
         If IsNull(rsUser.Fields("DeptID").Value) Then
             Combo1.Item(0).ListIndex = -1
