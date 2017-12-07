@@ -309,13 +309,14 @@ Private Sub Command1_Click()
         GoTo LineEnd
     End If
     
-    If rsUser.Fields("UserState") <> "启用" Then
-        strMsg = "账号【" & strName & "】状态已停用，禁止登陆。启用请联系管理员！"
-        ucTC.SetFocus
-        GoTo LineEnd
+    If Not (LCase(strName) = LCase(gID.UserAdmin) Or LCase(strName) = LCase(gID.UserSystem)) Then
+        If rsUser.Fields("UserState") & "" <> "启用" Then
+            strMsg = "账号【" & strName & "】状态已停用，禁止登陆。启用请联系管理员！"
+            ucTC.SetFocus
+            GoTo LineEnd
+        End If
     End If
-    
-    If gfDecryptSimple(rsUser.Fields("UserPassword")) <> strPWD Then
+    If gfDecryptSimple(rsUser.Fields("UserPassword") & "") <> strPWD Then
         strMsg = "密码输入错误！"
         Text1.SetFocus
         Text1.SelStart = 0
