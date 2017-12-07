@@ -865,6 +865,15 @@ Private Sub Command1_Click()
         Exit Sub
     End If
     
+    strMsg = gfStringCheck(strPWD)
+    If Len(strMsg) > 0 Then
+        MsgBox Label1.Item(2).Caption & " 不能含有特殊字符【" & strMsg & "】！", vbExclamation
+        Text1.Item(2).SetFocus
+        Text1.Item(2).SelStart = 0
+        Text1.Item(2).SelLength = Len(strPWD)
+        Exit Sub
+    End If
+    
     If Len(strFullName) = 0 Then
         MsgBox Label1.Item(3).Caption & " 不能为空！", vbExclamation
         Text1.Item(3).SetFocus
@@ -984,6 +993,15 @@ Private Sub Command2_Click()
         Text1.Item(2).SetFocus
         Text1.Item(2).SelStart = 0
         Text1.Item(2).SelLength = Len(Text1.Item(2).Text)
+        Exit Sub
+    End If
+    
+    strMsg = gfStringCheck(strPWD)
+    If Len(strMsg) > 0 Then
+        MsgBox Label1.Item(2).Caption & " 不能含有特殊字符【" & strMsg & "】！", vbExclamation
+        Text1.Item(2).SetFocus
+        Text1.Item(2).SelStart = 0
+        Text1.Item(2).SelLength = Len(strPWD)
         Exit Sub
     End If
     

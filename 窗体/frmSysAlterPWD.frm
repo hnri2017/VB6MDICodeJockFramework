@@ -190,6 +190,24 @@ Private Sub Command1_Click()
         Exit Sub
     End If
     
+    strMsg = gfStringCheck(strPwdPre)
+    If Len(strMsg) > 0 Then
+        MsgBox Label1.Item(2).Caption & " 不能含有特殊字符【" & strMsg & "】！", vbExclamation
+        Text1.Item(2).SetFocus
+        Text1.Item(2).SelStart = 0
+        Text1.Item(2).SelLength = Len(strPwdPre)
+        Exit Sub
+    End If
+    
+    strMsg = gfStringCheck(strPwdNew)
+    If Len(strMsg) > 0 Then
+        MsgBox Label1.Item(3).Caption & " 不能含有特殊字符【" & strMsg & "】！", vbExclamation
+        Text1.Item(3).SetFocus
+        Text1.Item(3).SelStart = 0
+        Text1.Item(3).SelLength = Len(strPwdNew)
+        Exit Sub
+    End If
+    
     strSQL = "SELECT UserLoginName ,UserPassword ,UserFullName FROM tb_Test_Sys_User " & _
              "WHERE UserLoginName='" & strULID & "'"
 
