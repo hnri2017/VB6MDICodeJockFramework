@@ -42,6 +42,17 @@ Private Const conPropFontSize As Long = 9
 Private Const conPropForeColor As Long = &H80000008
 Private Const conPropBackColor As Long = &H80000005
 
+'枚举
+Enum AppearanceConstants
+    ucFlat
+    uc3D
+End Enum
+
+Enum BorderStyleConstants
+    ucNone
+    ucFixedSingle
+End Enum
+
 '变量、对象声明
 Private fontProperty As New StdFont
 
@@ -83,11 +94,11 @@ Public Property Let BackColor(newBackColor As OLE_COLOR)
     PropertyChanged "BackColor"
 End Property
 
-Public Property Get BorderStyle() As MSComctlLib.BorderStyleConstants
+Public Property Get BorderStyle() As BorderStyleConstants
     BorderStyle = Text1.BorderStyle
 End Property
 
-Public Property Let BorderStyle(ByVal newBorderStyle As MSComctlLib.BorderStyleConstants)
+Public Property Let BorderStyle(ByVal newBorderStyle As BorderStyleConstants)
     Text1.BorderStyle = newBorderStyle
     PropertyChanged "BorderStyle"
 End Property
@@ -260,9 +271,9 @@ End Sub
 Private Sub UserControl_ReadProperties(PropBag As PropertyBag)
 
     Alignment = PropBag.ReadProperty("Alignment", vbLeftJustify)
-    Appearance = PropBag.ReadProperty("Appearance", cc3D)
+    Appearance = PropBag.ReadProperty("Appearance", uc3D)
     BackColor = PropBag.ReadProperty("BackColor", conPropBackColor)
-    BorderStyle = PropBag.ReadProperty("BorderStyle", ccFixedSingle)
+    BorderStyle = PropBag.ReadProperty("BorderStyle", ucFixedSingle)
     Enabled = PropBag.ReadProperty("Enabled", True)
     Set Font = PropBag.ReadProperty("Font", fontProperty)
     FontSize = PropBag.ReadProperty("FontSize", conPropFontSize)
@@ -285,9 +296,9 @@ End Sub
 Private Sub UserControl_WriteProperties(PropBag As PropertyBag)
     
     PropBag.WriteProperty "Alignment", Alignment, vbLeftJustify
-    PropBag.WriteProperty "Appearance", Appearance, cc3D
+    PropBag.WriteProperty "Appearance", Appearance, uc3D
     PropBag.WriteProperty "BackColor", BackColor, conPropBackColor
-    PropBag.WriteProperty "BorderStyle", BorderStyle, ccFixedSingle
+    PropBag.WriteProperty "BorderStyle", BorderStyle, ucFixedSingle
     PropBag.WriteProperty "Enabled", Enabled, True
     PropBag.WriteProperty "Font", Font, fontProperty
     PropBag.WriteProperty "FontSize", FontSize, conPropFontSize

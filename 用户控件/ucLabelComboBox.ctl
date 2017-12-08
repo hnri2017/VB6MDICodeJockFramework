@@ -41,6 +41,16 @@ Private Const conPropCaption As String = ""
 Private Const conPropBackColor As Long = &H8000000F
 Private Const conPropForeColor As Long = &H80000012
 
+''Ã¶¾Ù
+'Enum AppearanceConstants
+'    ucFlat
+'    uc3D
+'End Enum
+'
+'Enum BorderStyleConstants
+'    ucNone
+'    ucFixedSingle
+'End Enum
 
 '±äÁ¿
 Private mFont As New StdFont
@@ -105,11 +115,11 @@ Public Property Let BackColor(ByVal newBackColor As OLE_COLOR)
     PropertyChanged "BackColor"
 End Property
 
-Public Property Get BorderStyle() As MSComctlLib.BorderStyleConstants
+Public Property Get BorderStyle() As BorderStyleConstants
     BorderStyle = Label1.BorderStyle
 End Property
 
-Public Property Let BorderStyle(ByVal newBackStyle As MSComctlLib.BorderStyleConstants)
+Public Property Let BorderStyle(ByVal newBackStyle As BorderStyleConstants)
     Label1.BorderStyle = newBackStyle
     If AutoSize Then Call msAutoSize
     PropertyChanged "BorderStyle"
@@ -275,10 +285,10 @@ End Sub
 Private Sub UserControl_ReadProperties(PropBag As PropertyBag)
     '
     Alignment = PropBag.ReadProperty("Alignment", vbLeftJustify)
-    Appearance = PropBag.ReadProperty("Appearance", cc3D)
+    Appearance = PropBag.ReadProperty("Appearance", uc3D)
     AutoSize = PropBag.ReadProperty("AutoSize", False)
     BackColor = PropBag.ReadProperty("BackColor", conPropBackColor)
-    BorderStyle = PropBag.ReadProperty("BorderStyle", ccNone)
+    BorderStyle = PropBag.ReadProperty("BorderStyle", ucNone)
     Caption = PropBag.ReadProperty("Caption", conPropCaption)
     Enabled = PropBag.ReadProperty("Enabled", True)
     Set Font = PropBag.ReadProperty("Font", mFont)
@@ -302,10 +312,10 @@ End Sub
 Private Sub UserControl_WriteProperties(PropBag As PropertyBag)
     '
     PropBag.WriteProperty "Alignment", Alignment, vbLeftJustify
-    PropBag.WriteProperty "Appearance", Appearance, cc3D
+    PropBag.WriteProperty "Appearance", Appearance, uc3D
     PropBag.WriteProperty "AutoSize", AutoSize, False
     PropBag.WriteProperty "BackColor", BackColor, conPropBackColor
-    PropBag.WriteProperty "BorderStyle", BorderStyle, ccNone
+    PropBag.WriteProperty "BorderStyle", BorderStyle, ucNone
     PropBag.WriteProperty "Caption", Caption, conPropCaption
     PropBag.WriteProperty "Enabled", Enabled, True
     PropBag.WriteProperty "Font", Font, mFont
