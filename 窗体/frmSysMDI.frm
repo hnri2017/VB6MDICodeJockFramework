@@ -283,59 +283,59 @@ Begin VB.MDIForm frmSysMDI
          EndProperty
          BeginProperty ListImage53 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":1B9D1
-            Key             =   "themeSet"
-            Object.Tag             =   "802"
+            Key             =   "SelectedMen"
          EndProperty
          BeginProperty ListImage54 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":1C623
-            Key             =   "SelectedMen"
-         EndProperty
-         BeginProperty ListImage55 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1D275
             Key             =   "unknown"
          EndProperty
-         BeginProperty ListImage56 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1D37F
+         BeginProperty ListImage55 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1C72D
             Key             =   "SysLog"
             Object.Tag             =   "106"
          EndProperty
-         BeginProperty ListImage57 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1DFD1
+         BeginProperty ListImage56 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1D37F
             Key             =   "SysRole"
             Object.Tag             =   "107"
          EndProperty
-         BeginProperty ListImage58 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1EC23
+         BeginProperty ListImage57 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1DFD1
             Key             =   "RoleSelect"
          EndProperty
-         BeginProperty ListImage59 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1F875
+         BeginProperty ListImage58 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1EC23
             Key             =   "SysFunc"
             Object.Tag             =   "108"
          EndProperty
+         BeginProperty ListImage59 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1F875
+            Key             =   "FuncHead"
+         EndProperty
          BeginProperty ListImage60 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":204C7
-            Key             =   "FuncHead"
+            Key             =   "FuncSelect"
          EndProperty
          BeginProperty ListImage61 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":21119
-            Key             =   "FuncSelect"
+            Key             =   "FuncControl"
          EndProperty
          BeginProperty ListImage62 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":21D6B
-            Key             =   "FuncControl"
+            Key             =   "FuncButton"
          EndProperty
          BeginProperty ListImage63 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":229BD
-            Key             =   "FuncButton"
+            Picture         =   "frmSysMDI.frx":2247D
+            Key             =   "FuncForm"
          EndProperty
          BeginProperty ListImage64 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":230CF
-            Key             =   "FuncForm"
+            Key             =   "FuncMainMenu"
          EndProperty
          BeginProperty ListImage65 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":23D21
-            Key             =   "FuncMainMenu"
+            Picture         =   "frmSysMDI.frx":24C21
+            Key             =   "themeSet"
+            Object.Tag             =   "802"
          EndProperty
       EndProperty
    End
