@@ -20,7 +20,7 @@ Begin VB.Form frmSysLogin
       _ExtentY        =   741
       _Version        =   393216
    End
-   Begin 工程1.ucTextComboBox ucTC 
+   Begin 工程1.TextCombo ucTC 
       Height          =   360
       Left            =   960
       TabIndex        =   0

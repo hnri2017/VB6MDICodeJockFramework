@@ -270,7 +270,7 @@ Begin VB.Form frmForm1
          Left            =   3360
          Top             =   1800
       End
-      Begin 工程1.ucTextComboBox ucTextComboBox1 
+      Begin 工程1.TextCombo ucTextComboBox1 
          Height          =   300
          Left            =   0
          TabIndex        =   1
@@ -289,7 +289,7 @@ Begin VB.Form frmForm1
          EndProperty
          Text            =   "ucTextComboBox1"
       End
-      Begin 工程1.ucLabelComboBox ucLabelComboBox1 
+      Begin 工程1.LabelCombo ucLabelComboBox1 
          Height          =   300
          Left            =   0
          TabIndex        =   2

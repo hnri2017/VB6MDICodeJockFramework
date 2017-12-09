@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.UserControl ucLabelComboBox 
+Begin VB.UserControl LabelCombo 
    ClientHeight    =   3600
    ClientLeft      =   0
    ClientTop       =   0
@@ -23,7 +23,7 @@ Begin VB.UserControl ucLabelComboBox
       Width           =   975
    End
 End
-Attribute VB_Name = "ucLabelComboBox"
+Attribute VB_Name = "LabelCombo"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False

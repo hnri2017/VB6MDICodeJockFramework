@@ -1,5 +1,5 @@
 VERSION 5.00
-Begin VB.UserControl ucTextComboBox 
+Begin VB.UserControl TextCombo 
    ClientHeight    =   1890
    ClientLeft      =   0
    ClientTop       =   0
@@ -24,7 +24,7 @@ Begin VB.UserControl ucTextComboBox
       Width           =   975
    End
 End
-Attribute VB_Name = "ucTextComboBox"
+Attribute VB_Name = "TextCombo"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False

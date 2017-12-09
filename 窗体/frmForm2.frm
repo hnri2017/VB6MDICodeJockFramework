@@ -10,7 +10,7 @@ Begin VB.Form frmForm2
    ScaleHeight     =   5430
    ScaleWidth      =   9000
    WindowState     =   2  'Maximized
-   Begin 工程1.ucLabelComboBox ucLabelComboBox1 
+   Begin 工程1.LabelCombo ucLabelComboBox1 
       Height          =   405
       Left            =   360
       TabIndex        =   2
@@ -30,7 +30,7 @@ Begin VB.Form frmForm2
       EndProperty
       ForeColor       =   192
    End
-   Begin 工程1.ucTextComboBox ucTextComboBox1 
+   Begin 工程1.TextCombo ucTextComboBox1 
       Height          =   360
       Left            =   360
       TabIndex        =   1
