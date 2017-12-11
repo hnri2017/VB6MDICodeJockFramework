@@ -192,6 +192,11 @@ Public Sub AddItem(Item As String, Optional ByVal Index As Long = -1)
     
 End Sub
 
+Public Sub Clear()
+    Combo1.Clear
+End Sub
+
+
 
 
 '子控件事件
@@ -255,7 +260,7 @@ Private Sub UserControl_InitProperties()
     '在自定义容器窗体中遍历所有自定义控件，
     '找到最后一个自定义控件，获取其Name值即可
     For Each ctlUC In UserControl.Parent.Controls
-        If TypeOf ctlUC Is ucTextComboBox Then
+        If TypeOf ctlUC Is TextCombo Then
             strName = ctlUC.Name
         End If
     Next

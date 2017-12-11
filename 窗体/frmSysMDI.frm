@@ -514,9 +514,9 @@ Private Sub msAddAction()
         
         
         .Add gID.TestWindow, "测试窗口菜单", "", "", "测试窗口"
-        .Add gID.TestWindowFirst, "测试窗口一", "", "", "frmForm1"
-        .Add gID.TestWindowSecond, "测试窗口二", "", "", "frmForm2"
-        .Add gID.TestWindowThird, "测试窗口三", "", "", "frmForm3"
+        .Add gID.TestWindowFirst, "测试窗口一", "", "", ""
+        .Add gID.TestWindowSecond, "测试窗口二", "", "", ""
+        .Add gID.TestWindowThird, "测试窗口三", "", "", ""
         .Add gID.TestWindowThour, "测试窗口四", "", "", "frmForm4"
         
         .Add gID.Wnd, "窗口", "", "", "窗口"
@@ -630,6 +630,7 @@ Private Sub msAddAction()
     '******不需要控制权限的窗口******
     mcbsActions(gID.SysModifyPassword).Enabled = True
     mcbsActions(gID.WndThemeSkinSet).Enabled = True
+    mcbsActions(gID.TestWindowThour).Enabled = True
     
     '风格系列的mcbsActions的两个属性的描述补充
     For mlngID = gID.WndThemeCommandBarsOffice2000 To gID.WndThemeCommandBarsWinXP

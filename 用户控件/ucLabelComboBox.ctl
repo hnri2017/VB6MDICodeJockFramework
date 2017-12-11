@@ -197,10 +197,7 @@ End Property
 
 
 
-
-
-
-'控件方法
+'添加方法
 Public Sub AddItem(ByVal Item As String, Optional ByVal Index As Long = -1)
     
     Dim lngLC As Long
@@ -213,6 +210,10 @@ Public Sub AddItem(ByVal Item As String, Optional ByVal Index As Long = -1)
         .AddItem Item, Index
     End With
     
+End Sub
+
+Public Sub Clear()
+    Combo1.Clear
 End Sub
 
 
@@ -273,7 +274,7 @@ Private Sub UserControl_InitProperties()
     Dim strName As String
     
     For Each ctlUC In UserControl.Parent.Controls
-        If TypeOf ctlUC Is ucLabelComboBox Then
+        If TypeOf ctlUC Is LabelCombo Then
             strName = ctlUC.Name
         End If
     Next
