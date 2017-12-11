@@ -1088,12 +1088,22 @@ Private Sub msLeftClick(ByVal CID As Long)
                 frmSysLogin.Text1.Text = strPWD
             Case .SysExit
                 Unload Me
+            Case .HelpAbout
+                Dim strAbout As String
+                strAbout = "名称：" & App.Title & vbCrLf & _
+                           "版本：" & App.Major & "." & App.Minor & "." & App.Revision & vbCrLf & _
+                           "版权所有：WZD_XMH"
+                MsgBox strAbout, vbInformation, "关于" & App.Title
             Case .SysOutToExcel
                 If MsgBox("确定将当前表格内容导出为Excel文件吗？", vbQuestion + vbOKCancel, "导出询问") = vbOK Then Call gsGridToExcel(ActiveForm.ActiveControl)
             Case .SysOutToText
                 If MsgBox("确定将当前表格内容导出为文本文件吗？", vbQuestion + vbOKCancel, "导出询问") = vbOK Then Call gsGridToText(ActiveForm.ActiveControl)
             Case .SysOutToWord
                 If MsgBox("确定将当前表格内容导出为Word文档吗？", vbQuestion + vbOKCancel, "导出询问") = vbOK Then Call gsGridToWord(ActiveForm.ActiveControl)
+            Case .SysPrint
+                If MsgBox("确定打印当前表格内容吗？", vbQuestion + vbOKCancel, "打印询问") = vbOK Then Call gsGridPrint(ActiveForm.ActiveControl)
+            Case .SysPrintPreview
+                If MsgBox("确定预览当前表格内容吗？", vbQuestion + vbOKCancel, "打印预览询问") = vbOK Then Call gsGridPrintPreview(ActiveForm.ActiveControl)
             Case .SysSearch3Button
                 Call msSearchWindow
             Case .SysSearch5Go, .SysSearch4ListBoxCaption
@@ -1116,9 +1126,6 @@ Private Sub msLeftClick(ByVal CID As Long)
                                     Call msWindowNameAdd(strKey)        '保存已打开窗口的数量
                                 End If
                         End Select
-
-                    Else
-                        MsgBox "对不起，您目前没有权限打开该窗口！", vbExclamation, "窗口权限警告"
                     End If
                 Else
                     MsgBox "【" & mcbsActions(CID).Caption & "】命令未定义！", vbExclamation, "命令警告"
@@ -1469,8 +1476,6 @@ Private Sub cBS_Update(ByVal Control As XtremeCommandBars.ICommandBarControl)
             End If
             
             blnResult = blnActForm And blnActCtrl And blnGrid
-            
-'''            Control.Enabled = blnResult
             mcbsActions(Control.Id).Enabled = blnResult
             
         Case Else
@@ -1505,6 +1510,7 @@ Private Sub MDIForm_Load()
 '''    Debug.Print Screen.TwipsPerPixelX, Screen.TwipsPerPixelY    '返回水平与垂直度量的对象的每一像素中的缇数。测试结果：1像素=15缇
 '''    Me.Width = 15360    '设置窗口大小1024*768像素
 '''    Me.Height = 11520
+    Me.Caption = App.Title
     
     CommandBarsGlobalSettings.App = App
     

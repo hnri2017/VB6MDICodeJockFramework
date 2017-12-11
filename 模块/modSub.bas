@@ -4,6 +4,7 @@ Option Explicit
 
 Public Sub Main()
     
+    App.Title = "VB6+Codejock"
     Set gMDI = frmSysMDI    '初始化主窗体引用全局变量
 
     With gID
@@ -171,7 +172,7 @@ Public Sub Main()
     Call gMDI.gmsThemeSkinSet(gID.SkinPath, gID.SkinIni)
 
     frmSysLogin.Show    '显示登陆窗口
-    
+
 End Sub
 
 
@@ -307,6 +308,30 @@ Public Sub gsFormScrollBar(ByRef frmCur As Form, ByRef ctlMv As Control, _
 
 End Sub
 
+Public Sub gsGridPrint(ByRef gridControl As Control)
+    '打印表格内容
+    
+    Dim blnFlexCell As Boolean
+    
+    If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
+    
+    
+End Sub
+
+Public Sub gsGridPrintPreview(ByRef gridControl As FlexCell.Grid)   'Control
+    '预览表格内容
+    
+    Dim blnFlexCell As Boolean
+    Dim blnVSGrid As Boolean
+    
+    If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
+    If TypeOf gridControl Is VSFlex8Ctl.VSFlexGrid Then blnVSGrid = True
+    
+    If blnFlexCell Then
+        gridControl.PrintPreview
+    End If
+    
+End Sub
 
 Public Sub gsGridToExcel(ByRef gridControl As Control, Optional ByVal TimeCol As Long = -1, Optional ByVal TimeStyle As String = "yyyy-MM-dd HH:mm:ss")  '导出至Excel
     '将表格控件中的内容导出至Excel中
