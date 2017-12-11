@@ -38,6 +38,7 @@ Begin VB.Form frmSysLogin
          Strikethrough   =   0   'False
       EndProperty
       FontSize        =   12
+      Locked          =   0   'False
    End
    Begin VB.TextBox Text1 
       BeginProperty Font 
