@@ -32,6 +32,47 @@ Begin VB.Form frmForm4
       TabIndex        =   0
       Top             =   120
       Width           =   9495
+      Begin 工程1.LabelCombo LabelCombo1 
+         Height          =   300
+         Left            =   4800
+         TabIndex        =   14
+         Top             =   150
+         Width           =   1575
+         _ExtentX        =   2778
+         _ExtentY        =   529
+         Alignment       =   1
+         Caption         =   "LabelCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   255
+      End
+      Begin 工程1.TextCombo TextCombo1 
+         Height          =   300
+         Left            =   6480
+         TabIndex        =   13
+         Top             =   120
+         Width           =   1815
+         _ExtentX        =   3201
+         _ExtentY        =   529
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   16711680
+         Text            =   "TextCombo1"
+      End
       Begin VB.CommandButton Command3 
          Caption         =   "访问表"
          Height          =   495
@@ -77,9 +118,9 @@ Begin VB.Form frmForm4
       Begin VB.CommandButton Command4 
          Caption         =   "进度条测试"
          Height          =   495
-         Left            =   6600
+         Left            =   5400
          TabIndex        =   6
-         Top             =   240
+         Top             =   720
          Width           =   1215
       End
       Begin VB.TextBox Text1 
@@ -170,18 +211,29 @@ End Sub
 Private Sub Command3_Click()
     Dim strSQL As String, strPWD As String
     Dim rsT As ADODB.Recordset
+    Dim I As Long, J As Long
     
-    strSQL = "SELECT * FROM tb_Test_User"
+    strSQL = "SELECT * FROM tb_Test_sys_User"
     Set rsT = gfBackRecordset(strSQL)
     
     If rsT.State = adStateOpen Then
         If rsT.RecordCount > 0 Then
-            While Not rsT.EOF
-                
-                
-                rsT.MoveNext
-            Wend
-          
+            With Grid1
+                .Rows = rsT.RecordCount + 1
+                .Cols = rsT.Fields.Count + 1
+                For J = 0 To .Cols - 2
+                    .Cell(0, J + 1).Text = rsT.Fields(J).Name
+                Next
+                I = 1
+                While Not rsT.EOF
+                    .Cell(I, 0).Text = I
+                    For J = 0 To .Cols - 2
+                        .Cell(I, J + 1).Text = rsT.Fields(J) & ""
+                    Next
+                    rsT.MoveNext
+                    I = I + 1
+                Wend
+            End With
         End If
         rsT.Close
     End If
@@ -244,6 +296,23 @@ End Sub
 
 Private Sub Form_Load()
     Me.WindowState = vbMaximized
+    With LabelCombo1
+        .Clear
+        .AddItem "姓名"
+        .AddItem "籍贯"
+        .AddItem "身份证号码"
+        .AddItem "手机"
+        .ListIndex = 0
+    End With
+    
+    With TextCombo1
+        .Clear
+        .AddItem "小明"
+        .AddItem "13588382351"
+        .AddItem "235701198812103457"
+        .AddItem "广东"
+        .ListIndex = 0
+    End With
 End Sub
 
 Private Sub Form_Resize()

@@ -17,7 +17,7 @@ Begin VB.UserControl LabelCombo
    Begin VB.Label Label1 
       Caption         =   "用户控件"
       Height          =   300
-      Left            =   600
+      Left            =   720
       TabIndex        =   0
       Top             =   840
       Width           =   975
@@ -260,7 +260,8 @@ End Sub
 
 '用户控件事件
 Private Sub UserControl_Initialize()
-    '
+    
+    mblnLocked = True
     Label1.Move 0, 0
     Combo1.Move 0, 0
     Combo1.Visible = False

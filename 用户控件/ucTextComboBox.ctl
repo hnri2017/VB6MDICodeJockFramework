@@ -55,6 +55,7 @@ End Enum
 
 '变量、对象声明
 Private fontProperty As New StdFont
+Private mblnLocked As Boolean
 
 
 '事件声明
@@ -155,13 +156,22 @@ Public Property Get ListCount() As Long
 End Property
 
 Public Property Get ListIndex() As Long
-Attribute ListIndex.VB_MemberFlags = "40"
+Attribute ListIndex.VB_MemberFlags = "400"
     ListIndex = Combo1.ListIndex
 End Property
 
 Public Property Let ListIndex(ByVal newListIndex As Long)
     Combo1.ListIndex = newListIndex
     Text1.Text = Combo1.Text
+End Property
+
+Public Property Get Locked() As Boolean
+    Locked = mblnLocked
+End Property
+
+Public Property Let Locked(ByVal newLocked As Boolean)
+    mblnLocked = newLocked
+    PropertyChanged "Locked"
 End Property
 
 Public Property Get Text() As String
@@ -207,7 +217,7 @@ End Sub
 Private Sub Combo1_Click()
     Text1.Text = Combo1.Text
     Text1.ZOrder
-    Text1.SetFocus
+    If Text1.Visible Then Text1.SetFocus
     Text1.SelStart = Len(Combo1.Text)
     
     RaiseEvent ClickDropDown
@@ -216,6 +226,10 @@ End Sub
 
 Private Sub Combo1_DropDown()
     RaiseEvent DropDown
+End Sub
+
+Private Sub Combo1_KeyPress(KeyAscii As Integer)
+    If Locked Then KeyAscii = 0
 End Sub
 
 Private Sub Combo1_LostFocus()
@@ -245,7 +259,8 @@ End Sub
 
 '用户控件事件
 Private Sub UserControl_Initialize()
-    
+
+    mblnLocked = True
     Text1.Move 0, 0
     Combo1.Move 0, 0
     Text1.ZOrder
@@ -283,6 +298,7 @@ Private Sub UserControl_ReadProperties(PropBag As PropertyBag)
     Set Font = PropBag.ReadProperty("Font", fontProperty)
     FontSize = PropBag.ReadProperty("FontSize", conPropFontSize)
     ForeColor = PropBag.ReadProperty("ForeColor", conPropForeColor)
+    Locked = PropBag.ReadProperty("Locked", True)
     Text = PropBag.ReadProperty("Text", conPropText)
     
 End Sub
@@ -308,6 +324,7 @@ Private Sub UserControl_WriteProperties(PropBag As PropertyBag)
     PropBag.WriteProperty "Font", Font, fontProperty
     PropBag.WriteProperty "FontSize", FontSize, conPropFontSize
     PropBag.WriteProperty "ForeColor", ForeColor, conPropForeColor
+    PropBag.WriteProperty "Locked", Locked, True
     PropBag.WriteProperty "Text", Text, conPropText
 
 End Sub
