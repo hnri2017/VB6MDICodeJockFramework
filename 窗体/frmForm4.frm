@@ -2,14 +2,14 @@ VERSION 5.00
 Object = "{E08BA07E-6463-4EAB-8437-99F08000BAD9}#1.9#0"; "FlexCell.ocx"
 Begin VB.Form frmForm4 
    Caption         =   "²âÊÔ´°¿Ú4"
-   ClientHeight    =   6660
+   ClientHeight    =   6975
    ClientLeft      =   120
    ClientTop       =   450
-   ClientWidth     =   9555
+   ClientWidth     =   10815
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   6660
-   ScaleWidth      =   9555
+   ScaleHeight     =   6975
+   ScaleWidth      =   10815
    Begin VB.VScrollBar Vsb 
       Height          =   6255
       Left            =   9000
@@ -120,8 +120,8 @@ Begin VB.Form frmForm4
       Begin VB.Timer timeProgress 
          Enabled         =   0   'False
          Interval        =   10
-         Left            =   1800
-         Top             =   0
+         Left            =   6840
+         Top             =   720
       End
       Begin VB.CommandButton Command8 
          Caption         =   "GridToExcel"
@@ -253,6 +253,9 @@ Private Sub Command3_Click()
                     rsT.MoveNext
                     I = I + 1
                 Wend
+                For J = 0 To .Cols - 1
+                    .Column(J).AutoFit
+                Next
             End With
         End If
         rsT.Close
@@ -290,17 +293,24 @@ Private Sub Command6_Click()
 End Sub
 
 Private Sub Command7_Click()
-    Dim I As Long
+    Dim I As Long, J As Long
     With Grid1
         .Rows = 11
         .Cols = 6
         .Range(1, 1, .Rows - 1, .Cols - 1).ClearText
-        .BackColor2 = vbCyan
         For I = 1 To .Rows - 1
             .Cell(I, 0).Text = I
         Next
         For I = 1 To .Cols - 1
             .Cell(0, I).Text = Chr(64 + I)
+        Next
+        For I = 1 To .Rows - 1
+            For J = 1 To .Cols - 1
+                .Cell(I, J).Text = CStr(I) & "*" & CStr(J) & "=" & CStr(I * J)
+            Next
+        Next
+        For J = 0 To .Cols - 1
+            .Column(J).AutoFit
         Next
     End With
     
@@ -341,6 +351,13 @@ Private Sub Form_Load()
         .AddItem "¹ã¶«"
         .ListIndex = 0
     End With
+    
+    With Grid1
+        .BackColor2 = RGB(245, 245, 230)
+        
+        
+    End With
+    
 End Sub
 
 Private Sub Form_Resize()

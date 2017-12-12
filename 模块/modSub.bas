@@ -318,7 +318,7 @@ Public Sub gsGridPrint(ByRef gridControl As Control)
     
 End Sub
 
-Public Sub gsGridPrintPreview(ByRef gridControl As FlexCell.Grid)   'Control
+Public Sub gsGridPrintPreview(ByRef gridControl As Control)   'FlexCell.Grid
     '‘§¿¿±Ì∏Òƒ⁄»›
     
     Dim blnFlexCell As Boolean
