@@ -12,24 +12,14 @@ Begin VB.Form frmSysPageSet
    MinButton       =   0   'False
    ScaleHeight     =   4515
    ScaleWidth      =   6720
-   StartUpPosition =   3  '窗口缺省
+   StartUpPosition =   1  '所有者中心
    Begin VB.Frame Frame1 
-      Caption         =   "Frame1"
-      Height          =   1815
-      Index           =   1
-      Left            =   240
-      TabIndex        =   5
-      Top             =   1320
-      Width           =   4215
-   End
-   Begin VB.Frame Frame1 
-      Caption         =   "Frame1"
-      Height          =   1815
+      Height          =   3615
       Index           =   0
-      Left            =   2160
+      Left            =   120
       TabIndex        =   4
-      Top             =   360
-      Width           =   4215
+      Top             =   400
+      Width           =   6495
    End
    Begin VB.CommandButton Command1 
       Caption         =   "确定"
@@ -95,38 +85,56 @@ Attribute VB_Exposed = False
 Option Explicit
 
 
+Private Sub msApplyFCGrid(ByRef FCGrid As FlexCell.Grid)
+    'FlexCellGrid页面设置保存
+    
+End Sub
 
 Private Sub msApplyPageSet()
     '保存页面设置结果
     
-    Dim gridSet As FlexCell.Grid '用 FlexCell.Grid 方便编程，编完后改为 Control
+    Dim gridSet As Control
     
     Set gridSet = frmSysMDI.ActiveForm.ActiveControl
     If (Not gridSet Is Nothing) And (TypeOf gridSet Is FlexCell.Grid) Then
-        With gridSet.PageSetup
-            
-        End With
+        Call msApplyFCGrid(gridSet)
+    ElseIf (Not gridSet Is Nothing) And (TypeOf gridSet Is VSFlex8Ctl.VSFlexGrid) Then
+        Call msApplyVSGrid(gridSet)
     Else
         MsgBox "进行【" & Me.Caption & "】的窗口检测异常，请退出该窗口后重试！", vbExclamation
     End If
     
 End Sub
 
+Private Sub msApplyVSGrid(ByRef VSGrid As VSFlex8Ctl.VSFlexGrid)
+    'VSFlexGrid页面设置保存
+    
+End Sub
+
+Private Sub msLoadFCGrid(ByRef FCGrid As FlexCell.Grid)
+    '加载FlexCell Grid页面设置
+    
+End Sub
+
 Private Sub msLoadPageSet()
     '加载页面设置
     
-    
-    Dim gridSet As FlexCell.Grid '用 FlexCell.Grid 方便编程，编完后改为 Control
+    Dim gridSet As Control
     
     Set gridSet = frmSysMDI.ActiveForm.ActiveControl
     If (Not gridSet Is Nothing) And (TypeOf gridSet Is FlexCell.Grid) Then
-        With gridSet.PageSetup
-            
-        End With
+        Call msLoadFCGrid(gridSet)
+    ElseIf (Not gridSet Is Nothing) And (TypeOf gridSet Is VSFlex8Ctl.VSFlexGrid) Then
+        Call msLoadVSGrid(gridSet)
     Else
         MsgBox "进行【" & Me.Caption & "】的窗口检测异常，请重试！", vbExclamation
         Unload Me
     End If
+    
+End Sub
+
+Private Sub msLoadVSGrid(ByRef VSGrid As VSFlex8Ctl.VSFlexGrid)
+    '加载VSFlexGrid页面设置
     
 End Sub
 
@@ -145,11 +153,8 @@ Private Sub Command1_Click(Index As Integer)
 End Sub
 
 Private Sub Form_Load()
-    
+        
     Call msLoadPageSet
     
 End Sub
 
-Private Sub TabStrip1_Click()
-    
-End Sub

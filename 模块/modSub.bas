@@ -22,8 +22,9 @@ Public Sub Main()
         .SysOutToExcel = 120
         .SysOutToText = 121
         .SysOutToWord = 122
-        .SysPrint = 123
-        .SysPrintPreview = 124
+        .SysPageSet = 123
+        .SysPrint = 124
+        .SysPrintPreview = 125
         
         .SysSearch = 110
         .SysSearch1Label = 111
@@ -308,28 +309,75 @@ Public Sub gsFormScrollBar(ByRef frmCur As Form, ByRef ctlMv As Control, _
 
 End Sub
 
-Public Sub gsGridPrint(ByRef gridControl As Control)
-    '打印表格内容
+Public Sub gsGridPageSet()
+    '打印页面设置
     
-    Dim blnFlexCell As Boolean
-    
-    If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
-    
-    
-End Sub
-
-Public Sub gsGridPrintPreview(ByRef gridControl As Control)   'FlexCell.Grid
-    '预览表格内容
-    
+    Dim gridControl As Control
     Dim blnFlexCell As Boolean
     Dim blnVSGrid As Boolean
     
+    If gMDI.ActiveForm Is Nothing Then GoTo LineBreak
+    If gMDI.ActiveForm.ActiveControl Is Nothing Then GoTo LineBreak
+    
+    Set gridControl = frmSysMDI.ActiveForm.ActiveControl
+    If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
+    If TypeOf gridControl Is VSFlex8Ctl.VSFlexGrid Then blnVSGrid = True
+    
+    If blnFlexCell Or blnVSGrid Then
+        frmSysPageSet.Show vbModal
+    Else
+        GoTo LineBreak
+    End If
+        
+    Exit Sub
+
+LineBreak:
+    MsgBox "页面设置检测异常，请重试！", vbExclamation
+    
+End Sub
+
+Public Sub gsGridPrint()
+    '打印表格内容
+    
+    Call gsGridPrintPreview
+    
+End Sub
+
+Public Sub gsGridPrintPreview()
+    '预览表格内容
+    
+    Dim gridControl As Control
+    Dim blnFlexCell As Boolean
+    Dim blnVSGrid As Boolean
+    
+    If gMDI.ActiveForm Is Nothing Then GoTo LineBreak
+    If gMDI.ActiveForm.ActiveControl Is Nothing Then GoTo LineBreak
+    
+    Set gridControl = frmSysMDI.ActiveForm.ActiveControl
     If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
     If TypeOf gridControl Is VSFlex8Ctl.VSFlexGrid Then blnVSGrid = True
     
     If blnFlexCell Then
-        gridControl.PrintPreview
+        With gridControl
+            With .PageSetup
+                .PrintFixedColumn = True
+                .PrintFixedRow = True
+                .PrintGridlines = True
+                .Footer = "第 &p 页 共 &n 页"
+                .FooterAlignment = cellCenter
+            End With
+            .PrintPreview
+        End With
+    ElseIf blnVSGrid Then
+        frmSysVSPreview.Show vbModal
+    Else
+        GoTo LineBreak
     End If
+        
+    Exit Sub
+
+LineBreak:
+    MsgBox "预览页面检测异常，请重试！", vbExclamation
     
 End Sub
 

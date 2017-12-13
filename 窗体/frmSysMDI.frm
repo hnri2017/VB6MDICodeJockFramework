@@ -24,7 +24,7 @@ Begin VB.MDIForm frmSysMDI
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   65
+         NumListImages   =   66
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":068A
             Key             =   "cNativeWinXP"
@@ -212,128 +212,133 @@ Begin VB.MDIForm frmSysMDI
          EndProperty
          BeginProperty ListImage38 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":113AB
-            Key             =   "SysSearche"
+            Key             =   "SysSearch"
             Object.Tag             =   "113"
          EndProperty
          BeginProperty ListImage39 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "frmSysMDI.frx":114BD
-            Key             =   "SysPreview"
-            Object.Tag             =   "124"
-         EndProperty
-         BeginProperty ListImage40 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1210F
-            Key             =   "SysPrint"
+            Key             =   "SysPageSet"
             Object.Tag             =   "123"
          EndProperty
+         BeginProperty ListImage40 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":11C0F
+            Key             =   "SysPreview"
+            Object.Tag             =   "125"
+         EndProperty
          BeginProperty ListImage41 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":12D61
+            Picture         =   "frmSysMDI.frx":12861
+            Key             =   "SysPrint"
+            Object.Tag             =   "124"
+         EndProperty
+         BeginProperty ListImage42 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":134B3
             Key             =   "SysGo"
             Object.Tag             =   "116"
          EndProperty
-         BeginProperty ListImage42 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":13A3B
+         BeginProperty ListImage43 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1418D
             Key             =   "SysExit"
             Object.Tag             =   "101"
          EndProperty
-         BeginProperty ListImage43 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":14715
+         BeginProperty ListImage44 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":14E67
             Key             =   "SysRelogin"
             Object.Tag             =   "103"
          EndProperty
-         BeginProperty ListImage44 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":153EF
+         BeginProperty ListImage45 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":15B41
             Key             =   "SysCompany"
          EndProperty
-         BeginProperty ListImage45 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":16041
+         BeginProperty ListImage46 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":16793
             Key             =   "SysDepartment"
             Object.Tag             =   "104"
          EndProperty
-         BeginProperty ListImage46 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":16C93
+         BeginProperty ListImage47 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":173E5
             Key             =   "threemen"
          EndProperty
-         BeginProperty ListImage47 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":178E5
+         BeginProperty ListImage48 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":18037
             Key             =   "SysUser"
             Object.Tag             =   "105"
          EndProperty
-         BeginProperty ListImage48 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":18537
+         BeginProperty ListImage49 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":18C89
             Key             =   "man"
          EndProperty
-         BeginProperty ListImage49 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":19189
+         BeginProperty ListImage50 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":198DB
             Key             =   "woman"
          EndProperty
-         BeginProperty ListImage50 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":19DDB
+         BeginProperty ListImage51 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1A52D
             Key             =   "SysPassword"
             Object.Tag             =   "102"
          EndProperty
-         BeginProperty ListImage51 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1AA2D
+         BeginProperty ListImage52 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1B17F
             Key             =   ""
             Object.Tag             =   "902"
          EndProperty
-         BeginProperty ListImage52 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1AD7F
+         BeginProperty ListImage53 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1B4D1
             Key             =   "themes"
             Object.Tag             =   "801"
          EndProperty
-         BeginProperty ListImage53 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1B9D1
+         BeginProperty ListImage54 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1C123
             Key             =   "SelectedMen"
          EndProperty
-         BeginProperty ListImage54 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1C623
+         BeginProperty ListImage55 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1CD75
             Key             =   "unknown"
          EndProperty
-         BeginProperty ListImage55 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1C72D
+         BeginProperty ListImage56 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1CE7F
             Key             =   "SysLog"
             Object.Tag             =   "106"
          EndProperty
-         BeginProperty ListImage56 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1D37F
+         BeginProperty ListImage57 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1DAD1
             Key             =   "SysRole"
             Object.Tag             =   "107"
          EndProperty
-         BeginProperty ListImage57 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1DFD1
+         BeginProperty ListImage58 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1E723
             Key             =   "RoleSelect"
          EndProperty
-         BeginProperty ListImage58 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1EC23
+         BeginProperty ListImage59 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1F375
             Key             =   "SysFunc"
             Object.Tag             =   "108"
          EndProperty
-         BeginProperty ListImage59 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":1F875
+         BeginProperty ListImage60 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":1FFC7
             Key             =   "FuncHead"
          EndProperty
-         BeginProperty ListImage60 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":204C7
+         BeginProperty ListImage61 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":20C19
             Key             =   "FuncSelect"
          EndProperty
-         BeginProperty ListImage61 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":21119
+         BeginProperty ListImage62 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":2186B
             Key             =   "FuncControl"
          EndProperty
-         BeginProperty ListImage62 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":21D6B
+         BeginProperty ListImage63 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":224BD
             Key             =   "FuncButton"
          EndProperty
-         BeginProperty ListImage63 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":2247D
+         BeginProperty ListImage64 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":22BCF
             Key             =   "FuncForm"
          EndProperty
-         BeginProperty ListImage64 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":230CF
+         BeginProperty ListImage65 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":23821
             Key             =   "FuncMainMenu"
          EndProperty
-         BeginProperty ListImage65 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "frmSysMDI.frx":24C21
+         BeginProperty ListImage66 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmSysMDI.frx":25373
             Key             =   "themeSet"
             Object.Tag             =   "802"
          EndProperty
@@ -395,7 +400,7 @@ Begin VB.MDIForm frmSysMDI
       _ExtentX        =   635
       _ExtentY        =   635
       _StockProps     =   0
-      Icons           =   "frmSysMDI.frx":25873
+      Icons           =   "frmSysMDI.frx":25FC5
    End
    Begin XtremeSkinFramework.SkinFramework skinFW 
       Left            =   3720
@@ -500,6 +505,7 @@ Private Sub msAddAction()
         .Add gID.SysOutToExcel, "导出至Excel", "", "", ""
         .Add gID.SysOutToText, "导出至记事本", "", "", ""
         .Add gID.SysOutToWord, "导出至Word", "", "", ""
+        .Add gID.SysPageSet, "打印页面设置", "", "", "frmSysPageSet"
         .Add gID.SysPrint, "打印…", "", "", ""
         .Add gID.SysPrintPreview, "打印预览", "", "", ""
         
@@ -730,9 +736,10 @@ Private Sub msAddMenu()
         .Add xtpControlButton, gID.SysOutToText, ""
         .Add xtpControlButton, gID.SysOutToWord, ""
         
-        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysPrint, "")
+        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysPageSet, "")
         cbsMenuCtrl.BeginGroup = True
         .Add xtpControlButton, gID.SysPrintPreview, ""
+        .Add xtpControlButton, gID.SysPrint, ""
                 
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysReLogin, "")
         cbsMenuCtrl.BeginGroup = True
@@ -1101,9 +1108,11 @@ Private Sub msLeftClick(ByVal CID As Long)
             Case .SysOutToWord
                 If MsgBox("确定将当前表格内容导出为Word文档吗？", vbQuestion + vbOKCancel, "导出询问") = vbOK Then Call gsGridToWord(ActiveForm.ActiveControl)
             Case .SysPrint
-                If MsgBox("确定打印当前表格内容吗？", vbQuestion + vbOKCancel, "打印询问") = vbOK Then Call gsGridPrint(ActiveForm.ActiveControl)
+                If MsgBox("确定打印当前表格内容吗？", vbQuestion + vbOKCancel, "打印询问") = vbOK Then Call gsGridPrint
             Case .SysPrintPreview
-                If MsgBox("确定预览当前表格内容吗？", vbQuestion + vbOKCancel, "打印预览询问") = vbOK Then Call gsGridPrintPreview(ActiveForm.ActiveControl)
+                Call gsGridPrintPreview
+            Case .SysPageSet
+                Call gsGridPageSet
             Case .SysSearch3Button
                 Call msSearchWindow
             Case .SysSearch5Go, .SysSearch4ListBoxCaption

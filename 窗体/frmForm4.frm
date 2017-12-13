@@ -32,22 +32,6 @@ Begin VB.Form frmForm4
       TabIndex        =   0
       Top             =   120
       Width           =   9495
-      Begin VB.CommandButton Command6 
-         Caption         =   "¥Ú”°"
-         Height          =   495
-         Left            =   1320
-         TabIndex        =   16
-         Top             =   5160
-         Width           =   1095
-      End
-      Begin VB.CommandButton Command5 
-         Caption         =   "‘§¿¿"
-         Height          =   495
-         Left            =   1320
-         TabIndex        =   15
-         Top             =   4440
-         Width           =   1095
-      End
       Begin π§≥Ã1.LabelCombo LabelCombo1 
          Height          =   300
          Left            =   4800
@@ -282,14 +266,6 @@ Private Sub Command4_Click()
         DoEvents
     Next
     
-End Sub
-
-Private Sub Command5_Click()
-    Call gsGridPrintPreview(Grid1)
-End Sub
-
-Private Sub Command6_Click()
-    Call gsGridPrint(Grid1)
 End Sub
 
 Private Sub Command7_Click()

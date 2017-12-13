@@ -30,6 +30,7 @@ Public Type gtypCommandBarID
     SysRole As Long
     SysFunc As Long
     
+    SysPageSet As Long
     SysPrint As Long
     SysPrintPreview As Long
     SysOutToExcel As Long
