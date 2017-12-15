@@ -1,25 +1,22 @@
 VERSION 5.00
 Object = "{54850C51-14EA-4470-A5E4-8C5DB32DC853}#1.0#0"; "vsprint8.ocx"
 Begin VB.Form frmSysVSPreview 
-   BorderStyle     =   3  'Fixed Dialog
    Caption         =   "¥Ú”°‘§¿¿"
-   ClientHeight    =   5550
-   ClientLeft      =   45
-   ClientTop       =   375
-   ClientWidth     =   10080
+   ClientHeight    =   1650
+   ClientLeft      =   120
+   ClientTop       =   450
+   ClientWidth     =   5550
    LinkTopic       =   "Form1"
-   MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   5550
-   ScaleWidth      =   10080
-   ShowInTaskbar   =   0   'False
+   ScaleHeight     =   1650
+   ScaleWidth      =   5550
    StartUpPosition =   3  '¥∞ø⁄»± °
    WindowState     =   2  'Maximized
    Begin VSPrinter8LibCtl.VSPrinter VP 
       Height          =   1095
-      Left            =   1560
+      Left            =   360
       TabIndex        =   0
-      Top             =   1560
+      Top             =   240
       Width           =   4575
       _cx             =   8070
       _cy             =   1931
@@ -126,6 +123,10 @@ Private Sub Form_Load()
     
     Dim gridCtl As Control
     
+        
+    Me.Caption = gMDI.cBS.Actions(gID.SysPrintPreview).Caption
+    Me.Icon = gMDI.imgListCommandBars.ListImages("SysPreview").Picture
+    
     If frmSysMDI.ActiveForm Is Nothing Then GoTo LineBreak
     If frmSysMDI.ActiveForm.ActiveControl Is Nothing Then GoTo LineBreak
      
@@ -135,8 +136,8 @@ Private Sub Form_Load()
     With VP
         .ShowGuides = gdShow
         .Navigation = vpnvAll
-        .StartDoc
         .PrintDialog pdPageSetup
+        .StartDoc
         .RenderControl = gridCtl.hwnd
         .EndDoc
     End With

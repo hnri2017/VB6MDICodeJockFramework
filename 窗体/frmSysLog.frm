@@ -187,7 +187,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   92733441
+            Format          =   93585409
             CurrentDate     =   42628
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -200,7 +200,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   92733441
+            Format          =   93585409
             CurrentDate     =   42628
          End
          Begin VB.Label Label1 
@@ -424,7 +424,9 @@ Private Sub Command1_Click()
             strDateA & "','" & strDateB & "','','" & strMen & "'"
 
     Set rsLog = gfBackRecordset(strSQL)
-
+    If rsLog.State = adStateOpen Then
+        If rsLog.RecordCount = 0 Then MsgBox "没有符合条件的内容！", vbExclamation, "空值反馈"
+    End If
     lngPageCur = 1
     
     Call msShowValue
@@ -639,12 +641,14 @@ Private Sub Form_Resize()
     
     Call gsFormScrollBar(Me, Me.ctlMove, Me.Hsb, Me.Vsb, 14400, 9000)
     
+    If gMDI.ActiveForm Is Nothing Then Exit Sub
+    If gMDI.ActiveForm.Name <> Me.Name Then Exit Sub
     If gMDI.WindowState = vbMinimized Then Exit Sub
     If Me.WindowState = vbMinimized Then Exit Sub
-
+    
     lngW = Me.Width
     lngH = Me.Height
-
+    
     If lngW > lngSize.frmWidth Then     '当宽度变化
         lngVar = lngW - lngSize.frmWidth
     Else
@@ -747,7 +751,6 @@ Private Sub msShowValue()
     lngPageCount = rsLog.PageCount
         
     If rsLog.RecordCount = 0 Then
-        MsgBox "没有符合条件的内容！", vbExclamation, "空值反馈"
         lngPageCur = 0
     Else
         If lngPageCur > lngPageCount Then lngPageCur = lngPageCount '''规范当前页码

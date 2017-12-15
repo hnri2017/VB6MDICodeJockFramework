@@ -154,6 +154,9 @@ End Sub
 
 Private Sub Form_Load()
         
+    Me.Caption = gMDI.cBS.Actions(gID.SysPageSet).Caption
+    Me.Icon = gMDI.imgListCommandBars.ListImages("SysPageSet").Picture
+    
     Call msLoadPageSet
     
 End Sub
