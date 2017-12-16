@@ -95,7 +95,7 @@ Private Sub msApplyPageSet()
     
     Dim gridSet As Control
     
-    Set gridSet = frmSysMDI.ActiveForm.ActiveControl
+    Set gridSet = gMDI.ActiveForm.ActiveControl
     If (Not gridSet Is Nothing) And (TypeOf gridSet Is FlexCell.Grid) Then
         Call msApplyFCGrid(gridSet)
     ElseIf (Not gridSet Is Nothing) And (TypeOf gridSet Is VSFlex8Ctl.VSFlexGrid) Then
@@ -121,7 +121,7 @@ Private Sub msLoadPageSet()
     
     Dim gridSet As Control
     
-    Set gridSet = frmSysMDI.ActiveForm.ActiveControl
+    Set gridSet = gMDI.ActiveForm.ActiveControl
     If (Not gridSet Is Nothing) And (TypeOf gridSet Is FlexCell.Grid) Then
         Call msLoadFCGrid(gridSet)
     ElseIf (Not gridSet Is Nothing) And (TypeOf gridSet Is VSFlex8Ctl.VSFlexGrid) Then

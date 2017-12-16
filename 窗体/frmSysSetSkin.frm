@@ -121,7 +121,7 @@ End Sub
 
 Private Sub Form_Load()
     
-    Me.Icon = frmSysMDI.imgListCommandBars.ListImages("themeSet").Picture
+    Me.Icon = gMDI.imgListCommandBars.ListImages("themeSet").Picture
     Text1.Text = gID.FolderStyles  '显示主题文件所在路径
     
     Dim strFile As String

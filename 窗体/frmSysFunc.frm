@@ -1049,8 +1049,8 @@ Private Sub Form_Load()
     
     Dim I As Long
     
-    Me.Icon = frmSysMDI.imgListCommandBars.ListImages("SysFunc").Picture
-    Me.Caption = frmSysMDI.cBS.Actions(gID.SysFunc).Caption
+    Me.Icon = gMDI.imgListCommandBars.ListImages("SysFunc").Picture
+    Me.Caption = gMDI.cBS.Actions(gID.SysFunc).Caption
     Frame1.Item(0).Caption = Me.Caption
     
     For I = Text1.LBound To Text1.UBound

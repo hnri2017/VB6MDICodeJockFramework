@@ -319,7 +319,7 @@ Public Sub gsGridPageSet()
     If gMDI.ActiveForm Is Nothing Then GoTo LineBreak
     If gMDI.ActiveForm.ActiveControl Is Nothing Then GoTo LineBreak
     
-    Set gridControl = frmSysMDI.ActiveForm.ActiveControl
+    Set gridControl = gMDI.ActiveForm.ActiveControl
     If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
     If TypeOf gridControl Is VSFlex8Ctl.VSFlexGrid Then blnVSGrid = True
     
@@ -353,7 +353,7 @@ Public Sub gsGridPrintPreview()
     If gMDI.ActiveForm Is Nothing Then GoTo LineBreak
     If gMDI.ActiveForm.ActiveControl Is Nothing Then GoTo LineBreak
     
-    Set gridControl = frmSysMDI.ActiveForm.ActiveControl
+    Set gridControl = gMDI.ActiveForm.ActiveControl
     If TypeOf gridControl Is FlexCell.Grid Then blnFlexCell = True
     If TypeOf gridControl Is VSFlex8Ctl.VSFlexGrid Then blnVSGrid = True
     
@@ -363,7 +363,7 @@ Public Sub gsGridPrintPreview()
                 .PrintFixedColumn = True
                 .PrintFixedRow = True
                 .PrintGridlines = True
-                .Footer = "第 &p 页 共 &n 页"
+                .Footer = "第 &P 页 共 &N 页"
                 .FooterAlignment = cellCenter
             End With
             .PrintPreview

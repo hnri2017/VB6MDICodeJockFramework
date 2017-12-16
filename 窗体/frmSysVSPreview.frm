@@ -127,10 +127,10 @@ Private Sub Form_Load()
     Me.Caption = gMDI.cBS.Actions(gID.SysPrintPreview).Caption
     Me.Icon = gMDI.imgListCommandBars.ListImages("SysPreview").Picture
     
-    If frmSysMDI.ActiveForm Is Nothing Then GoTo LineBreak
-    If frmSysMDI.ActiveForm.ActiveControl Is Nothing Then GoTo LineBreak
+    If gMDI.ActiveForm Is Nothing Then GoTo LineBreak
+    If gMDI.ActiveForm.ActiveControl Is Nothing Then GoTo LineBreak
      
-    Set gridCtl = frmSysMDI.ActiveForm.ActiveControl
+    Set gridCtl = gMDI.ActiveForm.ActiveControl
     If Not (TypeOf gridCtl Is VSFlex8Ctl.VSFlexGrid) Then GoTo LineBreak
     
     With VP

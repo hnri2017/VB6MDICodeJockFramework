@@ -187,7 +187,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   93585409
+            Format          =   91160577
             CurrentDate     =   42628
          End
          Begin MSComCtl2.DTPicker DTPicker1 
@@ -200,7 +200,7 @@ Begin VB.Form frmSysLog
             _ExtentX        =   2355
             _ExtentY        =   450
             _Version        =   393216
-            Format          =   93585409
+            Format          =   91160577
             CurrentDate     =   42628
          End
          Begin VB.Label Label1 
@@ -485,8 +485,8 @@ Private Sub Form_Load()
     lngPageSize = lngSize.pageSize
     lngColor = vbBlue
     
-    Me.Icon = frmSysMDI.imgListCommandBars.ListImages("SysLog").Picture
-    Me.Caption = frmSysMDI.cBS.Actions(gID.SysLog).Caption
+    Me.Icon = gMDI.imgListCommandBars.ListImages("SysLog").Picture
+    Me.Caption = gMDI.cBS.Actions(gID.SysLog).Caption
 
     With Frame1 '²éÑ¯Ìõ¼þ
         .Move 120, 120, lngSize.vsWidth, 1200

@@ -499,7 +499,7 @@ End Sub
 
 Private Sub Form_Load()
         
-    Me.Icon = frmSysMDI.imgListCommandBars.ListImages("SysDepartment").Picture
+    Me.Icon = gMDI.imgListCommandBars.ListImages("SysDepartment").Picture
     Text1.Item(0).Text = ""
     Text1.Item(1).Text = ""
     TreeView1.Nodes.Clear
