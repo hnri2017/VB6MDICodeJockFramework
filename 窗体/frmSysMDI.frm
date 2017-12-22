@@ -419,7 +419,7 @@ Begin VB.MDIForm frmSysMDI
          SmallChangeVert =   30
          Track           =   0   'False
          ProportionalBars=   -1  'True
-         Zoom            =   -1.8716577540107
+         Zoom            =   -2.6448362720403
          ZoomMode        =   3
          ZoomMax         =   400
          ZoomMin         =   10
@@ -816,15 +816,9 @@ Private Sub msAddMenu()
         
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysDepartment, "")
         cbsMenuCtrl.BeginGroup = True
-        
-        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysUser, "")
-        cbsMenuCtrl.BeginGroup = True
-        
-        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysRole, "")
-        cbsMenuCtrl.BeginGroup = True
-        
-        Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysFunc, "")
-        cbsMenuCtrl.BeginGroup = True
+        .Add xtpControlButton, gID.SysUser, ""
+        .Add xtpControlButton, gID.SysRole, ""
+        .Add xtpControlButton, gID.SysFunc, ""
         
         Set cbsMenuCtrl = .Add(xtpControlButton, gID.SysLog, "")
         cbsMenuCtrl.BeginGroup = True
