@@ -182,10 +182,12 @@ Public Type gtypCommandBarID
     CnString As String      '数据库连接字符串全称
     rsRF As New ADODB.Recordset '保存用户的所有权限信息
     
-    FuncButton As String
-    FuncForm As String
-    FuncControl As String
-    FuncMainMenu As String
+    FuncButton As String    '功能类别：按钮
+    FuncForm As String      '功能类别：窗口
+    FuncControl As String   '功能类别：其它控件
+    FuncMainMenu As String  '功能类别：主菜单
+    
+    VSPrintPageSet As Boolean 'VS表格控件的页面设置状态
     
 End Type
 

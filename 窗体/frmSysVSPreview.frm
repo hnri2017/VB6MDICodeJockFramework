@@ -76,7 +76,7 @@ Begin VB.Form frmSysVSPreview
       SmallChangeVert =   30
       Track           =   0   'False
       ProportionalBars=   -1  'True
-      Zoom            =   2.39294710327456
+      Zoom            =   1.69340463458111
       ZoomMode        =   3
       ZoomMax         =   400
       ZoomMin         =   10
@@ -136,7 +136,16 @@ Private Sub Form_Load()
     With VP
         .ShowGuides = gdShow
         .Navigation = vpnvAll
-        .PrintDialog pdPageSetup
+        
+        .PaperSize = gMDI.VPMain.PaperSize
+        .PaperBin = gMDI.VPMain.PaperBin
+        .Orientation = gMDI.VPMain.Orientation
+        .MarginTop = gMDI.VPMain.MarginTop
+        .MarginBottom = gMDI.VPMain.MarginBottom
+        .MarginLeft = gMDI.VPMain.MarginLeft
+        .MarginRight = gMDI.VPMain.MarginRight
+        
+        If gID.VSPrintPageSet Then .PrintDialog pdPageSetup
         .StartDoc
         .RenderControl = gridCtl.hwnd
         .EndDoc
@@ -152,4 +161,16 @@ End Sub
 
 Private Sub Form_Resize()
     VP.Move 0, 0, Me.ScaleWidth, Me.ScaleHeight
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    With gMDI.VPMain
+        .PaperSize = VP.PaperSize
+        .PaperBin = VP.PaperBin
+        .Orientation = VP.Orientation
+        .MarginTop = VP.MarginTop
+        .MarginBottom = VP.MarginBottom
+        .MarginLeft = VP.MarginLeft
+        .MarginRight = VP.MarginRight
+    End With
 End Sub

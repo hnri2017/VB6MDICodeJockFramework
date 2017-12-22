@@ -324,7 +324,14 @@ Public Sub gsGridPageSet()
     If TypeOf gridControl Is VSFlex8Ctl.VSFlexGrid Then blnVSGrid = True
     
     If blnFlexCell Or blnVSGrid Then
-        frmSysPageSet.Show vbModal
+'''        frmSysPageSet.Show vbModal   '内容较多暂不设置
+        If blnFlexCell Then
+            gridControl.PrintDialog
+        Else
+            gID.VSPrintPageSet = True   '与VS表格的页面设置功能配合使用，结束后设为False
+            frmSysVSPreview.Show vbModal
+            gID.VSPrintPageSet = False  '防打印时也弹出这个设置
+        End If
     Else
         GoTo LineBreak
     End If
