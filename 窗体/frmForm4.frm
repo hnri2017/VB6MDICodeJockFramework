@@ -32,6 +32,25 @@ Begin VB.Form frmForm4
       TabIndex        =   0
       Top             =   120
       Width           =   9495
+      Begin 工程1.ProgressLabel PL 
+         Height          =   495
+         Left            =   5160
+         TabIndex        =   15
+         Top             =   5400
+         Width           =   2775
+         _ExtentX        =   4895
+         _ExtentY        =   873
+         ForeColor       =   255
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "宋体"
+            Size            =   12
+            Charset         =   134
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
       Begin 工程1.LabelCombo LabelCombo1 
          Height          =   300
          Left            =   4800
@@ -258,7 +277,9 @@ Private Sub Command4_Click()
         .Max = mlngMax
         .Value = 0
     End With
-    
+    PL.Min = 0
+    PL.Max = mlngMax
+    PL.Value = 0
     
     timeProgress.Enabled = True
     Me.Enabled = False
@@ -300,12 +321,14 @@ End Sub
 
 
 Private Sub timeProgress_Timer()
+    
     mstbPaneBar.Value = mlngC
     mstbPaneText.Text = CInt((mlngC / mlngMax) * 100) & "%"
     If mstbPaneBar.Value >= mstbPaneBar.Max Then
         timeProgress.Enabled = False
         Me.Enabled = True
     End If
+    PL.Value = mlngC
 End Sub
 
 Private Sub Form_Load()
