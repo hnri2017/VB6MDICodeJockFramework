@@ -52,6 +52,7 @@ Public Type gtypCommandBarID
     TestWindowSecond As Long
     TestWindowThird As Long
     TestWindowThour As Long
+    TestWindowMDB As Long
     
     Help As Long
     HelpAbout As Long
