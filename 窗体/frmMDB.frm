@@ -9,6 +9,7 @@ Begin VB.Form frmMDB
    LinkTopic       =   "Form1"
    ScaleHeight     =   5640
    ScaleWidth      =   13635
+   StartUpPosition =   2  '屏幕中心
    Begin VB.CommandButton Command1 
       Caption         =   "添加1000条"
       Height          =   500
@@ -179,12 +180,14 @@ Private Sub Command1_Click()
     Set rsAdd = New ADODB.Recordset
     cnAdd.CursorLocation = adUseClient
     cnAdd.Open gVar.dbConn
-    strSQL = "SELECT * FROM " & gVar.tbUser
+'    strSQL = "SELECT * FROM " & gVar.tbUser
+    strSQL = "SELECT " & gVar.fdUserName & "," & gVar.fdUserPassword & "," & gVar.fdUserDeptID & _
+             "," & gVar.fdUserFullName & "," & gVar.fdUserSex & "," & gVar.fdUserState & "," & gVar.fdUserMemo & " FROM " & gVar.tbUser
     rsAdd.Open strSQL, cnAdd, adOpenStatic, adLockBatchOptimistic
     With VSFlexGrid1
         For I = 0 To 1000
             rsAdd.AddNew
-            rsAdd.Fields(gVar.fdUserID) = .TextMatrix(I, 0)
+'            rsAdd.Fields(gVar.fdUserID) = .TextMatrix(I, 0)
             rsAdd.Fields(gVar.fdUserName) = .TextMatrix(I, 1)
             rsAdd.Fields(gVar.fdUserPassword) = .TextMatrix(I, 2)
             rsAdd.Fields(gVar.fdUserDeptID) = .TextMatrix(I, 3)
@@ -322,7 +325,7 @@ Private Sub Command5_Click()
     
     cn.CursorLocation = adUseClient
     cn.Open gVar.dbConn
-    rs.Open "SELECT * FROM " & gVar.tbUser, cn, adOpenStatic, adLockReadOnly
+    rs.Open "SELECT * FROM " & gVar.tbUser & " ORDER BY " & gVar.fdUserID, cn, adOpenStatic, adLockReadOnly
     
     If rs.State = adStateOpen And rs.RecordCount > 0 Then
         rs.MoveFirst
@@ -382,4 +385,13 @@ Private Sub Form_Load()
         .AutoSize 0, .Cols - 1
     End With
     
+End Sub
+
+Private Sub Form_Resize()
+    On Error Resume Next
+    VSFlexGrid1.Move 0, 120, VSFlexGrid1.Width, Me.ScaleHeight - 120
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    If Not (frmSysLogin Is Nothing) Then Unload frmSysLogin
 End Sub
