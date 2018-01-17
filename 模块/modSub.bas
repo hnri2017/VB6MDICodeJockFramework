@@ -4,7 +4,7 @@ Option Explicit
 
 Public Sub Main()
     
-    Call gsMDBInitialize
+'    Call gsMDBInitialize
     
     App.Title = "VB6+Codejock"
     Set gMDI = frmSysMDI    '初始化主窗体引用全局变量
@@ -175,7 +175,7 @@ Public Sub Main()
     Call gMDI.gmsThemeSkinSet(gID.SkinPath, gID.SkinIni)
 
     frmSysLogin.Show    '显示登陆窗口
-frmMDB.Show
+
 End Sub
 
 
