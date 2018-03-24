@@ -1179,14 +1179,18 @@ Private Sub msLeftClick(ByVal CID As Long)
                 DockingPN.FindPane(CID).Closed = Not DockingPN.FindPane(CID).Closed
             Case .SysReLogin
                 Dim strName As String, strPWD As String
-                strName = gID.UserLoginName
-                strPWD = gID.UserPassword
-                Unload Me
-                Call Main
-                frmSysLogin.ucTC = strName
-                frmSysLogin.Text1.Text = strPWD
+                If MsgBox("确定重新登陆系统吗？", vbQuestion + vbOKCancel) = vbOK Then
+                    strName = gID.UserLoginName
+                    strPWD = gID.UserPassword
+                    Unload Me
+                    Call Main
+                    frmSysLogin.ucTC = strName
+                    frmSysLogin.Text1.Text = strPWD
+                End If
             Case .SysExit
-                Unload Me
+                If MsgBox("确定退出系统吗？", vbQuestion + vbOKCancel) = vbOK Then
+                    Unload Me
+                End If
             Case .HelpAbout
                 Dim strAbout As String
                 strAbout = "名称：" & App.Title & vbCrLf & _
